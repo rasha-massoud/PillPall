@@ -11,6 +11,7 @@ use App\Models\Result;
 use App\Models\FileNumber;
 use App\Models\Medication;
 use App\Models\DoctorsInfo;
+use App\Models\PatientsInfo;
 
 class User extends Authenticatable implements JWTSubject{
     use HasFactory, Notifiable;
@@ -56,5 +57,9 @@ class User extends Authenticatable implements JWTSubject{
 
     public function doctorsInfo(){
         return $this->belongsTo(DoctorsInfo::class);
+    }
+
+    public function patientsInfo(){
+        return $this->belongsTo(PatientsInfo::class);
     }
 }
