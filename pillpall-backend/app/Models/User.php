@@ -1,3 +1,5 @@
+<?php
+
 namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -30,5 +32,8 @@ class User extends Authenticatable implements JWTSubject{
     public function getJWTCustomClaims(){
         return [];
     }
-
+    
+    public function users(){
+        return $this->belongsToMany(User::class, 'user_user', 'patient_id', 'doctor_id');
+    }
 }
