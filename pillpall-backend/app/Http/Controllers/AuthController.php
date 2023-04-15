@@ -54,10 +54,6 @@ class AuthController extends Controller{
         return response()->json([
             'status' => $response['status'],
             'message' => $response['status'] === "success" ? 'User created successfully' : 'User creation failed',
-            'authorisation' => [
-                'token' => $response['status'] === "success" ? auth()->guard('api')->login(User::where('email', $request->email)->first()) : null,
-                'type' => 'bearer',
-            ]
         ]);
     }
 
