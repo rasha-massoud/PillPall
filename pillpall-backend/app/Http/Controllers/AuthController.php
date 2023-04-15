@@ -8,10 +8,6 @@ use App\Models\User;
 
 class AuthController extends Controller{
 
-    public function __construct(){
-        $this->middleware('auth:api', ['except' => ['login','register']]);
-    }
-
     public function login(Request $request){
         $request->validate([
             'email' => 'required|string|email',
@@ -43,22 +39,23 @@ class AuthController extends Controller{
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6',
+            'password' => 'required|string|min:8|regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,}$/',
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $response=[];
 
-        $token = Auth::login($user);
+        $user= new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        $response['status'] = "success";
         return response()->json([
-            'status' => 'success',
-            'message' => 'User created successfully',
-            'user' => $user,
+            'status' => $response['status'],
+            'message' => $response['status'] === "success" ? 'User created successfully' : 'User creation failed',
             'authorisation' => [
-                'token' => $token,
+                'token' => $response['status'] === "success" ? auth()->guard('api')->login(User::where('email', $request->email)->first()) : null,
                 'type' => 'bearer',
             ]
         ]);
