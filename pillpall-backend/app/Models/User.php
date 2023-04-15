@@ -10,6 +10,7 @@ use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 use App\Models\Result;
 use App\Models\FileNumber;
 use App\Models\Medication;
+use App\Models\DoctorsInfo;
 
 class User extends Authenticatable implements JWTSubject{
     use HasFactory, Notifiable;
@@ -51,5 +52,9 @@ class User extends Authenticatable implements JWTSubject{
 
     public function medications(){
         return $this->hasMany(Medication::class);
+    }
+
+    public function doctorsInfo(){
+        return $this->belongsTo(DoctorsInfo::class);
     }
 }
