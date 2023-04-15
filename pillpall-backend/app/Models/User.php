@@ -9,6 +9,7 @@ use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
 use App\Models\Result;
 use App\Models\FileNumber;
+use App\Models\Medication;
 
 class User extends Authenticatable implements JWTSubject{
     use HasFactory, Notifiable;
@@ -46,5 +47,9 @@ class User extends Authenticatable implements JWTSubject{
 
     public function fileNumbers(){
         return $this->hasMany(FileNumber::class);
+    }
+
+    public function medications(){
+        return $this->hasMany(Medication::class);
     }
 }
