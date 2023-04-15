@@ -12,6 +12,7 @@ use App\Models\FileNumber;
 use App\Models\Medication;
 use App\Models\DoctorsInfo;
 use App\Models\PatientsInfo;
+use App\Models\Chatbot;
 
 class User extends Authenticatable implements JWTSubject{
     use HasFactory, Notifiable;
@@ -61,5 +62,9 @@ class User extends Authenticatable implements JWTSubject{
 
     public function patientsInfo(){
         return $this->belongsTo(PatientsInfo::class);
+    }
+
+    public function chatbots(){
+        return $this->hasMany(Chatbot::class);
     }
 }
