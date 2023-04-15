@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
 use App\Models\Result;
+use App\Models\FileNumber;
 
 class User extends Authenticatable implements JWTSubject{
     use HasFactory, Notifiable;
@@ -41,5 +42,9 @@ class User extends Authenticatable implements JWTSubject{
 
     public function results(){
         return $this->hasMany(Result::class);
+    }
+
+    public function fileNumbers(){
+        return $this->hasMany(FileNumber::class);
     }
 }
