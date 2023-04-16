@@ -15,6 +15,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
     
     Route::group(["middleware" => ["auth:api"]], function(){
         Route::post('/create_update_report',[PatientController:: class, "create_update_report"]);
+        Route::get('/get_report',[PatientController:: class, "get_report"]);
 
         Route::post('/add_medicine',[MedicalController:: class, "add_medicine"]);
         Route::post('/delete_medicine',[MedicalController:: class, "delete_medicine"]);
