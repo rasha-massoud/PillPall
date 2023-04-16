@@ -75,7 +75,7 @@ class MedicalController extends Controller{
             $user = auth()->user();
     
             $date = Carbon::parse($req->date); 
-            $day = $req->day; // <-- get the day parameter from the request
+            $day = $req->day;
     
             $is_first_of_month = $date->day == 1;
             if ($is_first_of_month) {
@@ -101,7 +101,7 @@ class MedicalController extends Controller{
         } catch(exception $e){
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while getting the medicine of the selected day.' .$e->getMessage()
+                'message' => 'An error occurred while getting the medicine of the selected day.' 
             ]);
         }
     }
