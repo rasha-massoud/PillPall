@@ -26,12 +26,12 @@ return new class extends Migration{
             $table->integer('pulse_rate');
             $table->integer('respiration_rate');
             $table->integer('systolic_blood_pressure');
-            $table->string('chronic_conditions')->nullable();
-            $table->string('past_surgeries')->nullable();
-            $table->string('family_medical_history')->nullable();
-            $table->string('allergies')->nullable();
-            $table->string('life_style_habits')->nullable();
-            $table->string('medications')->nullable();
+            $table->string('chronic_conditions');
+            $table->string('past_surgeries');
+            $table->string('family_medical_history');
+            $table->string('allergies');
+            $table->string('life_style_habits');
+            $table->string('medications');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
