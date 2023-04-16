@@ -61,7 +61,7 @@ class User extends Authenticatable implements JWTSubject{
     }
 
     public function patientsInfo(){
-        return $this->belongsTo(PatientsInfo::class);
+        return $this->hasOne(PatientsInfo::class);
     }
 
     public function chatbots(){
