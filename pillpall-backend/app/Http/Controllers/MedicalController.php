@@ -12,14 +12,10 @@ use App\Models\Medication;
 
 class MedicalController extends Controller{
     
-    public function add_edit_medicine(Request $request){
+    public function add_medicine(Request $request){
 
         try{
-            $medicine = Medication::find($name, $request->name)
-                                    ->where($id, Auth::id())
-                                    ->first();
-
-            if(!$medicine) $medicine = new Medication();
+            $medicine = new Medication();
 
             $medicine->user_id = Auth::id();
             $medicine->name = $request->name;
@@ -36,12 +32,12 @@ class MedicalController extends Controller{
     
             return response()->json([
                 'status' => 'success',
-                'message' => 'Medicine added/edited successfully'
+                'message' => 'Medicine added successfully'
             ]);
         }catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while adding/editing the medicine.'
+                'message' => 'An error occurred while adding the medicine.' 
             ]);
         }
         
