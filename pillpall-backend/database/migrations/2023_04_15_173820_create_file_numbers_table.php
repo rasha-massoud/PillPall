@@ -15,6 +15,9 @@ return new class extends Migration{
             $table->integer('file_number');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->unique(['doctor_name', 'address', 'file_number', 'user_id']);
+            
             $table->timestamps();
         });
     }
