@@ -11,7 +11,7 @@ return new class extends Migration{
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('image');
-            $table->integer('phone_number');
+            $table->string('phone_number');
             $table->date('dob');
             $table->string('gender');
             $table->string('address');
