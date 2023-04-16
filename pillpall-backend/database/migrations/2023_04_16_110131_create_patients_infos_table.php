@@ -19,7 +19,7 @@ return new class extends Migration{
             $table->integer('height');
             $table->integer('weight');
             $table->string('emergency_name');
-            $table->integer('emergency_number');
+            $table->string('emergency_number');
             $table->string('emergency_email');
             $table->string('emergency_contact_relation');
             $table->integer('body_temperature');
