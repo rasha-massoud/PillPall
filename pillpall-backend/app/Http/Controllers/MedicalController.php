@@ -69,35 +69,39 @@ class MedicalController extends Controller{
         
     }
 
-    public function get_medications($day, $date){
-
+    public function get_medications(Request $req){
         try{
-            
-            $user = auth()->user();
 
-            $date = Carbon::parse($date); 
+            $user = auth()->user();
+    
+            $date = Carbon::parse($req->date); 
+            $day = $req->day; // <-- get the day parameter from the request
+    
             $is_first_of_month = $date->day == 1;
             if ($is_first_of_month) {
-                $medication= $user->medications::where('days', 'like', $day)
-                                ->orWhere(function($query) use ($is_first_of_month) {
-                                    if ($is_first_of_month) $query->where('first_of_each_month', true);
-                                })
-                                ->get();    
+                $medication= $user->medications
+                    ->where(function ($query) use ($day, $is_first_of_month) {
+                        $query->where('days', 'like', $day)
+                            ->orWhere('days', 'Everyday');
+                        if ($is_first_of_month) {
+                            $query->orWhere('first_of_each_month', true);
+                        }
+                    })
+                    ->get();  
+            } else{
+                $medication= $user->medications()->where('days', 'like', $day)->orWhere('days', 'Everyday')->get();
             }
-            else{
-                $medication= $user->medications::where('days', 'like', $day);
-            }
-
+    
             return response()->json([
                 'status' => 'success',
                 'message' => 'Medications returned successfully',
                 'medications' => $medication
             ]);
-
+    
         } catch(exception $e){
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while getting the medicine of the selected day.'
+                'message' => 'An error occurred while getting the medicine of the selected day.' .$e->getMessage()
             ]);
         }
     }
