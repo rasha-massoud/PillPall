@@ -42,4 +42,29 @@ class MedicalController extends Controller{
         }
         
     }
+
+    public function delete_medicine(Request $request){
+
+        try{
+            $medicine = Medication::where('name', $request->name)
+                                    ->where('dose_quantity', $request->dose_quantity)
+                                    ->where('days', $request->days)
+                                    ->where('timing', $request->timing)
+                                    ->where('user_id', Auth::id())
+                                    ->first();            
+    
+            if ($medicine) $medicine->delete();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Medicine deleted successfully'
+            ]);
+        }catch (Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while deleting the medicine.'
+            ]);
+        }
+        
+    }
 }
