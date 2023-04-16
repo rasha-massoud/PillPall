@@ -65,4 +65,21 @@ class PatientController extends Controller{
             ]);
         }
     }
+
+    public function get_report(){
+        try {
+            $user= Auth::user();
+            $patientInfo= $user->patientsInfo;
+            return response()->json([
+                'status' => 'error',
+                'message' => 'The report is successfully returned.',
+                'user'=>$user,
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while getting the report.'
+            ]);
+        }
+    }
 }
