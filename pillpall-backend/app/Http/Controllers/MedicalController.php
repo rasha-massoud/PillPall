@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use Exception;
+
+use App\Models\User;
+use App\Models\Medication;
+
+class MedicalController extends Controller{
+    
+    public function add_medicine(Request $request){
+
+        try{
+            $medicine= new Medication();
+
+            $medicine->user_id = Auth::id();
+            $medicine->name = $request->name;
+            $medicine->dose_quantity = $request->dose_quantity;
+            $medicine->price_per_month = $request->price_per_month;
+            $medicine->instructions = $request->instructions;
+            $medicine->days = $request->days;
+            $medicine->timing = $request->timing;
+            $medicine->first_of_each_month = $request->first_of_each_month;
+            $medicine->on_demand = $request->on_demand;
+            $medicine->image = $request->image;
+    
+            $medicine->save();
+    
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Medicine added successfully'
+            ]);
+        }catch (Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while adding the medicine.'
+            ]);
+        }
+        
+    }
+}
