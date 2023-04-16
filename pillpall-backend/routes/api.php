@@ -19,6 +19,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
 
         Route::post('/add_medicine',[MedicalController:: class, "add_medicine"]);
         Route::post('/delete_medicine',[MedicalController:: class, "delete_medicine"]);
+        Route::get('/get_medications/{day}/{date}',[MedicalController:: class, "get_medications"]);
 
     });
 });

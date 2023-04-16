@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use Exception;
+use Carbon\Carbon;
 
 use App\Models\User;
 use App\Models\Medication;
@@ -66,6 +67,39 @@ class MedicalController extends Controller{
             ]);
         }
         
+    }
+
+    public function get_medications($day, $date){
+
+        try{
+            
+            $user = auth()->user();
+
+            $date = Carbon::parse($date); 
+            $is_first_of_month = $date->day == 1;
+            if ($is_first_of_month) {
+                $medication= $user->medications::where('days', 'like', $day)
+                                ->orWhere(function($query) use ($is_first_of_month) {
+                                    if ($is_first_of_month) $query->where('first_of_each_month', true);
+                                })
+                                ->get();    
+            }
+            else{
+                $medication= $user->medications::where('days', 'like', $day);
+            }
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Medications returned successfully',
+                'medications' => $medication
+            ]);
+
+        } catch(exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while getting the medicine of the selected day.'
+            ]);
+        }
     }
 
     
