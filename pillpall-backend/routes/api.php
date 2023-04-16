@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\MedicalController;
+use App\Http\Controllers\PharmacyController;
 
 Route::group(["prefix" => "v0.0.0"], function(){
     Route::post('/register',[AuthController:: class, "register"]);
@@ -21,5 +22,8 @@ Route::group(["prefix" => "v0.0.0"], function(){
         Route::post('/delete_medicine',[MedicalController:: class, "delete_medicine"]);
         Route::post('/get_medications',[MedicalController:: class, "get_medications"]);
 
+        Route::get('/pharmacies/nearby/{lat}/{lng}', [PharmacyController:: class, 'get_nearby_pharmacies']);
+
+        
     });
 });
