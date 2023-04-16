@@ -12,13 +12,16 @@ use App\Models\PatientsInfo;
 
 class PatientController extends Controller{
     
-    public function create_report(Request $request){
+    public function create_update_report(Request $request){
         if (!$request->user()) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
         try {
-            $patient= new PatientsInfo();
+            $patient = PatientsInfo::where('user_id', Auth::id())->first();
+            if (!$patient){
+                $patient= new PatientsInfo();
+            }
 
             $patient->user_id = Auth::id();
             $patient->phone_number = $request->phone_number;
@@ -52,7 +55,7 @@ class PatientController extends Controller{
 
             return response()->json([
                 'status' => 'success',
-                'message' => 'Pateint Report created successfully'
+                'message' => 'Pateint Report created/updated successfully'
             ]);
 
         } catch (Exception $e) {

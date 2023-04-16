@@ -13,7 +13,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
     Route::post('/refresh',[AuthController:: class, "refresh"]);
     
     Route::group(["middleware" => ["auth:api"]], function(){
-        Route::post('/create_report',[PatientController:: class, "create_report"]);
+        Route::post('/create_update_report',[PatientController:: class, "create_update_report"]);
 
     });
 });
