@@ -103,24 +103,28 @@ class PatientController extends Controller{
         try{
             if ($request->search_by === 'name') {
                 $doctors = User::where($request->search_by, 'like', $request->search_for)
-                    ->where('role', 'doctor')
-                    ->get()
-                    ->map(function ($doctor) {
-                        return [
-                            'user' => $doctor,
-                            'doctor' => $doctor->doctorsInfo
-                        ];
-                    });
+                            ->where('role', 'doctor')
+                            ->with('doctorsInfo')
+                            ->get()
+                            ->map(function ($doctor) {
+                                return [
+                                    'id' => $doctor->id,
+                                    'name' => $doctor->name,
+                                    'email' => $doctor->email,
+                                    'email_verified_at' => $doctor->email_verified_at,
+                                    'role' => $doctor->role,
+                                    'created_at' => $doctor->created_at,
+                                    'updated_at' => $doctor->updated_at,
+                                    'doctors_info' => $doctor->doctorsInfo
+                                ];
+                });
             } else {
-                $doctors = DoctorsInfo::where($request->search_by, 'like', $request->search_for)
-                    ->with('user')
-                    ->get()
-                    ->map(function ($doctor) {
-                        return [
-                            'user' => $doctor->user,
-                            'doctor' => $doctor
-                        ];
-                    });
+                $doctors = User::whereHas('doctorsInfo', function($query) use ($request) {
+                    $query->where('major', 'like', $request->search_for);
+                })
+                ->where('role', 'doctor')
+                ->with('doctorsInfo')
+                ->get();
             }
 
             if ($doctors->isEmpty()) {
