@@ -107,7 +107,7 @@ class DoctorController extends Controller{
   
     }
 
-    public function get_patient_file_numbers($id){
+    public function get_patient_report($id){
 
         try{
             $patient = User::find($id);
@@ -119,18 +119,18 @@ class DoctorController extends Controller{
                 ]);
             }
         
-            $fileNumbers = $patient->fileNumbers()->get();
+            $report = $patient->patientsInfo()->get();
         
             return response()->json([
                 'status' => 'success',
-                'message' => 'File numbers retrieved successfully.',
+                'message' => 'Report retrieved successfully.',
                 'patient' => $patient,
-                'file_numbers' => $fileNumbers
+                'report' => $report
             ]);
         } catch (exception $e){
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while returning the patient\'s file numbers.'
+                'message' => 'An error occurred while returning the patient\'s report.'
             ]);
         }
     }
