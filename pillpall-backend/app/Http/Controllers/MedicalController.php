@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Medication;
 use App\Models\FileNumber;
+use App\Models\Result;
 
 class MedicalController extends Controller{
     
@@ -136,7 +137,38 @@ class MedicalController extends Controller{
         }catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while adding the file number.' 
+                'message' => 'An error occurred while adding the file number.'
+            ]);
+        }
+        
+    }
+
+    public function add_medical_result(Request $request){
+
+        try{
+            $result = new Result();
+
+            $result->user_id = Auth::id();
+            $result->testing_date  = $request->testing_date ;
+            $result->file_name = $request->file_name ;
+            $result->description  = $request->description ;
+            $result->file_path   = $request->file_path  ;
+
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('images');
+                $result->image = $imagePath;
+            }
+    
+            $file->save();
+    
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Medical Result added successfully'
+            ]);
+        }catch (Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while adding the medical result.'
             ]);
         }
         
