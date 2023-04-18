@@ -96,8 +96,7 @@ class DoctorController extends Controller{
             return response()->json([
                 'status' => 'success',
                 'message' => 'The search worked successfully.',
-                'patient' => $patient->patientsInfo,
-
+                'patient' => $patient,
             ]);   
         } catch (Exception $e){
             return response()->json([
