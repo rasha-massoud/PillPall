@@ -146,16 +146,33 @@ class PatientController extends Controller{
     public function connect(Request $request){
 
         try{
-            $user= Auth::id();
 
-            $doctor= DoctorsInfo::find('id', $request->doctor_id);
+            $doctor = User::where('id', $request->doctor_id)->where('role', 'doctor')->first();
 
-            if($doctor){
-                
+            if(!$doctor){
+                return response()->json([
+                    'status' => 'error', 
+                    'message' => 'Doctor not found.'
+                ]);
             }
 
-        } catch (Exception $e){
+            $user= Auth::id();
 
+            $userUser = new UserUser;
+            $userUser->patient_id = Auth::id();
+            $userUser->doctor_id = $request->doctor_id;
+            $userUser->save();
+
+            return response()->json([
+                'status' => 'success', 
+                'message' => 'Doctor added successfully.'
+            ]);
+
+        } catch (Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while connecting.'
+            ]);
         }
     }
 }
