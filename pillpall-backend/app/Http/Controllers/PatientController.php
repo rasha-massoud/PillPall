@@ -9,6 +9,7 @@ use Exception;
 
 use App\Models\User;
 use App\Models\PatientsInfo;
+use App\Models\DoctorsInfo;
 
 class PatientController extends Controller{
 
@@ -24,6 +25,7 @@ class PatientController extends Controller{
     }
 
     public function create_update_report(Request $request){
+
         if (!$request->user()) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
@@ -78,6 +80,7 @@ class PatientController extends Controller{
     }
 
     public function get_report(){
+
         try {
             $user= Auth::user();
             $patientInfo= $user->patientsInfo;
@@ -97,17 +100,46 @@ class PatientController extends Controller{
     public function search_for_doctor(Request $request){
 
         try{
-            $doctor= user()->doctorsInfo->where($request->search_by, $request->search_for)->get();
-            
+            if ($request->search_by === 'name') {
+                $doctors = User::where($request->search_by, 'like', $request->search_for)
+                    ->where('role', 'doctor')
+                    // ->with('doctorsInfo')
+                    ->get()
+                    ->map(function ($doctor) {
+                        return [
+                            'user' => $doctor,
+                            'doctor' => $doctor->doctorsInfo
+                        ];
+                    });
+            } else {
+                $doctors = DoctorsInfo::where($request->search_by, 'like', $request->search_for)
+                    ->with('user')
+                    ->get()
+                    ->map(function ($doctor) {
+                        return [
+                            'user' => $doctor->user,
+                            'doctor' => $doctor
+                        ];
+                    });
+            }
+
+            if ($doctors->isEmpty()) {
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'The search worked successfully but there is no doctor as mentioned.',
+                ]);
+            }
+
             return response()->json([
                 'status' => 'success',
-                'message' => 'The report is successfully returned.',
-                'doctor'=>$doctor,
+                'message' => 'The search worked successfully.',
+                'doctors' => $doctors,
             ]);
+
         } catch (Exception $e){
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while searching.'
+                'message' => 'An error occurred while searching.' .$e->getMessage()
             ]);
         }
     }
