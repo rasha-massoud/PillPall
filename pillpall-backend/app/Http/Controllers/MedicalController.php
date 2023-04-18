@@ -146,21 +146,26 @@ class MedicalController extends Controller{
     public function add_medical_result(Request $request){
 
         try{
+
+            $request->validate([
+                'file' => 'required|mimes:pdf|max:2048',
+                'testing_date' => 'required|date',
+            ]);
+
+            $file = $request->file('file');
+            $fileName = $file->getClientOriginalName();
+     
             $result = new Result();
 
             $result->user_id = Auth::id();
             $result->testing_date  = $request->testing_date ;
-            $result->file_name = $request->file_name ;
+            $result->file_name = $fileName;
             $result->description  = $request->description ;
-            $result->file_path   = $request->file_path  ;
+    
+            $result->save();
+    
+            $file->storeAs('results', $fileName);
 
-            if ($request->hasFile('image')) {
-                $imagePath = $request->file('image')->store('images');
-                $result->image = $imagePath;
-            }
-    
-            $file->save();
-    
             return response()->json([
                 'status' => 'success',
                 'message' => 'Medical Result added successfully'
@@ -168,7 +173,7 @@ class MedicalController extends Controller{
         }catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while adding the medical result.'
+                'message' => 'An error occurred while adding the medical result.' .$e->getMessage()
             ]);
         }
         

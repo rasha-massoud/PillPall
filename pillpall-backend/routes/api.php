@@ -22,6 +22,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
         Route::post('/delete_medicine',[MedicalController:: class, "delete_medicine"]);
         Route::post('/get_medications',[MedicalController:: class, "get_medications"]);
         Route::post('/add_file_number',[MedicalController:: class, "add_file_number"]);
+        Route::post('/add_medical_result',[MedicalController:: class, "add_medical_result"]);
 
         Route::get('/get_nearby_pharmacies', [PharmacyController:: class, 'get_nearby_pharmacies']);
 
