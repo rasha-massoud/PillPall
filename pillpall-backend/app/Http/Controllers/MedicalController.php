@@ -108,5 +108,34 @@ class MedicalController extends Controller{
     }
 
 
+    public function add_file_number(Request $request){
+
+        try{
+            $file = new FileNumber();
+
+            $file->user_id = Auth::id();
+            $file->doctor_name = $request->doctor_name;
+            $file->address = $request->address;
+            $file->file_number = $request->file_number;
+            
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('images');
+                $file->image = $imagePath;
+            }
+    
+            $file->save();
+    
+            return response()->json([
+                'status' => 'success',
+                'message' => 'File number added successfully'
+            ]);
+        }catch (Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while adding the file number.' 
+            ]);
+        }
+        
+    }
     
 }
