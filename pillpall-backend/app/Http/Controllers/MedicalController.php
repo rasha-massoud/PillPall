@@ -180,10 +180,11 @@ class MedicalController extends Controller{
     }
 
     public function get_medical_results(){
+
         try{
 
             $user = auth()->user();
-            $results= $user->results->get();  
+            $results= $user->results;  
     
             return response()->json([
                 'status' => 'success',
