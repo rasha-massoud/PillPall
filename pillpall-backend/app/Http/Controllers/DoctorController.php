@@ -9,6 +9,7 @@ use Exception;
 
 use App\Models\User;
 use App\Models\DoctorsInfo;
+use App\Models\PatientsInfo;
 use App\Models\UserUser;
 
 class DoctorController extends Controller{
@@ -67,35 +68,44 @@ class DoctorController extends Controller{
 
     public function view_connected_patients(Request $request){
 
-        $patient = User::where('name', 'like', $request->name)
+        try{
+            $patient = User::where('name', 'like', $request->name)
                         ->where('role', 'patient')
                         ->first();
 
-        if (!$patient) {
+            if (!$patient) {
             return response()->json([
                 'status' => 'failure',
                 'message' => 'No patient found with the given name.'
             ]);
-        }
+            }
 
-        $doctor= Auth::id();
+            $doctor= Auth::id();
 
-        $connected= UserUser->where('doctor_id', $doctor)
+            $connected= UserUser::where('doctor_id', $doctor)
                             ->where('patient_id', $patient->id)
                             ->get();
 
-        if (!$connected) {
+            if (!$connected) {
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'The patient is not connected to you.'
+                ]);
+            }
+
             return response()->json([
-                'status' => 'failure',
-                'message' => 'The patient is not connected to you.'
+                'status' => 'success',
+                'message' => 'The search worked successfully.',
+                'patient' => $patient->patientsInfo,
+
+            ]);   
+        } catch (Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while returning the connected patient\'s info.'
             ]);
         }
-
-        return response()->json([
-            'status' => 'success',
-            'message' => 'The search worked successfully.',
-            'patient' => $patient
-        ]);    
-}
+  
+    }
 
 }
