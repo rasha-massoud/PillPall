@@ -200,6 +200,27 @@ class MedicalController extends Controller{
         }
     }
 
+    public function get_file_numbers(){
+
+        try{
+
+            $user = auth()->user();
+            $file_numbers= $user->fileNumbers;  
+    
+            return response()->json([
+                'status' => 'success',
+                'message' => 'File numbers returned successfully',
+                'file_numbers' => $file_numbers
+            ]);
+    
+        } catch(exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while getting the file numbers.' 
+            ]);
+        }
+    }
+
 
     
 }
