@@ -178,5 +178,27 @@ class MedicalController extends Controller{
         }
         
     }
+
+    public function get_medical_results(){
+        try{
+
+            $user = auth()->user();
+            $results= $user->results->get();  
+    
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Results returned successfully',
+                'results' => $results
+            ]);
+    
+        } catch(exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while getting the results.' 
+            ]);
+        }
+    }
+
+
     
 }
