@@ -14,6 +14,7 @@ return new class extends Migration{
             $table->string('file_name');
             $table->string('description');
             $table->string('file_path');
+            $table->string('image');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unique(['testing_date', 'file_name', 'description', 'file_path', 'user_id'], 'results_unique_testing_file_user');

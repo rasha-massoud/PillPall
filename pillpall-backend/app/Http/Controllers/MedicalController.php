@@ -10,6 +10,7 @@ use Carbon\Carbon;
 
 use App\Models\User;
 use App\Models\Medication;
+use App\Models\FileNumber;
 
 class MedicalController extends Controller{
     
@@ -105,4 +106,7 @@ class MedicalController extends Controller{
             ]);
         }
     }
+
+
+    
 }
