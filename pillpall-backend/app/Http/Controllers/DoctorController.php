@@ -9,6 +9,7 @@ use Exception;
 
 use App\Models\User;
 use App\Models\DoctorsInfo;
+use App\Models\UserUser;
 
 class DoctorController extends Controller{
     
