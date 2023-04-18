@@ -22,7 +22,7 @@ class PatientController extends Controller{
             return $next($request);
         });
     }
-    
+
     public function create_update_report(Request $request){
         if (!$request->user()) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -82,7 +82,7 @@ class PatientController extends Controller{
             $user= Auth::user();
             $patientInfo= $user->patientsInfo;
             return response()->json([
-                'status' => 'error',
+                'status' => 'success',
                 'message' => 'The report is successfully returned.',
                 'user'=>$user,
             ]);
@@ -90,6 +90,24 @@ class PatientController extends Controller{
             return response()->json([
                 'status' => 'error',
                 'message' => 'An error occurred while getting the report.'
+            ]);
+        }
+    }
+
+    public function search_for_doctor(Request $request){
+
+        try{
+            $doctor= user()->doctorsInfo->where($request->search_by, $request->search_for)->get();
+            
+            return response()->json([
+                'status' => 'success',
+                'message' => 'The report is successfully returned.',
+                'doctor'=>$doctor,
+            ]);
+        } catch (Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while searching.'
             ]);
         }
     }
