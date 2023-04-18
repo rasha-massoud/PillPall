@@ -11,6 +11,17 @@ use App\Models\User;
 use App\Models\PatientsInfo;
 
 class PatientController extends Controller{
+
+    public function __construct(){
+
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if (Auth::user()->role !== 'patient') {
+                return response()->json(['error' => 'Unauthorized'], 401);
+            }
+            return $next($request);
+        });
+    }
     
     public function create_update_report(Request $request){
         if (!$request->user()) {
