@@ -173,7 +173,7 @@ class MedicalController extends Controller{
         }catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while adding the medical result.' .$e->getMessage()
+                'message' => 'An error occurred while adding the medical result.'
             ]);
         }
         
