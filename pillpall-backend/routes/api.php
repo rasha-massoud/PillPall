@@ -34,8 +34,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
         Route::post('/doctor_report',[DoctorController:: class, "create_update_report"]);
         Route::post('/view_connected_patients',[DoctorController:: class, "view_connected_patients"]);
         Route::get('/get_patient_file_numbers/{id}',[DoctorController:: class, "get_patient_file_numbers"]);
-
-        Route::get('', 'App\Http\Controllers\PatientController@getPatientFileNumbers');
+        Route::get('/get_patient_results/{id}',[DoctorController:: class, "get_patient_results"]);
 
     });
 });
