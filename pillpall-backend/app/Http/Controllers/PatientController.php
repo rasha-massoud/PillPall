@@ -103,7 +103,6 @@ class PatientController extends Controller{
             if ($request->search_by === 'name') {
                 $doctors = User::where($request->search_by, 'like', $request->search_for)
                     ->where('role', 'doctor')
-                    // ->with('doctorsInfo')
                     ->get()
                     ->map(function ($doctor) {
                         return [
@@ -141,6 +140,22 @@ class PatientController extends Controller{
                 'status' => 'error',
                 'message' => 'An error occurred while searching.' .$e->getMessage()
             ]);
+        }
+    }
+
+    public function connect(Request $request){
+
+        try{
+            $user= Auth::id();
+
+            $doctor= DoctorsInfo::find('id', $request->doctor_id);
+
+            if($doctor){
+                
+            }
+
+        } catch (Exception $e){
+
         }
     }
 }
