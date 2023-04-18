@@ -138,7 +138,7 @@ class PatientController extends Controller{
         } catch (Exception $e){
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while searching.' .$e->getMessage()
+                'message' => 'An error occurred while searching.'
             ]);
         }
     }
