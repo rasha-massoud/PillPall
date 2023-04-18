@@ -135,4 +135,33 @@ class DoctorController extends Controller{
         }
     }
 
+    public function get_patient_results($id){
+
+        try{
+            $patient = User::find($id);
+
+            if (!$patient || $patient->role != 'patient') {
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'No patient found with the given ID.'
+                ]);
+            }
+        
+            $results = $patient->results()->get();
+        
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Results retrieved successfully.',
+                'patient' => $patient,
+                'results' => $results
+            ]);
+        } catch (exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while returning the patient\'s results.'
+            ]);
+        }
+    }
+
+
 }
