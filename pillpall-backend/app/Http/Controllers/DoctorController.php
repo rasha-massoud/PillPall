@@ -107,4 +107,32 @@ class DoctorController extends Controller{
   
     }
 
+    public function get_patient_file_numbers($id){
+
+        try{
+            $patient = User::find($id);
+
+            if (!$patient || $patient->role != 'patient') {
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'No patient found with the given ID.'
+                ]);
+            }
+        
+            $fileNumbers = $patient->fileNumbers()->get();
+        
+            return response()->json([
+                'status' => 'success',
+                'message' => 'File numbers retrieved successfully.',
+                'patient' => $patient,
+                'file_numbers' => $fileNumbers
+            ]);
+        } catch (exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while returning the patient\'s file numbers.'
+            ]);
+        }
+    }
+
 }
