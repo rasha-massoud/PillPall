@@ -28,8 +28,12 @@ class MedicalController extends Controller{
             $medicine->timing = $request->timing;
             $medicine->first_of_each_month = $request->first_of_each_month;
             $medicine->on_demand = $request->on_demand;
-            $medicine->image = $request->image;
     
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('images');
+                $medicine->image = $imagePath;
+            }
+            
             $medicine->save();
     
             return response()->json([
