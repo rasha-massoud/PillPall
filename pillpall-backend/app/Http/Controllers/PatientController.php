@@ -10,6 +10,7 @@ use Exception;
 use App\Models\User;
 use App\Models\PatientsInfo;
 use App\Models\DoctorsInfo;
+use App\Models\UserUser;
 
 class PatientController extends Controller{
 
@@ -165,7 +166,7 @@ class PatientController extends Controller{
 
             return response()->json([
                 'status' => 'success', 
-                'message' => 'Doctor added successfully.'
+                'message' => 'Connection added successfully.'
             ]);
 
         } catch (Exception $e){
