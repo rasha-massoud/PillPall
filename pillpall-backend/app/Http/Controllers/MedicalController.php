@@ -105,6 +105,4 @@ class MedicalController extends Controller{
             ]);
         }
     }
-
-    
 }

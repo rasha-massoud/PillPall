@@ -8,33 +8,51 @@ use GuzzleHttp\Client;
 
 class PharmacyController extends Controller{
 
-    public function get_nearby_pharmacies($lat, $lng) {
+    public function get_nearby_pharmacies(Request $request) {
 
         try{
-            $client = new Client();
-            $response = $client->get("https://nominatim.openstreetmap.org/search.php?q=pharmacy&format=json&lat={$lat}&lon={$lng}&radius=5000");
-            $data = json_decode($response->getBody());
-        
-            $pharmacies = array();
-            $count = 0;
-            foreach ($data as $location) {
-                if ($location->class == 'amenity' && $location->type == 'pharmacy' && $count < 6) {
-                    $pharmacies[] = array(
-                        'name' => $location->display_name,
-                        'latitude' => $location->lat,
-                        'longitude' => $location->lon
-                    );
-                    $count++;
-                }
+            $latitude = $request->input('latitude');
+            $longitude = $request->input('longitude');
+            
+            $url = 'https://api.opencagedata.com/geocode/v1/json';
+            $params = [
+                'key' => dd(env('OPENCAGE_API_KEY')),
+                'pretty' => 1,
+                'no_annotations' => 1,
+                'limit' => 6,
+                'no_dedupe' => 1,
+                'abbrv' => 1,
+                'q' => 'pharmacy',
+                'proximity' => "{$latitude},{$longitude}",
+                'radius' => 1000,
+            ];
+            
+            $client = new Client(['cache' => false]);
+            $response = $client->get($url, ['query' => $params]);
+            $body = $response->getBody();
+            
+            $data = json_decode($body, true);
+            $pharmacies = [];
+            foreach ($data['results'] as $result) {
+                $pharmacy = [
+                    'name' => $result['formatted'],
+                    'address' => $result['formatted'],
+                    'latitude' => $result['geometry']['lat'],
+                    'longitude' => $result['geometry']['lng'],
+                ];
+                $pharmacies[] = $pharmacy;
             }
-        
-            return response()->json($pharmacies);
+            
+            return response()->json([
+                'status' => 'success',
+                'latitude' => $request->input('latitude'),
+                'pharmacies' => $pharmacies
+            ]);
         } catch(Exception $e){
             return response()->json([
                 'status' => 'error',
                 'message' => 'An error occurred while getting the nearby pharmacies.' 
             ]);
         }
-        
     }
 }
