@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\MedicalController;
 use App\Http\Controllers\PharmacyController;
+use App\Http\Controllers\DoctorController;
 
 Route::group(["prefix" => "v0.0.0"], function(){
     Route::post('/register',[AuthController:: class, "register"]);
@@ -28,6 +29,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
 
         Route::get('/get_nearby_pharmacies', [PharmacyController:: class, 'get_nearby_pharmacies']);
 
-        
+        Route::post('/create_update_report',[DoctorController:: class, "create_update_report"]);
+
     });
 });
