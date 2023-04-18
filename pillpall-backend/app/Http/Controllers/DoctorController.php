@@ -64,4 +64,37 @@ class DoctorController extends Controller{
         }
     }
 
+    public function view_connected_patients(Request $request){
+
+        $patient = User::where('name', 'like', $request->name)
+                        ->where('role', 'patient')
+                        ->first();
+
+        if (!$patient) {
+            return response()->json([
+                'status' => 'failure',
+                'message' => 'No patient found with the given name.'
+            ]);
+        }
+
+        $doctor= Auth::id();
+
+        $connected= UserUser->where('doctor_id', $doctor)
+                            ->where('patient_id', $patient->id)
+                            ->get();
+
+        if (!$connected) {
+            return response()->json([
+                'status' => 'failure',
+                'message' => 'The patient is not connected to you.'
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'The search worked successfully.',
+            'patient' => $patient
+        ]);    
+}
+
 }
