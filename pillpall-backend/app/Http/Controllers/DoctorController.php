@@ -12,6 +12,17 @@ use App\Models\DoctorsInfo;
 
 class DoctorController extends Controller{
     
+    public function __construct(){
+
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if (Auth::user()->role !== 'doctor') {
+                return response()->json(['error' => 'Unauthorized'], 401);
+            }
+            return $next($request);
+        });
+    }
+
     public function create_update_report(Request $request){
         if (!$request->user()) {
             return response()->json(['error' => 'Unauthorized'], 401);
