@@ -195,6 +195,64 @@ class ChatbotController extends Controller{
     }
 
     public function chatbot_instruction(Request $request){
+
+        try{
+            $prompt= $request->prompt;
+
+            if (empty($prompt)) {
+                return response()->json([
+                    'error' => 'the question field is required.',
+                ], 400);
+            }
+
+            $response = Http::withHeaders([
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Bearer ' . env('CHATGPT_API_KEY'),
+            ])->post('https://api.openai.com/v1/completions', [
+                'prompt' =>  "Please answer only by yes if this, $prompt, is a medicine. Else, answer only by no",
+                'max_tokens' => 50,
+                'temperature' => 0.2,
+                'n' => 1,
+                'stop' => '\n',
+                'model' => 'text-davinci-002',
+            ]);
+
+            $answer = $response->json()['choices'][0]['text'];
+
+            if (stripos((string)$answer, 'yes') !== false) {
+
+                $response = Http::withHeaders([
+                    'Content-Type' => 'application/json',
+                    'Authorization' => 'Bearer ' . env('CHATGPT_API_KEY'),
+                ])->post('https://api.openai.com/v1/completions', [
+                    'prompt' => 'Act as a pharmacist or doctor, what is the intake instruction of ' .$prompt,
+                    'max_tokens' => 80,
+                    'temperature' => 0.2,
+                    'n' => 1,
+                    'stop' => '\n',
+                    'model' => 'text-davinci-002',
+                ]);
+    
+                $answer = $response->json()['choices'][0]['text'];
+                return response()->json([
+                    'prompt' => $prompt,
+                    'status' => 'success',
+                    'message' => 'Answer retrieved successfully.',
+                    'answer' => $answer,
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'Not a medicine',
+                ]);
+            }
+        
+        } catch (Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while returning the answer.' 
+            ]);
+        }
     }
 
 }
