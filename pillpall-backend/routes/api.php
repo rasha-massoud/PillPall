@@ -8,6 +8,7 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\MedicalController;
 use App\Http\Controllers\PharmacyController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\ChatbotController;
 
 Route::group(["prefix" => "v0.0.0"], function(){
     Route::post('/register',[AuthController:: class, "register"]);
@@ -35,6 +36,8 @@ Route::group(["prefix" => "v0.0.0"], function(){
         Route::post('/view_connected_patients',[DoctorController:: class, "view_connected_patients"]);
         Route::get('/get_patient_report/{id}',[DoctorController:: class, "get_patient_report"]);
         Route::get('/get_patient_results/{id}',[DoctorController:: class, "get_patient_results"]);
+
+        Route::post('/chatbot',[ChatbotController:: class, "chatbot"]);
 
     });
 });
