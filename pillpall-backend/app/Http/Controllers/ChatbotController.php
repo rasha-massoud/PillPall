@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Exception;
+
 class ChatbotController extends Controller{
     
     public function chatbot(Request $request){
