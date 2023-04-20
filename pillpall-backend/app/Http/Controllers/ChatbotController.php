@@ -25,7 +25,6 @@ class ChatbotController extends Controller{
                 'Content-Type' => 'application/json',
                 'Authorization' => 'Bearer ' . env('CHATGPT_API_KEY'),
             ])->post('https://api.openai.com/v1/completions', [
-                // 'prompt' =>  "Act as a medical expert, $prompt?",
                 'prompt' =>  "Please answer only by yes if this, $prompt, is a medical question. Else, answer only by no",
                 'max_tokens' => 50,
                 'temperature' => 0.2,
@@ -61,7 +60,6 @@ class ChatbotController extends Controller{
                 return response()->json([
                     'status' => 'error',
                     'message' => 'Not a medical question',
-
                 ]);
             }
         
