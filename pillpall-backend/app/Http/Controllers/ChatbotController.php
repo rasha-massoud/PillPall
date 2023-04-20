@@ -58,7 +58,7 @@ class ChatbotController extends Controller{
                 ]);
             } else {
                 return response()->json([
-                    'status' => 'error',
+                    'status' => 'failure',
                     'message' => 'Not a medical question',
                 ]);
             }
@@ -119,7 +119,7 @@ class ChatbotController extends Controller{
                 ]);
             } else {
                 return response()->json([
-                    'status' => 'error',
+                    'status' => 'failure',
                     'message' => 'Not a medicine',
                 ]);
             }
@@ -181,7 +181,7 @@ class ChatbotController extends Controller{
                 ]);
             } else {
                 return response()->json([
-                    'status' => 'error',
+                    'status' => 'failure',
                     'message' => 'Not a medicine',
                 ]);
             }
