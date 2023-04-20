@@ -42,6 +42,5 @@ Route::group(["prefix" => "v0.0.0"], function(){
         Route::post('/chatbot_effect',[ChatbotController:: class, "chatbot_effect"]);
         Route::post('/chatbot_instruction',[ChatbotController:: class, "chatbot_instruction"]);
 
-
     });
 });
