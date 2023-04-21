@@ -33,7 +33,7 @@ class PatientController extends Controller{
 
         try {
             $patient = PatientsInfo::where('user_id', Auth::id())->first();
-            
+
             if (!$patient){
                 $user = Auth::user();
                 $user->approved = true;
@@ -110,7 +110,7 @@ class PatientController extends Controller{
             if ($request->search_by === 'name') {
                 $doctors = User::where($request->search_by, 'like', $request->search_for)
                             ->where('role', 'doctor')
-                            // ->where('status', 'approved')
+                            ->where('approved', 1)
                             ->with('doctorsInfo')
                             ->get()
                             ->map(function ($doctor) {
@@ -137,7 +137,7 @@ class PatientController extends Controller{
             if ($doctors->isEmpty()) {
                 return response()->json([
                     'status' => 'success',
-                    'message' => 'The search worked successfully but there is no doctor as mentioned.',
+                    'message' => 'The search worked successfully but there is no doctor as mentioned or doctor not approved yet.',
                 ]);
             }
 
