@@ -189,4 +189,38 @@ class DoctorController extends Controller{
         }
     }
 
+    public function get_connected_patients(){
+
+        try{
+
+            $doctor = Auth::user();
+            if ($doctor->approved == 0){
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'Doctor not approved.'
+                ]);
+            }
+
+            $connected= UserUser::where('doctor_id', Auth::id())->get();
+
+            if (!$connected->isEmpty()) {
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'No connected patients for this doctor.'
+                ]);
+            }
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'The search worked successfully.',
+                'patient' => $connected,
+            ]);   
+        } catch (Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while returning the connected patients.'
+            ]);
+        }
+  
+    }
 }
