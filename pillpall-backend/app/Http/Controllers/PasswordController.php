@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 use Exception;
 
@@ -15,7 +17,8 @@ class PasswordController extends Controller{
 
         try{
 
-            $request->validate([
+            $validator = Validator::make($request->all(), [
+                'previous_password' => 'required',
                 'password' => 'required|string|min:8|regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,}$/',
                 'confirm_password' => 'required|string|same:password',
             ]);
@@ -28,6 +31,14 @@ class PasswordController extends Controller{
             }
         
             $user = Auth::user();
+
+            if (!Hash::check($request->previous_password, $user->password)) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Incorrect previous password.',
+                ]);
+            }
+            
             $user->password = Hash::make($request->password);
             $user->save();
         
@@ -39,7 +50,7 @@ class PasswordController extends Controller{
         } catch (Exception $e){
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while changing the password.' 
+                'message' => 'An error occurred while changing the password.'  .$e->getMessage()
             ]);
         }
     }
