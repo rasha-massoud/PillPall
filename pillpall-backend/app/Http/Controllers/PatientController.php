@@ -33,6 +33,7 @@ class PatientController extends Controller{
 
         try {
             $patient = PatientsInfo::where('user_id', Auth::id())->first();
+            
             if (!$patient){
                 $user = Auth::user();
                 $user->approved = true;
