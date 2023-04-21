@@ -120,14 +120,13 @@ class MedicalController extends Controller{
                 'medications' => $medication
             ]);
     
-        } catch(exception $e){
+        } catch(Exception $e){
             return response()->json([
                 'status' => 'error',
                 'message' => 'An error occurred while getting the medicine of the selected day.'  .$e->getMessage()
             ]);
         }
     }
-
 
     public function add_file_number(Request $request){
 
@@ -208,7 +207,7 @@ class MedicalController extends Controller{
                 'results' => $results
             ]);
     
-        } catch(exception $e){
+        } catch(Exception $e){
             return response()->json([
                 'status' => 'error',
                 'message' => 'An error occurred while getting the results.' 
@@ -229,7 +228,7 @@ class MedicalController extends Controller{
                 'file_numbers' => $file_numbers
             ]);
     
-        } catch(exception $e){
+        } catch(Exception $e){
             return response()->json([
                 'status' => 'error',
                 'message' => 'An error occurred while getting the file numbers.' 
@@ -237,6 +236,4 @@ class MedicalController extends Controller{
         }
     }
 
-
-    
 }
