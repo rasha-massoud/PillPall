@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use Exception;
 
 use App\Models\User;
-use App\Models\ApprovedDoctor;
-
 
 class AdminController extends Controller{
     
