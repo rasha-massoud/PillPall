@@ -46,6 +46,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
 
         Route::post('/approve',[AdminController:: class, "approve"]);
         Route::get('/get_all_users',[AdminController:: class, "get_all_users"]);
+        Route::get('/get_report/{user_id}',[AdminController:: class, "get_report"]);
 
     });
 });

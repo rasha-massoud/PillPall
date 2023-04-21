@@ -73,10 +73,10 @@ class AdminController extends Controller{
 
     }
 
-    public function get_report(Request $request){
+    public function get_report($user_id){
 
         try{
-            $user = User::find($request->user_id);
+            $user = User::find($user_id);
 
             if ($user->role == 'patient'){
                 $report= $user->patientsInfo;
