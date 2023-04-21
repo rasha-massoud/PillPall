@@ -66,7 +66,7 @@ class DoctorController extends Controller{
         }
     }
 
-    public function view_connected_patients(Request $request){
+    public function search_connected_patient(Request $request){
 
         try{
             $patient = User::where('name', 'like', $request->name)
@@ -188,6 +188,5 @@ class DoctorController extends Controller{
             ]);
         }
     }
-
 
 }

@@ -34,7 +34,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
         Route::get('/get_nearby_pharmacies', [PharmacyController:: class, 'get_nearby_pharmacies']);
 
         Route::post('/doctor_report',[DoctorController:: class, "create_update_report"]);
-        Route::post('/view_connected_patients',[DoctorController:: class, "view_connected_patients"]);
+        Route::post('/search_connected_patient',[DoctorController:: class, "search_connected_patient"]);
         Route::get('/get_patient_report/{id}',[DoctorController:: class, "get_patient_report"]);
         Route::get('/get_patient_results/{id}',[DoctorController:: class, "get_patient_results"]);
 
