@@ -27,7 +27,16 @@ class AdminController extends Controller{
     public function approve(Request $request){
 
         try{
-            $admin = auth()->user();
+            $doctor = User::where('id', $request->doctor_id)
+                        ->where('role', 'doctor')
+                        ->first();
+
+            if(!$doctor){
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'There is no doctor with this id.'
+                ]);
+            }
 
             $approvedDoctor = new ApprovedDoctor;
 
@@ -44,7 +53,7 @@ class AdminController extends Controller{
         } catch (Exception $e){
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while approving.'
+                'message' => 'An error occurred while approving.' 
             ]);
         }
     }
