@@ -59,7 +59,21 @@ class AdminController extends Controller{
     }
 
     public function get_all_users(){
+        
+        try{
+            $users = User::all();
+            
+            return response()->json([
+                'status' => 'success',
+                'users' => $users
+            ]);
 
+        } catch (Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while getting all users.' 
+            ]);
+        }
 
     }
 }
