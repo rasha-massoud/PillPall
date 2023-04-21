@@ -40,7 +40,8 @@ class MedicalController extends Controller{
             $medicine->timing = $request->timing;
             $medicine->first_of_each_month = $request->first_of_each_month;
             $medicine->on_demand = $request->on_demand;
-    
+            $medicine->month = $request->month;
+
             if ($request->hasFile('image')) {
                 $imagePath = $request->file('image')->store('images');
                 $medicine->image = $imagePath;
@@ -118,7 +119,7 @@ class MedicalController extends Controller{
         } catch(exception $e){
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while getting the medicine of the selected day.' 
+                'message' => 'An error occurred while getting the medicine of the selected day.'  .$e->getMessage()
             ]);
         }
     }
