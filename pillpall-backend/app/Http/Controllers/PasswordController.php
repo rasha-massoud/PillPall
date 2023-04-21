@@ -11,7 +11,7 @@ use App\Models\User;
 
 class PasswordController extends Controller{
     
-    public function change_password(){
+    public function change_password(Request $request){
 
         try{
 
