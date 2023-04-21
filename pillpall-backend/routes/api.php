@@ -10,6 +10,7 @@ use App\Http\Controllers\PharmacyController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PasswordController;
 
 Route::group(["prefix" => "v0.0.0"], function(){
     Route::post('/register',[AuthController:: class, "register"]);
@@ -51,6 +52,8 @@ Route::group(["prefix" => "v0.0.0"], function(){
         Route::get('/get_doctors',[AdminController:: class, "get_doctors"]);
         Route::get('/get_approved_doctors',[AdminController:: class, "get_approved_doctors"]);
         Route::get('/get_unapproved_doctors',[AdminController:: class, "get_unapproved_doctors"]);
+
+        Route::post('/change_password',[PasswordController:: class, "change_password"]);
 
     });
 });
