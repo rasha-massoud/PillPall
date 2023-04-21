@@ -50,6 +50,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
         Route::get('/get_patients',[AdminController:: class, "get_patients"]);
         Route::get('/get_doctors',[AdminController:: class, "get_doctors"]);
         Route::get('/get_approved_doctors',[AdminController:: class, "get_approved_doctors"]);
+        Route::get('/get_unapproved_doctors',[AdminController:: class, "get_unapproved_doctors"]);
 
     });
 });
