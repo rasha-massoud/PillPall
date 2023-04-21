@@ -84,7 +84,7 @@ class DoctorController extends Controller{
 
             $connected= UserUser::where('doctor_id', $doctor)
                             ->where('patient_id', $patient->id)
-                            ->get();
+                            ->first();
 
             if (!$connected) {
                 return response()->json([
