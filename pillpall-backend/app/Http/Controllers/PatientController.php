@@ -104,6 +104,7 @@ class PatientController extends Controller{
             if ($request->search_by === 'name') {
                 $doctors = User::where($request->search_by, 'like', $request->search_for)
                             ->where('role', 'doctor')
+                            // ->where('status', 'approved')
                             ->with('doctorsInfo')
                             ->get()
                             ->map(function ($doctor) {
