@@ -87,13 +87,33 @@ class AdminController extends Controller{
             return response()->json([
                 'status' => 'success',
                 'message' => 'Report retrieved successfully.',
-                'report' => $report
+                'user' => $user
             ]);
 
         } catch (Exception $e){
             return response()->json([
                 'status' => 'error',
                 'message' => 'An error occurred while getting the report.' 
+            ]);
+        }
+    }
+    
+    public function get_patients(){
+
+        try{
+
+            $user = User::where('role', 'patient');
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Report retrieved successfully.',
+                'user' => $user
+            ]);
+
+        } catch (Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while getting the patients.' 
             ]);
         }
     }
