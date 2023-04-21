@@ -146,6 +146,13 @@ class AdminController extends Controller{
                         ->where('approved', 1)
                         ->get();
 
+            if ($user->isEmpty()) {
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'There are no approved doctors.'
+                ]);
+            }
+
             return response()->json([
                 'status' => 'success',
                 'message' => 'Approved doctors retrieved successfully.',
