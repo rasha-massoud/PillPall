@@ -62,11 +62,12 @@ class ChatbotController extends Controller{
                     'answer' => $answer
                 ];
             } else {
+                $answer = 'Not a medical question';
                 $response = [
                     'prompt' => $prompt,
                     'status' => 'failure',
                     'message' => 'Answer fails.',
-                    'answer' => 'Not a medical question'
+                    'answer' => $answer
                 ];
             }
 
