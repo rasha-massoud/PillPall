@@ -168,6 +168,13 @@ class AdminController extends Controller{
                         ->where('approved', 0)
                         ->get();
 
+            if ($user->isEmpty()) {
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'There are no unapproved doctors.'
+                ]);
+            }
+
             return response()->json([
                 'status' => 'success',
                 'message' => 'Unapproved doctors retrieved successfully.',
