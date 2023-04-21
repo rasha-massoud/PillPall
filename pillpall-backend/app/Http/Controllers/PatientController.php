@@ -34,6 +34,9 @@ class PatientController extends Controller{
         try {
             $patient = PatientsInfo::where('user_id', Auth::id())->first();
             if (!$patient){
+                $user = Auth::user();
+                $user->update(['approved' => 1]);
+
                 $patient= new PatientsInfo();
             }
 
@@ -66,6 +69,7 @@ class PatientController extends Controller{
             }
 
             $patient->save();
+
 
             return response()->json([
                 'status' => 'success',
