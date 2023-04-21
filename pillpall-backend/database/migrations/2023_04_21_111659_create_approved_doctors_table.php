@@ -12,11 +12,12 @@ return new class extends Migration{
             $table->unsignedBigInteger('doctor_id');
             $table->unsignedBigInteger('admin_id');
             $table->string('status')->default('unapproved');
-            $table->timestamps();
 
             $table->foreign('doctor_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade');
             $table->unique(['doctor_id', 'admin_id']);
+
+            $table->timestamps();
         });
     }
 
