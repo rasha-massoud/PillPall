@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 use Exception;
+
+use App\Models\User;
+use App\Models\Chatbot;
 
 class ChatbotController extends Controller{
     
@@ -50,18 +54,30 @@ class ChatbotController extends Controller{
                 ]);
     
                 $answer = $response->json()['choices'][0]['text'];
-                return response()->json([
+
+                $response = [
                     'prompt' => $prompt,
                     'status' => 'success',
                     'message' => 'Answer retrieved successfully.',
-                    'answer' => $answer,
-                ]);
+                    'answer' => $answer
+                ];
             } else {
-                return response()->json([
+                $response = [
+                    'prompt' => $prompt,
                     'status' => 'failure',
-                    'message' => 'Not a medical question',
-                ]);
+                    'message' => 'Answer fails.',
+                    'answer' => 'Not a medical question'
+                ];
             }
+
+            $chatbot= new Chatbot();
+            $chatbot->user_id= Auth::id();
+            $chatbot->question_type = 'question';
+            $chatbot->question = $request->prompt;
+            $chatbot->answer = $answer;
+            $chatbot->save();
+
+            return response()->json($response);
         
         } catch (Exception $e){
             return response()->json([
@@ -131,8 +147,7 @@ class ChatbotController extends Controller{
             ]);
         }
     }
-     
-                
+               
     public function chatbot_effect(Request $request){
 
         try{
