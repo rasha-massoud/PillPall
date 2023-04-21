@@ -37,6 +37,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
         Route::post('/search_connected_patient',[DoctorController:: class, "search_connected_patient"]);
         Route::get('/get_patient_report/{id}',[DoctorController:: class, "get_patient_report"]);
         Route::get('/get_patient_results/{id}',[DoctorController:: class, "get_patient_results"]);
+        Route::get('/get_connected_patients',[DoctorController:: class, "get_connected_patients"]);
 
         Route::post('/chatbot_question',[ChatbotController:: class, "chatbot_question"]);
         Route::post('/chatbot_replacement',[ChatbotController:: class, "chatbot_replacement"]);

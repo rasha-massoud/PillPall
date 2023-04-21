@@ -194,31 +194,31 @@ class DoctorController extends Controller{
         try{
 
             $doctor = Auth::user();
-            if ($doctor->approved == 0){
+
+            if ($doctor->role == 'doctor' && $doctor->approved) {
+                $connected_patients = UserUser::where('doctor_id', $doctor->id)->get();
+
+                $patient_ids = $connected_patients->pluck('patient_id')->toArray();
+    
+                $patients_info = PatientsInfo::whereIn('user_id', $patient_ids)
+                                ->with('user')
+                                ->get();
+
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'The search worked successfully.',
+                    'patients' => $patients_info,
+                ]);
+            } else {
                 return response()->json([
                     'status' => 'failure',
-                    'message' => 'Doctor not approved.'
+                    'message' => 'Doctor not approved.',
                 ]);
             }
-
-            $connected= UserUser::where('doctor_id', Auth::id())->get();
-
-            if (!$connected->isEmpty()) {
-                return response()->json([
-                    'status' => 'failure',
-                    'message' => 'No connected patients for this doctor.'
-                ]);
-            }
-
-            return response()->json([
-                'status' => 'success',
-                'message' => 'The search worked successfully.',
-                'patient' => $connected,
-            ]);   
         } catch (Exception $e){
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while returning the connected patients.'
+                'message' => 'An error occurred while returning the connected patients.' .$e->getMEssage()
             ]);
         }
   
