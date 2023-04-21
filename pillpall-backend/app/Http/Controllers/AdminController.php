@@ -137,4 +137,26 @@ class AdminController extends Controller{
             ]);
         }
     }
+
+    public function get_approved_doctors(){
+
+        try{
+
+            $user = User::where('role', 'doctor')
+                        ->where('approved', 1)
+                        ->get();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Approved doctors retrieved successfully.',
+                'user' => $user
+            ]);
+
+        } catch (Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while getting the approved doctors.' 
+            ]);
+        }
+    }
 }
