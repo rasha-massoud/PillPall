@@ -159,4 +159,26 @@ class AdminController extends Controller{
             ]);
         }
     }
+
+    public function get_unapproved_doctors(){
+
+        try{
+
+            $user = User::where('role', 'doctor')
+                        ->where('approved', 0)
+                        ->get();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Unapproved doctors retrieved successfully.',
+                'user' => $user
+            ]);
+
+        } catch (Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while getting the unapproved doctors.' 
+            ]);
+        }
+    }
 }
