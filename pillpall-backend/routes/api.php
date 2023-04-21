@@ -9,6 +9,7 @@ use App\Http\Controllers\MedicalController;
 use App\Http\Controllers\PharmacyController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ChatbotController;
+use App\Http\Controllers\AdminController;
 
 Route::group(["prefix" => "v0.0.0"], function(){
     Route::post('/register',[AuthController:: class, "register"]);
@@ -42,5 +43,6 @@ Route::group(["prefix" => "v0.0.0"], function(){
         Route::post('/chatbot_effect',[ChatbotController:: class, "chatbot_effect"]);
         Route::post('/chatbot_instruction',[ChatbotController:: class, "chatbot_instruction"]);
 
+        Route::post('/approve',[AdminController:: class, "approve"]);
     });
 });
