@@ -40,6 +40,8 @@ class AuthController extends Controller{
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,}$/',
+            'confirm_password' => 'required|string|same:password',
+            'role' => 'string|in:patient,doctor,admin',
         ]);
 
         $response=[];
@@ -48,6 +50,7 @@ class AuthController extends Controller{
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+        $user->role = $request->role ?? 'patient';
         $user->save();
 
         $response['status'] = "success";
