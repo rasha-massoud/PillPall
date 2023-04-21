@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Exception;
 
 use App\Models\User;
+use App\Models\PatientsInfo;
+use App\Models\DoctorsInfo;
 
 class AdminController extends Controller{
     
@@ -69,5 +71,30 @@ class AdminController extends Controller{
             ]);
         }
 
+    }
+
+    public function get_report(Request $request){
+
+        try{
+            $user = User::find($request->user_id);
+
+            if ($user->role == 'patient'){
+                $report= $user->patientsInfo;
+            } else {
+                $report= $user->doctorsInfo;
+            }
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Report retrieved successfully.',
+                'report' => $report
+            ]);
+
+        } catch (Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while getting the report.' 
+            ]);
+        }
     }
 }
