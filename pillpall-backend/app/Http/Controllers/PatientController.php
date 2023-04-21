@@ -126,7 +126,7 @@ class PatientController extends Controller{
                                 ];
                 });
             } else {
-                $doctors = User::whereHas('doctorsInfo', function($query) use ($request) {
+                $doctors = User::where('approved', 1)->whereHas('doctorsInfo', function($query) use ($request) {
                     $query->where('major', 'like', $request->search_for);
                 })
                 ->where('role', 'doctor')

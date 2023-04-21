@@ -38,12 +38,8 @@ class AdminController extends Controller{
                 ]);
             }
 
-            $approvedDoctor = new ApprovedDoctor;
-
-            $approvedDoctor->admin_id = Auth::id();
-            $approvedDoctor->doctor_id = $request->doctor_id;
-            $approvedDoctor->status = 'approved';
-            $approvedDoctor->save();
+            $doctor->approved = true;
+            $doctor->save();
 
             return response()->json([
                 'status' => 'success',
