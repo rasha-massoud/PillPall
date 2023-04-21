@@ -97,15 +97,19 @@ class MedicalController extends Controller{
     
             $is_first_of_month = $date->day == 1;
             if ($is_first_of_month) {
-                $medication= $user->medications
+                $medication = $user->medications()
                     ->where(function ($query) use ($day, $is_first_of_month) {
-                        $query->where('days', 'like', $day)
-                            ->orWhere('days', 'Everyday');
+                        $query->where(function ($query) use ($day) {
+                            $query->where('days', 'like', "%$day%")
+                                ->orWhere('days', 'Everyday');
+                        });
                         if ($is_first_of_month) {
-                            $query->orWhere('first_of_each_month', true);
+                            $query->orWhere(function ($query) {
+                                $query->where('first_of_each_month', true);
+                            }); 
                         }
                     })
-                    ->get();  
+                    ->get();
             } else{
                 $medication= $user->medications()->where('days', 'like', $day)->orWhere('days', 'Everyday')->get();
             }
