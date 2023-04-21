@@ -69,15 +69,24 @@ class DoctorController extends Controller{
     public function search_connected_patient(Request $request){
 
         try{
+
+            $doctor= Auth::user();
+            if (!$doctor->approved){
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'Doctor not approved.'
+                ]);
+            }
+
             $patient = User::where('name', 'like', $request->name)
                         ->where('role', 'patient')
                         ->first();
 
             if (!$patient) {
-            return response()->json([
-                'status' => 'failure',
-                'message' => 'No patient found with the given name.'
-            ]);
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'No patient found with the given name.'
+                ]);
             }
 
             $doctor= Auth::id();
