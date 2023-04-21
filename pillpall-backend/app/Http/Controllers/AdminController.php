@@ -117,4 +117,24 @@ class AdminController extends Controller{
             ]);
         }
     }
+
+    public function get_doctors(){
+
+        try{
+
+            $user = User::where('role', 'doctor')->get();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Doctors retrieved successfully.',
+                'user' => $user
+            ]);
+
+        } catch (Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while getting the doctors.' 
+            ]);
+        }
+    }
 }
