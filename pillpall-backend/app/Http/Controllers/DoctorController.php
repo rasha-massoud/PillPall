@@ -160,6 +160,15 @@ class DoctorController extends Controller{
     public function get_patient_results($id){
 
         try{
+            
+            $doctor= Auth::user();
+            if (!$doctor->approved){
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'Doctor not approved.'
+                ]);
+            }
+            
             $patient = User::find($id);
 
             if (!$patient || $patient->role != 'patient') {
