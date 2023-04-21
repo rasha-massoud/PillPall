@@ -35,7 +35,8 @@ class PatientController extends Controller{
             $patient = PatientsInfo::where('user_id', Auth::id())->first();
             if (!$patient){
                 $user = Auth::user();
-                $user->update(['approved' => 1]);
+                $user->approved = true;
+                $user->save();
 
                 $patient= new PatientsInfo();
             }
