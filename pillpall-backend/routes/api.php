@@ -44,5 +44,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
         Route::post('/chatbot_instruction',[ChatbotController:: class, "chatbot_instruction"]);
 
         Route::post('/approve',[AdminController:: class, "approve"]);
+        Route::get('/get_all_users',[AdminController:: class, "get_all_users"]);
+
     });
 });
