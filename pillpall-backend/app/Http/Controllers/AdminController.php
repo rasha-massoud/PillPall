@@ -124,6 +124,13 @@ class AdminController extends Controller{
 
             $user = User::where('role', 'doctor')->get();
 
+            if ($user->isEmpty()) {
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'There are no doctors.'
+                ]);
+            }
+
             return response()->json([
                 'status' => 'success',
                 'message' => 'Doctors retrieved successfully.',
