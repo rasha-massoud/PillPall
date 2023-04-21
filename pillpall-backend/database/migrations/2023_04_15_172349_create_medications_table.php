@@ -19,7 +19,8 @@ return new class extends Migration{
             $table->tinyInteger('first_of_each_month');
             $table->tinyInteger('on_demand');
             $table->string('image');
-
+            $table->string('month');
+            
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unique(['user_id', 'name', 'days', 'timing']);
             
