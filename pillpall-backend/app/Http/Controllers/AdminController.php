@@ -102,11 +102,11 @@ class AdminController extends Controller{
 
         try{
 
-            $user = User::where('role', 'patient');
+            $user = User::where('role', 'patient')->get();
 
             return response()->json([
                 'status' => 'success',
-                'message' => 'Report retrieved successfully.',
+                'message' => 'Patients retrieved successfully.',
                 'user' => $user
             ]);
 
