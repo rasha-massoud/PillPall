@@ -21,7 +21,7 @@ class ChatbotController extends Controller{
 
             if (empty($prompt)) {
                 return response()->json([
-                    'error' => 'the question field is required.',
+                    'error' => 'The question field is required.',
                 ], 400);
             }
 
@@ -95,7 +95,7 @@ class ChatbotController extends Controller{
 
             if (empty($prompt)) {
                 return response()->json([
-                    'error' => 'the question field is required.',
+                    'error' => 'The question field is required.',
                 ], 400);
             }
 
@@ -169,7 +169,7 @@ class ChatbotController extends Controller{
 
             if (empty($prompt)) {
                 return response()->json([
-                    'error' => 'the question field is required.',
+                    'error' => 'The question field is required.',
                 ], 400);
             }
 
@@ -241,7 +241,7 @@ class ChatbotController extends Controller{
 
             if (empty($prompt)) {
                 return response()->json([
-                    'error' => 'the question field is required.',
+                    'error' => 'The question field is required.',
                 ], 400);
             }
 
