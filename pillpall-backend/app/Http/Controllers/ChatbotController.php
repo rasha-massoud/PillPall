@@ -127,19 +127,32 @@ class ChatbotController extends Controller{
                 ]);
     
                 $answer = $response->json()['choices'][0]['text'];
-                return response()->json([
+
+                $response = [
                     'prompt' => $prompt,
                     'status' => 'success',
                     'message' => 'Answer retrieved successfully.',
                     'answer' => $answer,
-                ]);
+                ];
             } else {
-                return response()->json([
+                $answer = 'Not a medicine';
+                $response = [
+                    'prompt' => $prompt,
                     'status' => 'failure',
-                    'message' => 'Not a medicine',
-                ]);
+                    'message' => 'Answer fails.',
+                    'answer' => $answer
+                ];
             }
         
+            $chatbot= new Chatbot();
+            $chatbot->user_id= Auth::id();
+            $chatbot->question_type = 'question';
+            $chatbot->question = $request->prompt;
+            $chatbot->answer = $answer;
+            $chatbot->save();
+
+            return response()->json($response);
+
         } catch (Exception $e){
             return response()->json([
                 'status' => 'error',
