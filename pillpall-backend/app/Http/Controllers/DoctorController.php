@@ -131,7 +131,7 @@ class DoctorController extends Controller{
                     'message' => 'The patient is not connected to you.'
                 ]);
             }
-            
+
             $report = $patient->patientsInfo()->get();
         
             return response()->json([
@@ -160,6 +160,19 @@ class DoctorController extends Controller{
                 ]);
             }
         
+            $doctor= Auth::id();
+
+            $connected= UserUser::where('doctor_id', $doctor)
+                            ->where('patient_id', $patient->id)
+                            ->first();
+
+            if (!$connected) {
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'The patient is not connected to you.'
+                ]);
+            }
+            
             $results = $patient->results()->get();
         
             return response()->json([
