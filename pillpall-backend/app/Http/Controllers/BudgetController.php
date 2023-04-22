@@ -25,14 +25,9 @@ class BudgetController extends Controller{
                 $year = ($month == $current_month) ? $current_year : $current_year - 1;
                 
                 $medication_prices[$month] = Medication::where('user_id', Auth::id())
-                                            ->where(function($query) use ($month) {
-                                                if ($month == 'all') {
-                                                    $query->whereNotNull('price_per_month');
-                                                } else {
-                                                    $query->where('month', $month);
-                                                }
-                                            })
-                                            ->sum('price_per_month');
+                                                ->where('month', $month)
+                                                ->orWhere('month', 'All')
+                                                ->sum('price_per_month');
             }
             
             return response()->json([
