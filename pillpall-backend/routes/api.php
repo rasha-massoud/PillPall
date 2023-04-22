@@ -11,6 +11,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\BudgetController;
 
 Route::group(["prefix" => "v0.0.0"], function(){
     Route::post('/register',[AuthController:: class, "register"]);
@@ -55,5 +56,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
 
         Route::post('/change_password',[PasswordController:: class, "change_password"]);
 
+        Route::get('/budget_tracker',[BudgetController:: class, "budget_tracker"]);
+        
     });
 });
