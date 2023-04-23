@@ -6,7 +6,8 @@ use Illuminate\Console\Command;
 use Carbon\Carbon;
 use App\Models\Medication;
 use App\Models\User;
-use Edujugon\PushNotification\PushNotification;
+
+use App\Notifications\MedicineReminder;
 
 class SendMedicationReminders extends Command{
 
@@ -24,20 +25,11 @@ class SendMedicationReminders extends Command{
 
             if ($now->diffInMinutes($medicationTime, false) <= 30) {
                 $user = User::find($medication->user_id);
-                
-                $push = new PushNotification('fcm');
 
-                $data = [
-                    'title' => 'Medication Reminder',
-                    'body' => 'It\'s time to take your medication.',
-                ];
-                
-                $deviceTokens = [$user->device_token];
-                
-                $push->setMessage(['data' => $data])
-                     ->setDevicesToken($deviceTokens)
-                     ->send();            }
+                $message = 'It\'s time to take your medication.';
+
+                $user->notify(new MedicineReminder($message));
+            }
         }
-
     }
 }
