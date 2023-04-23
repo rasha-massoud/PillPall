@@ -3,33 +3,34 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-
+use Illuminate\Notifications\Messages\MailMessage;
 use NotificationChannels\Fcm\FcmMessage;
 use NotificationChannels\Fcm\FcmNotification;
 
 class MedicineReminder extends Notification{
-
     use Queueable;
 
-    public function __construct(){}
+    protected $message;
 
-    public function via(object $notifiable): array{
-        return ['mail'];
+    public function __construct($message){
+        $this->message = $message;
     }
 
-    public function toMail(object $notifiable): MailMessage{
+    public function via($notifiable){
+        return ['mail', 'database'];
+    }
+
+    public function toMail($notifiable){
         return (new MailMessage)
                     ->line('The introduction to the notification.')
                     ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line($this->message);
     }
 
-    public function toArray(object $notifiable): array{
+    public function toDatabase($notifiable){
         return [
-            
+            'message' => $this->message,
         ];
     }
 
