@@ -8,12 +8,7 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 class Kernel extends ConsoleKernel{
     
     protected function schedule(Schedule $schedule): void{
-        $schedule->command('medication:remind')->everyMinute();
     }
-
-    protected $commands = [
-        \App\Console\Commands\SendMedicationReminders::class,
-    ];
     
     protected function commands(): void{
         $this->load(__DIR__.'/Commands');
