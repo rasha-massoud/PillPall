@@ -12,6 +12,7 @@ use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\BudgetController;
+use App\Http\Controllers\ForgotPasswordController;
 
 Route::group(["prefix" => "v0.0.0"], function(){
     Route::post('/register',[AuthController:: class, "register"]);
@@ -58,5 +59,8 @@ Route::group(["prefix" => "v0.0.0"], function(){
 
         Route::get('/budget_tracker',[BudgetController:: class, "budget_tracker"]);
         
+        Route::post('/forgot_password',[ForgotPasswordController:: class, "forgotPassword"]);
+        Route::post('/reset_password',[ForgotPasswordController:: class, "reset_password"]);
+
     });
 });
