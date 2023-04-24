@@ -21,7 +21,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
     Route::post('/refresh',[AuthController:: class, "refresh"]);
     
     Route::post('/forgot_password',[ForgotPasswordController:: class, "forgotPassword"]);
-    Route::post('/reset_password',[ForgotPasswordController:: class, "reset_password"]);
+    Route::post('/reset_password',[ForgotPasswordController:: class, "reset_password"])->name('password.reset');
     
     Route::group(["middleware" => ["auth:api"]], function(){
         Route::post('/patient_report',[PatientController:: class, "create_update_report"]);
