@@ -20,6 +20,9 @@ Route::group(["prefix" => "v0.0.0"], function(){
     Route::post('/logout',[AuthController:: class, "logout"]);
     Route::post('/refresh',[AuthController:: class, "refresh"]);
     
+    Route::post('/forgot_password',[ForgotPasswordController:: class, "forgotPassword"]);
+    Route::post('/reset_password',[ForgotPasswordController:: class, "reset_password"]);
+    
     Route::group(["middleware" => ["auth:api"]], function(){
         Route::post('/patient_report',[PatientController:: class, "create_update_report"]);
         Route::get('/get_report',[PatientController:: class, "get_report"]);
@@ -59,8 +62,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
 
         Route::get('/budget_tracker',[BudgetController:: class, "budget_tracker"]);
         
-        Route::post('/forgot_password',[ForgotPasswordController:: class, "forgotPassword"]);
-        Route::post('/reset_password',[ForgotPasswordController:: class, "reset_password"]);
+
 
     });
 });

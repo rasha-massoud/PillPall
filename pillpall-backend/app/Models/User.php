@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Auth\Passwords\CanResetPassword;
 
 use App\Models\Result;
 use App\Models\FileNumber;
@@ -15,7 +16,7 @@ use App\Models\PatientsInfo;
 use App\Models\Chatbot;
 
 class User extends Authenticatable implements JWTSubject{
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, CanResetPassword;
 
     protected $fillable = [
         'name',
