@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { fonts } from './constants/font';
+import { fonts } from './font';
 
 const appStyles = StyleSheet.create({
   mainTitle: {
