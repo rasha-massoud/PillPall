@@ -1,4 +1,5 @@
 import { useFonts, Roboto_400Regular, Roboto_500Medium } from '@expo-google-fonts/roboto';
+import * as Font from 'expo-font';
 
 export const fonts = {
   regular: 'Roboto_400Regular',
@@ -10,7 +11,7 @@ export const fonts = {
 };
 
 export const loadFonts = async () => {
-  await useFonts({
+  await Font.loadAsync({
     Roboto_400Regular,
     Roboto_500Medium,
   });
