@@ -1,8 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { fonts } from '../../constants/font';
+import { colors } from '../../constants/palette';
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    backgroundColor: '#0084CA',
+    backgroundColor: colors.blue,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 30,
@@ -10,8 +12,9 @@ const styles = StyleSheet.create({
     height: '6%',
   },
   buttonText: {
-    color: 'white',
-    fontWeight: 'medium',
+    color: colors.white,
+    fontFamily: fonts.bold.fontFamily,
+    fontWeight: '500',    
     fontSize: 14,
     textTransform: 'uppercase',
   },
