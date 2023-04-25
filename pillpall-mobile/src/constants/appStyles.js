@@ -1,38 +1,39 @@
 import { StyleSheet } from 'react-native';
+import { fonts } from './constants/font';
 
 const appStyles = StyleSheet.create({
   mainTitle: {
-    fontWeight: 'medium',
+    fontFamily: fonts.medium,
     fontSize: 34,
     letterSpacing: '0.73%', 
   },
   pageTitle: {
-    fontWeight: 'medium',
+    fontFamily: fonts.medium,
     fontSize: 24,
     letterSpacing: '0%', 
   },
   subTitle: {
-    fontWeight: 'medium',
+    fontFamily: fonts.medium,
     fontSize: 20,
     letterSpacing: '0.75%', 
   },
   subTitle2: {
-    fontWeight: 'regular',
+    fontFamily: fonts.regular,
     fontSize: 16,
     letterSpacing: '0.93%', 
   },  
   body1: {
-    fontWeight: 'regular',
+    fontFamily: fonts.regular,
     fontSize: 16,
     letterSpacing: '3.12%', 
   },
   body2: {
-    fontWeight: 'regular',
+    fontFamily: fonts.regular,
     fontSize: 14,
     letterSpacing: '1.78%', 
   },
   button: {
-    fontWeight: 'medium',
+    fontFamily: fonts.medium,
     fontSize: 14,
     letterSpacing: '8.9%', 
   },
