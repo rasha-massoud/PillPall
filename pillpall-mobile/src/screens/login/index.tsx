@@ -1,9 +1,8 @@
 import React, { FC } from 'react'
-import { SafeAreaView, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import appStyles from '../../constants/appStyles';
 import { colors } from '../../constants/palette';
-// import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles'
 
@@ -12,6 +11,10 @@ const Login: FC = () => {
     return (
     
     <SafeAreaView style={styles.container}>
+        <Image
+            source={require('../../../assets/logo.png')}
+            style={styles.image}
+        />
         <Text style={appStyles.mainTitle}>Login</Text>
         <Text style={appStyles.subTitle2}>Please sign in to continue.</Text>
 
@@ -35,13 +38,16 @@ const Login: FC = () => {
                 placeholderTextColor={colors.dark_gray}
             />
         </View>
-        <CustomButton buttonprops={{ title: "Login", onPress: () => console.log('Login') }}   style={styles.buttonContainer}/>
-        <TouchableOpacity > 
-            <Text>Forgot Password?</Text>
+        
+        <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Login", onPress: () => console.log('Login') }}  />
+        <TouchableOpacity style={styles.forgotPassword}> 
+            <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
         </TouchableOpacity>
-        <Text style={appStyles.body1}>
+        <Text style={[appStyles.body1, styles.account]}>
             Don't have an account?{" "}
-        <Text style={[appStyles.body1, { fontWeight: "bold" }]}>Sign Up</Text>
+            <TouchableOpacity>
+                <Text style={[appStyles.body1, styles.signup]}>Sign Up</Text>
+            </TouchableOpacity>
         </Text>
     </SafeAreaView>
   );
