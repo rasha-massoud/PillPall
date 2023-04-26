@@ -30,7 +30,7 @@ const appStyles = StyleSheet.create({
   body2: {
     fontFamily: fonts.regular,
     fontSize: 14,
-    letterSpacing: 1.78%, 
+    letterSpacing: 1.78, 
   },
   button: {
     fontFamily: fonts.medium,
