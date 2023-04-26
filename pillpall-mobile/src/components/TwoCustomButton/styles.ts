@@ -6,9 +6,10 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         justifyContent: 'space-around',
+        height: '100%',
     },
     buttonContainerFirst: {
-        backgroundColor: colors.black,
+        backgroundColor: colors.blue,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 30,
