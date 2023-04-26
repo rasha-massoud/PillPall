@@ -6,10 +6,15 @@ import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import TextTitle from '../../components/TextTitle';
 import SubTitleText from '../../components/SubTitleText';
+import LoginSignupSwitch from '../../components/LoginSignupSwitch';
 
 import styles from './styles'
 
 const Login: FC = () => {
+
+    const handleSignUpPress = () => {
+        // Navigate to sign up screen
+    };
 
     return (
     
@@ -31,12 +36,7 @@ const Login: FC = () => {
             <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
         </TouchableOpacity>
 
-        <Text style={[appStyles.body1, styles.account]}>
-            Don't have an account?{" "}
-            <TouchableOpacity>
-                <Text style={[appStyles.body1, styles.signup]}>Sign Up</Text>
-            </TouchableOpacity>
-        </Text>
+        <LoginSignupSwitch textTitle="Don't have an account?" action="Sign Up" onPress={handleSignUpPress}></LoginSignupSwitch>
     </SafeAreaView>
   );
 };
