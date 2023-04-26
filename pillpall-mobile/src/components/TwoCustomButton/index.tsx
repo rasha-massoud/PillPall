@@ -2,14 +2,14 @@ import { Button, ButtonProps, Text, TouchableOpacity, View, StyleProp, ViewStyle
 import React, { FC } from 'react';
 import styles from './styles';
 
-interface CustomButtonProps {
+interface TwoCustomButtonProps {
   buttonprops1: ButtonProps;
   buttonprops2: ButtonProps;
   containerStyle?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
 }
 
-const CustomButton: FC<CustomButtonProps> = (props) => {
+const TwoCustomButton: FC<TwoCustomButtonProps> = (props) => {
   return (
     <>
     <View style={styles.container}>
@@ -31,4 +31,4 @@ const CustomButton: FC<CustomButtonProps> = (props) => {
   );
 };
 
-export default CustomButton;
+export default TwoCustomButton;
