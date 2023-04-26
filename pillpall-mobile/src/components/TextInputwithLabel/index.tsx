@@ -7,6 +7,7 @@ import { colors } from '../../constants/palette';
 interface TextInputwithLabelProps {
     textinputprops: TextInputProps;
     label: string;
+    placeholder: string;
 }
 
 const TextInputwithLabel: FC<TextInputwithLabelProps> = (props) => {
@@ -20,7 +21,7 @@ const TextInputwithLabel: FC<TextInputwithLabelProps> = (props) => {
                 autoCapitalize="none"
                 {...props.textinputprops}
                 placeholderTextColor={colors.dark_gray}
-
+                placeholder={props.placeholder}
             />
         </View>
     </>
