@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Login from './src/screens/login';
 import React, { useEffect } from 'react';
 import { loadFonts } from './src/constants/font';
+import Register from './src/screens/register';
 
 export default function App() {
   useEffect(() => {
@@ -11,7 +12,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <Login/>
+      <Register/>
     </View>
   );
 }
