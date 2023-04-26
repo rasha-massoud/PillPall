@@ -28,7 +28,7 @@ const styles = StyleSheet.create<Styles>({
     },
     inputContainer: {
         height: 35,
-        marginVertical: 10,
+        marginVertical: 12,
         width: '100%',
         marginBottom: 35,
     },
@@ -39,7 +39,8 @@ const styles = StyleSheet.create<Styles>({
         borderRadius: 5,
         fontFamily: appStyles.body2.fontFamily,
         fontSize: appStyles.body2.fontSize,
-        color: colors.dark_gray,
+        color: colors.darker_gray,
+        height: 40,
     },
     buttonContainer: {
         justifyContent: 'center',
