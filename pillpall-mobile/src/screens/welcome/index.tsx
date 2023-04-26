@@ -22,11 +22,11 @@ const Welcome: FC = () => {
         <SubTitleText title='Welcome to PillPall.'></SubTitleText>
 
         <Image
-            source={require('../../../assets/logo.png')}
+            source={require('../../../assets/into.gif')}
             style={styles.image}
         />
-        
-        <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Login", onPress: () => console.log('Login') }}  />
+
+        <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Continue", onPress: () => console.log('Continue') }}  />
 
     </SafeAreaView>
   );
