@@ -5,6 +5,7 @@ import appStyles from '../../constants/appStyles';
 import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import TextTitle from '../../components/TextTitle';
+import SubTitleText from '../../components/SubTitleText';
 
 import styles from './styles'
 
@@ -18,7 +19,7 @@ const Login: FC = () => {
             style={styles.image}
         />
         <TextTitle title='Login'></TextTitle>
-        <Text style={appStyles.subTitle2}>Please sign in to continue.</Text>
+        <SubTitleText title='Please sign in to continue.'></SubTitleText>
 
         <TextInputwithLabel label="Email" textinputprops={{ secureTextEntry: false }}/>
 
