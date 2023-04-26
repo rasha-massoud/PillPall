@@ -21,15 +21,15 @@ const Register: FC = () => {
         <TextTitle title='Create App'></TextTitle>
         <SubTitleText title='Please fill the input below here.'></SubTitleText>
 
-        <TextInputwithLabel label="Name" textinputprops={{ secureTextEntry: false }}/>
-        <TextInputwithLabel label="Email" textinputprops={{ secureTextEntry: false }}/>
+        <TextInputwithLabel label='Name' placeholder='Enter your Username' textinputprops={{ secureTextEntry: false }}/>
+        <TextInputwithLabel label='Email' placeholder='Enter your Email' textinputprops={{ secureTextEntry: false }}/>
 
-        <TextInputwithLabel label="Password" textinputprops={{ secureTextEntry: true }} />
-        <TextInputwithLabel label="ConfirmPassword" textinputprops={{ secureTextEntry: true }} />
+        <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true }} />
+        <TextInputwithLabel label="ConfirmPassword" placeholder='Re-enter your Password' textinputprops={{ secureTextEntry: true }} />
 
         <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: () => console.log('Cancel') }} buttonprops1={{ title: "Signup", onPress: () => console.log('Signup') }}></TwoCustomButton>
 
-        <LoginSignupSwitch style={{ marginTop: '10%' }}textTitle="Already have an account?" action="Login" onPress={handleLoginPress}></LoginSignupSwitch>
+        <LoginSignupSwitch style={{ marginTop: '15%' }}textTitle="Already have an account?" action="Login" onPress={handleLoginPress}></LoginSignupSwitch>
     </SafeAreaView>
   );
 };
