@@ -8,11 +8,6 @@ import { colors } from '../../constants/palette';
 import styles from './styles'
 
 const Login: FC = () => {
-    // const navigation = useNavigation();
-
-    // const handleForgotPassword = () => {
-    //     navigation.navigate('ForgotPassword');
-    // };
 
     return (
     
@@ -42,7 +37,6 @@ const Login: FC = () => {
         </View>
         <CustomButton buttonprops={{ title: "Login", onPress: () => console.log('Login') }} />
         <TouchableOpacity > 
-            {/* onPress={handleForgotPassword} */}
             <Text>Forgot Password?</Text>
         </TouchableOpacity>
         <Text style={appStyles.body1}>

@@ -16,6 +16,7 @@ const LOGIN_PAGE_WIDTH = width * 0.9;
 const styles = StyleSheet.create<Styles>({
     container: {
         flex: 1,
+        marginTop: 100,
         gap: '8%',
         alignItems: 'flex-start',
         justifyContent: 'center',
