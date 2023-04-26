@@ -39,7 +39,7 @@ const styles = StyleSheet.create<Styles>({
         borderRadius: 5,
         fontFamily: appStyles.body2.fontFamily,
         fontSize: appStyles.body2.fontSize,
-        color: colors.darker_gray,
+        color: colors.dark_gray,
     },
     buttonContainer: {
         justifyContent: 'center',

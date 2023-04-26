@@ -5,6 +5,7 @@ export const colors = {
     white: '#FFFFFF',
     light_gray: '#F0F0F0',
     dark_gray: '#C9C9C9',
+    darker_gray: '#555555',
 }
 
 export const shadows = {
