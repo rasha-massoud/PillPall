@@ -25,7 +25,7 @@ const appStyles = StyleSheet.create({
   body1: {
     fontFamily: fonts.regular,
     fontSize: 16,
-    letterSpacing: 3.12, 
+    letterSpacing: 1, 
   },
   body2: {
     fontFamily: fonts.regular,
