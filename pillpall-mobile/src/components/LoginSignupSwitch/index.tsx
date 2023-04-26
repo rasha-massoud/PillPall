@@ -15,9 +15,9 @@ interface LoginSignupSwitchProps {
 const LoginSignupSwitch: FC<LoginSignupSwitchProps> = (props) => {
   return (
     <Text style={[appStyles.body1, styles.account, props.style]}>
-      props.textTitle{' '}
+      {props.textTitle}{' '}
       <TouchableOpacity onPress={props.onPress}>
-        <Text style={[appStyles.body1, styles.signup, props.textStyle]}>props.action</Text>
+        <Text style={[appStyles.body1, styles.signup, props.textStyle]}>{props.action}</Text>
       </TouchableOpacity>
     </Text>
   );
