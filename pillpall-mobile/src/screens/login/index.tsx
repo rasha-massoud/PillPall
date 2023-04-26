@@ -26,9 +26,11 @@ const Login: FC = () => {
         <TextInputwithLabel label="Password" textinputprops={{ secureTextEntry: true }} />
 
         <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Login", onPress: () => console.log('Login') }}  />
+        
         <TouchableOpacity style={styles.forgotPassword}> 
             <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
         </TouchableOpacity>
+
         <Text style={[appStyles.body1, styles.account]}>
             Don't have an account?{" "}
             <TouchableOpacity>
