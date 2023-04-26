@@ -7,7 +7,7 @@ interface TextTitleProps {
 }
 
 const Body1Text: FC<TextTitleProps> = (props) => {
-    return <Text style={appStyles.body1}>{props.context}</Text>
+    return <Text style={{...appStyles.body1, textAlign: 'justify'}}>{props.context}</Text>
 };
 
 export default Body1Text;
