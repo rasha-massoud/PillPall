@@ -7,9 +7,6 @@ import { Dimensions } from 'react-native';
 interface Styles {
     container: ViewStyle;
     buttonContainer: ViewStyle;
-    forgotPassword: TextStyle;
-    forgotPasswordText: TextStyle;
-    image: ImageStyle;
 }
 
 const { width, height } = Dimensions.get('window');
@@ -25,20 +22,7 @@ const styles = StyleSheet.create<Styles>({
     buttonContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    forgotPassword: {
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    forgotPasswordText: {
-        color: colors.blue,
         marginBottom: "35%",
-    },
-    image: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        alignSelf: 'center',
-        marginBottom: 20,
     }
 });
 

@@ -26,12 +26,10 @@ const Register: FC = () => {
         <TextInputwithLabel label="Password" textinputprops={{ secureTextEntry: true }} />
         <TextInputwithLabel label="ConfirmPassword" textinputprops={{ secureTextEntry: true }} />
 
-        <View>
-            <CustomButton containerStyle={{ marginLeft: '20' }} buttonprops={{ title: "Cancel", onPress: () => console.log('Cancel') }}  />
-            <CustomButton containerStyle={{ marginRight: '20' }} buttonprops={{ title: "Signup", onPress: () => console.log('Signups') }} />
-        </View>
-        
-        <LoginSignupSwitch textTitle="Already have an account?" action="Login in" onPress={handleLoginPress}></LoginSignupSwitch>
+        <CustomButton containerStyle={{ marginLeft: '15%' }} buttonprops={{ title: "Cancel", onPress: () => console.log('Cancel') }}  />
+        <CustomButton containerStyle={{ marginLeft: '55%' }} buttonprops={{ title: "Signup", onPress: () => console.log('Signups') }} />
+    
+        <LoginSignupSwitch textTitle="Already have an account?" action="Login" onPress={handleLoginPress}></LoginSignupSwitch>
     </SafeAreaView>
   );
 };
