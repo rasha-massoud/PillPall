@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import CustomButton from './src/components/CustomButton';
+import Login from './src/screens/login';
 import React, { useEffect } from 'react';
 import { loadFonts } from './src/constants/font';
 
@@ -9,13 +9,9 @@ export default function App() {
     loadFonts();
   }, []);
   
-  const handlePress = () => {
-    console.log('Button pressed');
-  }
-  
   return (
     <View style={styles.container}>
-      <CustomButton buttonprops={{ title: 'Press me', onPress: handlePress }} />
+      <Login/>
     </View>
   );
 }
@@ -24,7 +20,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
