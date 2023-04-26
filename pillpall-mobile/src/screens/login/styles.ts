@@ -10,17 +10,15 @@ interface Styles {
 }
 
 const { width, height } = Dimensions.get('window');
-const LOGIN_PAGE_HEIGHT = height * 0.8;
 const LOGIN_PAGE_WIDTH = width * 0.9;
 
 const styles = StyleSheet.create<Styles>({
     container: {
         flex: 1,
-        marginTop: 100,
-        gap: '8%',
+        marginTop: '60%',
+        gap: '5%',
         alignItems: 'flex-start',
-        justifyContent: 'center',
-        height: LOGIN_PAGE_HEIGHT,
+        justifyContent: 'flex-start',
         width: LOGIN_PAGE_WIDTH,
         marginHorizontal: width * 0.05, 
     },
@@ -37,6 +35,9 @@ const styles = StyleSheet.create<Styles>({
         fontFamily: appStyles.body2.fontFamily,
         fontSize: appStyles.body2.fontSize,
     },
+    button: {
+        alignSelf: 'center',
+    }
 });
 
 export default styles;

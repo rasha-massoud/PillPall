@@ -35,7 +35,7 @@ const Login: FC = () => {
                 placeholderTextColor={colors.dark_gray}
             />
         </View>
-        <CustomButton buttonprops={{ title: "Login", onPress: () => console.log('Login') }} />
+        <CustomButton style={styles.button} buttonprops={{ title: "Login", onPress: () => console.log('Login') }} />
         <TouchableOpacity > 
             <Text>Forgot Password?</Text>
         </TouchableOpacity>
