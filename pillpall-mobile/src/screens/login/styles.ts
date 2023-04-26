@@ -35,9 +35,11 @@ const styles = StyleSheet.create<Styles>({
         fontFamily: appStyles.body2.fontFamily,
         fontSize: appStyles.body2.fontSize,
     },
-    button: {
-        alignSelf: 'center',
-    }
+    buttonContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
 });
 
 export default styles;
