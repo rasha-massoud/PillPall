@@ -3,6 +3,7 @@ import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 're
 import CustomButton from '../../components/CustomButton';
 import appStyles from '../../constants/appStyles';
 import { colors } from '../../constants/palette';
+import TextInputwithLabel from '../../components/TextInputwithLabel';
 
 import styles from './styles'
 
@@ -18,27 +19,10 @@ const Login: FC = () => {
         <Text style={appStyles.mainTitle}>Login</Text>
         <Text style={appStyles.subTitle2}>Please sign in to continue.</Text>
 
-        <View style={styles.inputContainer}>
-            <Text style={appStyles.body1}>Email</Text>
-            <TextInput 
-                style={styles.input}
-                autoCapitalize="none"
-                keyboardType="email-address"
-                placeholder="Enter your email"
-                placeholderTextColor= {colors.dark_gray}
-            />
-        </View>
-        <View style={styles.inputContainer}>
-            <Text style={appStyles.body1}>Password</Text>
-            <TextInput 
-                style={styles.input}
-                secureTextEntry
-                autoCapitalize="none"
-                placeholder="Enter your password"
-                placeholderTextColor={colors.dark_gray}
-            />
-        </View>
-        
+        <TextInputwithLabel label="Email" textinputprops={{ secureTextEntry: false }}/>
+
+        <TextInputwithLabel label="Password" textinputprops={{ secureTextEntry: true }} />
+
         <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Login", onPress: () => console.log('Login') }}  />
         <TouchableOpacity style={styles.forgotPassword}> 
             <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
