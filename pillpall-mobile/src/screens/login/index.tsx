@@ -1,8 +1,6 @@
 import React, { FC } from 'react'
 import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import CustomButton from '../../components/CustomButton';
-import appStyles from '../../constants/appStyles';
-import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import TextTitle from '../../components/TextTitle';
 import SubTitleText from '../../components/SubTitleText';

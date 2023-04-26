@@ -9,8 +9,6 @@ interface Styles {
     buttonContainer: ViewStyle;
     forgotPassword: TextStyle;
     forgotPasswordText: TextStyle;
-    account: TextStyle;
-    signup: TextStyle;
     image: ImageStyle;
 }
 
@@ -35,15 +33,6 @@ const styles = StyleSheet.create<Styles>({
     forgotPasswordText: {
         color: colors.blue,
         marginBottom: "35%",
-    },
-    account: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        textAlign: 'center',
-    },
-    signup: {
-        fontWeight: 'bold',
-        color: colors.blue,
     },
     image: {
         justifyContent: 'center',
