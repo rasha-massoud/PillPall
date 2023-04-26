@@ -2,12 +2,12 @@ import { Text } from 'react-native';
 import React, { FC } from 'react';
 import appStyles from '../../constants/appStyles';
 
-interface SubTextTitleProps {
+interface SubTitleTextProps {
     title: string;
 }
 
-const SubTextTitle: FC<SubTextTitleProps> = (props) => {
+const SubTitleText: FC<SubTitleTextProps> = (props) => {
   return <Text style={appStyles.subTitle2}>{props.title}</Text>
 };
 
-export default SubTextTitle;
+export default SubTitleText;
