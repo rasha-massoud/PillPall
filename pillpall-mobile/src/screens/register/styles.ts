@@ -6,7 +6,6 @@ import { Dimensions } from 'react-native';
 
 interface Styles {
     container: ViewStyle;
-    buttonContainer: ViewStyle;
 }
 
 const { width, height } = Dimensions.get('window');
@@ -15,15 +14,10 @@ const LOGIN_PAGE_WIDTH = width * 0.9;
 const styles = StyleSheet.create<Styles>({
     container: {
         flex: 1,
-        marginTop: '45%',
+        marginTop: '50%',
         width: LOGIN_PAGE_WIDTH,
         marginHorizontal: width * 0.05, 
     },
-    buttonContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: "35%",
-    }
 });
 
 export default styles;

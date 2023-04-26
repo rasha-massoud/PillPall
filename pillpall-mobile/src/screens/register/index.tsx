@@ -5,6 +5,7 @@ import TextInputwithLabel from '../../components/TextInputwithLabel';
 import TextTitle from '../../components/TextTitle';
 import SubTitleText from '../../components/SubTitleText';
 import LoginSignupSwitch from '../../components/LoginSignupSwitch';
+import TwoCustomButton from '../../components/TwoCustomButton';
 
 import styles from './styles'
 
@@ -26,9 +27,8 @@ const Register: FC = () => {
         <TextInputwithLabel label="Password" textinputprops={{ secureTextEntry: true }} />
         <TextInputwithLabel label="ConfirmPassword" textinputprops={{ secureTextEntry: true }} />
 
-        <CustomButton containerStyle={{ marginLeft: '15%' }} buttonprops={{ title: "Cancel", onPress: () => console.log('Cancel') }}  />
-        <CustomButton containerStyle={{ marginLeft: '55%' }} buttonprops={{ title: "Signup", onPress: () => console.log('Signups') }} />
-    
+        <TwoCustomButton buttonprops2={{ title: "Cancel", onPress: () => console.log('Cancel') }} buttonprops1={{ title: "Signup", onPress: () => console.log('Signups') }}></TwoCustomButton>
+
         <LoginSignupSwitch textTitle="Already have an account?" action="Login" onPress={handleLoginPress}></LoginSignupSwitch>
     </SafeAreaView>
   );
