@@ -2,8 +2,6 @@ import { StyleSheet } from 'react-native';
 import appStyles from '../../constants/appStyles';
 import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import { colors } from '../../constants/palette'
-import { fonts } from '../../constants/font'
-import { useFonts, Roboto_400Regular, Roboto_500Medium } from '@expo-google-fonts/roboto';
 import { Dimensions } from 'react-native';
 
 interface Styles {
