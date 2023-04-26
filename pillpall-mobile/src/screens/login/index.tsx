@@ -4,6 +4,7 @@ import CustomButton from '../../components/CustomButton';
 import appStyles from '../../constants/appStyles';
 import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
+import TextTitle from '../../components/TextTitle';
 
 import styles from './styles'
 
@@ -16,7 +17,7 @@ const Login: FC = () => {
             source={require('../../../assets/logo.png')}
             style={styles.image}
         />
-        <Text style={appStyles.mainTitle}>Login</Text>
+        <TextTitle title='Login'></TextTitle>
         <Text style={appStyles.subTitle2}>Please sign in to continue.</Text>
 
         <TextInputwithLabel label="Email" textinputprops={{ secureTextEntry: false }}/>
