@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        height: '100%',
     },
     buttonContainerFirst: {
         backgroundColor: colors.blue,
@@ -14,7 +13,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 30,
         width: '32%',
-        height: '6%',
+        height: '32%',
     },
     buttonTextFirst: {
         color: colors.white,
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 30,
         width: '32%',
-        height: '6%',
+        height: '32%',
     },
     buttonTextSecond: {
         color: colors.white,

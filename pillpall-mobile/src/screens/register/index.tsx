@@ -27,7 +27,7 @@ const Register: FC = () => {
         <TextInputwithLabel label="Password" textinputprops={{ secureTextEntry: true }} />
         <TextInputwithLabel label="ConfirmPassword" textinputprops={{ secureTextEntry: true }} />
 
-        <TwoCustomButton buttonprops2={{ title: "Cancel", onPress: () => console.log('Cancel') }} buttonprops1={{ title: "Signup", onPress: () => console.log('Signups') }}></TwoCustomButton>
+        <TwoCustomButton buttonprops2={{ title: "Cancel", onPress: () => console.log('Cancel') }} buttonprops1={{ title: "Signup", onPress: () => console.log('Signup') }}></TwoCustomButton>
 
         <LoginSignupSwitch textTitle="Already have an account?" action="Login" onPress={handleLoginPress}></LoginSignupSwitch>
     </SafeAreaView>
