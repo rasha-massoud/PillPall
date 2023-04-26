@@ -24,9 +24,9 @@ const Login: FC = () => {
         <TextTitle title='Login'></TextTitle>
         <SubTitleText title='Please sign in to continue.'></SubTitleText>
 
-        <TextInputwithLabel label="Email" textinputprops={{ secureTextEntry: false }}/>
+        <TextInputwithLabel label="Email" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false }}/>
 
-        <TextInputwithLabel label="Password" textinputprops={{ secureTextEntry: true }} />
+        <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true }} />
 
         <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Login", onPress: () => console.log('Login') }}  />
         

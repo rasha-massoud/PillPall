@@ -32,7 +32,7 @@ const styles = StyleSheet.create<Styles>({
     },
     forgotPasswordText: {
         color: colors.blue,
-        marginBottom: "35%",
+        marginBottom: "30%",
     },
     image: {
         justifyContent: 'center',
