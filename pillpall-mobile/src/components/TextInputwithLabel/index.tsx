@@ -5,11 +5,13 @@ import appStyles from '../../constants/appStyles';
 import { colors } from '../../constants/palette';
 
 interface TextInputwithLabelProps {
-    textinputprops: TextInputProps;
-    label: string;
-    placeholder: string;
-    keyboardType?: KeyboardTypeOptions;
-  }
+  textinputprops: TextInputProps;
+  label: string;
+  placeholder: string;
+  keyboardType?: KeyboardTypeOptions | EmailKeyboardType;
+}
+
+type EmailKeyboardType = 'email-address';
 
 const TextInputwithLabel: FC<TextInputwithLabelProps> = (props) => {
   return (
