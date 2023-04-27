@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { View } from 'react-native';
 import { Checkbox, Text } from 'react-native-paper';
+import appStyles from '../../constants/appStyles';
+
+import styles from './styles';
 
 interface GenderCheckBoxProps {
   selectedGender: string | undefined;
   onGenderSelect: (gender: string) => void;
 }
 
-const GenderCheckBox: React.FC<GenderCheckBoxProps> = ({ selectedGender, onGenderSelect }) => {
+const GenderCheckBox: FC<GenderCheckBoxProps> = ({ selectedGender, onGenderSelect }) => {
   const genderOptions = [
     { label: 'Female', value: 'female' },
     { label: 'Male', value: 'male' },
@@ -15,16 +18,21 @@ const GenderCheckBox: React.FC<GenderCheckBoxProps> = ({ selectedGender, onGende
   ];
 
   return (
-    <View>
-      {genderOptions.map(option => (
-        <View key={option.value} style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Checkbox
-            status={selectedGender === option.value ? 'checked' : 'unchecked'}
-            onPress={() => onGenderSelect(option.value)}
-          />
-          <Text>{option.label}</Text>
-        </View>
-      ))}
+    <View style={styles.container}>
+      <Text style={[styles.title, appStyles.body1]}>Gender</Text>
+      <View style={styles.checkboxes}>
+        {genderOptions.map((option) => (
+          <View key={option.value} style={styles.checkboxContainer}>
+            <View style={styles.circle}>
+              <Checkbox
+                status={selectedGender === option.value ? 'checked' : 'unchecked'}
+                onPress={() => onGenderSelect(option.value)}
+              />
+            </View>
+            <Text style={styles.checkboxLabel}>{option.label}</Text>
+          </View>
+        ))}
+      </View>
     </View>
   );
 };
