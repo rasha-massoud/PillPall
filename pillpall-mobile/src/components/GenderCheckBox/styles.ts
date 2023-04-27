@@ -1,5 +1,6 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import appStyles from '../../constants/appStyles';
+import { colors } from '../../constants/palette';
 
 interface Styles {
     container: ViewStyle;
@@ -8,6 +9,7 @@ interface Styles {
     checkboxContainer: ViewStyle;
     circle: ViewStyle;
     checkboxLabel: TextStyle;
+    checkedCircle: TextStyle;
 }
 
 const styles = StyleSheet.create<Styles>({
@@ -21,7 +23,7 @@ const styles = StyleSheet.create<Styles>({
   checkboxes: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginLeft: 30,
+    marginLeft: 50,
   },
   checkboxContainer: {
     alignItems: 'center',
@@ -29,8 +31,8 @@ const styles = StyleSheet.create<Styles>({
     marginHorizontal: 10,
   },
   circle: {
-    height: 30,
-    width: 30,
+    height: 15,
+    width: 15,
     borderWidth: 1,
     borderRadius: 15,
     borderColor: 'black',
@@ -40,6 +42,9 @@ const styles = StyleSheet.create<Styles>({
   checkboxLabel: {
     ...appStyles.body2,
     marginLeft: 5,
+  },
+  checkedCircle: {
+    backgroundColor: colors.blue,
   },
 });
   
