@@ -12,6 +12,7 @@ import VitalSigns from './src/screens/vitalsigns';
 import MedicalHistory from './src/screens/medicalhistory';
 import MedicationsAndHabits from './src/screens/medicationshabits';
 import ForgotPassword from './src/screens/forgotpassword';
+import ResetPassword from './src/screens/resetpassword';
 
 export default function App() {
   useEffect(() => {
@@ -20,7 +21,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <ForgotPassword/>
+      <ResetPassword/>
     </View>
   );
 }
