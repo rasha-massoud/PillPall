@@ -10,6 +10,7 @@ interface LoginSignupSwitchProps {
     style?: ViewStyle;
     textStyle?: TextStyle;
     onPress: () => void;
+    fontWeight?: string;
 }
 
 const LoginSignupSwitch: FC<LoginSignupSwitchProps> = (props) => {
