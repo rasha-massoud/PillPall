@@ -22,7 +22,7 @@ const Register: FC = () => {
         <SubTitleText title='Please fill the input below here.'></SubTitleText>
 
         <TextInputwithLabel label='Name' placeholder='Enter your Username' textinputprops={{ secureTextEntry: false }}/>
-        <TextInputwithLabel label='Email' placeholder='Enter your Email' textinputprops={{ secureTextEntry: false }}/>
+        <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false }}/>
 
         <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true }} />
         <TextInputwithLabel label="ConfirmPassword" placeholder='Re-enter your Password' textinputprops={{ secureTextEntry: true }} />
