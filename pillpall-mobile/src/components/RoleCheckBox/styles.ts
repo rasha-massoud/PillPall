@@ -16,6 +16,7 @@ const styles = StyleSheet.create<Styles>({
   container: {
     alignItems: 'flex-start',
     marginBottom: 20,
+    marginTop: 10,
   },
   title: {
     marginBottom: 10,
