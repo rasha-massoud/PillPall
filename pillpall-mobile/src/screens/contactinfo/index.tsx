@@ -27,11 +27,11 @@ const ContactInfo: FC = () => {
 
     <AddImage></AddImage>
 
-    <TextInputwithLabel label="Phone Number" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false }}/>
+    <TextInputwithLabel label="Phone Number" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }}/>
 
-    <TextInputwithLabel label="Date of Birth" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true }} />
+    <TextInputwithLabel label="Date of Birth" placeholder='Enter your Day of Birth' textinputprops={{ secureTextEntry: true }} />
 
-    <TextInputwithLabel label="Address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false }}/>
+    <TextInputwithLabel label="Address" placeholder='Enter your Address' textinputprops={{ secureTextEntry: false }}/>
 
     <GenderCheckBox selectedGender={gender} onGenderSelect={handleGenderSelect} />
     <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Continue", onPress: () => console.log('Continue') }}  />
