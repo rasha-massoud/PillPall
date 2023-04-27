@@ -11,6 +11,7 @@ import EmergencyContact from './src/screens/emergencycontact';
 import VitalSigns from './src/screens/vitalsigns';
 import MedicalHistory from './src/screens/medicalhistory';
 import MedicationsAndHabits from './src/screens/medicationshabits';
+import ForgotPassword from './src/screens/forgotpassword';
 
 export default function App() {
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <MedicationsAndHabits/>
+      <ForgotPassword/>
     </View>
   );
 }
