@@ -1,4 +1,4 @@
-import { Text, View, TextStyle, TextInput, TextInputProps } from 'react-native';
+import { Text, View, KeyboardTypeOptions, TextStyle, TextInput, TextInputProps } from 'react-native';
 import React, { FC } from 'react';
 import styles from './styles';
 import appStyles from '../../constants/appStyles';
@@ -8,7 +8,8 @@ interface TextInputwithLabelProps {
     textinputprops: TextInputProps;
     label: string;
     placeholder: string;
-}
+    keyboardType?: KeyboardTypeOptions;
+  }
 
 const TextInputwithLabel: FC<TextInputwithLabelProps> = (props) => {
   return (
@@ -19,6 +20,7 @@ const TextInputwithLabel: FC<TextInputwithLabelProps> = (props) => {
                 style={styles.input}
                 secureTextEntry
                 autoCapitalize="none"
+                keyboardType={props.keyboardType}
                 {...props.textinputprops}
                 placeholderTextColor={colors.dark_gray}
                 placeholder={props.placeholder}
