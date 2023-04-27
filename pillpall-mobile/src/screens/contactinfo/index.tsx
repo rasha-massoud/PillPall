@@ -10,13 +10,13 @@ import AddImage from '../../components/AddImage';
 
 import styles from './styles';
 
-const Welcome: FC = () => {
+const ContactInfo: FC = () => {
 
     return (
     
     <SafeAreaView style={styles.container}>
-        <PageTitle title='Hi PillPaller!' color= {colors.blue} />
-        <SubTitleText title='Step 1'></SubTitleText>
+        <PageTitle title='Contact Information' color= {colors.blue} />
+        <SubTitleText title='Step 1' color={colors.blue}></SubTitleText>
 
         <Body1Text context="To provide you with the best care possible, we need your contact information, such as your phone number, date of birth, address, and gender. This information helps us keep in touch with you and keep your medical records up-to-date."></Body1Text>
 
@@ -34,4 +34,4 @@ const Welcome: FC = () => {
   );
 };
 
-export default Welcome;
+export default ContactInfo;
