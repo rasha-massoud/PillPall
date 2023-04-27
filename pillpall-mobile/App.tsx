@@ -8,6 +8,7 @@ import Welcome from './src/screens/welcome';
 import ContactInfo from './src/screens/contactinfo';
 import AnthropometricMeasurements from './src/screens/measurements';
 import EmergencyContact from './src/screens/emergencycontact';
+import VitalSigns from './src/screens/vitalsigns';
 
 export default function App() {
   useEffect(() => {
@@ -16,7 +17,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <Register/>
+      <VitalSigns/>
     </View>
   );
 }
