@@ -9,7 +9,7 @@ interface StepTextProps {
 }
 
 const StepText: FC<StepTextProps> = (props) => {
-    return <Text style={[appStyles.subTitle2, {color: colors.blue, marginBottom: 12}]}>{props.title}</Text>
+    return <Text style={[appStyles.subTitle2, {color: colors.blue, marginBottom: 20}]}>{props.title}</Text>
 };
 
 export default StepText;
