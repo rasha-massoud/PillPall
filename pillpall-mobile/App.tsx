@@ -10,6 +10,7 @@ import AnthropometricMeasurements from './src/screens/measurements';
 import EmergencyContact from './src/screens/emergencycontact';
 import VitalSigns from './src/screens/vitalsigns';
 import MedicalHistory from './src/screens/medicalhistory';
+import MedicationsAndHabits from './src/screens/medicationshabits';
 
 export default function App() {
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <MedicalHistory/>
+      <MedicationsAndHabits/>
     </View>
   );
 }
