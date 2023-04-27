@@ -21,7 +21,7 @@ const ResetPassword: FC = () => {
         <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true }} />
         <TextInputwithLabel label="ConfirmPassword" placeholder='Re-enter your Password' textinputprops={{ secureTextEntry: true }} />
         
-        <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Login", onPress: () => console.log('Login') }}  />
+        <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Reset", onPress: () => console.log('Reset') }}  />
     
     </SafeAreaView>
   );
