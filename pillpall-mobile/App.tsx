@@ -6,6 +6,8 @@ import { loadFonts } from './src/constants/font';
 import Register from './src/screens/register';
 import Welcome from './src/screens/welcome';
 import ContactInfo from './src/screens/contactinfo';
+import AnthropometricMeasurements from './src/screens/measurements';
+
 
 export default function App() {
   useEffect(() => {
@@ -14,7 +16,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <Register/>
+      <AnthropometricMeasurements/>
     </View>
   );
 }
