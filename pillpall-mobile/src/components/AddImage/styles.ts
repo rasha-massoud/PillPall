@@ -1,13 +1,14 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../constants/palette';
 
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'center',
-        height: 150,
-        width: 150,
+        height: 130,
+        width: 130,
         borderRadius: 75,
-        backgroundColor: '#ddd',
+        backgroundColor: colors.light_gray,
         overflow: 'hidden',
     },
     image: {
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: '100%',
         width: '100%',
-        backgroundColor: '#888',
+        backgroundColor: colors.darker_gray,
         opacity: 0.8,
     },
 });
