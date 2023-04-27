@@ -12,7 +12,7 @@ const styles = StyleSheet.create<Styles>({
       alignSelf: 'center',
     },
     signup: {
-      fontWeight: 'bold',
+      fontWeight: '800',
       color: colors.blue,
     },
 });
