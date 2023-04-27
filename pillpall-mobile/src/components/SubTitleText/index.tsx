@@ -8,7 +8,6 @@ interface SubTitleTextProps {
 }
 
 const SubTitleText: FC<SubTitleTextProps> = (props) => {
-  return <Text style={[appStyles.subTitle2, {color: props.color|| 'black'}]}>{props.title}</Text>
+  return <Text style={[appStyles.subTitle2, {color: props.color|| 'black', marginBottom: 10}]}>{props.title}</Text>
 };
-
 export default SubTitleText;
