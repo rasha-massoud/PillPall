@@ -29,9 +29,9 @@ const ContactInfo: FC = () => {
 
     <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }}/>
 
-    <TextInputwithLabel label="Date of Birth" placeholder='Enter your Day of Birth' textinputprops={{ secureTextEntry: false }} />
+    <TextInputwithLabel label="Date of Birth" placeholder='YYYY-MM-DD' textinputprops={{ secureTextEntry: false }} />
 
-    <TextInputwithLabel label="Address" keyboardType="numeric" placeholder='Enter your Address' textinputprops={{ secureTextEntry: false }}/>
+    <TextInputwithLabel label="Address" placeholder='Enter your Address' textinputprops={{ secureTextEntry: false }}/>
 
     <GenderCheckBox selectedGender={gender} onGenderSelect={handleGenderSelect} />
     <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Continue", onPress: () => console.log('Continue') }}  />
