@@ -44,7 +44,7 @@ const styles = StyleSheet.create<Styles>({
     marginLeft: 5,
   },
   checkedCircle: {
-    backgroundColor: colors.blue,
+    backgroundColor: colors.darker_gray,
   },
 });
   

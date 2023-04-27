@@ -23,12 +23,12 @@ const styles = StyleSheet.create<Styles>({
   checkboxes: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginLeft: 50,
+    marginLeft: 62,
   },
   checkboxContainer: {
     alignItems: 'center',
     flexDirection: 'row',
-    marginHorizontal: 10,
+    marginHorizontal: 20,
   },
   circle: {
     height: 15,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create<Styles>({
     marginLeft: 5,
   },
   checkedCircle: {
-    backgroundColor: colors.blue,
+    backgroundColor: colors.darker_gray,
   },
 });
   
