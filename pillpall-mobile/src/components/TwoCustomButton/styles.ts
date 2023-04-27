@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     buttonTextFirst: {
         color: colors.white,
         fontFamily: fonts.bold.fontFamily,
-        fontWeight: '600',    
+        fontWeight: '600',     
         fontSize: 14,
         textTransform: 'uppercase',
     },
