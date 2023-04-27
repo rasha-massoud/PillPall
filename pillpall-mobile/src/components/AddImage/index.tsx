@@ -1,31 +1,42 @@
 import React, { useState } from 'react';
-import { Button, Image } from 'react-native';
-import ImagePicker from 'react-native-image-picker';
+import { View, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
+import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
+import { Ionicons } from '@expo/vector-icons';
 
-interface Props {
-  onImageSelected: (imageUri: string) => void;
-}
+import styles from './styles';
 
-const AddImage: React.FC<Props> = ({ onImageSelected }) => {
-  const [imageUri, setImageUri] = useState<string | null>(null);
+const AddImage = () => {
+    const [image, setImage] = useState<string | null>(null);
 
-  const pickImage = () => {
-    ImagePicker.showImagePicker({ mediaType: 'photo' }, response => {
-      if (!response.didCancel && !response.error) {
-        setImageUri(response.uri);
-        onImageSelected(response.uri);
-      }
-    });
-  };
+    const pickImage = async () => {
+        let result: ImagePickerResult = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+        });
 
-  return (
-    <>
-      {imageUri && (
-        <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />
-      )}
-      <Button title="Select Image" onPress={pickImage} />
-    </>
-  );
+        console.log(result);
+
+        if (!result.canceled && result.assets && result.assets.length > 0) {
+        setImage(result.assets[0].uri);
+        }
+    };
+
+    return (
+        <View style={styles.container}>
+        {image ? (
+            <Image source={{ uri: image }} style={styles.image} />
+        ) : (
+            <TouchableOpacity onPress={pickImage}>
+            <View style={styles.editIconContainer}>
+                <Ionicons name="pencil" size={24} color="#fff" />
+            </View>
+            </TouchableOpacity>
+        )}
+        </View>
+    );
 };
 
 export default AddImage;
