@@ -3,10 +3,13 @@ import * as Font from 'expo-font';
 
 export const fonts = {
   regular: 'Roboto_400Regular',
-  medium: 'Roboto_500Medium',
+  medium: {
+    fontFamily: 'Roboto_400Regular',
+    fontWeight: 600,  
+  },
   bold: {
-    fontFamily: 'Roboto_500Medium',
-    fontWeight: 'bold',
+    fontFamily: 'Roboto_400Regular',
+    fontWeight: 800,
   },
 };
 
