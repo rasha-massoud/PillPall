@@ -4,7 +4,8 @@ import Login from './src/screens/login';
 import React, { useEffect } from 'react';
 import { loadFonts } from './src/constants/font';
 import Register from './src/screens/register';
-import Welcome from './src/screens/welcome'
+import Welcome from './src/screens/welcome';
+import ContactInfo from './src/screens/contactinfo';
 
 export default function App() {
   useEffect(() => {
@@ -13,7 +14,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <Welcome/>
+      <ContactInfo/>
     </View>
   );
 }
