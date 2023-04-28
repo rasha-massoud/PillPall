@@ -15,7 +15,7 @@ import ForgotPassword from './src/screens/forgotpassword';
 import ResetPassword from './src/screens/resetpassword';
 import Report from './src/screens/report';
 import ChangePassword from './src/screens/changepassword';
-import OnboardingStack from './src/navigation/OnboardinfStack';
+import OnboardingStack from './src/navigation/OnboardingStack';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
