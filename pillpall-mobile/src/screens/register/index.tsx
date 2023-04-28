@@ -6,19 +6,61 @@ import SubTitleText from '../../components/SubTitleText';
 import LoginSignupSwitch from '../../components/LoginSignupSwitch';
 import TwoCustomButton from '../../components/TwoCustomButton';
 import RoleCheckBox from '../../components/RoleCheckBox';
+import axios from 'axios';
 
 import styles from './styles'
 
 const Register: FC = () => {
 
-    const [selectedRole, setSelectedRole] = useState<string>();
+    const [role, setRole] = useState<string>();
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [confirmPassword, setConfirmPassword] = useState<string>('');
+
+    const handleNameChange = (value: string) => {
+        setName(value);
+    };
+
+    const handleEmailChange = (value: string) => {
+        setEmail(value);
+    };
+
+    const handlePasswordChange = (value: string) => {
+        setPassword(value);
+    };
+
+    const handleConfirmPasswordChange = (value: string) => {
+        setConfirmPassword(value);
+    };
 
     const handleRoleSelect = (role: string) => {
-        setSelectedRole(role);
+        setRole(role);
     };
 
     const handleLoginPress = () => {
         // Navigate to Login in screen
+    };
+
+    const handleSignupPress = () => {
+        const data = new FormData();
+        data.append('name', name);
+        data.append('email', email);
+        data.append('password', password);
+        data.append('confirm_password', confirmPassword);
+        data.append('role', role);
+        
+        axios.post('http://127.0.0.1:8000/api/v0.0.0/register', data, {
+            headers: {
+                Accept: 'application/json',
+            },
+        })
+        .then((response) => {
+            console.log(response.data);
+        })
+        .catch((error) => {
+            console.error('An error occurred during signup');
+        });
     };
 
     return (
@@ -27,15 +69,15 @@ const Register: FC = () => {
         <TextTitle title='Create App'></TextTitle>
         <SubTitleText title='Please fill the input below here.'></SubTitleText>
 
-        <TextInputwithLabel label='Name' placeholder='Enter your Username' textinputprops={{ secureTextEntry: false }}/>
-        <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false }}/>
+        <TextInputwithLabel label='Name' placeholder='Enter your Username' textinputprops={{ secureTextEntry: false}} onChangeText= {handleNameChange} />
+        <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
 
-        <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true }} />
-        <TextInputwithLabel label="ConfirmPassword" placeholder='Re-enter your Password' textinputprops={{ secureTextEntry: true }} />
+        <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true}} onChangeText= {handlePasswordChange} />
+        <TextInputwithLabel label="ConfirmPassword" placeholder='Re-enter your Password' textinputprops={{ secureTextEntry: true}} onChangeText= {handleConfirmPasswordChange} />
         
-        <RoleCheckBox selectedRole={selectedRole} onRoleSelect={handleRoleSelect} />
+        <RoleCheckBox selectedRole={role} onRoleSelect={handleRoleSelect} />
 
-        <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: () => console.log('Cancel') }} buttonprops1={{ title: "Signup", onPress: () => console.log('Signup') }}></TwoCustomButton>
+        <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: () => console.log('Cancel') }} buttonprops1={{ title: "Signup", onPress: handleSignupPress  }}></TwoCustomButton>
 
         <LoginSignupSwitch style={{ marginTop: '12%' }} fontWeight= 'bold' textTitle="Already have an account?" action="Login" onPress={handleLoginPress}></LoginSignupSwitch>
     </SafeAreaView>
