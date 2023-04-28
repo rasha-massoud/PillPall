@@ -7,6 +7,7 @@ import LoginSignupSwitch from '../../components/LoginSignupSwitch';
 import TwoCustomButton from '../../components/TwoCustomButton';
 import RoleCheckBox from '../../components/RoleCheckBox';
 import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles'
 
