@@ -22,6 +22,16 @@ const Register: FC = () => {
     const [password, setPassword] = useState<string>('');
     const [confirmPassword, setConfirmPassword] = useState<string>('');
 
+    const validateEmail = (email: string): boolean => {
+        const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        return regex.test(email.trim());
+    }
+    
+    const validatePassword = (password: string): boolean => {
+        const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+        return regex.test(password);
+    }
+
     const handleNameChange = (value: string) => {
         setName(value);
     };
@@ -43,7 +53,7 @@ const Register: FC = () => {
     };
 
     const handleLoginPress = () => {
-        navigation.navigate(OnBoardingStack.Screens.Login);
+        // navigation.navigate('Login');
     };
 
     const handleCancelPress = () => {
@@ -67,6 +77,21 @@ const Register: FC = () => {
 
     const handleSignupPress = async () => {
         
+        if (!validateEmail(email) || !validatePassword(password) || password !== confirmPassword) {
+            Alert.alert('Invalid email', 'Please enter a valid email address.');
+            return;
+        }
+          
+        if (!validatePassword(password)) {
+            Alert.alert('Invalid password', 'Password must contain at least 8 characters including at least one uppercase letter, one lowercase letter, and one digit.');
+            return;
+        }
+    
+        if (password !== confirmPassword) {
+            Alert.alert('Password mismatch', 'Please make sure the confirm password matches the password.');
+            return;
+        }
+
         const data = new FormData();
         data.append('name', name);
         data.append('email', email);
