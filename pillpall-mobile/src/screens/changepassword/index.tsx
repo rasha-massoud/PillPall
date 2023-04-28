@@ -12,6 +12,7 @@ const ChangePassword: FC = () => {
     return (
     
     <SafeAreaView style={styles.container}>
+
         <Image
             source={require('../../../assets/changepass.png')}
             style={styles.image}
