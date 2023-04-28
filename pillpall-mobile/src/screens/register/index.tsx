@@ -8,10 +8,13 @@ import TwoCustomButton from '../../components/TwoCustomButton';
 import RoleCheckBox from '../../components/RoleCheckBox';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
+import Login from '../login'
 
 import styles from './styles'
 
 const Register: FC = () => {
+
+    // const navigation = useNavigation();
 
     const [role, setRole] = useState<string>('patient');
     const [name, setName] = useState<string>('');
@@ -40,10 +43,11 @@ const Register: FC = () => {
     };
 
     const handleLoginPress = () => {
-        // Navigate to Login in screen
+        //Handles Login
     };
 
     const handleSignupPress = async () => {
+        
         const data = new FormData();
         data.append('name', name);
         data.append('email', email);
@@ -63,7 +67,7 @@ const Register: FC = () => {
             console.log(response.data);
         })
         .catch((error) => {
-            console.error('An error occurred during signup', error);
+            console.error('An error occurred or incorrect entries during signup');
         });
     };
 
@@ -81,7 +85,7 @@ const Register: FC = () => {
         
         <RoleCheckBox selectedRole={role} onRoleSelect={handleRoleSelect} />
 
-        <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: () => console.log('Cancel') }} buttonprops1={{ title: "Signup", onPress: handleSignupPress  }}></TwoCustomButton>
+        <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: handleLoginPress }} buttonprops1={{ title: "Signup", onPress: handleSignupPress  }}></TwoCustomButton>
 
         <LoginSignupSwitch style={{ marginTop: '12%' }} fontWeight= 'bold' textTitle="Already have an account?" action="Login" onPress={handleLoginPress}></LoginSignupSwitch>
     </SafeAreaView>
