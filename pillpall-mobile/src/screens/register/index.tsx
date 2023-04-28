@@ -8,6 +8,7 @@ import TwoCustomButton from '../../components/TwoCustomButton';
 import RoleCheckBox from '../../components/RoleCheckBox';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
+import OnBoardingStack from '../../navigation/OnboardinfStack';
 
 import styles from './styles'
 
@@ -42,7 +43,7 @@ const Register: FC = () => {
     };
 
     const handleLoginPress = () => {
-        navigation.navigate('LoginScreen');
+        navigation.navigate(OnBoardingStack.Screens.Login);
     };
 
     const handleCancelPress = () => {
