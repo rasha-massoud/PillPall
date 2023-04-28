@@ -1,4 +1,5 @@
 import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { fonts } from '../../constants/font';
 
 interface Styles {
     column: ViewStyle;
@@ -12,7 +13,7 @@ const styles = StyleSheet.create<Styles>({
       marginBottom: 10,
     },
     title: {
-      fontWeight: 'bold',
+      fontWeight: '600',
       marginRight: 5,
     },
     value: {
