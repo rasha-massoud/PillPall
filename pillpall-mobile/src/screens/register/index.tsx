@@ -59,7 +59,7 @@ const Register: FC = () => {
             console.log(response.data);
         })
         .catch((error) => {
-            console.error('An error occurred during signup');
+            console.error('An error occurred during signup', error);
         });
     };
 

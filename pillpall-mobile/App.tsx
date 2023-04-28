@@ -23,7 +23,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <ChangePassword/>
+      <Register/>
     </View>
   );
 }
