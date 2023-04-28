@@ -12,7 +12,7 @@ import styles from './styles'
 
 const Register: FC = () => {
 
-    const [role, setRole] = useState<string>();
+    const [role, setRole] = useState<string>('patient');
     const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
