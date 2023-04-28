@@ -4,14 +4,20 @@ import CustomButton from '../../components/CustomButton';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import TextTitle from '../../components/TextTitle';
 import TwoCustomButton from '../../components/TwoCustomButton';
+import LogoutButton from '../../components/LogoutButton';
 
 import styles from './styles'
 
 const ChangePassword: FC = () => {
 
+    const handleLogout = () => {
+    };
+
     return (
     
     <SafeAreaView style={styles.container}>
+
+        <LogoutButton style={styles.logout} onPress={handleLogout} />
 
         <Image
             source={require('../../../assets/changepass.png')}
