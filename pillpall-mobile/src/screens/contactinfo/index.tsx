@@ -34,7 +34,7 @@ const ContactInfo: FC = () => {
     <TextInputwithLabel label="Address" placeholder='Enter your Address' textinputprops={{ secureTextEntry: false }}/>
 
     <GenderCheckBox selectedGender={gender} onGenderSelect={handleGenderSelect} />
-    <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Continue", onPress: () => console.log('Continue') }}  />
+    <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 20 }} buttonprops={{ title: "Continue", onPress: () => console.log('Continue') }}  />
 
   </SafeAreaView>
   );
