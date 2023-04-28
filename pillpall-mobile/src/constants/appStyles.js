@@ -39,7 +39,7 @@ const appStyles = StyleSheet.create({
     fontFamily: fonts.medium.fontFamily,
     fontWeight: fonts.medium.fontWeight,
     fontSize: 14,
-    letterSpacing: 8.9, 
+    letterSpacing: 1.5, 
   },
 
 });

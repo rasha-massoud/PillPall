@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { fonts } from '../../constants/font';
 import { colors } from '../../constants/palette';
+import appStyles from '../../constants/appStyles';
 
 const styles = StyleSheet.create({
   buttonContainer: {
@@ -13,9 +14,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: colors.white,
-    fontFamily: fonts.bold.fontFamily,
-    fontWeight: '600',    
-    fontSize: 14,
+    ...appStyles.button,   
     textTransform: 'uppercase',
   },
 });
