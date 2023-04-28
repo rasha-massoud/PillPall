@@ -20,17 +20,14 @@ const Register: FC = () => {
 
     const handleNameChange = (value: string) => {
         setName(value);
-        console.log(name);
     };
 
     const handleEmailChange = (value: string) => {
         setEmail(value);
-        console.log(email);
     };
 
     const handlePasswordChange = (value: string) => {
         setPassword(value);
-        console.log(password);
     };
 
     const handleConfirmPasswordChange = (value: string) => {
@@ -39,7 +36,6 @@ const Register: FC = () => {
 
     const handleRoleSelect = (role: string) => {
         setRole(role);
-        console.log(role);
     };
 
     const handleLoginPress = () => {
@@ -54,11 +50,13 @@ const Register: FC = () => {
         data.append('confirm_password', confirmPassword);
         data.append('role', role);
          
+        console.log(data);
         await axios.post('http://192.168.0.103:8000/api/v0.0.0/register', data, {
             headers: {
-                'Content-Type': "application/json",
+                'Content-Type': "multipart/form-data",
                 'Accept': 'application/json',
             },
+            timeout: 15000,
         })
         .then((response) => {
             console.log(response.data);
@@ -71,7 +69,7 @@ const Register: FC = () => {
     return (
     
     <SafeAreaView style={styles.container}>
-        <TextTitle title='Create App'></TextTitle>
+        <TextTitle title='Create Account'></TextTitle>
         <SubTitleText title='Please fill the input below here.'></SubTitleText>
 
         <TextInputwithLabel label='Name' placeholder='Enter your Username' textinputprops={{ secureTextEntry: false}} onChangeText= {handleNameChange} />
