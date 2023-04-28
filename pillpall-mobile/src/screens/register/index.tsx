@@ -1,5 +1,5 @@
 import React, { FC, useState} from 'react'
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, Alert } from 'react-native';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import TextTitle from '../../components/TextTitle';
 import SubTitleText from '../../components/SubTitleText';
@@ -8,13 +8,12 @@ import TwoCustomButton from '../../components/TwoCustomButton';
 import RoleCheckBox from '../../components/RoleCheckBox';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
-import Login from '../login'
 
 import styles from './styles'
 
 const Register: FC = () => {
 
-    // const navigation = useNavigation();
+    const navigation = useNavigation();
 
     const [role, setRole] = useState<string>('patient');
     const [name, setName] = useState<string>('');
@@ -43,8 +42,27 @@ const Register: FC = () => {
     };
 
     const handleLoginPress = () => {
-        //Handles Login
+        navigation.navigate('LoginScreen');
     };
+
+    const handleCancelPress = () => {
+        Alert.alert(
+            "Confirmation",
+            "Are you sure you want to cancel? All unsaved data will be lost.",
+            [
+              {
+                text: "Stay",
+                style: "cancel",
+              },
+              {
+                text: "Accept",
+                onPress: () => {
+                  navigation.goBack();
+                },
+              },
+            ]
+          );    
+        };
 
     const handleSignupPress = async () => {
         
@@ -61,7 +79,6 @@ const Register: FC = () => {
                 'Content-Type': "multipart/form-data",
                 'Accept': 'application/json',
             },
-            timeout: 15000,
         })
         .then((response) => {
             console.log(response.data);
@@ -85,7 +102,7 @@ const Register: FC = () => {
         
         <RoleCheckBox selectedRole={role} onRoleSelect={handleRoleSelect} />
 
-        <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: handleLoginPress }} buttonprops1={{ title: "Signup", onPress: handleSignupPress  }}></TwoCustomButton>
+        <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: handleCancelPress }} buttonprops1={{ title: "Signup", onPress: handleSignupPress  }}></TwoCustomButton>
 
         <LoginSignupSwitch style={{ marginTop: '12%' }} fontWeight= 'bold' textTitle="Already have an account?" action="Login" onPress={handleLoginPress}></LoginSignupSwitch>
     </SafeAreaView>

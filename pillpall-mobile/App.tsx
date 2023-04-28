@@ -15,6 +15,9 @@ import ForgotPassword from './src/screens/forgotpassword';
 import ResetPassword from './src/screens/resetpassword';
 import Report from './src/screens/report';
 import ChangePassword from './src/screens/changepassword';
+import OnboardingStack from './src/navigation/OnboardinfStack';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   useEffect(() => {
@@ -22,9 +25,10 @@ export default function App() {
   }, []);
   
   return (
-    <View style={styles.container}>
-      <Register/>
-    </View>
+    <NavigationContainer>
+      <OnboardingStack/>
+    </NavigationContainer>
+>
   );
 }
 
