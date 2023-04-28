@@ -5,7 +5,7 @@ export const fonts = {
   regular: 'Roboto_400Regular',
   medium: {
     fontFamily: 'Roboto_400Regular',
-    fontWeight: '600',  
+    fontWeight: 600,  
   },
   bold: {
     fontFamily: 'Roboto_400Regular',
