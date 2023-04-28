@@ -28,7 +28,6 @@ export default function App() {
     <NavigationContainer>
       <OnboardingStack/>
     </NavigationContainer>
->
   );
 }
 
