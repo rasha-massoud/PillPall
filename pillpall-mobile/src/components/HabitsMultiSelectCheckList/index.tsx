@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import appStyles from '../../constants/appStyles';
 
@@ -9,7 +9,7 @@ interface HabitsMultiSelectChecklistProps {
   onSelectOption: (option: string) => void;
 }
 
-const HabitsMultiSelectChecklist: React.FC<HabitsMultiSelectChecklistProps> = (props) => {
+const HabitsMultiSelectChecklist: FC<HabitsMultiSelectChecklistProps> = (props) => {
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpanded = () => {
