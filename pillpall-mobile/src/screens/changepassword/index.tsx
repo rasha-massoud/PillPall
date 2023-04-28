@@ -23,7 +23,6 @@ const ChangePassword: FC = () => {
         <TextInputwithLabel label="New Password" placeholder='Enter a New Password' textinputprops={{ secureTextEntry: true }} />
         <TextInputwithLabel label="Confirm New Password" placeholder='Re-enter the New Password' textinputprops={{ secureTextEntry: true }} />
         
-        <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Reset", onPress: () => console.log('Reset') }}  />
         <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: () => console.log('Cancel') }} buttonprops1={{ title: "Save", onPress: () => console.log('Save') }}></TwoCustomButton>
 
     </SafeAreaView>
