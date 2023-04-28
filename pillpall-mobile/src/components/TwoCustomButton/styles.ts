@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 30,
-        width: '32%',
-        height: '32%',
+        width: '37%',
+        height: '33%',
     },
     buttonTextFirst: {
         color: colors.white,
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 30,
-        width: '32%',
-        height: '32%',
+        width: '37%',
+        height: '33%',
     },
     buttonTextSecond: {
         color: colors.white,

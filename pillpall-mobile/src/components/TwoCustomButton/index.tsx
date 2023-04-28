@@ -1,6 +1,7 @@
-import { Button, ButtonProps, Text, TouchableOpacity, View, StyleProp, ViewStyle, TextStyle } from 'react-native';
+import { ButtonProps, Text, TouchableOpacity, View, StyleProp, ViewStyle, TextStyle } from 'react-native';
 import React, { FC } from 'react';
 import styles from './styles';
+import appStyles from '../../constants/appStyles';
 
 interface TwoCustomButtonProps {
   buttonprops1: ButtonProps;
@@ -17,14 +18,14 @@ const TwoCustomButton: FC<TwoCustomButtonProps> = (props) => {
             onPress={props.buttonprops2.onPress}
             style={[styles.buttonContainerSecond, props.containerStyle]}
         >
-            <Text style={[styles.buttonTextSecond, props.textStyle]}>{props.buttonprops2.title}</Text>
+            <Text style={[styles.buttonTextSecond, appStyles.button ,props.textStyle]}>{props.buttonprops2.title}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
             onPress={props.buttonprops1.onPress}
             style={[styles.buttonContainerFirst, props.containerStyle]}
         >
-            <Text style={[styles.buttonTextFirst, props.textStyle]}>{props.buttonprops1.title}</Text>
+            <Text style={[styles.buttonTextFirst, appStyles.button, props.textStyle]}>{props.buttonprops1.title}</Text>
         </TouchableOpacity>
     </View>
     </> 
