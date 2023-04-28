@@ -77,7 +77,7 @@ const Register: FC = () => {
 
     const handleSignupPress = async () => {
         
-        if (!validateEmail(email) || !validatePassword(password) || password !== confirmPassword) {
+        if (!validateEmail(email)) {
             Alert.alert('Invalid email', 'Please enter a valid email address.');
             return;
         }
