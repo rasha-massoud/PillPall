@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import appStyles from '../../constants/appStyles';
-import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
 import { colors } from '../../constants/palette'
 
 interface Styles {
@@ -21,8 +21,7 @@ const styles = StyleSheet.create<Styles>({
         borderColor: 'lightgrey',
         padding: 10,
         borderRadius: 5,
-        fontFamily: appStyles.body2.fontFamily,
-        fontSize: appStyles.body2.fontSize,
+        ...appStyles.body2,
         color: colors.darker_gray,
         height: 40,
     },
