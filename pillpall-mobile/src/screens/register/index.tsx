@@ -54,8 +54,9 @@ const Register: FC = () => {
         data.append('confirm_password', confirmPassword);
         data.append('role', role);
          
-        await axios.post('http://127.0.0.1:8000/api/v0.0.0/register', data, {
+        await axios.post('http://192.168.0.103:8000/api/v0.0.0/register', data, {
             headers: {
+                'Content-Type': "application/json",
                 'Accept': 'application/json',
             },
         })
