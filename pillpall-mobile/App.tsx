@@ -14,6 +14,7 @@ import MedicationsAndHabits from './src/screens/medicationshabits';
 import ForgotPassword from './src/screens/forgotpassword';
 import ResetPassword from './src/screens/resetpassword';
 import Report from './src/screens/report';
+import ChangePassword from './src/screens/changepassword';
 
 export default function App() {
   useEffect(() => {
@@ -22,7 +23,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <Report/>
+      <ChangePassword/>
     </View>
   );
 }
