@@ -1,5 +1,5 @@
 import { Text, View, KeyboardTypeOptions, TouchableWithoutFeedback, TextInput, TextInputProps } from 'react-native';
-import React, { FC, useRef } from 'react';
+import React, { FC, useRef, useState} from 'react';
 import styles from './styles';
 import appStyles from '../../constants/appStyles';
 import { colors } from '../../constants/palette';
@@ -10,6 +10,7 @@ interface TextInputwithLabelProps {
   label: string;
   placeholder: string;
   keyboardType?: KeyboardTypeOptions | EmailKeyboardType;
+  onChangeText?: (value: string) => void;
 }
 
 type EmailKeyboardType = 'email-address';
@@ -36,6 +37,7 @@ const TextInputwithLabel: FC<TextInputwithLabelProps> = (props) => {
                   {...props.textinputprops}
                   placeholderTextColor={colors.dark_gray}
                   placeholder={props.placeholder}
+                  onChangeText={props.onChangeText}
               />
           </View>
         </TouchableWithoutFeedback>
