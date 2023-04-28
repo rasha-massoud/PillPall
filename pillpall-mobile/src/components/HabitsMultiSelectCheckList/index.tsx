@@ -22,7 +22,7 @@ const HabitsMultiSelectChecklist: React.FC<HabitsMultiSelectChecklistProps> = (p
 
   return (
     <View style={styles.container}>
-        <Text style={ appStyles.body1}>Life Style Habits</Text>
+        <Text style={appStyles.body1}>Life Style Habits</Text>
 
         <TouchableOpacity style={styles.header} onPress={toggleExpanded}>
             <Text style={styles.headerText}>{`Selected: ${props.selectedOptions.length}`}</Text>
