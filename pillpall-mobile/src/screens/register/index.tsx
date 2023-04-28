@@ -20,14 +20,17 @@ const Register: FC = () => {
 
     const handleNameChange = (value: string) => {
         setName(value);
+        console.log(name);
     };
 
     const handleEmailChange = (value: string) => {
         setEmail(value);
+        console.log(email);
     };
 
     const handlePasswordChange = (value: string) => {
         setPassword(value);
+        console.log(password);
     };
 
     const handleConfirmPasswordChange = (value: string) => {
@@ -36,23 +39,24 @@ const Register: FC = () => {
 
     const handleRoleSelect = (role: string) => {
         setRole(role);
+        console.log(role);
     };
 
     const handleLoginPress = () => {
         // Navigate to Login in screen
     };
 
-    const handleSignupPress = () => {
+    const handleSignupPress = async () => {
         const data = new FormData();
         data.append('name', name);
         data.append('email', email);
         data.append('password', password);
         data.append('confirm_password', confirmPassword);
         data.append('role', role);
-        
-        axios.post('http://127.0.0.1:8000/api/v0.0.0/register', data, {
+         
+        await axios.post('http://127.0.0.1:8000/api/v0.0.0/register', data, {
             headers: {
-                Accept: 'application/json',
+                'Accept': 'application/json',
             },
         })
         .then((response) => {
