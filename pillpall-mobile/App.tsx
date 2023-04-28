@@ -21,7 +21,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <ResetPassword/>
+      <ContactInfo/>
     </View>
   );
 }
