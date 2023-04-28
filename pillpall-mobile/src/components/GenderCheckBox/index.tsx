@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react';
 import { View } from 'react-native';
 import { Checkbox, Text } from 'react-native-paper';
 import appStyles from '../../constants/appStyles';
-import { colors } from '../../constants/palette';
 
 import styles from './styles';
 
@@ -11,7 +10,7 @@ interface GenderCheckBoxProps {
   onGenderSelect: (gender: string) => void;
 }
 
-const GenderCheckBox: FC<GenderCheckBoxProps> = ({ selectedGender, onGenderSelect }) => {
+const GenderCheckBox: FC<GenderCheckBoxProps> = (props) => {
   const genderOptions = [
     { label: 'Female', value: 'female' },
     { label: 'Male', value: 'male' },
@@ -24,10 +23,10 @@ const GenderCheckBox: FC<GenderCheckBoxProps> = ({ selectedGender, onGenderSelec
       <View style={styles.checkboxes}>
         {genderOptions.map((option) => (
         <View key={option.value} style={styles.checkboxContainer}>
-          <View style={[styles.circle, selectedGender === option.value && styles.checkedCircle]}>
+          <View style={[styles.circle, props.selectedGender === option.value && styles.checkedCircle]}>
             <Checkbox
-              status={selectedGender === option.value ? 'checked' : 'unchecked'}
-              onPress={() => onGenderSelect(option.value)}
+              status={props.selectedGender === option.value ? 'checked' : 'unchecked'}
+              onPress={() => props.onGenderSelect(option.value)}
             />
           </View>
           <Text style={styles.checkboxLabel}>{option.label}</Text>
