@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../constants/palette'
 
 const styles = StyleSheet.create({
     container: {
@@ -10,17 +11,19 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       paddingHorizontal: 10,
       paddingVertical: 5,
-      backgroundColor: '#F2F2F2',
+      backgroundColor: colors.light_gray,
+      borderRadius: 10
     },
     headerText: {
-      fontWeight: 'bold',
+      fontWeight: '600',
     },
     optionsContainer: {
       paddingHorizontal: 10,
       paddingVertical: 5,
-      backgroundColor: '#FFFFFF',
+      backgroundColor: colors.white,
       borderWidth: 1,
-      borderColor: '#CCCCCC',
+      borderColor: colors.darker_gray,
+      borderRadius: 10
     },
     option: {
       flexDirection: 'row',
@@ -28,7 +31,7 @@ const styles = StyleSheet.create({
       paddingVertical: 5,
     },
     selectedOption: {
-      backgroundColor: '#F2F2F2',
+      backgroundColor: colors.dark_gray,
     },
 });
 
