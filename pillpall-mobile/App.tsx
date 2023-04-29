@@ -18,6 +18,7 @@ import ChangePassword from './src/screens/changepassword';
 import OnboardingStack from './src/navigation/OnboardingStack';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import MedicationSchedule from './src/screens/medicationschedule';
 
 export default function App() {
   useEffect(() => {
@@ -26,7 +27,7 @@ export default function App() {
   
   return (
     <NavigationContainer>
-      <OnboardingStack/>
+      <MedicationSchedule/>
     </NavigationContainer>
   );
 }
