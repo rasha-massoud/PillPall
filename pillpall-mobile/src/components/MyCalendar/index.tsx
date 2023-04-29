@@ -1,6 +1,8 @@
 import React, { FC, useState, useEffect } from 'react';
 import { Calendar } from 'react-native-calendars';
 
+import styles from './styles';
+
 type MyCalendarProps = {
   onSelectDate: (date: string) => void;
 }
@@ -18,7 +20,7 @@ const MyCalendar: FC<MyCalendarProps> = (props) => {
     };
 
     return (
-        <Calendar
+        <Calendar style={styles.calendar}
         onDayPress={(day) => handleSelectDate(day.dateString)}
         markedDates={{ [selectedDate]: { selected: true } }}
         />
