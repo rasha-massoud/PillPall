@@ -8,6 +8,8 @@ import TextInputwithLabel from '../../components/TextInputwithLabel';
 import DaySelector from '../../components/DaySelector';
 import MonthSelector from '../../components/MonthSelector';
 import TimingChecklist from '../../components/TimingCheckList';
+import OnDemandCheckBox from '../../components/OnDemandCheckBox';
+import FirstOfEachMonth from '../../components/FirstOfEachMonth';
 
 const DAYS: Day[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'None', 'Everyday'];
 const MONTHS: Month[] = ['All', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -19,6 +21,9 @@ type Timing = '6:00' | '8:00' | '10:00' | '12:00' | '14:00' | '16:00' | '18:00' 
 
 const AddMedicine: FC = () => {
     
+    const [onDemand, setOnDemand] = useState<string>('No');
+    const [firstOfEachMonth, setFirstOfEachMonth] = useState<string>('No');
+    onDemand
     const [selectedDay, setSelectedDay] = useState<Day | null>(null);
     const [selectedMonth, setSelectedMonth] = useState<Month | null>(null);
     const [selectedTiming, setSelectedTiming] = useState<Timing | null>(null);
@@ -53,6 +58,14 @@ const AddMedicine: FC = () => {
 
     const handleSelectTiming = (timing: Timing) => {
         setSelectedTiming(timing);
+    };
+
+    const handleFirstOfEachMonthSelect = (firstOfEachMonth: string) => {
+        setFirstOfEachMonth(firstOfEachMonth);
+    };
+
+    const handleOnDemandSelect = (onDemand: string) => {
+        setOnDemand(onDemand);
     };
 
     const handleSelectDate = async (date: string) => {
@@ -92,6 +105,10 @@ const AddMedicine: FC = () => {
                 <DaySelector days={DAYS} selectedDay={selectedDay} onSelectDay={handleSelectDay} />
                 <MonthSelector months={MONTHS} selectedMonth={selectedMonth} onSelectMonth={handleSelectMonth} />
                 <TimingChecklist timings={TIMINGS} selectedTiming={selectedTiming} onSelectTiming={handleSelectTiming} />
+            
+                <OnDemandCheckBox selectedOnDemand={onDemand} onDemandSelect={handleOnDemandSelect} />
+                <FirstOfEachMonth selectedFirstOfEachMonth={firstOfEachMonth} firstOfEachMonthSelect={handleFirstOfEachMonthSelect} />
+
             </ScrollView>
 
         </SafeAreaView>
