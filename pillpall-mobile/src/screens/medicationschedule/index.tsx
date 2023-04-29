@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react'
 import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { colors } from '../../constants/palette';
 import NavBar3 from '../../components/NavBar3';
+import PageTitle from '../../components/PageTitle';
 
 import styles from './styles';
 
@@ -22,14 +23,13 @@ const MedicationSchedule: FC = () => {
     return (
     
         <SafeAreaView style={styles.container}>
-            <View>
-                <NavBar3
-                    title="Medication Schedule"
-                    image1={{ source: require('../../../assets/budget.png'), onPress: handleImage1Press }}
-                    image2={{ source: require('../../../assets/addmed.png'), onPress: handleImage2Press }}
-                    image3={{ source: require('../../../assets/rename.png'), onPress: handleImage3Press }}
-                />
-            </View>
+        <NavBar3
+            title="Medication Schedule"
+            image1={{ source: require('../../../assets/addmed.png'), onPress: handleImage1Press }}
+            image2={{ source: require('../../../assets/budget.png'), onPress: handleImage2Press }}
+            image3={{ source: require('../../../assets/rename.png'), onPress: handleImage3Press }}
+        />
+        <Text>Content of my screen goes here</Text>
         </SafeAreaView>
     );
 };
