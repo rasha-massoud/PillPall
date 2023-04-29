@@ -51,9 +51,8 @@ const DeleteMedicine: FC = () => {
             <NavBar
                 title="Medication Schedule"
             />
-
             <Image
-                source={require('../../../assets/deletemedicinescreen.gif')}
+                source={require('../../../assets/deletemedicinescreen.png')}
                 style={styles.image}
             />
 
