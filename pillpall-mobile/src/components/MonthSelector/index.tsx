@@ -12,21 +12,31 @@ type MonthSelectorProps = {
 };
 
 const MonthSelector: React.FC<MonthSelectorProps> = (props) => {
+  const [showSelector, setShowSelector] = useState(false);
+
   const handleMonthPress = (month: Month) => {
     if (month !== props.selectedMonth) {
         props.onSelectMonth(month);
     }
+    setShowSelector(false);
   };
 
   return (
     <View>
-      {props.months.map((month) => (
-        <TouchableOpacity key={month} onPress={() => handleMonthPress(month)}>
-          <View style={[styles.monthItem, month === props.selectedMonth && styles.selectedMonthItem]}>
-            <Text style={[styles.monthText, month === props.selectedMonth && styles.selectedMonthText]}>{month}</Text>
-          </View>
-        </TouchableOpacity>
-      ))}
+      <TouchableOpacity onPress={() => setShowSelector(!showSelector)}>
+        <Text style={styles.monthsTitle}>Months</Text>
+      </TouchableOpacity>
+      {showSelector && (
+        <View>
+          {props.months.map((month) => (
+            <TouchableOpacity key={month} onPress={() => handleMonthPress(month)}>
+              <View style={[styles.monthItem, month === props.selectedMonth && styles.selectedMonthItem]}>
+                <Text style={[styles.monthText, month === props.selectedMonth && styles.selectedMonthText]}>{month}</Text>
+              </View>
+            </TouchableOpacity>
+          ))}
+        </View>
+      )}
     </View>
   );
 };
