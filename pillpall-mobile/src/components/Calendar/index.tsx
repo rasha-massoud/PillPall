@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { Calendar } from 'react-native-calendars';
 
-const MyCalendar = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().slice(0, 10));
+type MyCalendarProps = {
+  onSelectDate: (date: string) => void;
+}
 
-  const onDayPress = (day: any) => {
-    setSelectedDate(day.dateString);
-  };
+const MyCalendar: FC<MyCalendarProps> = (props) => {
+    const [selectedDate, setSelectedDate] = useState('');
+    
+    useEffect(() => {
+        setSelectedDate(new Date().toISOString().slice(0, 10));
+    }, []);
 
-  const markedDates = {
-    [selectedDate]: { selected: true }
-  };
+    const handleSelectDate = (date: string) => {
+        setSelectedDate(date);
+        props.onSelectDate(date);
+    };
 
-  return (
-    <Calendar
-      markedDates={markedDates}
-      onDayPress={onDayPress}
-    />
-  );
+    return (
+        <Calendar
+        onDayPress={(day) => handleSelectDate(day.dateString)}
+        markedDates={{ [selectedDate]: { selected: true } }}
+        />
+    );
 };
 
 export default MyCalendar;

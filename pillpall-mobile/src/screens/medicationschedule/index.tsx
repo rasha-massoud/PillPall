@@ -5,9 +5,12 @@ import NavBar3 from '../../components/NavBar3';
 import PageTitle from '../../components/PageTitle';
 
 import styles from './styles';
+import { Calendar } from 'react-native-calendars';
 
 const MedicationSchedule: FC = () => {
    
+    const [selectedDate, setSelectedDate] = useState('');
+
     const handleImage1Press = () => {
         // navigate to screen 1
     }
@@ -20,6 +23,11 @@ const MedicationSchedule: FC = () => {
         // navigate to screen 3
     }
 
+    const handleSelectDate = (date: string) => {
+      setSelectedDate(date);
+      console.log(date);
+    };
+
     return (
     
         <SafeAreaView style={styles.container}>
@@ -29,7 +37,7 @@ const MedicationSchedule: FC = () => {
                 image2={{ source: require('../../../assets/budget.png'), onPress: handleImage2Press }}
                 image3={{ source: require('../../../assets/rename.png'), onPress: handleImage3Press }}
             />
-            <Text>Content of my screen goes here</Text>
+            <Calendar onSelectDate={handleSelectDate} />
         </SafeAreaView>
     );
 };
