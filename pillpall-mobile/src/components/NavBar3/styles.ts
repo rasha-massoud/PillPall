@@ -14,13 +14,11 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      height: 60,
-      paddingHorizontal: 20,
     },
     imagesContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      width: 80,
+      width: 92,
     },
     imageContainer: {
       justifyContent: 'center',
@@ -29,8 +27,8 @@ const styles = StyleSheet.create({
       height: 30,
     },
     image: {
-      width: 20,
-      height: 20,
+      width: 25,
+      height: 25,
     },
 });
   
