@@ -1,29 +1,37 @@
 import { StyleSheet } from 'react-native';
 import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
+import { colors } from '../../constants/palette';
 
 interface Styles {
     container: ViewStyle;
-    images: ViewStyle;
+    imagesContainer: ViewStyle;
+    imageContainer: ViewStyle;
     image: ImageStyle;
 }
 
-const styles = StyleSheet.create<Styles>({
+const styles = StyleSheet.create({
     container: {
-        height: '50%',
-        flex: 0.75,
-        flexDirection: 'row',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      height: 60,
+      paddingHorizontal: 20,
     },
-    images: {
-        flex: 0.25,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+    imagesContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: 80,
+    },
+    imageContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: 30,
+      height: 30,
     },
     image: {
-        justifyContent: 'center',
-        marginBottom: 20,
-        width: '30%',
-        height: '30%',
+      width: 20,
+      height: 20,
     },
 });
-
+  
 export default styles;
