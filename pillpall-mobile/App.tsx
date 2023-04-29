@@ -26,9 +26,9 @@ export default function App() {
   }, []);
   
   return (
-    <NavigationContainer>
+    <View style={styles.container}>
       <MedicationSchedule/>
-    </NavigationContainer>
+    </View>
   );
 }
 
