@@ -2,30 +2,58 @@ import React, { FC, useState } from 'react'
 import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { colors } from '../../constants/palette';
 import NavBar3 from '../../components/NavBar3';
-import PageTitle from '../../components/PageTitle';
-
+import MyCalendar from '../../components/MyCalendar';
+import axios from 'axios';
 import styles from './styles';
-import { Calendar } from 'react-native-calendars';
 
 const MedicationSchedule: FC = () => {
    
-    const [selectedDate, setSelectedDate] = useState('');
+    const [selectedDate, setSelectedDate] = useState(new Date().toISOString().substring(0, 10));
+    const [selectedDay, setSelectedDay] = useState('');
 
-    const handleImage1Press = () => {
-        // navigate to screen 1
+    const handleAddMedPress = () => {
+        // navigate to Add Medicine Screen
     }
 
-    const handleImage2Press = () => {
-        // navigate to screen 2
+    const handleBudgetTrackerPress = () => {
+        // navigate to Buget Tracker Screen
     }
 
-    const handleImage3Press = () => {
-        // navigate to screen 3
+    const handlePharmPress = () => {
+        // navigate to Nearby Pharm Screen
     }
 
-    const handleSelectDate = (date: string) => {
-      setSelectedDate(date);
-      console.log(date);
+    const handleSelectDate = async (date: string) => {
+        setSelectedDay(date);
+      
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const selectedDateObj = new Date(date);
+        const dayOfWeek = daysOfWeek[selectedDateObj.getDay()];
+
+        setSelectedDay(dayOfWeek);
+        console.log(date);
+        console.log(dayOfWeek);
+
+        const data = new FormData();
+        data.append('day', dayOfWeek);
+        data.append('date', date);
+         
+        const token = localStorage.getItem('token');
+
+        await axios.post('http://192.168.0.103:8000/api/v0.0.0/get_medications', data, {
+            headers: {
+                'Content-Type': "multipart/form-data",
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+        })
+        .then((response) => {
+            console.log(response.data);
+        })
+        .catch((error) => {
+            console.error('An error occurred when getting the medications');
+        });
+
     };
 
     return (
@@ -33,11 +61,11 @@ const MedicationSchedule: FC = () => {
         <SafeAreaView style={styles.container}>
             <NavBar3
                 title="Medication Schedule"
-                image1={{ source: require('../../../assets/addmed.png'), onPress: handleImage1Press }}
-                image2={{ source: require('../../../assets/budget.png'), onPress: handleImage2Press }}
-                image3={{ source: require('../../../assets/rename.png'), onPress: handleImage3Press }}
+                image1={{ source: require('../../../assets/addmed.png'), onPress: handleAddMedPress }}
+                image2={{ source: require('../../../assets/budget.png'), onPress: handleBudgetTrackerPress }}
+                image3={{ source: require('../../../assets/rename.png'), onPress: handlePharmPress }}
             />
-            <Calendar onSelectDate={handleSelectDate} />
+            <MyCalendar onSelectDate={handleSelectDate} />
         </SafeAreaView>
     );
 };
