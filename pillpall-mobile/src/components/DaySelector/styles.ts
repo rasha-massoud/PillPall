@@ -4,8 +4,10 @@ import appStyles from '../../constants/appStyles';
 import { colors } from '../../constants/palette';
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: 9,
+  },
   daysTitle: {
-    marginTop: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -17,7 +19,8 @@ const styles = StyleSheet.create({
     borderColor: colors.dark_gray,
   },
   daysTitleText: {
-    ...appStyles.body1,
+    color: colors.darker_gray,
+    ...appStyles.body2,
   },
   dayList: {
     borderWidth: 1,
