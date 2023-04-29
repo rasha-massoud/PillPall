@@ -22,6 +22,7 @@ import MedicationSchedule from './src/screens/medicationschedule';
 import AddMedicine from './src/screens/addmedicine';
 import DeleteMedicine from './src/screens/deletemedicine';
 import NearbyPharms from './src/screens/nearbypharms';
+import BudgetTracker from './src/screens/budgettracker';
 
 export default function App() {
   useEffect(() => {
@@ -30,7 +31,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <NearbyPharms/>
+      <BudgetTracker/>
     </View>
   );
 }
