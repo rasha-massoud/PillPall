@@ -2,9 +2,9 @@ import React, { FC, useState } from 'react'
 import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import NavBar from '../../components/NavBar';
 import styles from './styles';
+import { HERE_API_KEY } from '../../../config';
 
 import Map from '../../components/Map'
-import 'dotenv/config';
 
 const NearbyPharms: FC = () => {
     
@@ -15,11 +15,11 @@ const NearbyPharms: FC = () => {
                 title="Nearby Pharmacies"
             />
             <Image
-                source={require('../../../assets/deletemedicinescreen.png')}
+                source={require('../../../assets/nearbyPharm.png')}
                 style={styles.image}
             />
 
-            <Map apiKey={process.env.HERE_API_KEY ?? ''}/>
+            <Map apiKey={HERE_API_KEY || ''} />
 
         </SafeAreaView>
     );

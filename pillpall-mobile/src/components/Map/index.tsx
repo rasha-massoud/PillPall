@@ -3,7 +3,7 @@ import { StyleSheet, View, Dimensions } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import axios from 'axios';
-import 'dotenv/config';
+import { HERE_API_KEY } from '../../../config';
 
 import styles from './styles';
 
@@ -52,8 +52,9 @@ const Map: React.FC<MapProps> = ({ apiKey }) => {
 
   const searchPharmacies = async (lat: number, lon: number) => {
     try {
+
       const response = await axios.get(
-        `https://places.ls.hereapi.com/places/v1/discover/explore?at=${lat},${lon}&cat=700-7200-0000&size=6&apiKey=${process.env.HERE_API_KEY}`
+        `https://places.ls.hereapi.com/places/v1/discover/explore?at=${lat},${lon}&cat=700-7200-0000&size=6&apiKey=${HERE_API_KEY}`
         );
       const items = response.data.results.items;
       const pharmacies: Pharmacy[] = items.map((item: any) => {

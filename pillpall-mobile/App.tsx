@@ -21,6 +21,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import MedicationSchedule from './src/screens/medicationschedule';
 import AddMedicine from './src/screens/addmedicine';
 import DeleteMedicine from './src/screens/deletemedicine';
+import NearbyPharms from './src/screens/nearbypharms';
 
 export default function App() {
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <DeleteMedicine/>
+      <NearbyPharms/>
     </View>
   );
 }
