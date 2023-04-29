@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import Body1Text from '../Body1Text';
+import appStyles from '../../constants/appStyles';
 
 import styles from './styles';
 
@@ -28,10 +28,10 @@ const MonthSelector: React.FC<MonthSelectorProps> = (props) => {
 
   return (
     <View style={styles.container}>
-      <Body1Text context='Month'></Body1Text>
+      <Text style={appStyles.body1}>Month</Text>
       <TouchableOpacity onPress={toggleSelector}>
         <View style={styles.monthTitle}>
-          <Text style={styles.monthTitleText}>{props.selectedMonth || 'Months'}</Text>
+          <Text style={styles.monthTitleText}>{props.selectedMonth || 'Month'}</Text>
           <MaterialIcons name={showSelector ? "keyboard-arrow-up" : "keyboard-arrow-down"} size={24} color="black" />
         </View>
       </TouchableOpacity>

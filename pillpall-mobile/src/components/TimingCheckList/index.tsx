@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import Body1Text from '../Body1Text';
+import appStyles from '../../constants/appStyles';
 
 import styles from './styles';
 
@@ -28,10 +28,10 @@ const TimingChecklist: React.FC<TimingChecklistProps> = (props) => {
 
     return (
         <View style={styles.container}>
-            <Body1Text context='Timing'/>
+            <Text style={appStyles.body1}>Timing</Text>
             <TouchableOpacity onPress={toggleSelector}>
                 <View style={styles.timingTitle}>
-                    <Text style={styles.timingTitleText}>{props.selectedTiming || 'Months'}</Text>
+                    <Text style={styles.timingTitleText}>{props.selectedTiming || 'Timing'}</Text>
                     <MaterialIcons name={showSelector ? "keyboard-arrow-up" : "keyboard-arrow-down"} size={24} color="black" />
                 </View>
             </TouchableOpacity>

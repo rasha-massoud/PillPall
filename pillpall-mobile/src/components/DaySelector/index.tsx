@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Body1Text from '../Body1Text';
+import appStyles from '../../constants/appStyles';
 
 import styles from './styles';
 
@@ -28,10 +29,10 @@ const DaySelector: React.FC<DaySelectorProps> = (props) => {
 
   return (
     <View style={styles.container}>
-      <Body1Text context='Day'></Body1Text>
+      <Text style={appStyles.body1}>Day</Text>
       <TouchableOpacity onPress={toggleDays}>
         <View style={styles.daysTitle}>
-          <Text style={styles.daysTitleText}>{props.selectedDay || 'Months'}</Text>
+          <Text style={styles.daysTitleText}>{props.selectedDay || 'Day'}</Text>
           <MaterialIcons name={showDays ? "keyboard-arrow-up" : "keyboard-arrow-down"} size={24} color="black" />
         </View>
       </TouchableOpacity>
