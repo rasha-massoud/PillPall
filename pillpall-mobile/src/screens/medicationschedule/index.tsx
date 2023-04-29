@@ -25,9 +25,9 @@ const MedicationSchedule: FC = () => {
             <View>
                 <NavBar3
                     title="Medication Schedule"
-                    image1={{ uri: "https://example.com/image1.png", onPress: handleImage1Press }}
-                    image2={{ uri: "https://example.com/image2.png", onPress: handleImage2Press }}
-                    image3={{ uri: "https://example.com/image3.png", onPress: handleImage3Press }}
+                    image1={{ source: require('../../../assets/budget.png'), onPress: handleImage1Press }}
+                    image2={{ source: require('../../../assets/addmed.png'), onPress: handleImage2Press }}
+                    image3={{ source: require('../../../assets/rename.png'), onPress: handleImage3Press }}
                 />
             </View>
         </SafeAreaView>
