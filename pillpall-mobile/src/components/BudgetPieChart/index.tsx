@@ -1,42 +1,39 @@
-import React from 'react';
-import { Dimensions, View } from 'react-native';
-import { PieChart } from 'react-native-chart-kit';
+import React, { FC } from 'react';
+import { PieChart } from 'react-native-svg-charts';
 
-type Props = {
-  data: {
-    [month: string]: number;
-  };
-};
+interface BidgetPieChartProps {
+  data: { [month: string]: number };
+}
 
-const PieChartComponent: React.FC<Props> = (props) => {
-  const chartData = Object.keys(props.data).map((month) => ({
-    name: month,
-    value: props.data[month],
-    color: `#${Math.floor(Math.random() * 16777215).toString(16)}`, // generate random color
+const BidgetPieChart: FC<BidgetPieChartProps> = (props) => {
+
+  const currentMonth = new Date().toLocaleString('default', { month: 'long' });
+
+  const months = [
+    currentMonth,
+    new Date(Date.now() - 31 * 24 * 60 * 60 * 1000).toLocaleString('default', { month: 'long' }),
+    new Date(Date.now() - 62 * 24 * 60 * 60 * 1000).toLocaleString('default', { month: 'long' }),
+  ];
+
+  const values = months.map(month => props.data[month] || 0);
+
+  const dataWithColor = values.map((value, index) => ({
+    key: months[index],
+    value,
+    svg: { fill: colors[index] },
   }));
 
   return (
-    <View>
-      <PieChart
-        data={chartData}
-        width={Dimensions.get('window').width}
-        height={220}
-        chartConfig={{
-          backgroundColor: '#e26a00',
-          backgroundGradientFrom: '#fb8c00',
-          backgroundGradientTo: '#ffa726',
-          decimalPlaces: 2,
-          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-        }}
-        accessor={'value'}
-        backgroundColor={'transparent'}
-        paddingLeft={'15'}
-        center={[10, 50]}
-        absolute
-      />
-    </View>
+    <PieChart
+      style={{ height: 300, marginVertical: 10 }}
+      data={dataWithColor}
+      innerRadius={60}
+      outerRadius={100}
+      labelRadius={120}
+    />
   );
 };
 
-export default PieChartComponent;
+export default BidgetPieChart;
+
+const colors = ['#f44336', '#2196f3', '#ffeb3b'];
