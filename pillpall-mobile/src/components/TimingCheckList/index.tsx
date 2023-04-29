@@ -7,26 +7,26 @@ import appStyles from '../../constants/appStyles';
 
 type Timing = '6:00' | '8:00' | '10:00' | '12:00' | '14:00' | '16:00' | '18:00' | '20:00' | '22:00';
 
-type ChecklistProps = {
+type TimingChecklistProps = {
   timings: Timing[];
   selectedTiming: Timing | null;
   onSelectTiming: (timing: Timing) => void;
 };
 
-const Checklist: React.FC<ChecklistProps> = ({ timings, selectedTiming, onSelectTiming }) => {
+const TimingChecklist: React.FC<TimingChecklistProps> = (props) => {
     const handleTimingPress = (timing: Timing) => {
-        if (timing !== selectedTiming) {
-        onSelectTiming(timing);
+        if (timing !==props.selectedTiming) {
+            props.onSelectTiming(timing);
         }
     };
 
     return (
         <View>
             <Body1Text context='Timing' />
-            {timings.map((timing) => (
+            {props.timings.map((timing) => (
                 <TouchableOpacity key={timing} onPress={() => handleTimingPress(timing)}>
-                <View style={[styles.timingItem, timing === selectedTiming && styles.selectedTimingItem]}>
-                    <Text style={[styles.timingText, appStyles.body2,  timing === selectedTiming && styles.selectedTimingText]}>
+                <View style={[styles.timingItem, timing === props.selectedTiming && styles.selectedTimingItem]}>
+                    <Text style={[styles.timingText, appStyles.body2,  timing === props.selectedTiming && styles.selectedTimingText]}>
                     {timing}
                     </Text>
                 </View>
@@ -36,4 +36,4 @@ const Checklist: React.FC<ChecklistProps> = ({ timings, selectedTiming, onSelect
   );
 };
 
-export default Checklist;
+export default TimingChecklist;
