@@ -3,20 +3,20 @@ import appStyles from '../../constants/appStyles';
 import { colors } from '../../constants/palette';
 
 interface Styles {
-    container: ViewStyle;
-    title: TextStyle;
-    checkboxes: ViewStyle;
-    checkboxContainer: ViewStyle;
-    circle: ViewStyle;
-    checkboxLabel: TextStyle;
-    checkedCircle: TextStyle;
+  container: ViewStyle;
+  title: TextStyle;
+  checkboxes: ViewStyle;
+  checkboxContainer: ViewStyle;
+  circle: ViewStyle;
+  checkboxLabel: TextStyle;
+  checkedCircle: TextStyle;
 }
 
 const styles = StyleSheet.create<Styles>({
   container: {
     alignItems: 'flex-start',
     marginBottom: 20,
-    marginTop: 10,
+    marginTop: 5,
   },
   title: {
     marginBottom: 10,
@@ -24,12 +24,12 @@ const styles = StyleSheet.create<Styles>({
   checkboxes: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginLeft: 62,
+    marginLeft: 75,
   },
   checkboxContainer: {
     alignItems: 'center',
     flexDirection: 'row',
-    marginHorizontal: 20,
+    marginHorizontal: 30,
   },
   circle: {
     height: 15,
