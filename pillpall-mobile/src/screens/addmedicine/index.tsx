@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, ScrollView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import NavBar1 from '../../components/NavBar1';
 import axios from 'axios';
 import styles from './styles';
@@ -78,19 +78,21 @@ const AddMedicine: FC = () => {
     return (
     
         <SafeAreaView style={styles.container}>
-            <NavBar1
-                title="Medication Schedule"
-                image1={{ source: require('../../../assets/deletemed.png'), onPress: handleDeleteMedPress }}
-            />
-            <AddImage></AddImage>
-            <TextInputwithLabel label='Name' placeholder='Enter the Medicine Name' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicineNameChange} />
-            <TextInputwithLabel label='Dose Quantity' placeholder='Enter the Intake Dose Quantity as prescribed' textinputprops={{ secureTextEntry: false}} onChangeText= {handleDoseQuantityChange} />
-            <TextInputwithLabel label='Price per month (in $)' placeholder='Enter the Medicine Price per month' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicinePriceChange} />
-            <TextInputwithLabel label='Instructions' placeholder='Enter the Medicine Intake Instructions' textinputprops={{ secureTextEntry: false}} onChangeText= {handleInstructionsChange} />
+            <ScrollView>
+                <NavBar1
+                    title="Medication Schedule"
+                    image1={{ source: require('../../../assets/deletemed.png'), onPress: handleDeleteMedPress }}
+                />
+                <AddImage></AddImage>
+                <TextInputwithLabel label='Name' placeholder='Enter the Medicine Name' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicineNameChange} />
+                <TextInputwithLabel label='Dose Quantity' placeholder='Enter the Intake Dose Quantity as prescribed' textinputprops={{ secureTextEntry: false}} onChangeText= {handleDoseQuantityChange} />
+                <TextInputwithLabel label='Price per month (in $)' placeholder='Enter the Medicine Price per month' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicinePriceChange} />
+                <TextInputwithLabel label='Instructions' placeholder='Enter the Medicine Intake Instructions' textinputprops={{ secureTextEntry: false}} onChangeText= {handleInstructionsChange} />
 
-            <DaySelector days={DAYS} selectedDay={selectedDay} onSelectDay={handleSelectDay} />
-            <MonthSelector months={MONTHS} selectedMonth={selectedMonth} onSelectMonth={handleSelectMonth} />
-            <TimingChecklist timings={TIMINGS} selectedTiming={selectedTiming} onSelectTiming={handleSelectTiming} />
+                <DaySelector days={DAYS} selectedDay={selectedDay} onSelectDay={handleSelectDay} />
+                <MonthSelector months={MONTHS} selectedMonth={selectedMonth} onSelectMonth={handleSelectMonth} />
+                <TimingChecklist timings={TIMINGS} selectedTiming={selectedTiming} onSelectTiming={handleSelectTiming} />
+            </ScrollView>
 
         </SafeAreaView>
     );
