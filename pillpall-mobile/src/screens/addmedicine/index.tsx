@@ -7,14 +7,21 @@ import AddImage from '../../components/AddImage';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import DaySelector from '../../components/DaySelector';
 import MonthSelector from '../../components/MonthSelector';
+import TimingChecklist from '../../components/TimingCheckList';
 
-const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'None', 'Everyday'];
-const MONTHS = ['All', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const DAYS: Day[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'None', 'Everyday'];
+const MONTHS: Month[] = ['All', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const TIMINGS: Timing[] = ['6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'];
+
+type Day = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday' | 'None' | 'Everyday';
+type Month = 'All' | 'January' | 'February' | 'March' | 'April' | 'May' | 'June' | 'July' | 'August' | 'September' | 'October' | 'November' | 'December';
+type Timing = '6:00' | '8:00' | '10:00' | '12:00' | '14:00' | '16:00' | '18:00' | '20:00' | '22:00';
 
 const AddMedicine: FC = () => {
     
     const [selectedDay, setSelectedDay] = useState<Day | null>(null);
     const [selectedMonth, setSelectedMonth] = useState<Month | null>(null);
+    const [selectedTiming, setSelectedTiming] = useState<Timing | null>(null);
 
     const handleDeleteMedPress = () => {
         // navigate to Delete Medicine Screen
@@ -42,6 +49,10 @@ const AddMedicine: FC = () => {
 
     const handleSelectMonth = (month: Month) => {
         setSelectedMonth(month);
+    };
+
+    const handleSelectTiming = (timing: Timing) => {
+        setSelectedTiming(timing);
     };
 
     const handleSelectDate = async (date: string) => {
@@ -79,6 +90,7 @@ const AddMedicine: FC = () => {
 
             <DaySelector days={DAYS} selectedDay={selectedDay} onSelectDay={handleSelectDay} />
             <MonthSelector months={MONTHS} selectedMonth={selectedMonth} onSelectMonth={handleSelectMonth} />
+            <TimingChecklist timings={TIMINGS} selectedTiming={selectedTiming} onSelectTiming={handleSelectTiming} />
 
         </SafeAreaView>
     );
