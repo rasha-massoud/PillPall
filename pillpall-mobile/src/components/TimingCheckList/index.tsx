@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 import Body1Text from '../Body1Text';
 
 import styles from './styles';
-import appStyles from '../../constants/appStyles';
 
 type Timing = '6:00' | '8:00' | '10:00' | '12:00' | '14:00' | '16:00' | '18:00' | '20:00' | '22:00';
 
@@ -14,25 +14,39 @@ type TimingChecklistProps = {
 };
 
 const TimingChecklist: React.FC<TimingChecklistProps> = (props) => {
+    const [showSelector, setShowSelector] = useState(false);
+
     const handleTimingPress = (timing: Timing) => {
         if (timing !==props.selectedTiming) {
             props.onSelectTiming(timing);
         }
     };
 
+    const toggleSelector = () => {
+        setShowSelector(!showSelector);
+    };
+
     return (
-        <View>
-            <Body1Text context='Timing' />
-            {props.timings.map((timing) => (
-                <TouchableOpacity key={timing} onPress={() => handleTimingPress(timing)}>
-                <View style={[styles.timingItem, timing === props.selectedTiming && styles.selectedTimingItem]}>
-                    <Text style={[styles.timingText, appStyles.body2,  timing === props.selectedTiming && styles.selectedTimingText]}>
-                    {timing}
-                    </Text>
+        <View style={styles.container}>
+            <Body1Text context='Timing'/>
+            <TouchableOpacity onPress={toggleSelector}>
+                <View style={styles.timingTitle}>
+                    <Text style={styles.timingTitleText}>{props.selectedTiming || 'Months'}</Text>
+                    <MaterialIcons name={showSelector ? "keyboard-arrow-up" : "keyboard-arrow-down"} size={24} color="black" />
                 </View>
+            </TouchableOpacity>
+            {showSelector && (
+            <View style={styles.timingList}>
+                {props.timings.map((timing) => (
+                <TouchableOpacity key={timing} onPress={() => handleTimingPress(timing)}>
+                    <View style={[styles.timingItem, timing === props.selectedTiming && styles.selectedTimingItem]}>
+                        <Text style={[styles.timingText, timing === props.selectedTiming && styles.selectedTimingText]}>{timing}</Text>
+                    </View>
                 </TouchableOpacity>
             ))}
         </View>
+      )}
+    </View>
   );
 };
 
