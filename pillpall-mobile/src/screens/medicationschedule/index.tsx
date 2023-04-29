@@ -23,13 +23,13 @@ const MedicationSchedule: FC = () => {
     return (
     
         <SafeAreaView style={styles.container}>
-        <NavBar3
-            title="Medication Schedule"
-            image1={{ source: require('../../../assets/addmed.png'), onPress: handleImage1Press }}
-            image2={{ source: require('../../../assets/budget.png'), onPress: handleImage2Press }}
-            image3={{ source: require('../../../assets/rename.png'), onPress: handleImage3Press }}
-        />
-        <Text>Content of my screen goes here</Text>
+            <NavBar3
+                title="Medication Schedule"
+                image1={{ source: require('../../../assets/addmed.png'), onPress: handleImage1Press }}
+                image2={{ source: require('../../../assets/budget.png'), onPress: handleImage2Press }}
+                image3={{ source: require('../../../assets/rename.png'), onPress: handleImage3Press }}
+            />
+            <Text>Content of my screen goes here</Text>
         </SafeAreaView>
     );
 };
