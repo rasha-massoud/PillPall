@@ -33,15 +33,18 @@ const Login: FC = () => {
     };
 
     const handleLoginPress = async () => {
-        if ( !validateEmail(email) || !validatePassword(password) ) {
-            Alert.alert('Invalid Credentials.');
-            return;
-        }
+        // if ( !validateEmail(email) || !validatePassword(password) ) {
+        //     Alert.alert('Invalid Credentials.');
+        //     return;
+        // }
 
+        console.log(email, password);
         const data = new FormData();
         data.append('email', email);
         data.append('password', password);
-         
+
+        console.log(data);
+
         await axios.post('http://192.168.0.103:8000/api/v0.0.0/login', data, {
             headers: {
                 'Content-Type': "multipart/form-data",
@@ -69,11 +72,11 @@ const Login: FC = () => {
         />
         <TextTitle title='Login'></TextTitle>
         <SubTitleText title='Please sign in to continue.'></SubTitleText>
+        
+        <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
 
-        <TextInputwithLabel label="Email" keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false }}/>
-
-        <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true }} />
-
+        <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true}} onChangeText= {handlePasswordChange} />
+        
         <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Login", onPress: handleLoginPress }}  />
         
         <TouchableOpacity style={styles.forgotPassword}> 
