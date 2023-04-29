@@ -10,6 +10,7 @@ import MonthSelector from '../../components/MonthSelector';
 import TimingChecklist from '../../components/TimingCheckList';
 import OnDemandCheckBox from '../../components/OnDemandCheckBox';
 import FirstOfEachMonth from '../../components/FirstOfEachMonth';
+import TwoCustomButton from '../../components/TwoCustomButton';
 
 const DAYS: Day[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'None', 'Everyday'];
 const MONTHS: Month[] = ['All', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -88,6 +89,13 @@ const AddMedicine: FC = () => {
 
     };
 
+    const handleAddPress = () => {
+    };
+
+    const handleCancelPress = () => {
+  
+    };
+
     return (
     
         <SafeAreaView style={styles.container}>
@@ -108,6 +116,8 @@ const AddMedicine: FC = () => {
             
                 <OnDemandCheckBox selectedOnDemand={onDemand} onDemandSelect={handleOnDemandSelect} />
                 <FirstOfEachMonth selectedFirstOfEachMonth={firstOfEachMonth} firstOfEachMonthSelect={handleFirstOfEachMonthSelect} />
+
+                <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: handleCancelPress }} buttonprops1={{ title: "Add", onPress: handleAddPress  }}></TwoCustomButton>
 
             </ScrollView>
 
