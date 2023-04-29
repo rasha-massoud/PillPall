@@ -3,16 +3,33 @@ import appStyles from "../../constants/appStyles";
 import { colors } from '../../constants/palette';
 
 const styles = StyleSheet.create({
-  monthsTitle: {
-    ...appStyles.body1,
-    marginTop: 10,
+  container: {
+    marginTop: 20,
+  },
+  monthTitle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderWidth: 1,
+    borderRadius: 5,
+    height: 43,
+    borderColor: colors.dark_gray,
+  },
+  monthTitleText: {
+    color: colors.darker_gray,
+    ...appStyles.body2,
+  },
+  monthList: {
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: colors.dark_gray,
+    paddingHorizontal: 10,
     marginBottom: 20,
   },
   monthItem: {
     padding: 10,
-    marginVertical: 5,
-    borderWidth: 0.5,
-    borderColor: colors.black,
   },
   selectedMonthItem: {
     backgroundColor: colors.blue,

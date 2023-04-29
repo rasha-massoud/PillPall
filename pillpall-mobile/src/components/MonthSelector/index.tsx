@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
+import Body1Text from '../Body1Text';
 
 import styles from './styles';
 
@@ -18,16 +20,23 @@ const MonthSelector: React.FC<MonthSelectorProps> = (props) => {
     if (month !== props.selectedMonth) {
         props.onSelectMonth(month);
     }
-    setShowSelector(false);
+  };
+
+  const toggleSelector = () => {
+    setShowSelector(!showSelector);
   };
 
   return (
-    <View>
-      <TouchableOpacity onPress={() => setShowSelector(!showSelector)}>
-        <Text style={styles.monthsTitle}>Months</Text>
+    <View style={styles.container}>
+      <Body1Text context='Month'></Body1Text>
+      <TouchableOpacity onPress={toggleSelector}>
+        <View style={styles.monthTitle}>
+          <Text style={styles.monthTitleText}>{props.selectedMonth || 'Months'}</Text>
+          <MaterialIcons name={showSelector ? "keyboard-arrow-up" : "keyboard-arrow-down"} size={24} color="black" />
+        </View>
       </TouchableOpacity>
       {showSelector && (
-        <View>
+        <View style={styles.monthList}>
           {props.months.map((month) => (
             <TouchableOpacity key={month} onPress={() => handleMonthPress(month)}>
               <View style={[styles.monthItem, month === props.selectedMonth && styles.selectedMonthItem]}>
