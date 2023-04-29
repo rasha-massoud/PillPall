@@ -5,9 +5,17 @@ import axios from 'axios';
 import styles from './styles';
 import AddImage from '../../components/AddImage';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
+import DaySelector from '../../components/DaySelector';
+import MonthSelector from '../../components/MonthSelector';
+
+const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'None', 'Everyday'];
+const MONTHS = ['All', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 const AddMedicine: FC = () => {
-   
+    
+    const [selectedDay, setSelectedDay] = useState<Day | null>(null);
+    const [selectedMonth, setSelectedMonth] = useState<Month | null>(null);
+
     const handleDeleteMedPress = () => {
         // navigate to Delete Medicine Screen
     }
@@ -27,6 +35,14 @@ const AddMedicine: FC = () => {
     const handleInstructionsChange = () => {
 
     }
+
+    const handleSelectDay = (day: Day) => {
+        setSelectedDay(day);
+    };
+
+    const handleSelectMonth = (month: Month) => {
+        setSelectedMonth(month);
+    };
 
     const handleSelectDate = async (date: string) => {
          
@@ -61,6 +77,8 @@ const AddMedicine: FC = () => {
             <TextInputwithLabel label='Price per month (in $)' placeholder='Enter the Medicine Price per month' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicinePriceChange} />
             <TextInputwithLabel label='Instructions' placeholder='Enter the Medicine Intake Instructions' textinputprops={{ secureTextEntry: false}} onChangeText= {handleInstructionsChange} />
 
+            <DaySelector days={DAYS} selectedDay={selectedDay} onSelectDay={handleSelectDay} />
+            <MonthSelector months={MONTHS} selectedMonth={selectedMonth} onSelectMonth={handleSelectMonth} />
 
         </SafeAreaView>
     );
