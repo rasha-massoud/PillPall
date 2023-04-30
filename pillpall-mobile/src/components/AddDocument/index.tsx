@@ -1,50 +1,47 @@
-import React, { useState } from 'react';
-import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
+import React, { FC, useState } from 'react';
+import { View, TouchableOpacity, Image, StyleSheet, Text } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
-import { MaterialIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 import styles from './styles';
 
-const AddDocument = () => {
+interface AddDocumentProps {
+  onDocumentSelected: (file: File) => void;
+}
+
+const AddDocument: FC<AddDocumentProps> = (props) => {
   const [document, setDocument] = useState<string | null>(null);
 
   const pickDocument = async () => {
     let result = await DocumentPicker.getDocumentAsync({
       type: 'application/pdf',
+      copyToCacheDirectory: false,
     });
 
     console.log(result);
 
-    if (!result.cancelled && result.uri) {
+    if (result.type === 'success') {
+      const file = new File([result.uri], result.name, {
+        type: 'application/pdf',
+      });
       setDocument(result.uri);
+      props.onDocumentSelected(file); // send the file details to the parent screen
     }
   };
 
   return (
     <View style={styles.container}>
-        {document ? (
-            <View style={styles.docView}>
-            <MaterialIcons
-                name="description"
-                size={30}
-                color="white"
-                style={{ marginRight: 10 }}
-            />
-            <Text style={styles.docName} numberOfLines={1}>
-                {document.split('/').pop()}
-            </Text>
-            </View>
-        ) : (
-            <TouchableOpacity onPress={pickDocument}>
-            <View style={styles.editIconContainer}>
-                <MaterialIcons name="file-upload" size={30} color="#fff" />
-            </View>
-            </TouchableOpacity>
-        )}
+      {document ? (
+        <Text>{document}</Text>
+      ) : (
+        <TouchableOpacity onPress={pickDocument}>
+          <View style={styles.editIconContainer}>
+            <Ionicons name="pencil" size={24} color="#fff" />
+          </View>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
 
 export default AddDocument;
-
-
