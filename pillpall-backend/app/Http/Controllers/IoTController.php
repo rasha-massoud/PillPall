@@ -18,7 +18,7 @@ class IoTController extends Controller{
 
             $user = auth()->user();
     
-            $date = Carbon::now()->toDateString();
+            $date = Carbon::now();
             $day = Carbon::now()->format('l');
     
             $is_first_of_month = $date->day == 1;
@@ -44,6 +44,8 @@ class IoTController extends Controller{
                 'status' => 'success',
                 'medications' => $medication
             ];
+            return response()->json($data);
+
             try {
 
                 $serial = new \PhpSerial;
@@ -67,7 +69,7 @@ class IoTController extends Controller{
         } catch(Exception $e){
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while getting the medicine of the current day.'
+                'message' => 'An error occurred while getting the medicine of the current day.' .$e->getMessage()
             ]);
         }
     }
