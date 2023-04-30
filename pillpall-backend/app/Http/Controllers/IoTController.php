@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use Exception;
 use Carbon\Carbon;
+
+use App\Models\User;
+use App\Models\Medication;
 
 class IoTController extends Controller{
     
