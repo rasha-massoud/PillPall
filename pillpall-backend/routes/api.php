@@ -13,6 +13,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\IoTController;
 
 Route::group(["prefix" => "v0.0.0"], function(){
     Route::post('/register',[AuthController:: class, "register"]);
@@ -62,7 +63,9 @@ Route::group(["prefix" => "v0.0.0"], function(){
 
         Route::get('/budget_tracker',[BudgetController:: class, "budget_tracker"]);
         
+        Route::get('/budget_tracker',[BudgetController:: class, "budget_tracker"]);
 
+        Route::get('/get_current_day_medication',[IoTController:: class, "get_current_day_medication"]);
 
     });
 });
