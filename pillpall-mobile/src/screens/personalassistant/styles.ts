@@ -21,8 +21,8 @@ const styles = StyleSheet.create<Styles>({
         justifyContent: 'center',
         alignSelf: 'center',
         marginBottom: 20,
-        width: '100%',
-        height: '30%',
+        width: '80%',
+        height: '25%',
     },
 });
 
