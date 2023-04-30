@@ -4,22 +4,20 @@ import NavBar from '../../components/NavBar';
 import axios from 'axios';
 import QuestionTypeSelector from '../../components/QuestionTypeSelector';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
-import DisplayData from '../../components/DisplayData';
+import SearchBySelector from '../../components/SearchBySelector'; 
 import CustomButton from '../../components/CustomButton';
 
 import styles from './styles';
 
+export type SearchByOption = 'name' | 'major';
+
 const PatientSearch: FC = () => {
 
     const [searchFor, setSearchFor] = useState('');
-    const [searchBy, setSearchBy] = useState('');
+    const [searchBy, setSearchBy] = useState<SearchByOption | null>(null);
 
     const handleSearchForChange = (text: string) => {
         setSearchFor(text);
-    };
-
-    const handleSearchByChange = (text: string) => {
-        setSearchBy(text);
     };
 
     const handleSearchPress = () => {
@@ -37,6 +35,11 @@ const PatientSearch: FC = () => {
                 style={styles.image}
             />
 
+            <SearchBySelector
+                searchByOptions={['name', 'major']}
+                selectedSearchBy={searchBy}
+                onSelectSearchBy={setSearchBy}
+            />
             <TextInputwithLabel label="Search For" placeholder="Enter the Doctor's Name or the Major based on your Search by Selection" textinputprops={{ secureTextEntry: false }} onChangeText={handleSearchForChange}/>
             <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Search", onPress: handleSearchPress }}  />
 
