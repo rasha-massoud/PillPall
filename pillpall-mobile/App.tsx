@@ -23,6 +23,7 @@ import AddMedicine from './src/screens/addmedicine';
 import DeleteMedicine from './src/screens/deletemedicine';
 import NearbyPharms from './src/screens/nearbypharms';
 import BudgetTracker from './src/screens/budgettracker';
+import PersonalAssitant from './src/screens/personalassistant';
 
 export default function App() {
   useEffect(() => {
@@ -31,7 +32,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <BudgetTracker/>
+      <PersonalAssitant/>
     </View>
   );
 }
