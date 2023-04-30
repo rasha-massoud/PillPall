@@ -3,13 +3,14 @@ import { colors } from '../../constants/palette';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 7,
+    marginTop: 40,
+    marginBottom: 25,
     alignItems: 'center',
     justifyContent: 'center',
-    height: 120,
-    width: '36%',
-    marginLeft: '32%',
-    borderRadius: 75,
+    height: 300,
+    width: '70%',
+    alignSelf: 'center',
+    borderRadius: 10,
     backgroundColor: colors.light_gray,
     overflow: 'hidden',
   },
