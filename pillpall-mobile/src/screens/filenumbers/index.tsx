@@ -2,8 +2,10 @@ import React, { FC, useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import axios from 'axios';
 import FileNumberCard from '../../components/FileNumberCards';
-import styles from './styles';
 import NavBar3 from '../../components/NavBar3';
+import CustomButton from '../../components/CustomButton';
+
+import styles from './styles';
 
 type FileNumber = {
   id: number;
@@ -23,6 +25,9 @@ const FileNum: FC<FileNumProps> = ({ styles }) => {
   const handleResultPress = () => {}
   const handleSearchDoctorPress = () => {}
 
+  const handleAddPress = () => {}
+
+  
   useEffect(() => {
     axios
       .get('http://192.168.0.103:8000/api/v0.0.0/get_file_numbers')
@@ -51,7 +56,10 @@ const FileNum: FC<FileNumProps> = ({ styles }) => {
                 location={fileNumber.location}
                 fileNumber={fileNumber.number}
             />
-      ))}
+        ))}
+
+        <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Add", onPress: handleAddPress }}  />
+
     </View>
   );
 };
