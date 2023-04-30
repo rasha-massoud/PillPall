@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, SafeAreaView } from 'react-native';
 import axios from 'axios';
 import FileNumberCard from '../../components/FileNumberCards';
 import NavBar3 from '../../components/NavBar3';
@@ -14,11 +14,7 @@ type FileNumber = {
   number: string;
 };
 
-type FileNumProps = {
-  styles: any;
-};
-
-const FileNum: FC<FileNumProps> = ({ styles }) => {
+const FileNum: FC = () => {
   const [fileNumbers, setFileNumbers] = useState<FileNumber[]>([]);
 
   const handleFileNumberPress = () => {}
@@ -41,7 +37,7 @@ const FileNum: FC<FileNumProps> = ({ styles }) => {
 
   return (
 
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
         <NavBar3
             title="File Numbers"
             image1={{ source: require('../../../assets/filenumber.png'), onPress: handleFileNumberPress }}
@@ -60,7 +56,7 @@ const FileNum: FC<FileNumProps> = ({ styles }) => {
 
         <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Add", onPress: handleAddPress }}  />
 
-    </View>
+    </SafeAreaView>
   );
 };
 
