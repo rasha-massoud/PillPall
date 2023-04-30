@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import Body1Text from '../Body1Text';
 import appStyles from '../../constants/appStyles';
 
 import styles from './styles';
