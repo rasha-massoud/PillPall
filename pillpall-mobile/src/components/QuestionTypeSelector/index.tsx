@@ -8,8 +8,9 @@ import styles from './styles';
 type QuestionType = 'question' | 'replacement' | 'effect' | 'instruction';
 
 type QuestionTypeSelectorProps = {
-  selectedQuestionType: QuestionType | string | null;
-  onSelectQuestionType: (questionType: QuestionType | string) => void;
+  questionTypes: QuestionType[];
+  selectedQuestionType: QuestionType | null;
+  onSelectQuestionType: (questionType: QuestionType) => void;
 };
 
 const QuestionTypeSelector: React.FC<QuestionTypeSelectorProps> = (props) => {
