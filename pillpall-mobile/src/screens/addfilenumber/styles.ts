@@ -18,11 +18,12 @@ const styles = StyleSheet.create<Styles>({
         marginHorizontal: width * 0.05, 
     },
     image: {
+        marginTop: 35,
         justifyContent: 'center',
         alignSelf: 'center',
         marginBottom: 20,
-        width: '100%',
-        height: '30%',
+        width: '76%',
+        height: '35%',
     },
 });
 
