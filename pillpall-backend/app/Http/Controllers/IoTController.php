@@ -40,16 +40,34 @@ class IoTController extends Controller{
                 $medication= $user->medications()->where('days', 'like', $day)->orWhere('days', 'Everyday')->get();
             }
     
-            return response()->json([
+            $data = [
                 'status' => 'success',
-                'message' => 'Medications returned successfully',
                 'medications' => $medication
-            ]);
+            ];
+            try {
+
+                $serial = new \PhpSerial;
+                $serial->deviceSet("COM5");
+                $serial->confBaudRate(9600);
+                $serial->confParity("none");
+                $serial->confCharacterLength(8);
+                $serial->confStopBits(1);
+                $serial->deviceOpen();
+                $serial->sendMessage(json_encode($data));
+                $serial->deviceClose();
+        
+                return response()->json($data);
+            } catch (\Exception $e) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'An error occurred while communicating with the serial device.'
+                ]);
+            }
     
         } catch(Exception $e){
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while getting the medicine of the selected day.'  .$e->getMessage()
+                'message' => 'An error occurred while getting the medicine of the current day.'
             ]);
         }
     }
