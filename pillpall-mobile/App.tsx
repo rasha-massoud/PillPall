@@ -27,6 +27,7 @@ import PersonalAssitant from './src/screens/personalassistant';
 import FileNum from './src/screens/filenumbers';
 import AddFileNumber from './src/screens/addfilenumber';
 import AddMedicalResult from './src/screens/addmedicalresult';
+import MedicalResults from './src/screens/medicalresults';
 
 export default function App() {
   useEffect(() => {
@@ -35,7 +36,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <AddMedicalResult/>
+      <MedicalResults/>
     </View>
   );
 }
