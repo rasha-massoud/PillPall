@@ -5,8 +5,8 @@ import styles from './styles';
 
 interface MedicalResultCardProps {
     file: {
-        name: string;
-        type: string;
+        name?: string;
+        type?: string;
         uri?: string;
     };
     testingDate: string;
