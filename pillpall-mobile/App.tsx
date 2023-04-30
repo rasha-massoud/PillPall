@@ -28,6 +28,7 @@ import FileNum from './src/screens/filenumbers';
 import AddFileNumber from './src/screens/addfilenumber';
 import AddMedicalResult from './src/screens/addmedicalresult';
 import MedicalResults from './src/screens/medicalresults';
+import PatientSearch from './src/screens/patientseach';
 
 export default function App() {
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <MedicalResults/>
+      <PatientSearch/>
     </View>
   );
 }

@@ -22,6 +22,10 @@ const PatientSearch: FC = () => {
         setSearchBy(text);
     };
 
+    const handleSearchPress = () => {
+    };
+    
+
     return (
   
         <SafeAreaView style={styles.container}>
@@ -34,7 +38,7 @@ const PatientSearch: FC = () => {
             />
 
             <TextInputwithLabel label="Search For" placeholder="Enter the Doctor's Name or the Major based on your Search by Selection" textinputprops={{ secureTextEntry: false }} onChangeText={handleSearchForChange}/>
-            <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Send", onPress: handleSendPress }}  />
+            <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Search", onPress: handleSearchPress }}  />
 
         </SafeAreaView>
     );
