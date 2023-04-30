@@ -26,6 +26,7 @@ import BudgetTracker from './src/screens/budgettracker';
 import PersonalAssitant from './src/screens/personalassistant';
 import FileNum from './src/screens/filenumbers';
 import AddFileNumber from './src/screens/addfilenumber';
+import AddMedicalResult from './src/screens/addmedicalresult';
 
 export default function App() {
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <AddFileNumber/>
+      <AddMedicalResult/>
     </View>
   );
 }
