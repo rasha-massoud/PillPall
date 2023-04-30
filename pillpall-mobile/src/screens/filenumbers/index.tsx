@@ -45,7 +45,7 @@ const FileNum: FC<FileNumProps> = ({ styles }) => {
         <NavBar3
             title="File Numbers"
             image1={{ source: require('../../../assets/filenumber.png'), onPress: handleFileNumberPress }}
-            image2={{ source: require('../../../assets/result.png'), onPress: handleResultPress }}
+            image2={{ source: require('../../../assets/results.png'), onPress: handleResultPress }}
             image3={{ source: require('../../../assets/searchdoc.png'), onPress: handleSearchDoctorPress }}
         />
 
