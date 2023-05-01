@@ -15,7 +15,7 @@ const LOGIN_PAGE_WIDTH = width * 0.9;
 const styles = StyleSheet.create<Styles>({
     container: {
         flex: 1,
-        marginTop: '32%',
+        marginTop: '15%',
         width: LOGIN_PAGE_WIDTH,
         marginHorizontal: width * 0.05, 
     },
@@ -23,7 +23,7 @@ const styles = StyleSheet.create<Styles>({
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
-        marginBottom: 20,
+        marginBottom: 30,
         height: '30%',
         width: '85%',
     },
