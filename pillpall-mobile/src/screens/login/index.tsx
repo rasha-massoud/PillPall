@@ -9,7 +9,6 @@ import axios from 'axios';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
-
 import styles from './styles'
 
 const Login: FC = () => {
@@ -36,6 +35,12 @@ const Login: FC = () => {
     };
 
     const handleLoginPress = async () => {
+
+        if (!validateEmail(email) || !validatePassword(password)) {
+            console.error('Invalid Credentials');
+            return;
+        }
+
         const data = new FormData();
         data.append('email', email);
         data.append('password', password);
@@ -53,11 +58,11 @@ const Login: FC = () => {
             AsyncStorage.setItem('first_login', response.data.user.first_login.toString());
         })
         .catch((error) => {
-            console.error('Invalid Credentials');
+            console.error('Error during Login or Invalid Credentials');
         });
     };
 
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
 
     const handleSignUpPress = () => {
         // navigation.navigate('Register');
