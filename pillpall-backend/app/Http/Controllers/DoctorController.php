@@ -33,6 +33,9 @@ class DoctorController extends Controller{
         try {
             $doctor = DoctorsInfo::where('user_id', Auth::id())->first();
             if (!$doctor){
+                $user = Auth::user();
+                $user->first_login = false;
+                $user->save();
                 $doctor= new DoctorsInfo();
             }
 
