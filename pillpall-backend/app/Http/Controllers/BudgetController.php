@@ -12,7 +12,7 @@ use App\Models\Medication;
 
 class BudgetController extends Controller{
     
-    public function budget_tracker(){
+    public function BudgetTracker(){
 
         try{
             $current_month = date('F');
