@@ -8,13 +8,13 @@ import TwoCustomButton from '../../components/TwoCustomButton';
 import RoleCheckBox from '../../components/RoleCheckBox';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
-import OnBoardingStack from '../../navigation/AuthNavigator';
+import API_URL from '../../constants/url';
 
 import styles from './styles'
 
 const Register: FC = () => {
 
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
 
     const [role, setRole] = useState<string>('patient');
     const [name, setName] = useState<string>('');
@@ -68,7 +68,7 @@ const Register: FC = () => {
               {
                 text: "Accept",
                 onPress: () => {
-                  navigation.goBack();
+                //   navigation.goBack();
                 },
               },
             ]
@@ -98,19 +98,17 @@ const Register: FC = () => {
         data.append('password', password);
         data.append('confirm_password', confirmPassword);
         data.append('role', role);
-         
-        console.log(data);
-        await axios.post('http://192.168.0.103:8000/api/v0.0.0/register', data, {
+
+        const endpoint = 'register';
+        await axios.post(`${API_URL}${endpoint}`, data, {
             headers: {
                 'Content-Type': "multipart/form-data",
                 'Accept': 'application/json',
             },
         })
-        .then((response) => {
-            console.log(response.data);
-        })
+        .then((response) => {})
         .catch((error) => {
-            console.error('An error occurred or incorrect entries during signup');
+            console.error('An error occurred during registration or incorrect entries during signup');
         });
     };
 
