@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class ForgotPasswordController extends Controller{
     
-    public function forgotPassword(Request $request){
+    public function ForgotPassword(Request $request){
         $request->validate(['email' => 'required|email']);
  
         $response = Password::sendResetLink(
@@ -24,7 +24,7 @@ class ForgotPasswordController extends Controller{
    
     }
 
-    public function reset_password(Request $request){
+    public function ResetPassword(Request $request){
         
         $request->validate([
             'email' => 'required|email',
