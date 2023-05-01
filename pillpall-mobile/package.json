@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@types/d3-path": "^3.0.0",
     "@types/react": "~18.0.27",
     "@types/react-native": "^0.71.6",
     "@types/react-native-elements": "^0.18.0",
