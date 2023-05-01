@@ -6,6 +6,7 @@ import TextTitle from '../../components/TextTitle';
 import SubTitleText from '../../components/SubTitleText';
 import LoginSignupSwitch from '../../components/LoginSignupSwitch';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles'
 
@@ -33,25 +34,24 @@ const Login: FC = () => {
     };
 
     const handleLoginPress = async () => {
-        // if ( !validateEmail(email) || !validatePassword(password) ) {
-        //     Alert.alert('Invalid Credentials.');
-        //     return;
-        // }
-
-        console.log(email, password);
         const data = new FormData();
         data.append('email', email);
         data.append('password', password);
 
         console.log(data);
 
-        await axios.post('http://192.168.0.103:8000/api/v0.0.0/login', data, {
+        const endpoint = 'login';
+        console.log(`${API_URL}${endpoint}`)
+        await axios.post(`${API_URL}${endpoint}`, data, {
             headers: {
                 'Content-Type': "multipart/form-data",
                 'Accept': 'application/json',
             },
         })
-        .then((response) => {
+        .then( async (response) => {
+            AsyncStorage.setItem('token', response.data.authorisation.token);
+            AsyncStorage.setItem('role', response.data.user.role);
+            AsyncStorage.setItem('first_login', response.data.user.first_login.toString());
             console.log(response.data);
         })
         .catch((error) => {
