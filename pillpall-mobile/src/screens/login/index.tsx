@@ -54,6 +54,8 @@ const Login: FC = () => {
         })
         .then( async (response) => {
             AsyncStorage.setItem('token', response.data.authorisation.token);
+            AsyncStorage.setItem('name', response.data.user.name);
+            AsyncStorage.setItem('email', response.data.user.email);
             AsyncStorage.setItem('role', response.data.user.role);
             AsyncStorage.setItem('first_login', response.data.user.first_login.toString());
         })
