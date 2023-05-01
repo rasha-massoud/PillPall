@@ -37,6 +37,7 @@ class PatientController extends Controller{
             if (!$patient){
                 $user = Auth::user();
                 $user->approved = true;
+                $user->first_login = false;
                 $user->save();
 
                 $patient= new PatientsInfo();
