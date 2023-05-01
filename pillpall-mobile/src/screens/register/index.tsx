@@ -8,7 +8,7 @@ import TwoCustomButton from '../../components/TwoCustomButton';
 import RoleCheckBox from '../../components/RoleCheckBox';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
-import OnBoardingStack from '../../navigation/OnboardingStack';
+import OnBoardingStack from '../../navigation/AuthNavigator';
 
 import styles from './styles'
 
