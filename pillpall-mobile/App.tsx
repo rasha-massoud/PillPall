@@ -37,7 +37,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <PatientSearch/>
+      <Login/>
     </View>
   );
 }
