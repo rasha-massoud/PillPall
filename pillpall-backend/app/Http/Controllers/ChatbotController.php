@@ -14,7 +14,7 @@ use App\Models\Chatbot;
 
 class ChatbotController extends Controller{
     
-    public function chatbot_question(Request $request){
+    public function ChatbotQuestion(Request $request){
 
         try{
             $prompt= $request->prompt;
@@ -88,7 +88,7 @@ class ChatbotController extends Controller{
         }
     }
             
-    public function chatbot_replacement(Request $request){
+    public function ChatbotReplacement(Request $request){
 
         try{
             $prompt= $request->prompt;
@@ -162,7 +162,7 @@ class ChatbotController extends Controller{
         }
     }
                
-    public function chatbot_effect(Request $request){
+    public function ChatbotEffect(Request $request){
 
         try{
             $prompt= $request->prompt;
@@ -234,7 +234,7 @@ class ChatbotController extends Controller{
         }
     }
 
-    public function chatbot_instruction(Request $request){
+    public function ChatbotInstruction(Request $request){
 
         try{
             $prompt= $request->prompt;

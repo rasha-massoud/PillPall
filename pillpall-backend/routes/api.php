@@ -53,7 +53,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
             Route::get('/get_connected_patients',[DoctorController:: class, "GetConnectedPatients"]);
         });
 
-        Route::group(["prefix" => "doctor"], function(){
+        Route::group(["prefix" => "chatbot"], function(){
             Route::post('/question',[ChatbotController:: class, "ChatbotQuestion"]);
             Route::post('/replacement',[ChatbotController:: class, "ChatbotReplacement"]);
             Route::post('/effect',[ChatbotController:: class, "ChatbotEffect"]);
