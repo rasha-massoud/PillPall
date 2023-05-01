@@ -24,7 +24,7 @@ class AdminController extends Controller{
         });
     }
     
-    public function approve(Request $request){
+    public function ApproveDoctor(Request $request){
 
         try{
             $doctor = User::where('id', $request->doctor_id)
@@ -54,7 +54,7 @@ class AdminController extends Controller{
         }
     }
 
-    public function get_all_users(){
+    public function GetAllUsers(){
         
         try{
             $users = User::where('role', '<>', 'admin')->get();
@@ -73,7 +73,7 @@ class AdminController extends Controller{
 
     }
 
-    public function get_report($user_id){
+    public function GetReport($user_id){
 
         try{
             $user = User::find($user_id);
@@ -98,7 +98,7 @@ class AdminController extends Controller{
         }
     }
     
-    public function get_patients(){
+    public function GetPatients(){
 
         try{
 
@@ -118,7 +118,7 @@ class AdminController extends Controller{
         }
     }
 
-    public function get_doctors(){
+    public function GetDoctors(){
 
         try{
 
@@ -145,7 +145,7 @@ class AdminController extends Controller{
         }
     }
 
-    public function get_approved_doctors(){
+    public function GetApprovedDoctors(){
 
         try{
 
@@ -174,7 +174,7 @@ class AdminController extends Controller{
         }
     }
 
-    public function get_unapproved_doctors(){
+    public function GetUnapprovedDoctors(){
 
         try{
 
