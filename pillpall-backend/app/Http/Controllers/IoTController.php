@@ -13,7 +13,7 @@ use App\Models\Medication;
 
 class IoTController extends Controller{
     
-    public function get_current_day_medication(){
+    public function GetCurrentDayMedications(){
         try{
 
             $user = auth()->user();
