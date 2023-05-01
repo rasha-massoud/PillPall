@@ -25,7 +25,7 @@ class DoctorController extends Controller{
         });
     }
 
-    public function create_update_report(Request $request){
+    public function CreateOrUpdateReport(Request $request){
         if (!$request->user()) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
@@ -69,7 +69,7 @@ class DoctorController extends Controller{
         }
     }
 
-    public function search_connected_patient(Request $request){
+    public function SearchForConnectedPatients(Request $request){
 
         try{
 
@@ -119,7 +119,7 @@ class DoctorController extends Controller{
   
     }
 
-    public function get_patient_report($id){
+    public function GetPatientReport($id){
 
         try{
             $patient = User::find($id);
@@ -160,7 +160,7 @@ class DoctorController extends Controller{
         }
     }
 
-    public function get_patient_results($id){
+    public function GetPatientResults($id){
 
         try{
             
@@ -210,7 +210,7 @@ class DoctorController extends Controller{
         }
     }
 
-    public function get_connected_patients(){
+    public function GetConnectedPatients(){
 
         try{
 

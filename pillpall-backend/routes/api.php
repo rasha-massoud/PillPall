@@ -49,7 +49,7 @@ Route::group(["prefix" => "v0.0.0"], function(){
             Route::post('/report',[DoctorController:: class, "CreateOrUpdateReport"]);
             Route::post('/search',[DoctorController:: class, "SearchForConnectedPatients"]);
             Route::get('/get_patient_report/{id}',[DoctorController:: class, "GetPatientReport"]);
-            Route::get('/get_patient_results/{id}',[DoctorController:: class, "GetPatientResult"]);
+            Route::get('/get_patient_results/{id}',[DoctorController:: class, "GetPatientResults"]);
             Route::get('/get_connected_patients',[DoctorController:: class, "GetConnectedPatients"]);
         });
 
