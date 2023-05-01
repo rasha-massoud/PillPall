@@ -22,22 +22,22 @@ const EmergencyContact: FC = () => {
 
   const handleNameChange = async (value: string) => {
     setName(value);
-    await AsyncStorage.setItem('name', value);
+    await AsyncStorage.setItem('emergency_name', value);
   }
 
   const handlePhoneNumberChange = async (value: string) => {
     setPhoneNumber(value);
-    await AsyncStorage.setItem('phone_number', value);
+    await AsyncStorage.setItem('emergency_number', value);
   }
 
   const handleEmailChange = async(value: string) => {
     setEmail(value);
-    await AsyncStorage.setItem('email', value);
+    await AsyncStorage.setItem('emergency_email', value);
   }
 
   const handleRelationChange = async (value: string) => {
     setRelation(value);
-    await AsyncStorage.setItem('relation', value);
+    await AsyncStorage.setItem('emergency_contact_relation', value);
   }
 
   const handleContinuePress = () => {
