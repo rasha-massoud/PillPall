@@ -32,8 +32,9 @@ const styles = StyleSheet.create<Styles>({
         flexDirection: 'row',
         justifyContent: 'flex-end',
         alignSelf: 'flex-end',
-        marginBottom: 20,
+        marginBottom: 30,
         textDecorationLine: 'underline',
+        fontWeight: '600',
     }
 });
 
