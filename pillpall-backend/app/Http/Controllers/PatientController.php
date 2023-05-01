@@ -25,7 +25,7 @@ class PatientController extends Controller{
         });
     }
 
-    public function create_update_report(Request $request){
+    public function CreateOrUpdateReport(Request $request){
 
         if (!$request->user()) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -87,7 +87,7 @@ class PatientController extends Controller{
         }
     }
 
-    public function get_report(){
+    public function GetReport(){
 
         try {
             $user= Auth::user();
@@ -105,7 +105,7 @@ class PatientController extends Controller{
         }
     }
 
-    public function search_for_doctor(Request $request){
+    public function SearchForDoctor(Request $request){
 
         try{
             if ($request->search_by === 'name') {
@@ -156,7 +156,7 @@ class PatientController extends Controller{
         }
     }
 
-    public function connect(Request $request){
+    public function Connect(Request $request){
 
         try{
 
