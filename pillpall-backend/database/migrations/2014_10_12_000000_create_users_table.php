@@ -15,6 +15,7 @@ return new class extends Migration{
             $table->string('password');
             $table->string('role')->default('patient');
             $table->boolean('approved')->default(false); 
+            $table->boolean('first_login')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });
