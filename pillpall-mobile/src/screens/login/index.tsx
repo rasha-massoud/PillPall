@@ -1,12 +1,14 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, Alert, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, Text, TouchableOpacity, Image } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import TextTitle from '../../components/TextTitle';
 import SubTitleText from '../../components/SubTitleText';
 import LoginSignupSwitch from '../../components/LoginSignupSwitch';
 import axios from 'axios';
+import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles'
 
@@ -38,10 +40,7 @@ const Login: FC = () => {
         data.append('email', email);
         data.append('password', password);
 
-        console.log(data);
-
         const endpoint = 'login';
-        console.log(`${API_URL}${endpoint}`)
         await axios.post(`${API_URL}${endpoint}`, data, {
             headers: {
                 'Content-Type': "multipart/form-data",
@@ -52,39 +51,44 @@ const Login: FC = () => {
             AsyncStorage.setItem('token', response.data.authorisation.token);
             AsyncStorage.setItem('role', response.data.user.role);
             AsyncStorage.setItem('first_login', response.data.user.first_login.toString());
-            console.log(response.data);
         })
         .catch((error) => {
-            console.error('An error occurred during login');
+            console.error('Invalid Credentials');
         });
     };
 
+    const navigation = useNavigation();
+
     const handleSignUpPress = () => {
-        // Navigate to sign up screen
+        // navigation.navigate('Register');
+    };
+
+    const handleForgotPasswordPress = () => {
+        // navigation.navigate('ForgotPassword'); 
     };
 
     return (
     
-    <SafeAreaView style={styles.container}>
-        <Image
-            source={require('../../../assets/logo.png')}
-            style={styles.image}
-        />
-        <TextTitle title='Login'></TextTitle>
-        <SubTitleText title='Please sign in to continue.'></SubTitleText>
-        
-        <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
+        <SafeAreaView style={styles.container}>
+            <Image
+                source={require('../../../assets/logo.png')}
+                style={styles.image}
+            />
+            <TextTitle title='Login'></TextTitle>
+            <SubTitleText title='Please sign in to continue.'></SubTitleText>
+            
+            <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
 
-        <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true}} onChangeText= {handlePasswordChange} />
-        
-        <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Login", onPress: handleLoginPress }}  />
-        
-        <TouchableOpacity style={styles.forgotPassword}> 
-            <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-        </TouchableOpacity>
+            <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true}} onChangeText= {handlePasswordChange} />
+            
+            <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Login", onPress: handleLoginPress }}  />
+            
+            <TouchableOpacity style={styles.forgotPassword} onPress={handleForgotPasswordPress}> 
+                <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+            </TouchableOpacity>
 
-        <LoginSignupSwitch fontWeight= 'bold' textTitle="Don't have an account?" action="Sign Up" onPress={handleSignUpPress}></LoginSignupSwitch>
-    </SafeAreaView>
+            <LoginSignupSwitch fontWeight= 'bold' textTitle="Don't have an account?" action="Sign Up" onPress={handleSignUpPress}></LoginSignupSwitch>
+        </SafeAreaView>
   );
 };
 
