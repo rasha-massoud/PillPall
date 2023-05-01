@@ -26,7 +26,7 @@ class MedicalController extends Controller{
         });
     }
     
-    public function add_medicine(Request $request){
+    public function AddMedicine(Request $request){
 
         try{
             $medicine = new Medication();
@@ -62,7 +62,7 @@ class MedicalController extends Controller{
         
     }
 
-    public function delete_medicine(Request $request){
+    public function DeleteMedicine(Request $request){
 
         try{
             $medicine = Medication::where('name', $request->name)
@@ -87,7 +87,7 @@ class MedicalController extends Controller{
         
     }
 
-    public function get_medications(Request $req){
+    public function GetMedications(Request $req){
         try{
 
             $user = auth()->user();
@@ -128,7 +128,7 @@ class MedicalController extends Controller{
         }
     }
 
-    public function add_file_number(Request $request){
+    public function AddFileNumber(Request $request){
 
         try{
             $file = new FileNumber();
@@ -159,7 +159,7 @@ class MedicalController extends Controller{
         
     }
 
-    public function add_medical_result(Request $request){
+    public function AddMedicalResult(Request $request){
 
         try{
 
@@ -195,7 +195,7 @@ class MedicalController extends Controller{
         
     }
 
-    public function get_medical_results(){
+    public function GetMedicalResults(){
 
         try{
 
@@ -216,7 +216,7 @@ class MedicalController extends Controller{
         }
     }
 
-    public function get_file_numbers(){
+    public function GetFileNumbers(){
 
         try{
 
