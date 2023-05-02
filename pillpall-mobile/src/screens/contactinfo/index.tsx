@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, ScrollView, Image } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import PageTitle from '../../components/PageTitle';
 import Body1Text from '../../components/Body1Text';
@@ -13,11 +13,13 @@ import { useNavigation } from '@react-navigation/native';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
-import { setPhoneNumber, setImage, setDob, setAddress, setGender, } from "../../store/slices/reportSlice";
+import { setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, } from "../../store/slices/reportSlice";
 
 import styles from './styles';
 
 interface ContactInfoData {
+  name: string;
+  email: string;
   address: string;
   dob: string;
   phoneNumber: string;
@@ -38,10 +40,12 @@ const ContactInfo: FC = () => {
       await AsyncStorage.setItem('imageUri', '');
     } 
     
-    dispatch(setImage(imageUri));
+    dispatch(setImage(uri));
   };
 
   const [contactInfoData, setContactInfoData] = useState<ContactInfoData>({
+    name: '',
+    email: '',
     address: '',
     dob: '',
     phoneNumber: '',
@@ -49,6 +53,20 @@ const ContactInfo: FC = () => {
   });
 
   // const navigation = useNavigation();
+
+  const handleNameChange = async (value: string) => {
+    setContactInfoData({...contactInfoData, name: value});
+    await AsyncStorage.setItem('name', value);
+
+    dispatch(setName(value));
+  }
+
+  const handleEmailChange = async (value: string) => {
+    setContactInfoData({...contactInfoData, email: value});
+    await AsyncStorage.setItem('email', value);
+
+    dispatch(setEmail(value));
+  }
 
   const handlePhoneNumberChange = async (value: string) => {
     setContactInfoData({...contactInfoData, phoneNumber: value});
@@ -99,13 +117,18 @@ const handleContinuePress = async () => {
 
       <AddImage onImageSelected={handleImageSelected} />
 
-      <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePhoneNumberChange} />
+      <ScrollView>
+        <TextInputwithLabel label='Name' placeholder='Enter your Username' textinputprops={{ secureTextEntry: false}} onChangeText= {handleNameChange} />
+        <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
 
-      <TextInputwithLabel label="Date of Birth" placeholder='YYYY-MM-DD' textinputprops={{ secureTextEntry: false }} onChangeText= {handleDoBChange} />
+        <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePhoneNumberChange} />
 
-      <TextInputwithLabel label="Address" placeholder='Enter your Address' textinputprops={{ secureTextEntry: false }} onChangeText= {handleAddressChange} />
+        <TextInputwithLabel label="Date of Birth" placeholder='YYYY-MM-DD' textinputprops={{ secureTextEntry: false }} onChangeText= {handleDoBChange} />
 
-      <GenderCheckBox selectedGender={contactInfoData.gender} onGenderSelect={handleGenderSelect} />
+        <TextInputwithLabel label="Address" placeholder='Enter your Address' textinputprops={{ secureTextEntry: false }} onChangeText= {handleAddressChange} />
+
+        <GenderCheckBox selectedGender={contactInfoData.gender} onGenderSelect={handleGenderSelect} />
+      </ScrollView>
 
       <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 20 }} buttonprops={{ title: "Continue", onPress: handleContinuePress }} />
 
