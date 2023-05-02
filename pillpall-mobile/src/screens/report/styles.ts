@@ -23,18 +23,20 @@ const styles = StyleSheet.create<Styles>({
     top: {
         height: 80,
         flexDirection: 'row',
+        justifyContent:'center',
+        alignItems: 'center',
     },
     topLeft: {
-        flex:0.76,
+        flex:0.7,
     },
     topRight: {
         marginLeft: 150,
-        flex:0.24,
+        flex:0.3,
     },
     image: {
         justifyContent: 'center',
-        width: '100%',
-        height: '50%',
+        width: '120%',
+        height: '70%',
     },
 });
 

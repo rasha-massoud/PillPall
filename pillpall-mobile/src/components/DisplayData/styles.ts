@@ -9,12 +9,13 @@ interface Styles {
 
 const styles = StyleSheet.create<Styles>({
     column: {
-      flexDirection: 'row',
-      marginBottom: 10,
+      flexDirection: 'column',
+      marginBottom: 12,
     },
     title: {
-      fontWeight: '600',
+      fontWeight: '900',
       marginRight: 5,
+      textDecorationLine: 'underline',
     },
     value: {
       flex: 1,
