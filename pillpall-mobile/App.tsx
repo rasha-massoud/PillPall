@@ -38,7 +38,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-        <AnthropometricMeasurements/>
+        <EmergencyContact/>
       </NavigationContainer>
     </View>
   );
