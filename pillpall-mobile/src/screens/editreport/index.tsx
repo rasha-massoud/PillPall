@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react'
 import { SafeAreaView, ScrollView, Alert } from 'react-native';
+import { colors } from '../../constants/palette';
 import NavBar from '../../components/NavBar';
 import TwoCustomButton from '../../components/TwoCustomButton';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
@@ -17,10 +18,6 @@ import { setName, setEmail, setImage, setPhoneNumber, setDob, setAddress, setGen
      setPastSurgeries, setFamilyMedicalHistory, setAllergies, setLifeStyleHabits, setMedications } from "../../store/slices/reportSlice";
 
 import styles from './styles';
-
-interface EditReportData {
-    gender: string | undefined;
-}
 
 interface RootState {
     report: {
@@ -54,13 +51,10 @@ interface RootState {
 const EditReport: FC = () => {
       
     const dispatch = useDispatch();
+    
     const [imageUri, setImageUri] = useState<string | null>(null);
     const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
     const [currentMedicationsHistory, setCurrentMedications] = useState<string>('');
-
-    const [editReportData, setEditReportData] = useState<EditReportData>({
-        gender: undefined
-    });
 
     const handleImageSelected = async (imageFile: File | null) => {
       if (imageFile) {
@@ -357,35 +351,35 @@ const EditReport: FC = () => {
                 <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePhoneNumberChange} />
                 <TextInputwithLabel label="Date of Birth" placeholder='YYYY-MM-DD' textinputprops={{ secureTextEntry: false }} onChangeText= {handleDoBChange} />
                 <TextInputwithLabel label="Address" placeholder='Enter your Address' textinputprops={{ secureTextEntry: false }} onChangeText= {handleAddressChange} />
-                <GenderCheckBox selectedGender={editReportData.gender} onGenderSelect={handleGenderSelect} />
+                <GenderCheckBox selectedGender={gender} onGenderSelect={handleGenderSelect} />
       
-                <SubTitleText title='Anthropometric Measurements' />
+                <SubTitleText title='Anthropometric Measurements' color={colors.blue} />
                 <TextInputwithLabel label="Blood Type" placeholder='Enter your Blood Type' textinputprops={{ secureTextEntry: false }} onChangeText= {handleBloodTypeChange} />
                 <TextInputwithLabel label="Height (cm)" keyboardType="numeric" placeholder='Enter your Height' textinputprops={{ secureTextEntry: false }} onChangeText= {handleHeightChange} />
                 <TextInputwithLabel label="Weight (Kg)" keyboardType="numeric" placeholder='Enter your Weight' textinputprops={{ secureTextEntry: false }} onChangeText= {handleWeightChange} />
 
-                <SubTitleText title='Emergency Contact Info Measurements' />
+                <SubTitleText title='Emergency Contact Info Measurements' color={colors.blue}/>
                 <TextInputwithLabel label="Name" placeholder='Enter your Name' textinputprops={{ secureTextEntry: false }} onChangeText= {handleEmergencyNameChange} />
                 <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }} onChangeText= {handleEmergencyPhoneNumberChange} />
                 <TextInputwithLabel label="Email" keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false }} onChangeText= {handleEmergencyEmailChange} />
                 <TextInputwithLabel label="Relation" placeholder='Enter your Relation with the Contact' textinputprops={{ secureTextEntry: false }} onChangeText= {handleEmergencyRelationChange} />
 
-                <SubTitleText title='Vital Signs' />
+                <SubTitleText title='Vital Signs' color={colors.blue} />
                 <TextInputwithLabel label="Normal Body Temperature (°C)" keyboardType="numeric" placeholder='Enter your Normal Body Temperature' textinputprops={{ secureTextEntry: false }} onChangeText= {handleTemperatureChange} />
                 <TextInputwithLabel label="Normal Pulse Rate " keyboardType="numeric" placeholder='Enter your Normal Pulse Rate' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePulseChange} />
                 <TextInputwithLabel label="Normal Respiration Rate" keyboardType="numeric" placeholder='Enter your Normal Respiration Rate' textinputprops={{ secureTextEntry: false }} onChangeText= {handleRespirationRateChange} />
                 <TextInputwithLabel label="Normal Systolic Blood Pressure" keyboardType="numeric" placeholder='Enter your Normal Systolic Blood Pressure' textinputprops={{ secureTextEntry: false }} onChangeText= {handleBloodPressureChange} />
 
-                <SubTitleText title='Medical History' />
+                <SubTitleText title='Medical History' color={colors.blue} />
                 <TextInputwithLabel label="Chronic Condition or Illness" placeholder='Enter your Chronic Condition or Illness if any' textinputprops={{ secureTextEntry: false }} onChangeText= {handleChronicConditionsChange} />
                 <TextInputwithLabel label="Past Surgeries or Hospitalizations" placeholder='Enter your Past Surgeries or Hospitalizations if any' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePastSurgeriesChange} />
                 <TextInputwithLabel label="Family Medical History" placeholder='Enter your Family Medical History if any' textinputprops={{ secureTextEntry: false }} onChangeText= {handleFamilyMedicalHistoryChange} />
                 <TextInputwithLabel label="Allergies" placeholder='Enter your Allergies if any' textinputprops={{ secureTextEntry: false }} onChangeText= {handleAllergiesChange} />
 
-                <SubTitleText title='Current Medications' />
+                <SubTitleText title='Current Medications' color={colors.blue} />
                 <TextInputwithLabel label="Current Medications" placeholder='Enter your Current Medications if any' textinputprops={{ secureTextEntry: false }} onChangeText= {handleCurrentMedicationsChange} />
       
-                <SubTitleText title='Life Style Habits' />
+                <SubTitleText title='Life Style Habits' color={colors.blue} />
                 <HabitsMultiSelectChecklist selectedOptions={selectedOptions} onSelectOption={handleSelectOption}/>            
             </ScrollView>
 
