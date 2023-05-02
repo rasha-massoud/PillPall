@@ -13,35 +13,50 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
 
+interface MedicalHistoryData {
+  chronic_conditions: string;
+  past_surgeries: string;
+  family_medical_history: string;
+  allergies: string;
+}
+
 const MedicalHistory: FC = () => {
 
-  const [chronicConditions, setChronicConditions] = useState<string>('');
-  const [pastSurgeries, setPastSurgeries] = useState<string>('');
-  const [familyMedicalHistory, setFamilyMedicalHistory] = useState<string>('');
-  const [allergies, setAllergies] = useState<string>('');
+  const [medicalHistoryData, setMedicalHistoryData] = useState<MedicalHistoryData>({
+    chronic_conditions: '',
+    past_surgeries: '',
+    family_medical_history: '',
+    allergies: '',
+  });
 
   const handleChronicConditionsChange = async (value: string) => {
-    setChronicConditions(value);
+    setMedicalHistoryData({...medicalHistoryData, chronic_conditions: value});
     await AsyncStorage.setItem('chronic_conditions', value);
   }
 
   const handlePastSurgeriesChange = async (value: string) => {
-    setPastSurgeries(value);
+    setMedicalHistoryData({...medicalHistoryData, past_surgeries: value});
     await AsyncStorage.setItem('past_surgeries', value);
   }
 
   const handleFamilyMedicalHistoryChange = async(value: string) => {
-    setFamilyMedicalHistory(value);
+    setMedicalHistoryData({...medicalHistoryData, family_medical_history: value});
     await AsyncStorage.setItem('family_medical_history', value);
   }
 
   const handleAllergiesChange = async (value: string) => {
-    setAllergies(value);
+    setMedicalHistoryData({...medicalHistoryData, allergies: value});
     await AsyncStorage.setItem('allergies', value);
   }
 
   const handleContinuePress = () => {
-    //Navigate to Step 6
+    console.log("success");
+    AsyncStorage.getAllKeys().then(keys => {
+      AsyncStorage.multiGet(keys).then((result) => {
+        console.log(result);
+      });
+    });    
+    // Navigate to Step 6 
   }
 
   return (
