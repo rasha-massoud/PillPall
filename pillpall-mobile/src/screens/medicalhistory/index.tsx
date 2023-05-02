@@ -10,6 +10,8 @@ import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useDispatch, useSelector } from "react-redux";
+import { setChronicConditions, setPastSurgeries, setFamilyMedicalHistory, setAllergies, } from "../../store/slices/reportSlice";
 
 import styles from './styles';
 
@@ -22,6 +24,8 @@ interface MedicalHistoryData {
 
 const MedicalHistory: FC = () => {
 
+  const dispatch = useDispatch();
+
   const [medicalHistoryData, setMedicalHistoryData] = useState<MedicalHistoryData>({
     chronic_conditions: '',
     past_surgeries: '',
@@ -32,21 +36,29 @@ const MedicalHistory: FC = () => {
   const handleChronicConditionsChange = async (value: string) => {
     setMedicalHistoryData({...medicalHistoryData, chronic_conditions: value});
     await AsyncStorage.setItem('chronic_conditions', value);
+
+    dispatch(setChronicConditions(value));
   }
 
   const handlePastSurgeriesChange = async (value: string) => {
     setMedicalHistoryData({...medicalHistoryData, past_surgeries: value});
     await AsyncStorage.setItem('past_surgeries', value);
+
+    dispatch(setPastSurgeries(value));
   }
 
   const handleFamilyMedicalHistoryChange = async(value: string) => {
     setMedicalHistoryData({...medicalHistoryData, family_medical_history: value});
     await AsyncStorage.setItem('family_medical_history', value);
+
+    dispatch(setFamilyMedicalHistory(value));
   }
 
   const handleAllergiesChange = async (value: string) => {
     setMedicalHistoryData({...medicalHistoryData, allergies: value});
     await AsyncStorage.setItem('allergies', value);
+
+    dispatch(setAllergies(value));
   }
 
   const handleContinuePress = () => {
