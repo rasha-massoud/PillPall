@@ -24,6 +24,8 @@ interface ContactInfoData {
 
 const ContactInfo: FC = () => {
 
+  const [image, setImage] = useState<string | null>(null);
+
   const [contactInfoData, setContactInfoData] = useState<ContactInfoData>({
     address: '',
     dob: '',
@@ -68,7 +70,7 @@ const handleContinuePress = async () => {
 
     <Body1Text context="To provide you with the best care possible, we need your contact information, such as your phone number, date of birth, address, and gender. This information helps us keep in touch with you and keep your medical records up-to-date."></Body1Text>
 
-    <AddImage></AddImage>
+    <AddImage setImage={setImage} />
 
     <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePhoneNumberChange} />
 
@@ -76,7 +78,7 @@ const handleContinuePress = async () => {
 
     <TextInputwithLabel label="Address" placeholder='Enter your Address' textinputprops={{ secureTextEntry: false }} onChangeText= {handleAddressChange} />
 
-    <GenderCheckBox selectedGender={gender} onGenderSelect={handleGenderSelect} />
+    <GenderCheckBox selectedGender={contactInfoData.gender} onGenderSelect={handleGenderSelect} />
 
     <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 20 }} buttonprops={{ title: "Continue", onPress: handleContinuePress }} />
 
