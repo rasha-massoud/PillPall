@@ -7,10 +7,10 @@ import { Ionicons } from '@expo/vector-icons';
 import styles from './styles';
 
 type AddImageProps = {
-    setImage: (image: string | null) => void;
+    onImageSelected: (image: string | null) => void;
 };
 
-const AddImage: FC<AddImageProps> = (props) => {
+const AddImage: FC<AddImageProps> = ({ onImageSelected }) => {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     const pickImage = async () => {
@@ -25,13 +25,13 @@ const AddImage: FC<AddImageProps> = (props) => {
     
         if (!result.canceled && result.assets && result.assets.length > 0) {
             setSelectedImage(result.assets[0].uri);
-            props.setImage(result.assets[0].uri);
+            onImageSelected(result.assets[0].uri);
         }
     };
 
     const clearImage = () => {
         setSelectedImage(null);
-        props.setImage(null);
+        onImageSelected(null);
     }
 
     return (
