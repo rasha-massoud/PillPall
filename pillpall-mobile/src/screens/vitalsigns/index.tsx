@@ -10,6 +10,8 @@ import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useDispatch, useSelector } from "react-redux";
+import { setBodyTemperature, setPulseRate, setRespirationRate, setSystolicBloodPressure } from "../../store/slices/reportSlice";
 
 import styles from './styles';
 
@@ -22,6 +24,8 @@ interface VitalSignsData {
 
 const VitalSigns: FC = () => {
 
+  const dispatch = useDispatch();
+
   const [vitalSignsData, setVitalSignsData] = useState<VitalSignsData>({
     body_temperature: '',
     pulse_rate: '',
@@ -32,21 +36,29 @@ const VitalSigns: FC = () => {
   const handleTemperatureChange = async (value: string) => {
     setVitalSignsData({...vitalSignsData, body_temperature: value});
     await AsyncStorage.setItem('body_temperature', value);
+
+    dispatch(setBodyTemperature(value));
   }
 
   const handlePulseChange = async (value: string) => {
     setVitalSignsData({...vitalSignsData, pulse_rate: value});
     await AsyncStorage.setItem('pulse_rate', value);
+
+    dispatch(setPulseRate(value));
   }
 
   const handleRespirationRateChange = async(value: string) => {
     setVitalSignsData({...vitalSignsData, respiration_rate: value});
     await AsyncStorage.setItem('respiration_rate', value);
+
+    dispatch(setRespirationRate(value));
   }
 
   const handleBloodPressureChange = async (value: string) => {
     setVitalSignsData({...vitalSignsData, systolic_blood_pressure: value});
     await AsyncStorage.setItem('systolic_blood_pressure', value);
+
+    dispatch(setSystolicBloodPressure(value));
   }
 
   const handleContinuePress = () => {
