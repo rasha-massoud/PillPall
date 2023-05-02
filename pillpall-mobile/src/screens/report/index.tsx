@@ -1,11 +1,14 @@
 import React, { FC, useState, useEffect } from 'react'
-import { SafeAreaView, View, Text, Image , ScrollView} from 'react-native';
+import { SafeAreaView, View, Text, Image , Alert, ScrollView} from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import SubTitleText from '../../components/SubTitleText';
 import Body1Text from '../../components/Body1Text';
-// import axios from 'axios';
+import axios from 'axios';
 import DisplayData from '../../components/DisplayData';
 import appStyles from '../../constants/appStyles';
+import { useNavigation } from '@react-navigation/native';
+import API_URL from '../../constants/url';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
 
@@ -42,28 +45,47 @@ interface ReportData {
   updated_at: Date;
 }
 
-const Report: FC = () => {
+const Report = async () => {
+
+  const navigation = useNavigation();
   const [generalData, setGeneralData] = useState<Patient[]>([]);
   const [reportData, setReportData] = useState<ReportData[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const [response1, response2] = await Promise.all([
-  //       axios.get('https://api.example.com/api1'),
-  //       axios.get('https://api.example.com/api2'),
-  //     ]);
+  useEffect(() => {
+    const getData = async () => {
+      const token = await AsyncStorage.getItem('token');
+      setLoading(true);
+      try {
+        const endpoint = 'patient/get_report';
+        const response = await axios.post(`${API_URL}${endpoint}`, {
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': "multipart/form-data",
+          },
+        });
+        console.log(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('An error occurred while getting the report', error);
+        setLoading(false);
+      }
+    };
+    getData();
+  }, []);
 
-  //     setGeneralData(response1.data);
-  //     setReportData(response2.data);
-  //   };
-
-  //   fetchData();
-  // }, []);
+  if (loading) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
 
   return (
   
   <SafeAreaView style={styles.container}>
-    <ScrollView>
       <View style={styles.top}>
         <View style= {styles.topLeft}>
             <SubTitleText title='PILL PALL' />
@@ -80,12 +102,12 @@ const Report: FC = () => {
           />
         </View>
       </View>
-
+    {/* <ScrollView> */}
 
       <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals."></Body1Text>
 
-      <SubTitleText title='Contact Information' />
-      {generalData.map((user) => (
+      {/* <SubTitleText title='Contact Information' /> */}
+      {/* {generalData.map((user) => (
         <View>
           <DisplayData title='Name' value={user.name} />
           <DisplayData title='Email' value={user.email} />
@@ -196,9 +218,8 @@ const Report: FC = () => {
       </View>
       ))}
 
-      
-      <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Edit", onPress: () => console.log('Edit') }}  />
-    </ScrollView>
+    </ScrollView> */}
+    <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Edit", onPress: () => console.log('Edit') }}  />
   </SafeAreaView>
   );
 };
