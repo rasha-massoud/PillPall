@@ -5,11 +5,21 @@ import NavBar3 from '../../components/NavBar3';
 import MyCalendar from '../../components/MyCalendar';
 import axios from 'axios';
 import styles from './styles';
+import API_URL from '../../constants/url';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+type Medication = {
+    name: string;
+    dosage: string;
+    timing: string;
+};
 
 const MedicationSchedule: FC = () => {
    
     const [selectedDate, setSelectedDate] = useState(new Date().toISOString().substring(0, 10));
     const [selectedDay, setSelectedDay] = useState('');
+    const [successState, setSuccessState] = useState('');
+    const [medications, setMedications] = useState<Medication[]>([]);
 
     const handleAddMedPress = () => {
         // navigate to Add Medicine Screen
@@ -31,16 +41,15 @@ const MedicationSchedule: FC = () => {
         const dayOfWeek = daysOfWeek[selectedDateObj.getDay()];
 
         setSelectedDay(dayOfWeek);
-        console.log(date);
-        console.log(dayOfWeek);
 
         const data = new FormData();
         data.append('day', dayOfWeek);
         data.append('date', date);
          
-        const token = localStorage.getItem('token');
-
-        await axios.post('http://192.168.0.103:8000/api/v0.0.0/get_medications', data, {
+        const token = await AsyncStorage.getItem('token');
+        
+        const endpoint = 'med/get_medications';
+        await axios.post(`${API_URL}${endpoint}`, data, {
             headers: {
                 'Content-Type': "multipart/form-data",
                 'Accept': 'application/json',
@@ -48,7 +57,10 @@ const MedicationSchedule: FC = () => {
             },
         })
         .then((response) => {
-            console.log(response.data);
+            if(response.data.status == 'success'){
+                setSuccessState('success');
+                setMedications(response.data.medications);
+            }
         })
         .catch((error) => {
             console.error('An error occurred when getting the medications');
@@ -66,6 +78,25 @@ const MedicationSchedule: FC = () => {
                 image3={{ source: require('../../../assets/rename.png'), onPress: handlePharmPress }}
             />
             <MyCalendar onSelectDate={handleSelectDate} />
+
+
+            <View>
+            {successState === 'success' ? (
+                medications.length > 0 ? (
+                medications.map((medication) => (
+                    <View key={medication.id}>
+                    <Text>{medication.name}</Text>
+                    <Text>{medication.dosage}</Text>
+                    </View>
+                ))
+                ) : (
+                <Text>No medication for {selectedDay}.</Text>
+                )
+            ) : (
+                <Text>Fetching medication list...</Text>
+            )}
+            </View>
+
         </SafeAreaView>
     );
 };
