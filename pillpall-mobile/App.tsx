@@ -29,6 +29,8 @@ import AddFileNumber from './src/screens/addfilenumber';
 import AddMedicalResult from './src/screens/addmedicalresult';
 import MedicalResults from './src/screens/medicalresults';
 import PatientSearch from './src/screens/patientseach';
+import { Provider } from "react-redux";
+import store from "./src/store";
 
 export default function App() {
   useEffect(() => {
@@ -37,9 +39,11 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <NavigationContainer>
-        <MedicalHistory/>
-      </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Login/>
+        </NavigationContainer>
+      </Provider>
     </View>
   );
 }
