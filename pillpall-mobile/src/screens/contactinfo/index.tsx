@@ -32,16 +32,19 @@ const ContactInfo: FC = () => {
 
   const [imageUri, setImageUri] = useState<string | null>(null);
 
-  const handleImageSelected = async (uri: string | null) => {
-    setImageUri(uri);
-    if (uri) {
-      dispatch(setImage(uri));
-      await AsyncStorage.setItem('imageUri', uri);
+  const handleImageSelected = async (imageFile: File | null) => {
+    if (imageFile) {
+      const url = URL.createObjectURL(imageFile);
+      setImageUri(url);
+      dispatch(setImage(url));
+      await AsyncStorage.setItem('imageUri', url);
     } else {
+      setImageUri(null);
       dispatch(setImage(null));
       await AsyncStorage.setItem('imageUri', '');
     }
   };
+  
 
   const [contactInfoData, setContactInfoData] = useState<ContactInfoData>({
     name: '',
