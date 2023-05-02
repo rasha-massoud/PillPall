@@ -10,6 +10,8 @@ import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useDispatch, useSelector } from "react-redux";
+import { setBloodType, setHeight, setWeight } from "../../store/slices/reportSlice";
 
 import styles from './styles';
 
@@ -21,6 +23,8 @@ interface AnthropometricMeasurements {
 
 const AnthropometricMeasurements: FC = () => {
 
+  const dispatch = useDispatch();
+
   const [anthropometricMeasurements, setAnthropometricMeasurements] = useState<AnthropometricMeasurements>({
     height: '',
     weight: '',
@@ -30,16 +34,22 @@ const AnthropometricMeasurements: FC = () => {
   const handleHeightChange = async (value: string) => {
     setAnthropometricMeasurements({...anthropometricMeasurements, height: value});
     await AsyncStorage.setItem('height', value);
+
+    dispatch(setHeight(value));
   }
 
   const handleWeightChange = async (value: string) => {
     setAnthropometricMeasurements({...anthropometricMeasurements, weight: value});
     await AsyncStorage.setItem('weight', value);
+
+    dispatch(setWeight(value));
   }
 
   const handleBloodTypeChange = async (value: string) => {
     setAnthropometricMeasurements({...anthropometricMeasurements, blood_type: value});
     await AsyncStorage.setItem('blood_type', value);
+
+    dispatch(setBloodType(value));
   }
 
   const handleContinuePress = () => {
