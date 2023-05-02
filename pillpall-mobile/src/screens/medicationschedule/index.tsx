@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, View, Text, FlatList } from 'react-native';
 import { colors } from '../../constants/palette';
 import NavBar3 from '../../components/NavBar3';
 import MyCalendar from '../../components/MyCalendar';
@@ -7,6 +7,7 @@ import axios from 'axios';
 import styles from './styles';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import MedicationItem from '../../components/MedicationItem';
 
 type Medication = {
     name: string;
@@ -79,22 +80,26 @@ const MedicationSchedule: FC = () => {
             />
             <MyCalendar onSelectDate={handleSelectDate} />
 
-
             <View>
-            {successState === 'success' ? (
-                medications.length > 0 ? (
-                medications.map((medication) => (
-                    <View key={medication.id}>
-                    <Text>{medication.name}</Text>
-                    <Text>{medication.dosage}</Text>
-                    </View>
-                ))
+                {successState === 'success' ? (
+                    medications.length > 0 ? (
+                    <FlatList
+                        data={medications}
+                        keyExtractor={(medication) => medication.name}
+                        renderItem={({ item }) => (
+                        <MedicationItem
+                            name={item.name}
+                            dosage={item.dosage}
+                            timing={item.timing}
+                        />
+                        )}
+                    />
+                    ) : (
+                    <Text>No medication for {selectedDay}.</Text>
+                    )
                 ) : (
-                <Text>No medication for {selectedDay}.</Text>
-                )
-            ) : (
-                <Text>Fetching medication list...</Text>
-            )}
+                    <Text>Fetching medication list...</Text>
+                )}
             </View>
 
         </SafeAreaView>
