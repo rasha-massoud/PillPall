@@ -40,7 +40,7 @@ const ContactInfo: FC = () => {
       await AsyncStorage.setItem('imageUri', '');
     } 
     
-    dispatch(setImage(uri));
+    dispatch(setImage(imageUri));
   };
 
   const [contactInfoData, setContactInfoData] = useState<ContactInfoData>({

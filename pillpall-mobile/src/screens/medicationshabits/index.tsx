@@ -167,9 +167,6 @@ const MedicationsAndHabits: FC = () => {
   const handleSubmitPress = async () => {
 
     const data = new FormData();
-      data.append('name', name);
-      data.append('email', email);
-      data.append('image', image);
       data.append('phone_number', phone_number);
       data.append('address', address);
       data.append('dob', dob);
@@ -191,16 +188,16 @@ const MedicationsAndHabits: FC = () => {
       data.append('allergies', allergies);
       data.append('life_style_habits', life_style_habits);
       data.append('medications', medications);
+      data.append('image', image);
 
-      console.log(data);
       const token = await AsyncStorage.getItem('token');
 
       const endpoint = 'patient/report';
       await axios.post(`${API_URL}${endpoint}`, data, {
           headers: {
-              'Content-Type': "application/json",
-              'Accept': 'application/json',
-              'Authorization': `Bearer ${token}`
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': "multipart/form-data",
           },
       })
       .then((response) => {
@@ -215,7 +212,7 @@ const MedicationsAndHabits: FC = () => {
             );
       })
       .catch((error) => {
-          console.error('An error occurred while creating the report');
+          console.error('An error occurred while creating the report', error);
       });
   };
 
