@@ -9,16 +9,19 @@ import RoleCheckBox from '../../components/RoleCheckBox';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import API_URL from '../../constants/url';
+import { useDispatch, useSelector } from "react-redux";
+import { setName, setEmail } from "../../store/slices/reportSlice";
 
 import styles from './styles'
 
 const Register: FC = () => {
 
+    const dispatch = useDispatch();
     // const navigation = useNavigation();
 
     const [role, setRole] = useState<string>('patient');
-    const [name, setName] = useState<string>('');
-    const [email, setEmail] = useState<string>('');
+    const [username, setUsername] = useState<string>('');
+    const [emailAddress, setEmailAddress] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [confirmPassword, setConfirmPassword] = useState<string>('');
 
@@ -33,11 +36,13 @@ const Register: FC = () => {
     }
 
     const handleNameChange = (value: string) => {
-        setName(value);
+        setUsername(value);
+        dispatch(setName(value));
     };
 
     const handleEmailChange = (value: string) => {
-        setEmail(value);
+        setEmailAddress(value);
+        dispatch(setEmail(value));
     };
 
     const handlePasswordChange = (value: string) => {
@@ -77,7 +82,7 @@ const Register: FC = () => {
 
     const handleSignupPress = async () => {
         
-        if (!validateEmail(email)) {
+        if (!validateEmail(emailAddress)) {
             Alert.alert('Invalid email', 'Please enter a valid email address.');
             return;
         }
@@ -93,8 +98,8 @@ const Register: FC = () => {
         }
 
         const data = new FormData();
-        data.append('name', name);
-        data.append('email', email);
+        data.append('name', username);
+        data.append('email', emailAddress);
         data.append('password', password);
         data.append('confirm_password', confirmPassword);
         data.append('role', role);
