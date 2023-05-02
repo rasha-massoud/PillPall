@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, TouchableOpacity, Image } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import PageTitle from '../../components/PageTitle';
 import Body1Text from '../../components/Body1Text';
@@ -24,7 +24,16 @@ interface ContactInfoData {
 
 const ContactInfo: FC = () => {
 
-  const [image, setImage] = useState<string | null>(null);
+  const [imageUri, setImageUri] = useState<string | null>(null);
+
+  const handleImageSelected = async (uri: string | null) => {
+    setImageUri(uri);
+    if (imageUri) {
+      await AsyncStorage.setItem('imageUri', imageUri);
+    } else {
+      await AsyncStorage.setItem('imageUri', '');
+    }  
+  };
 
   const [contactInfoData, setContactInfoData] = useState<ContactInfoData>({
     address: '',
@@ -57,36 +66,36 @@ const ContactInfo: FC = () => {
 
 const handleContinuePress = async () => {
 
-    await AsyncStorage.setItem('contactInfoData', JSON.stringify(contactInfoData));
-    console.log("success");
-    AsyncStorage.getAllKeys().then(keys => {
-      AsyncStorage.multiGet(keys).then((result) => {
-        console.log(result);
-      });
-    });    // Navigate to Step 2
+  console.log("success");
+  AsyncStorage.getAllKeys().then(keys => {
+    AsyncStorage.multiGet(keys).then((result) => {
+      console.log(result);
+    });
+  });    
+  // Navigate to Step 2
   }
 
   return (
   
-  <SafeAreaView style={styles.container}>
-    <PageTitle title='Contact Information' />
-    <StepText title='Step 1' color={colors.blue}></StepText>
+    <SafeAreaView style={styles.container}>
+      <PageTitle title='Contact Information' />
+      <StepText title='Step 1' color={colors.blue}></StepText>
 
-    <Body1Text context="To provide you with the best care possible, we need your contact information, such as your phone number, date of birth, address, and gender. This information helps us keep in touch with you and keep your medical records up-to-date."></Body1Text>
+      <Body1Text context="To provide you with the best care possible, we need your contact information, such as your phone number, date of birth, address, and gender. This information helps us keep in touch with you and keep your medical records up-to-date."></Body1Text>
 
-    <AddImage setImage={setImage} />
+      <AddImage onImageSelected={handleImageSelected} />
 
-    <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePhoneNumberChange} />
+      <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePhoneNumberChange} />
 
-    <TextInputwithLabel label="Date of Birth" placeholder='YYYY-MM-DD' textinputprops={{ secureTextEntry: false }} onChangeText= {handleDoBChange} />
+      <TextInputwithLabel label="Date of Birth" placeholder='YYYY-MM-DD' textinputprops={{ secureTextEntry: false }} onChangeText= {handleDoBChange} />
 
-    <TextInputwithLabel label="Address" placeholder='Enter your Address' textinputprops={{ secureTextEntry: false }} onChangeText= {handleAddressChange} />
+      <TextInputwithLabel label="Address" placeholder='Enter your Address' textinputprops={{ secureTextEntry: false }} onChangeText= {handleAddressChange} />
 
-    <GenderCheckBox selectedGender={contactInfoData.gender} onGenderSelect={handleGenderSelect} />
+      <GenderCheckBox selectedGender={contactInfoData.gender} onGenderSelect={handleGenderSelect} />
 
-    <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 20 }} buttonprops={{ title: "Continue", onPress: handleContinuePress }} />
+      <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 20 }} buttonprops={{ title: "Continue", onPress: handleContinuePress }} />
 
-  </SafeAreaView>
+    </SafeAreaView>
   );
 };
 
