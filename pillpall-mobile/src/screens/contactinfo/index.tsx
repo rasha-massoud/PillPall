@@ -33,7 +33,7 @@ const ContactInfo: FC = () => {
     gender: undefined
   });
 
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
   const handlePhoneNumberChange = async (value: string) => {
     setContactInfoData({...contactInfoData, phoneNumber: value});
@@ -58,8 +58,12 @@ const ContactInfo: FC = () => {
 const handleContinuePress = async () => {
 
     await AsyncStorage.setItem('contactInfoData', JSON.stringify(contactInfoData));
-
-    // Navigate to Step 2
+    console.log("success");
+    AsyncStorage.getAllKeys().then(keys => {
+      AsyncStorage.multiGet(keys).then((result) => {
+        console.log(result);
+      });
+    });    // Navigate to Step 2
   }
 
   return (

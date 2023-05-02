@@ -37,7 +37,10 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <ContactInfo/>
+      <NavigationContainer>
+
+        <ContactInfo/>
+      </NavigationContainer>
     </View>
   );
 }
