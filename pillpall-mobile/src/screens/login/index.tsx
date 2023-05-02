@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, Text, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, Text, TouchableOpacity, Image, Alert } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import TextTitle from '../../components/TextTitle';
@@ -58,6 +58,14 @@ const Login: FC = () => {
             AsyncStorage.setItem('email', response.data.user.email);
             AsyncStorage.setItem('role', response.data.user.role);
             AsyncStorage.setItem('first_login', response.data.user.first_login.toString());
+            Alert.alert(
+                'Success',
+                'Successful Login.',
+                [
+                  { text: 'OK' }
+                ],
+                { cancelable: false }
+              );
         })
         .catch((error) => {
             console.error('Error during Login or Invalid Credentials');
