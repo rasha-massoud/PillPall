@@ -20,6 +20,7 @@ interface RootState {
   report: {
     name: string;
     email: string;
+    image: string;
     phone_number: string;
     address: string;
     dob: string;
@@ -67,103 +68,108 @@ const MedicationsAndHabits: FC = () => {
     dispatch(setMedications(value));
   };
 
+  const name = useSelector(
+    (state: RootState) => state.report.name
+  );
+
+  const email = useSelector(
+    (state: RootState) => state.report.email
+  );
+
+  const image = useSelector(
+    (state: RootState) => state.report.image
+  );
+
+  const phone_number = useSelector(
+    (state: RootState) => state.report.phone_number
+  );
+
+  const address = useSelector(
+    (state: RootState) => state.report.address
+  );
+
+  const dob = useSelector(
+    (state: RootState) => state.report.dob
+  );
+
+  const gender = useSelector(
+    (state: RootState) => state.report.gender
+  );
+  
+  const blood_type = useSelector(
+    (state: RootState) => state.report.blood_type
+  );
+  
+  const height = useSelector(
+    (state: RootState) => state.report.height
+  );
+
+  const weight = useSelector(
+    (state: RootState) => state.report.weight
+  );
+
+  const emergency_name = useSelector(
+    (state: RootState) => state.report.emergency_name
+  );
+  
+  const emergency_number = useSelector(
+    (state: RootState) => state.report.emergency_number
+  );
+
+  const emergency_email = useSelector(
+    (state: RootState) => state.report.emergency_email
+  );
+
+  const emergency_contact_relation = useSelector(
+    (state: RootState) => state.report.emergency_contact_relation
+  );
+
+  const body_temperature = useSelector(
+    (state: RootState) => state.report.body_temperature
+  );
+  
+  const pulse_rate = useSelector(
+    (state: RootState) => state.report.pulse_rate
+  );
+
+  const respiration_rate = useSelector(
+    (state: RootState) => state.report.respiration_rate
+  );
+
+  const systolic_blood_pressure = useSelector(
+    (state: RootState) => state.report.systolic_blood_pressure
+  );
+
+  const chronic_conditions = useSelector(
+    (state: RootState) => state.report.chronic_conditions
+  );
+  
+  const past_surgeries = useSelector(
+    (state: RootState) => state.report.past_surgeries
+  );
+
+  const family_medical_history = useSelector(
+    (state: RootState) => state.report.family_medical_history
+  );
+
+  const allergies = useSelector(
+    (state: RootState) => state.report.allergies
+  );
+
+  const life_style_habits = useSelector(
+    (state: RootState) => state.report.life_style_habits
+  );
+
+  const medications = useSelector(
+    (state: RootState) => state.report.medications
+  );
+
   const handleSubmitPress = async () => {
-    
-    const name = useSelector(
-      (state: RootState) => state.report.name
-    );
-
-    const email = useSelector(
-      (state: RootState) => state.report.email
-    );
-
-    const phone_number = useSelector(
-      (state: RootState) => state.report.phone_number
-    );
-
-    const address = useSelector(
-      (state: RootState) => state.report.address
-    );
-
-    const dob = useSelector(
-      (state: RootState) => state.report.dob
-    );
-
-    const gender = useSelector(
-      (state: RootState) => state.report.gender
-    );
-    
-    const blood_type = useSelector(
-      (state: RootState) => state.report.blood_type
-    );
-    
-    const height = useSelector(
-      (state: RootState) => state.report.height
-    );
-
-    const weight = useSelector(
-      (state: RootState) => state.report.weight
-    );
-
-    const emergency_name = useSelector(
-      (state: RootState) => state.report.emergency_name
-    );
-    
-    const emergency_number = useSelector(
-      (state: RootState) => state.report.emergency_number
-    );
-
-    const emergency_email = useSelector(
-      (state: RootState) => state.report.emergency_email
-    );
-
-    const emergency_contact_relation = useSelector(
-      (state: RootState) => state.report.emergency_contact_relation
-    );
-
-    const body_temperature = useSelector(
-      (state: RootState) => state.report.body_temperature
-    );
-    
-    const pulse_rate = useSelector(
-      (state: RootState) => state.report.pulse_rate
-    );
-
-    const respiration_rate = useSelector(
-      (state: RootState) => state.report.respiration_rate
-    );
-
-    const systolic_blood_pressure = useSelector(
-      (state: RootState) => state.report.systolic_blood_pressure
-    );
-
-    const chronic_conditions = useSelector(
-      (state: RootState) => state.report.chronic_conditions
-    );
-    
-    const past_surgeries = useSelector(
-      (state: RootState) => state.report.past_surgeries
-    );
-
-    const family_medical_history = useSelector(
-      (state: RootState) => state.report.family_medical_history
-    );
-
-    const allergies = useSelector(
-      (state: RootState) => state.report.allergies
-    );
-
-    const life_style_habits = useSelector(
-      (state: RootState) => state.report.life_style_habits
-    );
-
-    const medications = useSelector(
-      (state: RootState) => state.report.medications
-    );
 
     const data = new FormData();
       data.append('name', name);
       data.append('email', email);
+      data.append('image', image);
       data.append('phone_number', phone_number);
       data.append('address', address);
       data.append('dob', dob);
@@ -186,6 +192,7 @@ const MedicationsAndHabits: FC = () => {
       data.append('life_style_habits', life_style_habits);
       data.append('medications', medications);
 
+      console.log(data);
       const token = await AsyncStorage.getItem('token');
 
       const endpoint = 'patient/report';
