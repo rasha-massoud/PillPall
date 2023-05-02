@@ -10,6 +10,8 @@ import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useDispatch, useSelector } from "react-redux";
+import { setEmergencyName, setEmergencyNumber, setEmergencyEmail, setEmergencyContactRelation } from "../../store/slices/reportSlice";
 
 import styles from './styles';
 
@@ -22,6 +24,8 @@ interface EmergencyContactData {
 
 const EmergencyContact: FC = () => {
 
+  const dispatch = useDispatch();
+
   const [emergencyContactData, setEmergencyContactData] = useState<EmergencyContactData>({
     emergency_name: '',
     emergency_number: '',
@@ -32,21 +36,29 @@ const EmergencyContact: FC = () => {
   const handleNameChange = async (value: string) => {
     setEmergencyContactData({...emergencyContactData, emergency_name: value});
     await AsyncStorage.setItem('emergency_name', value);
+
+    dispatch(setEmergencyName(value));
   }
 
   const handlePhoneNumberChange = async (value: string) => {
     setEmergencyContactData({...emergencyContactData, emergency_number: value});
     await AsyncStorage.setItem('emergency_number', value);
+
+    dispatch(setEmergencyNumber(value));
   }
 
   const handleEmailChange = async(value: string) => {
     setEmergencyContactData({...emergencyContactData, emergency_email: value});
     await AsyncStorage.setItem('emergency_email', value);
+
+    dispatch(setEmergencyEmail(value));
   }
 
   const handleRelationChange = async (value: string) => {
     setEmergencyContactData({...emergencyContactData, emergency_contact_relation: value});
     await AsyncStorage.setItem('emergency_contact_relation', value);
+
+    dispatch(setEmergencyContactRelation(value));
   }
 
   const handleContinuePress = () => {
