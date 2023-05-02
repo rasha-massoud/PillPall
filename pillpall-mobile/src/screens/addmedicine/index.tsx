@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, ScrollView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, ScrollView, Alert } from 'react-native';
 import NavBar1 from '../../components/NavBar1';
 import axios from 'axios';
 import styles from './styles';
@@ -11,10 +11,11 @@ import TimingChecklist from '../../components/TimingCheckList';
 import OnDemandCheckBox from '../../components/OnDemandCheckBox';
 import FirstOfEachMonth from '../../components/FirstOfEachMonth';
 import TwoCustomButton from '../../components/TwoCustomButton';
+import { useNavigation } from '@react-navigation/native';
+import API_URL from '../../constants/url';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const DAYS: Day[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'None', 'Everyday'];
 const MONTHS: Month[] = ['All', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const TIMINGS: Timing[] = ['6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'];
 
 type Day = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday' | 'None' | 'Everyday';
 type Month = 'All' | 'January' | 'February' | 'March' | 'April' | 'May' | 'June' | 'July' | 'August' | 'September' | 'October' | 'November' | 'December';
@@ -22,36 +23,47 @@ type Timing = '6:00' | '8:00' | '10:00' | '12:00' | '14:00' | '16:00' | '18:00' 
 
 const AddMedicine: FC = () => {
     
+    const [name, setName] = useState<string>('');
+    const [quantity, setQuantity] = useState<string>('');
+    const [price, setPrice] = useState<string>('');
+    const [instructions, setInstructions] = useState<string>('');
+
     const [onDemand, setOnDemand] = useState<string>('No');
     const [firstOfEachMonth, setFirstOfEachMonth] = useState<string>('No');
-    onDemand
+    
     const [selectedDay, setSelectedDay] = useState<Day | null>(null);
     const [selectedMonth, setSelectedMonth] = useState<Month | null>(null);
     const [selectedTiming, setSelectedTiming] = useState<Timing | null>(null);
+
+    const [selectedImageFile, setSelectedImageFile] = useState<File | null>(null);
 
     const handleDeleteMedPress = () => {
         // navigate to Delete Medicine Screen
     }
 
-    const handleMedicineNameChange = () => {
-
-    }
-
-    const handleDoseQuantityChange = () => {
-
-    }
-
-    const handleMedicinePriceChange = () => {
-
-    }
-
-    const handleInstructionsChange = () => {
-
-    }
-
-    const handleSelectDay = (day: Day) => {
-        setSelectedDay(day);
+    const handleImageSelected = (imageFile: File | null) => {
+        setSelectedImageFile(imageFile);
     };
+
+    const handleMedicineNameChange = (value: string) => {
+        setName(value);
+    }
+
+    const handleDoseQuantityChange = (value: string) => {
+        setQuantity(value);
+    }
+
+    const handleMedicinePriceChange = (value: string) => {
+        setPrice(value);
+    }
+
+    const handleInstructionsChange = (value: string) => {
+        setInstructions(value);
+    }
+
+    const handleDaySelect = (day: Day) => {
+        setSelectedDay(day);
+      };
 
     const handleSelectMonth = (month: Month) => {
         setSelectedMonth(month);
@@ -69,27 +81,46 @@ const AddMedicine: FC = () => {
         setOnDemand(onDemand);
     };
 
-    const handleSelectDate = async (date: string) => {
-         
-        const token = localStorage.getItem('token');
+    const handleAddPress = async () => {
+        const data = new FormData();
+        data.append('name', name);
+        data.append('dose_quantity', quantity);
+        data.append('price_per_month', price);
+        data.append('instructions', instructions);
+        data.append('on_demand', onDemand);
+        data.append('first_of_each_month', firstOfEachMonth);
+        data.append('days', JSON.stringify({ day: selectedDay }));
+        data.append('timing', JSON.stringify({timing: selectedTiming}));
+        data.append('image', selectedImageFile);
+        data.append('month', selectedMonth);
 
-        // await axios.post('http://192.168.0.103:8000/api/v0.0.0/get_medications', data, {
-        //     headers: {
-        //         'Content-Type': "multipart/form-data",
-        //         'Accept': 'application/json',
-        //         'Authorization': `Bearer ${token}`,
-        //     },
-        // })
-        // .then((response) => {
-        //     console.log(response.data);
-        // })
-        // .catch((error) => {
-        //     console.error('An error occurred when getting the medications');
-        // });
+        console.log(data);
 
-    };
-
-    const handleAddPress = () => {
+        const token = await AsyncStorage.getItem('token');
+  
+        const endpoint = 'med/add_medicine';
+        await axios.post(`${API_URL}${endpoint}`, data, {
+            headers: {
+              'Accept': 'application/json',
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': "multipart/form-data",
+            },
+        })
+        .then((response) => {
+            if (response.data== 'success'){
+                Alert.alert(
+                    'Success',
+                    'The report is successfully created.',
+                    [
+                      { text: 'OK' }
+                    ],
+                    { cancelable: false }
+                );
+            }
+        })
+        .catch((error) => {
+            console.error('An error occurred while creating the report', error);
+        });
     };
 
     const handleCancelPress = () => {
@@ -104,20 +135,24 @@ const AddMedicine: FC = () => {
                     title="Medication Schedule"
                     image1={{ source: require('../../../assets/deletemed.png'), onPress: handleDeleteMedPress }}
                 />
-                <AddImage></AddImage>
+                <AddImage onImageSelected={handleImageSelected} />
+                
                 <TextInputwithLabel label='Name' placeholder='Enter the Medicine Name' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicineNameChange} />
                 <TextInputwithLabel label='Dose Quantity' keyboardType="numeric" placeholder='Enter the Intake Dose Quantity as prescribed' textinputprops={{ secureTextEntry: false}} onChangeText= {handleDoseQuantityChange} />
                 <TextInputwithLabel label='Price per month (in $)' keyboardType="numeric" placeholder='Enter the Medicine Price per month' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicinePriceChange} />
                 <TextInputwithLabel label='Instructions' placeholder='Enter the Medicine Intake Instructions' textinputprops={{ secureTextEntry: false}} onChangeText= {handleInstructionsChange} />
 
-                <DaySelector days={DAYS} selectedDay={selectedDay} onSelectDay={handleSelectDay} />
+                <DaySelector days={['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']} selectedDay={selectedDay} onSelectDay={handleDaySelect} />
                 <MonthSelector months={MONTHS} selectedMonth={selectedMonth} onSelectMonth={handleSelectMonth} />
-                <TimingChecklist timings={TIMINGS} selectedTiming={selectedTiming} onSelectTiming={handleSelectTiming} />
-            
+                <TimingChecklist
+                    timings={['6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00']}
+                    selectedTiming={selectedTiming}
+                    onSelectTiming={handleSelectTiming}
+                />            
                 <OnDemandCheckBox selectedOnDemand={onDemand} onDemandSelect={handleOnDemandSelect} />
                 <FirstOfEachMonth selectedFirstOfEachMonth={firstOfEachMonth} firstOfEachMonthSelect={handleFirstOfEachMonthSelect} />
 
-                <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: handleCancelPress }} buttonprops1={{ title: "Add", onPress: handleAddPress  }}></TwoCustomButton>
+                <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: handleCancelPress }} buttonprops1={{ title: "Add", onPress: handleAddPress  }} />
 
             </ScrollView>
 
