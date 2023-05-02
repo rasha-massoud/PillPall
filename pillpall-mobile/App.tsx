@@ -38,8 +38,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-
-        <ContactInfo/>
+        <AnthropometricMeasurements/>
       </NavigationContainer>
     </View>
   );
