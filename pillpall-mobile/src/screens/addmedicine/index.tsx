@@ -35,14 +35,22 @@ const AddMedicine: FC = () => {
     const [selectedMonth, setSelectedMonth] = useState<Month | null>(null);
     const [selectedTiming, setSelectedTiming] = useState<Timing | null>(null);
 
-    const [selectedImageFile, setSelectedImageFile] = useState<File | null>(null);
+    const [imageUri, setImageUri] = useState<string | null>(null);
 
     const handleDeleteMedPress = () => {
         // navigate to Delete Medicine Screen
     }
 
-    const handleImageSelected = (imageFile: File | null) => {
-        setSelectedImageFile(imageFile);
+    const handleImageSelected = async (imageFile: File | null) => {
+        if (imageFile) {
+          const formData = new FormData();
+          formData.append('image', imageFile);
+      
+          const blobUrl = URL.createObjectURL(imageFile);
+          setImageUri(blobUrl);
+        } else {
+          setImageUri(null);
+        }
     };
 
     const handleMedicineNameChange = (value: string) => {
@@ -91,8 +99,13 @@ const AddMedicine: FC = () => {
         data.append('first_of_each_month', firstOfEachMonth);
         data.append('days', JSON.stringify({ day: selectedDay }));
         data.append('timing', JSON.stringify({timing: selectedTiming}));
-        data.append('image', selectedImageFile);
-        data.append('month', selectedMonth);
+        if (imageUri) {
+            data.append('image', imageUri);
+        }       
+        else {
+            data.append('image', "");
+        } 
+        data.append('month', JSON.stringify({selectedMonth}));
 
         console.log(data);
 
@@ -143,7 +156,11 @@ const AddMedicine: FC = () => {
                 <TextInputwithLabel label='Instructions' placeholder='Enter the Medicine Intake Instructions' textinputprops={{ secureTextEntry: false}} onChangeText= {handleInstructionsChange} />
 
                 <DaySelector days={['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']} selectedDay={selectedDay} onSelectDay={handleDaySelect} />
-                <MonthSelector months={MONTHS} selectedMonth={selectedMonth} onSelectMonth={handleSelectMonth} />
+                <MonthSelector
+                    months={['All', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']}
+                    selectedMonth={selectedMonth}
+                    onSelectMonth={handleSelectMonth}
+                />                
                 <TimingChecklist
                     timings={['6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00']}
                     selectedTiming={selectedTiming}
