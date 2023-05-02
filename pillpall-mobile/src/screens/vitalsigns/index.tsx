@@ -13,35 +13,50 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
 
+interface VitalSignsData {
+  body_temperature: string;
+  pulse_rate: string;
+  respiration_rate: string;
+  systolic_blood_pressure: string;
+}
+
 const VitalSigns: FC = () => {
 
-  const [bodyTemperature, setBodyTemperture] = useState<string>('');
-  const [pulseRate, setPulseRate] = useState<string>('');
-  const [respiraionRate, setRespirationRate] = useState<string>('');
-  const [systolicBloodPressure, setSystolicBloodPressure] = useState<string>('');
+  const [vitalSignsData, setVitalSignsData] = useState<VitalSignsData>({
+    body_temperature: '',
+    pulse_rate: '',
+    respiration_rate: '',
+    systolic_blood_pressure: '',
+  });
 
   const handleTemperatureChange = async (value: string) => {
-    setBodyTemperture(value);
+    setVitalSignsData({...vitalSignsData, body_temperature: value});
     await AsyncStorage.setItem('body_temperature', value);
   }
 
   const handlePulseChange = async (value: string) => {
-    setPulseRate(value);
+    setVitalSignsData({...vitalSignsData, pulse_rate: value});
     await AsyncStorage.setItem('pulse_rate', value);
   }
 
   const handleRespirationRateChange = async(value: string) => {
-    setRespirationRate(value);
+    setVitalSignsData({...vitalSignsData, respiration_rate: value});
     await AsyncStorage.setItem('respiration_rate', value);
   }
 
   const handleBloodPressureChange = async (value: string) => {
-    setSystolicBloodPressure(value);
+    setVitalSignsData({...vitalSignsData, systolic_blood_pressure: value});
     await AsyncStorage.setItem('systolic_blood_pressure', value);
   }
 
   const handleContinuePress = () => {
-    //Navigate to Step 5
+    console.log("success");
+    AsyncStorage.getAllKeys().then(keys => {
+      AsyncStorage.multiGet(keys).then((result) => {
+        console.log(result);
+      });
+    });    
+    // Navigate to Step 5
   }
 
   return (
@@ -60,7 +75,7 @@ const VitalSigns: FC = () => {
     
     <TextInputwithLabel label="Normal Systolic Blood Pressure" keyboardType="numeric" placeholder='Enter your Normal Systolic Blood Pressure' textinputprops={{ secureTextEntry: false }} onChangeText= {handleBloodPressureChange} />
 
-    <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Continue", onPress: () => console.log('Continue') }}  />
+    <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Continue", onPress: handleContinuePress }}  />
 
   </SafeAreaView>
   );
