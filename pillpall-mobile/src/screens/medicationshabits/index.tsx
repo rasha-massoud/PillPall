@@ -52,14 +52,10 @@ const MedicationsAndHabits: FC = () => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [currentMedicationsHistory, setCurrentMedications] = useState<string>('');
 
-  const handleSelectOption = (option: string) => {
-    const index = selectedOptions.indexOf(option);
-    if (index > -1) {
-      setSelectedOptions([...selectedOptions.slice(0, index), ...selectedOptions.slice(index + 1)]);
-    } else {
-      setSelectedOptions([...selectedOptions, option]);
-    }
-    dispatch(setLifeStyleHabits(option));
+  const handleSelectOption = (options: string[]) => {
+    setSelectedOptions(options);
+
+    dispatch(setLifeStyleHabits(options));
   };
 
   const handleCurrentMedicationsChange = (value: string) => {
