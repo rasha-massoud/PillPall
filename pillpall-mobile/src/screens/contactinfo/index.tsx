@@ -34,13 +34,13 @@ const ContactInfo: FC = () => {
 
   const handleImageSelected = async (uri: string | null) => {
     setImageUri(uri);
-    if (imageUri) {
-      await AsyncStorage.setItem('imageUri', imageUri);
+    if (uri) {
+      dispatch(setImage(uri));
+      await AsyncStorage.setItem('imageUri', uri);
     } else {
+      dispatch(setImage(null));
       await AsyncStorage.setItem('imageUri', '');
-    } 
-    
-    dispatch(setImage(imageUri));
+    }
   };
 
   const [contactInfoData, setContactInfoData] = useState<ContactInfoData>({
