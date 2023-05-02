@@ -13,35 +13,50 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
 
+interface EmergencyContactData {
+  emergency_name: string;
+  emergency_number: string;
+  emergency_email: string;
+  emergency_contact_relation: string;
+}
+
 const EmergencyContact: FC = () => {
 
-  const [name, setName] = useState<string>('');
-  const [phone_number, setPhoneNumber] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [relation, setRelation] = useState<string>('');
+  const [emergencyContactData, setEmergencyContactData] = useState<EmergencyContactData>({
+    emergency_name: '',
+    emergency_number: '',
+    emergency_email: '',
+    emergency_contact_relation: '',
+  });
 
   const handleNameChange = async (value: string) => {
-    setName(value);
+    setEmergencyContactData({...emergencyContactData, emergency_name: value});
     await AsyncStorage.setItem('emergency_name', value);
   }
 
   const handlePhoneNumberChange = async (value: string) => {
-    setPhoneNumber(value);
+    setEmergencyContactData({...emergencyContactData, emergency_number: value});
     await AsyncStorage.setItem('emergency_number', value);
   }
 
   const handleEmailChange = async(value: string) => {
-    setEmail(value);
+    setEmergencyContactData({...emergencyContactData, emergency_email: value});
     await AsyncStorage.setItem('emergency_email', value);
   }
 
   const handleRelationChange = async (value: string) => {
-    setRelation(value);
+    setEmergencyContactData({...emergencyContactData, emergency_contact_relation: value});
     await AsyncStorage.setItem('emergency_contact_relation', value);
   }
 
   const handleContinuePress = () => {
-    //Navigate to Step 4
+    console.log("success");
+    AsyncStorage.getAllKeys().then(keys => {
+      AsyncStorage.multiGet(keys).then((result) => {
+        console.log(result);
+      });
+    });    
+    // Navigate to Step 4
   }
 
   return (
