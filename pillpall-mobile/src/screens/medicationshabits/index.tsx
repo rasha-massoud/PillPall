@@ -16,6 +16,34 @@ import { setLifeStyleHabits, setMedications, } from "../../store/slices/reportSl
 
 import styles from './styles';
 
+interface RootState {
+  report: {
+    name: string;
+    email: string;
+    phone_number: string;
+    address: string;
+    dob: string;
+    gender: string;
+    blood_type: string;
+    height: string;
+    weight: string;
+    emergency_name: string;
+    emergency_number: string;
+    emergency_email: string;
+    emergency_contact_relation: string;
+    body_temperature: string;
+    pulse_rate: string;
+    respiration_rate: string;
+    systolic_blood_pressure: string;
+    chronic_conditions: string;
+    past_surgeries: string;
+    family_medical_history: string;
+    allergies: string;
+    life_style_habits: string;
+    medications: string;
+  };
+}
+
 const MedicationsAndHabits: FC = () => {
 
   const dispatch = useDispatch();
@@ -40,57 +68,123 @@ const MedicationsAndHabits: FC = () => {
   };
 
   const handleSubmitPress = async () => {
-    // const name = await AsyncStorage.getItem('name');
-    // const email = await AsyncStorage.getItem('email');
-
-    // const phone_number = await AsyncStorage.getItem('phone_number');
-    // const address = await AsyncStorage.getItem('address');
-    // const dob = await AsyncStorage.getItem('dob');
-    // const gender = await AsyncStorage.getItem('gender');
     
-    // const blood_type = await AsyncStorage.getItem('blood_type');
-    // const height = await AsyncStorage.getItem('height');
-    // const weight = await AsyncStorage.getItem('weight');
+    const name = useSelector(
+      (state: RootState) => state.report.name
+    );
 
-    // const emergency_name = await AsyncStorage.getItem('emergency_name');
-    // const emergency_number = await AsyncStorage.getItem('emergency_number');
-    // const emergency_email = await AsyncStorage.getItem('emergency_email');
-    // const emergency_contact_relation = await AsyncStorage.getItem('emergency_contact_relation');
+    const email = useSelector(
+      (state: RootState) => state.report.email
+    );
+
+    const phone_number = useSelector(
+      (state: RootState) => state.report.phone_number
+    );
+
+    const address = useSelector(
+      (state: RootState) => state.report.address
+    );
+
+    const dob = useSelector(
+      (state: RootState) => state.report.dob
+    );
+
+    const gender = useSelector(
+      (state: RootState) => state.report.gender
+    );
     
-    // const body_temperature = await AsyncStorage.getItem('body_temperature');
-    // const pulse_rate = await AsyncStorage.getItem('pulse_rate');
-    // const respiration_rate = await AsyncStorage.getItem('respiration_rate');
-    // const systolic_blood_pressure = await AsyncStorage.getItem('systolic_blood_pressure');
-    // const chronic_conditions = await AsyncStorage.getItem('chronic_conditions');
-    // const past_surgeries = await AsyncStorage.getItem('past_surgeries');
-    // const family_medical_history = await AsyncStorage.getItem('family_medical_history');
-    // const allergies = await AsyncStorage.getItem('allergies');
-  
+    const blood_type = useSelector(
+      (state: RootState) => state.report.blood_type
+    );
+    
+    const height = useSelector(
+      (state: RootState) => state.report.height
+    );
+
+    const weight = useSelector(
+      (state: RootState) => state.report.weight
+    );
+
+    const emergency_name = useSelector(
+      (state: RootState) => state.report.emergency_name
+    );
+    
+    const emergency_number = useSelector(
+      (state: RootState) => state.report.emergency_number
+    );
+
+    const emergency_email = useSelector(
+      (state: RootState) => state.report.emergency_email
+    );
+
+    const emergency_contact_relation = useSelector(
+      (state: RootState) => state.report.emergency_contact_relation
+    );
+
+    const body_temperature = useSelector(
+      (state: RootState) => state.report.body_temperature
+    );
+    
+    const pulse_rate = useSelector(
+      (state: RootState) => state.report.pulse_rate
+    );
+
+    const respiration_rate = useSelector(
+      (state: RootState) => state.report.respiration_rate
+    );
+
+    const systolic_blood_pressure = useSelector(
+      (state: RootState) => state.report.systolic_blood_pressure
+    );
+
+    const chronic_conditions = useSelector(
+      (state: RootState) => state.report.chronic_conditions
+    );
+    
+    const past_surgeries = useSelector(
+      (state: RootState) => state.report.past_surgeries
+    );
+
+    const family_medical_history = useSelector(
+      (state: RootState) => state.report.family_medical_history
+    );
+
+    const allergies = useSelector(
+      (state: RootState) => state.report.allergies
+    );
+
+    const life_style_habits = useSelector(
+      (state: RootState) => state.report.life_style_habits
+    );
+
+    const medications = useSelector(
+      (state: RootState) => state.report.medications
+    );
 
     const data = new FormData();
-      // data.append('name', name);
-      // data.append('email', email);
-      // data.append('phone_number', phone_number);
-      // data.append('address', address);
-      // data.append('dob', dob);
-      // data.append('gender', gender);
-      // data.append('blood_type', blood_type);
-      // data.append('height', height);
-      // data.append('weight', weight);
-      // data.append('emergency_name', emergency_name);
-      // data.append('emergency_number', emergency_number);
-      // data.append('emergency_email', emergency_email);
-      // data.append('emergency_contact_relation', emergency_contact_relation);
-      // data.append('body_temperature', body_temperature);
-      // data.append('pulse_rate', pulse_rate);
-      // data.append('respiration_rate', respiration_rate);
-      // data.append('systolic_blood_pressure', systolic_blood_pressure);
-      // data.append('chronic_conditions', chronic_conditions);
-      // data.append('past_surgeries', past_surgeries);
-      // data.append('family_medical_history', family_medical_history);
-      // data.append('allergies', allergies);
-      // data.append('life_style_habits', selectedOptions);
-      // data.append('medications', currentMedicationsHistory);
+      data.append('name', name);
+      data.append('email', email);
+      data.append('phone_number', phone_number);
+      data.append('address', address);
+      data.append('dob', dob);
+      data.append('gender', gender);
+      data.append('blood_type', blood_type);
+      data.append('height', height);
+      data.append('weight', weight);
+      data.append('emergency_name', emergency_name);
+      data.append('emergency_number', emergency_number);
+      data.append('emergency_email', emergency_email);
+      data.append('emergency_contact_relation', emergency_contact_relation);
+      data.append('body_temperature', body_temperature);
+      data.append('pulse_rate', pulse_rate);
+      data.append('respiration_rate', respiration_rate);
+      data.append('systolic_blood_pressure', systolic_blood_pressure);
+      data.append('chronic_conditions', chronic_conditions);
+      data.append('past_surgeries', past_surgeries);
+      data.append('family_medical_history', family_medical_history);
+      data.append('allergies', allergies);
+      data.append('life_style_habits', life_style_habits);
+      data.append('medications', medications);
 
       const token = await AsyncStorage.getItem('token');
 
@@ -106,7 +200,7 @@ const MedicationsAndHabits: FC = () => {
           console.log(response.data);
           Alert.alert(
               'Success',
-              'The password was changed.',
+              'The report is successfully created.',
               [
                 { text: 'OK' }
               ],
@@ -114,7 +208,7 @@ const MedicationsAndHabits: FC = () => {
             );
       })
       .catch((error) => {
-          console.error('An error occurred while changing the password');
+          console.error('An error occurred while creating the report');
       });
   };
 
