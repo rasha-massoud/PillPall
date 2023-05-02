@@ -13,29 +13,43 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
 
+interface AnthropometricMeasurements {
+  height: string;
+  weight: string;
+  blood_type: string;
+}
+
 const AnthropometricMeasurements: FC = () => {
 
-  const [blood_type, setBloodType] = useState<string>('');
-  const [height, setHeight] = useState<string>('');
-  const [weight, setWeight] = useState<string>('');
-
-  const handleBloodTypeChange = async (value: string) => {
-    setBloodType(value);
-    await AsyncStorage.setItem('blood_type', value);
-  }
+  const [anthropometricMeasurements, setAnthropometricMeasurements] = useState<AnthropometricMeasurements>({
+    height: '',
+    weight: '',
+    blood_type: ''
+  });
 
   const handleHeightChange = async (value: string) => {
-    setHeight(value);
+    setAnthropometricMeasurements({...anthropometricMeasurements, height: value});
     await AsyncStorage.setItem('height', value);
   }
 
   const handleWeightChange = async (value: string) => {
-    setWeight(value);
-    await AsyncStorage.setItem('weight', weight);
+    setAnthropometricMeasurements({...anthropometricMeasurements, weight: value});
+    await AsyncStorage.setItem('weight', value);
+  }
+
+  const handleBloodTypeChange = async (value: string) => {
+    setAnthropometricMeasurements({...anthropometricMeasurements, blood_type: value});
+    await AsyncStorage.setItem('blood_type', value);
   }
 
   const handleContinuePress = () => {
-    //Navigate to Step 2
+    console.log("success");
+    AsyncStorage.getAllKeys().then(keys => {
+      AsyncStorage.multiGet(keys).then((result) => {
+        console.log(result);
+      });
+    });    
+    // Navigate to Step 3  
   }
 
   return (
