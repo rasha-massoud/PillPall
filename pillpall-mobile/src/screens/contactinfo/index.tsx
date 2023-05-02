@@ -12,6 +12,8 @@ import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useDispatch, useSelector } from "react-redux";
+import { setPhoneNumber, setImage, setDob, setAddress, setGender, } from "../../store/slices/reportSlice";
 
 import styles from './styles';
 
@@ -24,6 +26,8 @@ interface ContactInfoData {
 
 const ContactInfo: FC = () => {
 
+  const dispatch = useDispatch();
+
   const [imageUri, setImageUri] = useState<string | null>(null);
 
   const handleImageSelected = async (uri: string | null) => {
@@ -32,7 +36,9 @@ const ContactInfo: FC = () => {
       await AsyncStorage.setItem('imageUri', imageUri);
     } else {
       await AsyncStorage.setItem('imageUri', '');
-    }  
+    } 
+    
+    dispatch(setImage(imageUri));
   };
 
   const [contactInfoData, setContactInfoData] = useState<ContactInfoData>({
@@ -47,21 +53,29 @@ const ContactInfo: FC = () => {
   const handlePhoneNumberChange = async (value: string) => {
     setContactInfoData({...contactInfoData, phoneNumber: value});
     await AsyncStorage.setItem('phoneNumber', value);
+
+    dispatch(setPhoneNumber(value));
   }
 
   const handleAddressChange = async (value: string) => {
     setContactInfoData({...contactInfoData, address: value});
     await AsyncStorage.setItem('address', value);
+
+    dispatch(setAddress(value));
   }
 
   const handleDoBChange = async (value: string) => {
     setContactInfoData({...contactInfoData, dob: value});
     await AsyncStorage.setItem('dob', value);
+
+    dispatch(setDob(value));
   }
 
   const handleGenderSelect = async (selectedGender: string) => {
     setContactInfoData({...contactInfoData, gender: selectedGender});
     await AsyncStorage.setItem('gender', selectedGender);
+
+    dispatch(setGender(selectedGender));
   };
 
 const handleContinuePress = async () => {
