@@ -15,36 +15,49 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
 
+interface ContactInfoData {
+  address: string;
+  dob: string;
+  phoneNumber: string;
+  gender: string | undefined;
+}
+
 const ContactInfo: FC = () => {
 
-  const [address, setAddress] = useState<string>('');
-  const [dob, setDob] = useState<string>('');
-  const [phoneNumber, setPhoneNumber] = useState<string>('');
+  const [contactInfoData, setContactInfoData] = useState<ContactInfoData>({
+    address: '',
+    dob: '',
+    phoneNumber: '',
+    gender: undefined
+  });
 
-  const [gender, setGender] = useState<string | undefined>();
+  const navigation = useNavigation();
 
   const handlePhoneNumberChange = async (value: string) => {
-    setPhoneNumber(value);
-    await AsyncStorage.setItem('phone_number', value);
+    setContactInfoData({...contactInfoData, phoneNumber: value});
+    await AsyncStorage.setItem('phoneNumber', value);
   }
 
   const handleAddressChange = async (value: string) => {
-    setAddress(value);
+    setContactInfoData({...contactInfoData, address: value});
     await AsyncStorage.setItem('address', value);
   }
 
   const handleDoBChange = async (value: string) => {
-    setDob(value);
-    await AsyncStorage.setItem('dob', dob);
+    setContactInfoData({...contactInfoData, dob: value});
+    await AsyncStorage.setItem('dob', value);
   }
-  
+
   const handleGenderSelect = async (selectedGender: string) => {
-    setGender(selectedGender);
+    setContactInfoData({...contactInfoData, gender: selectedGender});
     await AsyncStorage.setItem('gender', selectedGender);
   };
 
-  const handleContinuePress = () => {
-    //Navigate to Step 2
+const handleContinuePress = async () => {
+
+    await AsyncStorage.setItem('contactInfoData', JSON.stringify(contactInfoData));
+
+    // Navigate to Step 2
   }
 
   return (

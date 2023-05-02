@@ -81,6 +81,8 @@ const MedicationsAndHabits: FC = () => {
         data.append('past_surgeries', past_surgeries);
         data.append('family_medical_history', family_medical_history);
         data.append('allergies', allergies);
+        data.append('life_style_habits', selectedOptions);
+        data.append('medications', currentMedicationsHistory);
 
         const token = await AsyncStorage.getItem('token');
 
@@ -108,7 +110,7 @@ const MedicationsAndHabits: FC = () => {
         });
     };
 
-    };
+ 
 
     return (
     
