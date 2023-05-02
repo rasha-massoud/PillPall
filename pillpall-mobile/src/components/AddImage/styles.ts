@@ -14,17 +14,43 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     image: {
-        height: '100%',
-        width: '100%',
+        height: 120,
+        width: 120,
+        borderRadius: 60,
+        margin: 40,
     },
-    editIconContainer: {
+    addImage: {
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100%',
+        height: 80,
         width: '100%',
         backgroundColor: colors.darker_gray,
         opacity: 0.8,
+        borderRadius: 75,
     },
-});
+    addImageText: {
+        color: '#fff',
+        fontSize: 18,
+        marginTop: 10,
+    },
+    changeImage: {
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: colors.darker_gray,
+        opacity: 0.8,
+        height: 80,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderBottomLeftRadius: 75,
+        borderBottomRightRadius: 75,
+    },
+    changeImageText: {
+        color: '#fff',
+        fontSize: 14,
+        marginLeft: 5,
+    },
+});  
 
 export default styles;

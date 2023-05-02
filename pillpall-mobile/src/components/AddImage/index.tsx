@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { View, TouchableOpacity, Image } from 'react-native';
+import { View, TouchableOpacity, Image, Text } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
 import { Ionicons } from '@expo/vector-icons';
@@ -29,18 +29,30 @@ const AddImage: FC<AddImageProps> = (props) => {
         }
     };
 
+    const clearImage = () => {
+        setSelectedImage(null);
+        props.setImage(null);
+    }
+
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={pickImage}>
             {selectedImage ? (
-                <Image source={{ uri: selectedImage }} style={styles.image} />
+                <>
+                    <TouchableOpacity onPress={pickImage} style={styles.changeImage}>
+                    <Ionicons name="camera-outline" size={24} color="#fff" />
+                    <Text style={styles.changeImageText}>Change Image</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={pickImage}>
+                    <Image source={{ uri: selectedImage }} style={styles.image} />
+                    </TouchableOpacity>
+                </>
             ) : (
-                <View style={styles.editIconContainer}>
-                <Ionicons name="pencil" size={24} color="#fff" />
-                </View>
+                <TouchableOpacity onPress={pickImage} style={styles.addImage}>
+                    <Ionicons name="add-outline" size={24} color="#fff" />
+                    <Text style={styles.addImageText}>Add Image</Text>
+                </TouchableOpacity>
             )}
-            </TouchableOpacity>
-      </View>
+        </View>
     );
 };
 
