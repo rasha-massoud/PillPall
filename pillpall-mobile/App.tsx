@@ -16,7 +16,6 @@ import ResetPassword from './src/screens/resetpassword';
 import Report from './src/screens/report';
 import EditReport from './src/screens/editreport';
 import ChangePassword from './src/screens/changepassword';
-import OnboardingStack from './src/navigation/AuthNavigator';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import MedicationSchedule from './src/screens/medicationschedule';
@@ -42,7 +41,7 @@ export default function App() {
     <View style={styles.container}>
       <Provider store={store}>
         <NavigationContainer>
-          <EditReport/>
+          <MedicationSchedule/>
         </NavigationContainer>
       </Provider>
     </View>
