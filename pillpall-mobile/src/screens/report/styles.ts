@@ -1,6 +1,8 @@
 import { StyleSheet } from 'react-native';
 import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import { Dimensions } from 'react-native';
+import { colors } from '../../constants/palette'
+import appStyles from '../../constants/appStyles';
 
 interface Styles {
     container: ViewStyle;
@@ -8,6 +10,7 @@ interface Styles {
     top: ViewStyle;
     topLeft: TextStyle;
     topRight: ImageStyle;
+    editText: TextStyle;
 }
 
 const { width, height } = Dimensions.get('window');
@@ -37,6 +40,14 @@ const styles = StyleSheet.create<Styles>({
         justifyContent: 'center',
         width: '120%',
         height: '70%',
+    },
+    editText: {
+        alignContent:'center',
+        justifyContent: 'center',
+        alignSelf: 'center',
+        color: colors.blue,
+        ...appStyles.body1,
+        textDecorationLine: 'underline',
     },
 });
 

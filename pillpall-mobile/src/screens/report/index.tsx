@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
-import { SafeAreaView, View, Text, Image , Alert, ScrollView} from 'react-native';
+import { SafeAreaView, View, Text, Image , TouchableOpacity, ScrollView} from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import Body1Text from '../../components/Body1Text';
 import axios from 'axios';
@@ -45,7 +45,9 @@ interface Patient {
 const Report: React.FC = () => {
 
   // const navigation = useNavigation();
+  const [allResult, setAllResult] = useState<any>();
   const [result, setResult] = useState<Patient>();
+  
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -64,6 +66,7 @@ const Report: React.FC = () => {
             },
           }
         );
+        setAllResult(response.data);
         setResult(response.data.user);
       } catch (error) {
         console.error('An error occurred while getting the report', error);
@@ -73,6 +76,10 @@ const Report: React.FC = () => {
     };
     getData();
   }, []);
+
+  const handleEditPress = () => {
+    //Navigate to Edit Screen
+  }
 
   if (loading) {
     return (
@@ -95,98 +102,112 @@ const Report: React.FC = () => {
           />
         </View>
       </View>
-  
-      <ScrollView>
+
+      {result && allResult.status === 'success' ? (
+
+      <View>
+        <ScrollView>
+          <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals." />
+    
+          <TouchableOpacity onPress={handleEditPress}> 
+                <Text style={styles.editText}>**Press me to Edit**</Text>
+          </TouchableOpacity>
+
+          <View>
+            <DisplayData title='Name' value={result.name} />
+            <DisplayData title='Email' value={result.email} />
+            <DisplayData title='Phone Number' value={result.patients_info.phone_number} />
+            <DisplayData title='Date of Birth' value={result.patients_info.dob} />
+            <DisplayData title='Address' value={result.patients_info.address} />
+            <DisplayData title='Gender' value={result.patients_info.gender} />
+          </View>
+    
+          <View>
+            <DisplayData title='Blood Type' value={result.patients_info.blood_type} />
+            <DisplayData title='Height' value={`${result.patients_info.height} cm`} />
+            <DisplayData title='Weight' value={`${result.patients_info.weight} kg`} />
+          </View>
+    
+          <View>
+            <DisplayData
+              title='Emergency Contact Name'
+              value={result.patients_info.emergency_name}
+            />
+            <DisplayData
+              title='Emergency Contact Number'
+              value={result.patients_info.emergency_number}
+            />
+            <DisplayData
+              title='Emergency Contact Email'
+              value={result.patients_info.emergency_email}
+            />
+            <DisplayData
+              title='Emergency Contact Relation'
+              value={result.patients_info.emergency_contact_relation}
+            />
+          </View>
+    
+          <View>
+            <DisplayData
+              title='Body Temperature'
+              value={`${result.patients_info.body_temperature} °C`}
+            />
+            <DisplayData
+              title='Pulse Rate'
+              value={`${result.patients_info.pulse_rate} bpm`}
+            />
+            <DisplayData
+              title='Respiration Rate'
+              value={`${result.patients_info.respiration_rate} breaths/min`}
+            />
+            <DisplayData
+              title='Systolic Blood Pressure'
+              value={`${result.patients_info.systolic_blood_pressure} mmHg`}
+            />
+          </View>
+    
+          <View>
+            <DisplayData
+              title='Chronic Conditions or Illness'
+              value={result.patients_info.chronic_conditions}
+            />
+            <DisplayData
+              title='Past Surgeries'
+              value={result.patients_info.past_surgeries}
+            />
+            <DisplayData
+              title='Family Medical History'
+              value={result.patients_info.family_medical_history}
+            />
+            <DisplayData
+              title='Allergies'
+              value={result.patients_info.allergies}
+            />
+          </View>
+
+          <View>
+            <DisplayData
+              title='Medications'
+              value={result.patients_info.medications}
+            />
+          </View>
+
+          <View>
+            <DisplayData
+              title='Life Style Habits'
+              value={result.patients_info.life_style_habits}
+            />
+          </View>
+        <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Edit", onPress: () => console.log('Edit') }}  />
+        </ScrollView>  
+      </View>
+      ) : (
+      <View style={appStyles.body1}>
         <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals." />
-  
-        <View>
-          <DisplayData title='Name' value={result.name} />
-          <DisplayData title='Email' value={result.email} />
-          <DisplayData title='Phone Number' value={result.patients_info.phone_number} />
-          <DisplayData title='Date of Birth' value={result.patients_info.dob} />
-          <DisplayData title='Address' value={result.patients_info.address} />
-          <DisplayData title='Gender' value={result.patients_info.gender} />
-        </View>
-  
-        <View>
-          <DisplayData title='Blood Type' value={result.patients_info.blood_type} />
-          <DisplayData title='Height' value={`${result.patients_info.height} cm`} />
-          <DisplayData title='Weight' value={`${result.patients_info.weight} kg`} />
-        </View>
-  
-        <View>
-          <DisplayData
-            title='Emergency Contact Name'
-            value={result.patients_info.emergency_name}
-          />
-          <DisplayData
-            title='Emergency Contact Number'
-            value={result.patients_info.emergency_number}
-          />
-          <DisplayData
-            title='Emergency Contact Email'
-            value={result.patients_info.emergency_email}
-          />
-          <DisplayData
-            title='Emergency Contact Relation'
-            value={result.patients_info.emergency_contact_relation}
-          />
-        </View>
-  
-        <View>
-          <DisplayData
-            title='Body Temperature'
-            value={`${result.patients_info.body_temperature} °C`}
-          />
-          <DisplayData
-            title='Pulse Rate'
-            value={`${result.patients_info.pulse_rate} bpm`}
-          />
-          <DisplayData
-            title='Respiration Rate'
-            value={`${result.patients_info.respiration_rate} breaths/min`}
-          />
-          <DisplayData
-            title='Systolic Blood Pressure'
-            value={`${result.patients_info.systolic_blood_pressure} mmHg`}
-          />
-        </View>
-  
-        <View>
-          <DisplayData
-            title='Chronic Conditions or Illness'
-            value={result.patients_info.chronic_conditions}
-          />
-          <DisplayData
-            title='Past Surgeries'
-            value={result.patients_info.past_surgeries}
-          />
-          <DisplayData
-            title='Family Medical History'
-            value={result.patients_info.family_medical_history}
-          />
-          <DisplayData
-            title='Allergies'
-            value={result.patients_info.allergies}
-          />
-        </View>
 
-        <View>
-          <DisplayData
-            title='Medications'
-            value={result.patients_info.medications}
-          />
-        </View>
-
-        <View>
-          <DisplayData
-            title='Life Style Habits'
-            value={result.patients_info.life_style_habits}
-          />
-        </View>
-
-      </ScrollView> 
-    <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Edit", onPress: () => console.log('Edit') }}  />
+        <Body1Text context='No report.' />
+      </View>
+      )}
   </SafeAreaView>
   );
 };
