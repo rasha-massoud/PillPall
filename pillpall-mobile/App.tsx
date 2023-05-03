@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Login from './src/screens/login';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { loadFonts } from './src/constants/font';
 import Register from './src/screens/register';
 import Welcome from './src/screens/welcome';
@@ -31,10 +31,24 @@ import MedicalResults from './src/screens/medicalresults';
 import PatientSearch from './src/screens/patientseach';
 import { Provider } from "react-redux";
 import store from "./src/store";
+import * as Font from 'expo-font';
 
 export default function App() {
+  const [isFontLoaded, setIsFontLoaded] = useState(false);
+
   useEffect(() => {
-    loadFonts();
+    const loadFont = async () => {
+      await Font.loadAsync({
+        'open-sans-italic': require('./assets/fonts/OpenSans-Italic.ttf'),
+        'open-sans-regular': require('./assets/fonts/OpenSans-Regular.ttf'),
+        'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+        'open-sans-medium': require('./assets/fonts/OpenSans-Medium.ttf'),
+      });
+
+      setIsFontLoaded(true);
+    };
+
+    loadFont();
   }, []);
   
   return (
