@@ -23,7 +23,7 @@ import AddMedicine from './src/screens/addmedicine';
 import DeleteMedicine from './src/screens/deletemedicine';
 import NearbyPharms from './src/screens/nearbypharms';
 import BudgetTracker from './src/screens/budgettracker';
-import PersonalAssitant from './src/screens/personalassistant';
+import PersonalAssistant from './src/screens/personalassistant';
 import FileNum from './src/screens/filenumbers';
 import AddFileNumber from './src/screens/addfilenumber';
 import AddMedicalResult from './src/screens/addmedicalresult';
@@ -41,7 +41,7 @@ export default function App() {
     <View style={styles.container}>
       <Provider store={store}>
         <NavigationContainer>
-          <BudgetTracker/>
+          <PersonalAssistant/>
         </NavigationContainer>
       </Provider>
     </View>
