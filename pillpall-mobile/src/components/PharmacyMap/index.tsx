@@ -4,7 +4,7 @@ import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import axios from 'axios';
 
-const GOOGLE_MAPS_API_KEY = 'YOUR_API_KEY_HERE';
+const GOOGLE_MAPS_API_KEY = 'API';
 
 interface Pharmacy {
     name: string;
