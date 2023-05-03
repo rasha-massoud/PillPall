@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, Image } from 'react-native';
 import NavBar from '../../components/NavBar';
 import styles from './styles';
-import { HERE_API_KEY } from '../../../config';
+import PharmacyMap from '../../components/PharmacyMap';
 
 import Map from '../../components/Map'
 
@@ -19,8 +19,7 @@ const NearbyPharms: FC = () => {
                 style={styles.image}
             />
 
-            <Map apiKey={HERE_API_KEY || ''} />
-
+            <PharmacyMap />
         </SafeAreaView>
     );
 };
