@@ -31,26 +31,18 @@ const AddMedicine: FC = () => {
     const [onDemand, setOnDemand] = useState<string>('No');
     const [firstOfEachMonth, setFirstOfEachMonth] = useState<string>('No');
     
-    const [selectedDay, setSelectedDay] = useState<Day | null>(null);
-    const [selectedMonth, setSelectedMonth] = useState<Month | null>(null);
-    const [selectedTiming, setSelectedTiming] = useState<Timing | null>(null);
+    const [selectedDay, setSelectedDay] = useState<Day>();
+    const [selectedMonth, setSelectedMonth] = useState<Month>();
+    const [selectedTiming, setSelectedTiming] = useState<Timing>();
 
-    const [imageUri, setImageUri] = useState<string | null>(null);
+    const [imageFile, setImageFile] = useState<File | null>(null);
 
     const handleDeleteMedPress = () => {
         // navigate to Delete Medicine Screen
     }
 
-    const handleImageSelected = async (imageFile: File | null) => {
-        if (imageFile) {
-          const formData = new FormData();
-          formData.append('image', imageFile);
-      
-          const blobUrl = URL.createObjectURL(imageFile);
-          setImageUri(blobUrl);
-        } else {
-          setImageUri(null);
-        }
+    const handleImageSelected = (file: File | null) => {
+      setImageFile(file);
     };
 
     const handleMedicineNameChange = (value: string) => {
@@ -97,17 +89,27 @@ const AddMedicine: FC = () => {
         data.append('instructions', instructions);
         data.append('on_demand', onDemand);
         data.append('first_of_each_month', firstOfEachMonth);
-        data.append('days', JSON.stringify({ day: selectedDay }));
-        data.append('timing', JSON.stringify({timing: selectedTiming}));
-        if (imageUri) {
-            data.append('image', imageUri);
-        }       
-        else {
-            data.append('image', "");
-        } 
-        data.append('month', JSON.stringify({selectedMonth}));
 
-        console.log(data);
+        if (selectedDay !== undefined) {
+            data.append('days', selectedDay);
+        } else {
+        data.append('days', '');
+        }
+
+        if (selectedTiming !== undefined) {
+            data.append('timing', selectedTiming);
+        } else {
+        data.append('timing', '');
+        }
+
+        if (imageFile) {
+            data.append('image', imageFile);
+        } 
+        if (selectedMonth !== undefined) {
+            data.append('month', selectedMonth);
+        } else {
+        data.append('month', '');
+        }
 
         const token = await AsyncStorage.getItem('token');
   
@@ -120,6 +122,7 @@ const AddMedicine: FC = () => {
             },
         })
         .then((response) => {
+            console.log(response.data);
             if (response.data== 'success'){
                 Alert.alert(
                     'Success',
@@ -155,15 +158,15 @@ const AddMedicine: FC = () => {
                 <TextInputwithLabel label='Price per month (in $)' keyboardType="numeric" placeholder='Enter the Medicine Price per month' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicinePriceChange} />
                 <TextInputwithLabel label='Instructions' placeholder='Enter the Medicine Intake Instructions' textinputprops={{ secureTextEntry: false}} onChangeText= {handleInstructionsChange} />
 
-                <DaySelector days={['Everyday', 'None', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']} selectedDay={selectedDay} onSelectDay={handleDaySelect} />
+                <DaySelector days={['Everyday', 'None', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']} selectedDay={selectedDay ?? null} onSelectDay={handleDaySelect} />
                 <MonthSelector
                     months={['All', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']}
-                    selectedMonth={selectedMonth}
+                    selectedMonth={selectedMonth ?? null}
                     onSelectMonth={handleSelectMonth}
                 />                
                 <TimingChecklist
                     timings={['6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00']}
-                    selectedTiming={selectedTiming}
+                    selectedTiming={selectedTiming ?? null}
                     onSelectTiming={handleSelectTiming}
                 />            
                 <OnDemandCheckBox selectedOnDemand={onDemand} onDemandSelect={handleOnDemandSelect} />
