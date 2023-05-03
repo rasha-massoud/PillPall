@@ -1,5 +1,6 @@
 import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 import { fonts } from '../../constants/font';
+import { colors } from '../../constants/palette';
 
 interface Styles {
     column: ViewStyle;
@@ -11,11 +12,12 @@ const styles = StyleSheet.create<Styles>({
     column: {
       flexDirection: 'column',
       marginBottom: 12,
+      color: colors.blue,
     },
     title: {
       fontWeight: '900',
       marginRight: 5,
-      textDecorationLine: 'underline',
+      color: colors.blue,
     },
     value: {
       flex: 1,
