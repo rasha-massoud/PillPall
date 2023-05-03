@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
-import { setLifeStyleHabits, setMedications, } from "../../store/slices/reportSlice";
+import { setFirstLogin, setLifeStyleHabits, setMedications, } from "../../store/slices/reportSlice";
 
 import styles from './styles';
 
@@ -197,15 +197,18 @@ const MedicationsAndHabits: FC = () => {
           },
       })
       .then((response) => {
-          console.log(response.data);
+        setFirstLogin('0');
+
+        if(response.data.status == 'success'){
           Alert.alert(
-              'Success',
-              'The report is successfully created.',
-              [
-                { text: 'OK' }
-              ],
-              { cancelable: false }
-            );
+            'Success',
+            'The report is successfully created.',
+            [
+              { text: 'OK' }
+            ],
+            { cancelable: false }
+          );
+        }
       })
       .catch((error) => {
           console.error('An error occurred while creating the report', error);
