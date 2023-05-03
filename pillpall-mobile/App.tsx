@@ -28,6 +28,7 @@ import AddFileNumber from './src/screens/addfilenumber';
 import AddMedicalResult from './src/screens/addmedicalresult';
 import MedicalResults from './src/screens/medicalresults';
 import PatientSearch from './src/screens/patientseach';
+import FillReport from './src/screens/fillprofile';
 import { Provider } from "react-redux";
 import store from "./src/store";
 import * as Font from 'expo-font';
@@ -54,7 +55,7 @@ export default function App() {
     <View style={styles.container}>
       <Provider store={store}>
         <NavigationContainer>
-          <PersonalAssistant/>
+          <FillReport/>
         </NavigationContainer>
       </Provider>
     </View>
