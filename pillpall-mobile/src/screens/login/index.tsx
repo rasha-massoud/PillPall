@@ -64,8 +64,8 @@ const Login: FC = () => {
             AsyncStorage.setItem('role', response.data.user.role);
             AsyncStorage.setItem('first_login', response.data.user.first_login.toString());
             
-            dispatch(setFirstLogin(first_login));
-            dispatch(setRole(role));
+            dispatch(setFirstLogin(response.data.user.first_login.toString()));
+            dispatch(setRole(response.data.user.role));
 
             Alert.alert(
                 'Success',
