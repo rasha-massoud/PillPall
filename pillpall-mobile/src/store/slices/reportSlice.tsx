@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+    first_login: "",
+    role: "",
     name: "",
     email: "",
     image: null,
@@ -31,6 +33,12 @@ const reportSlice = createSlice({
     name: "report",
     initialState,
     reducers: {
+        setFirstLogin: (state, action) => {
+            state.first_login = action.payload;
+        },
+        setRole: (state, action) => {
+            state.role = action.payload;
+        },
         setName: (state, action) => {
             state.name = action.payload;
         },
@@ -108,6 +116,8 @@ const reportSlice = createSlice({
 });
 
 export const {
+    setFirstLogin,
+    setRole,
     setName,
     setEmail,
     setImage,
