@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, ScrollView, Alert } from 'react-native';
+import { SafeAreaView, ScrollView, Alert, ActivityIndicator } from 'react-native';
 import NavBar1 from '../../components/NavBar1';
 import axios from 'axios';
 import styles from './styles';
@@ -23,6 +23,7 @@ type Timing = '6:00' | '8:00' | '10:00' | '12:00' | '14:00' | '16:00' | '18:00' 
 
 const AddMedicine: FC = () => {
     
+    const [processing, setProcessing] = useState<boolean>(false);
     const [name, setName] = useState<string>('');
     const [quantity, setQuantity] = useState<string>('');
     const [price, setPrice] = useState<string>('');
@@ -82,6 +83,9 @@ const AddMedicine: FC = () => {
     };
 
     const handleAddPress = async () => {
+        setProcessing(true);
+
+
         const data = new FormData();
         data.append('name', name);
         data.append('dose_quantity', quantity);
@@ -124,9 +128,10 @@ const AddMedicine: FC = () => {
         .then((response) => {
             console.log(response.data);
             if (response.data== 'success'){
+                setProcessing(false);
                 Alert.alert(
                     'Success',
-                    'The report is successfully created.',
+                    'Medicine added successfully.',
                     [
                       { text: 'OK' }
                     ],
@@ -135,7 +140,16 @@ const AddMedicine: FC = () => {
             }
         })
         .catch((error) => {
-            console.error('An error occurred while creating the report', error);
+            setProcessing(false);
+            Alert.alert(
+                'Fails',
+                'Add Process Fails.',
+                [
+                    { text: 'OK' }
+                ],
+                { cancelable: false }
+            );
+            console.error('An error occurred adding a medicine');
         });
     };
 
