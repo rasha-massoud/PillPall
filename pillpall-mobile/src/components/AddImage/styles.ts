@@ -24,12 +24,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: 80,
         width: '100%',
-        backgroundColor: colors.darker_gray,
         opacity: 0.8,
         borderRadius: 75,
     },
     addImageText: {
-        color: '#fff',
+        color: colors.dark_gray,
         fontSize: 18,
         marginTop: 10,
     },
