@@ -4,40 +4,47 @@ import NavBar from '../../components/NavBar';
 import SubTitleText from '../../components/SubTitleText';
 import BudgetPieChart from '../../components/BudgetPieChart';
 import axios from 'axios';
-
+import API_URL from '../../constants/url';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './styles';
+
+interface BudgetPieChartProps {
+  data: { [month: string]: number };
+}
 
 const BudgetTracker: FC = () => {
 
-    const [budgetData, setBudgetData] = useState<{ [month: string]: number }>({});
+  const [budgetData, setBudgetData] = useState<BudgetPieChartProps['data']>({});
+  const [successState, setSuccessState] = useState('');
 
     useEffect(() => {
+
       const fetchBudgetData = async () => {
-        try {
-          const response = await axios.get('http://192.168.0.103:8000/api/v0.0.0/budget_tracker');
-          setBudgetData(response.data.prices);
-        } catch (error) {
-          console.log('An Error occured');
-        }
+            const token = await AsyncStorage.getItem('token');
+
+            const endpoint = 'budget/tracker';
+            const response = await axios.get(`${API_URL}${endpoint}`, {
+                headers: {
+                    'Content-Type': "multipart/form-data",
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+
+            if (response.data.status === 'success') {
+              setSuccessState('success');
+              setBudgetData(response.data.prices);
+            }
       };
+
       fetchBudgetData();
     }, []);
 
     return (
-    
         <SafeAreaView style={styles.container}>
-            <NavBar
-                title="Budget Tracker"
-            />
-            <Image
-                source={require('../../../assets/budgettrackerscreen.png')}
-                style={styles.image}
-            />
-            <SubTitleText title='Last Three Months' />
-
-            <BudgetPieChart data={budgetData} />
-
-
+            <NavBar title="Budget Tracker" />
+            <Image source={require('../../../assets/budgettrackerscreen.png')} style={styles.image} />
+            {successState === 'success' ? <BudgetPieChart data={budgetData} /> : null}
         </SafeAreaView>
     );
 };
