@@ -1,4 +1,3 @@
-import { useFonts, Roboto_400Regular, Roboto_500Medium } from '@expo-google-fonts/roboto';
 import * as Font from 'expo-font';
 
 const loadFonts = async () => {
@@ -10,8 +9,6 @@ const loadFonts = async () => {
   });
 };
 
-loadFonts();
-
 export const fonts = {
   regular: 'open-sans-regular',
   medium: 'open-sans-medium',
@@ -19,7 +16,4 @@ export const fonts = {
   italic: 'open-sans-italic',
 };
 
-export default {
-    fonts,
-    loadFonts
-}
+export default loadFonts;
