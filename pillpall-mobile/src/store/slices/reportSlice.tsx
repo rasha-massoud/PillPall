@@ -1,32 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    first_login: "",
-    role: "",
-    name: "",
-    email: "",
+    first_login: '',
+    role: '',
+    name: '',
+    email: '',
     image: null,
-    phone_number: "",
-    dob: "",
-    address: "",
-    gender: "",
-    blood_type: "",
-    height: "",
-    weight: "",
-    emergency_name: "",
-    emergency_number: "",
-    emergency_email: "",
-    emergency_contact_relation: "",
-    body_temperature: "",
-    pulse_rate: "",
-    respiration_rate: "",
-    systolic_blood_pressure: "",
-    chronic_conditions: "",
-    past_surgeries: "",
-    family_medical_history: "",
-    allergies: "",
-    life_style_habits: "",
-    medications: "",
+    phone_number: '',
+    dob: '',
+    address: '',
+    gender: '',
+    blood_type: '',
+    height: '',
+    weight: '',
+    emergency_name: '',
+    emergency_number: '',
+    emergency_email: '',
+    emergency_contact_relation: '',
+    body_temperature: '',
+    pulse_rate: '',
+    respiration_rate: '',
+    systolic_blood_pressure: '',
+    chronic_conditions: '',
+    past_surgeries: '',
+    family_medical_history: '',
+    allergies: '',
+    life_style_habits: '',
+    medications: '',
+    working_hours: '',
+    major: '',
+    certificates: '',
+    expertise: '',
 };
 
 const reportSlice = createSlice({
@@ -111,6 +115,19 @@ const reportSlice = createSlice({
         setMedications: (state, action) => {
             state.medications = action.payload;
         },
+
+        setWorkingHours: (state, action) => {
+            state.working_hours = action.payload;
+        },
+        setMajor: (state, action) => {
+            state.major = action.payload;
+        },
+        setCertificates: (state, action) => {
+            state.certificates = action.payload;
+        },
+        setExpertise: (state, action) => {
+            state.expertise = action.payload;
+        },
     },
     
 });
@@ -142,6 +159,10 @@ export const {
     setAllergies,
     setLifeStyleHabits,
     setMedications,
+    setWorkingHours, 
+    setMajor, 
+    setCertificates, 
+    setExpertise
 } = reportSlice.actions;
 
 export default reportSlice.reducer;
