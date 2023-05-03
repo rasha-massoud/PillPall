@@ -5,7 +5,6 @@ import { Dimensions } from 'react-native';
 interface Styles {
     container: ViewStyle;
     image: ImageStyle;
-
 }
 
 const { width, height } = Dimensions.get('window');
@@ -20,7 +19,8 @@ const styles = StyleSheet.create<Styles>({
     image: {
         justifyContent: 'center',
         alignSelf: 'center',
-        marginBottom: 20,
+        marginTop: 25,
+        marginBottom: 25,
         width: '100%',
         height: '30%',
     },
