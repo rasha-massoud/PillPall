@@ -9,9 +9,14 @@ import axios from 'axios';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from "react-redux";
+import { setFirstLogin, setRole } from "../../store/slices/reportSlice";
+
 import styles from './styles'
 
 const Login: FC = () => {
+
+    const dispatch = useDispatch();
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -58,6 +63,10 @@ const Login: FC = () => {
             AsyncStorage.setItem('email', response.data.user.email);
             AsyncStorage.setItem('role', response.data.user.role);
             AsyncStorage.setItem('first_login', response.data.user.first_login.toString());
+            
+            dispatch(setFirstLogin(first_login));
+            dispatch(setRole(role));
+
             Alert.alert(
                 'Success',
                 'Successful Login.',
