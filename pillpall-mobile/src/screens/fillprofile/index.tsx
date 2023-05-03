@@ -13,12 +13,12 @@ import { useNavigation } from '@react-navigation/native';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
-import { setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, setWorkingHours, setMajor, setCertificates, setExpertise } from "../../store/slices/reportSlice";
+import { setFirstLogin, setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, setWorkingHours, setMajor, setCertificates, setExpertise } from "../../store/slices/reportSlice";
 
 import styles from './styles';
 import SubTitleText from '../../components/SubTitleText';
 
-interface FillReportData {
+interface FillProfileData {
     name: string;
     email: string;
     address: string;
@@ -31,7 +31,7 @@ interface FillReportData {
     expertise: string,
 }
 
-const FillReport: FC = () => {
+const FillProfile: FC = () => {
 
     const dispatch = useDispatch();
 
@@ -48,7 +48,7 @@ const FillReport: FC = () => {
         }
     };
     
-    const [contactInfoData, setContactInfoData] = useState<FillReportData>({
+    const [contactInfoData, setContactInfoData] = useState<FillProfileData>({
             name: '',
             email: '',
             address: '',
@@ -106,6 +106,7 @@ const FillReport: FC = () => {
     const handleSubmitPress = async () => {
         //Linking here
         ////////SAVE FIRST TIME LOG IN AS 0////////
+        setFirstLogin('0');
     }
 
   return (
@@ -140,4 +141,4 @@ const FillReport: FC = () => {
   );
 };
 
-export default FillReport;
+export default FillProfile;
