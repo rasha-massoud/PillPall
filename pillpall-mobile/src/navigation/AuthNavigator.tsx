@@ -5,15 +5,11 @@ import Register from "../screens/register";
 import ForgotPassword from '../screens/forgotpassword';
 import ResetPassword from '../screens/resetpassword';
 
-const Stack = createStackNavigator();
 
 const AuthNavigator = () => {
+  const Stack = createStackNavigator();
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
+    <Stack.Navigator screenOptions={{ headerShown: false }} >
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
