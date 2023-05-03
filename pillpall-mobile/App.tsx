@@ -41,7 +41,7 @@ export default function App() {
     <View style={styles.container}>
       <Provider store={store}>
         <NavigationContainer>
-          <AddMedicine/>
+          <DeleteMedicine/>
         </NavigationContainer>
       </Provider>
     </View>
