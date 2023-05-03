@@ -29,7 +29,7 @@ const BudgetPieChart: FC<BudgetPieChartProps> = (props) => {
 
         setBudgetData(response.data.prices);
       } catch (error) {
-        console.log('An Error occured');
+        console.log('An error occurred while fetching budget data');
       }
     };
     fetchBudgetData();
@@ -58,15 +58,6 @@ const BudgetPieChart: FC<BudgetPieChartProps> = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <SubTitleText title="Last Three Months" />
-
-      <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 5 }}>
-        {chartData.map((data, index) => (
-          <View key={index} style={{ flexDirection: 'row', alignItems: 'center', marginRight: 10 }}>
-            <View style={{ backgroundColor: data.color, width: 10, height: 10, marginRight: 5 }} />
-            <Text>{months[index]}: {data.name}</Text>
-          </View>
-        ))}
-      </View>
 
       <PieChart
         data={chartData}
