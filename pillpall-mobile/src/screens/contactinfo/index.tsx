@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, ScrollView, Image } from 'react-native';
+import { SafeAreaView, ScrollView, Alert } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import PageTitle from '../../components/PageTitle';
 import Body1Text from '../../components/Body1Text';
@@ -8,27 +8,20 @@ import TextInputwithLabel from '../../components/TextInputwithLabel';
 import AddImage from '../../components/AddImage';
 import GenderCheckBox from '../../components/GenderCheckBox';
 import StepText from '../../components/StepText';
-import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
-import API_URL from '../../constants/url';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/core';
 import { useDispatch, useSelector } from "react-redux";
 import { setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, } from "../../store/slices/reportSlice";
 
 import styles from './styles';
 
 interface ContactInfoData {
-  name: string;
-  email: string;
-  address: string;
-  dob: string;
-  phoneNumber: string;
   gender: string | undefined;
 }
 
 const ContactInfo: FC = () => {
 
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   const [imageUri, setImageUri] = useState<string | null>(null);
 
@@ -37,77 +30,68 @@ const ContactInfo: FC = () => {
       const url = URL.createObjectURL(imageFile);
       setImageUri(url);
       dispatch(setImage(url));
-      await AsyncStorage.setItem('imageUri', url);
     } else {
       setImageUri(null);
       dispatch(setImage(null));
-      await AsyncStorage.setItem('imageUri', '');
     }
   };
   
 
   const [contactInfoData, setContactInfoData] = useState<ContactInfoData>({
-    name: '',
-    email: '',
-    address: '',
-    dob: '',
-    phoneNumber: '',
     gender: undefined
   });
 
-  // const navigation = useNavigation();
+  const [username, setUsername] = useState<string>("");
+  const [emailAddress, setEmailAddress] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [DOB, setDOB] = useState<string>("");
+  const [chosenGender, setChosenGender] = useState<string>("");
+  const [location, setLocation] = useState<string>("");
 
   const handleNameChange = async (value: string) => {
-    setContactInfoData({...contactInfoData, name: value});
-    await AsyncStorage.setItem('name', value);
-
+    setUsername(value);
     dispatch(setName(value));
   }
 
   const handleEmailChange = async (value: string) => {
-    setContactInfoData({...contactInfoData, email: value});
-    await AsyncStorage.setItem('email', value);
-
+    setEmailAddress(value);
     dispatch(setEmail(value));
   }
 
   const handlePhoneNumberChange = async (value: string) => {
-    setContactInfoData({...contactInfoData, phoneNumber: value});
-    await AsyncStorage.setItem('phoneNumber', value);
-
+    setPhone(value);
     dispatch(setPhoneNumber(value));
   }
 
   const handleAddressChange = async (value: string) => {
-    setContactInfoData({...contactInfoData, address: value});
-    await AsyncStorage.setItem('address', value);
-
+    setLocation(value);
     dispatch(setAddress(value));
   }
 
   const handleDoBChange = async (value: string) => {
-    setContactInfoData({...contactInfoData, dob: value});
-    await AsyncStorage.setItem('dob', value);
-
+    setDOB(value);
     dispatch(setDob(value));
   }
 
   const handleGenderSelect = async (selectedGender: string) => {
-    setContactInfoData({...contactInfoData, gender: selectedGender});
-    await AsyncStorage.setItem('gender', selectedGender);
-
+    setChosenGender(selectedGender);
     dispatch(setGender(selectedGender));
   };
 
-const handleContinuePress = async () => {
-
-  console.log("success");
-  AsyncStorage.getAllKeys().then(keys => {
-    AsyncStorage.multiGet(keys).then((result) => {
-      console.log(result);
-    });
-  });    
-  // Navigate to Step 2
+  const handleContinuePress = async () => {
+    if(username && emailAddress && location && DOB && chosenGender && phone){
+      navigation.navigate("AnthropometricMeasurements" as never, {} as never);
+    }
+    else{
+      Alert.alert(
+        'Fails',
+        'Missing Field. Please may sure to fill all fields.',
+        [
+          { text: 'OK' }
+        ],
+        { cancelable: false }
+    );
+    }
   }
 
   return (
