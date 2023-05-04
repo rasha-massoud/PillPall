@@ -53,11 +53,9 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Provider store={store}>
-        <StackSwitcher/>
-      </Provider>
-    </View>
+    <Provider store={store}>
+      <StackSwitcher/>
+    </Provider>
   );
 }
 
