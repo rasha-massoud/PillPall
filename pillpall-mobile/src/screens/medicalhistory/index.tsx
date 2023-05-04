@@ -1,15 +1,12 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, Alert } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import PageTitle from '../../components/PageTitle';
 import Body1Text from '../../components/Body1Text';
 import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import StepText from '../../components/StepText';
-import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
-import API_URL from '../../constants/url';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/core';
 import { useDispatch, useSelector } from "react-redux";
 import { setChronicConditions, setPastSurgeries, setFamilyMedicalHistory, setAllergies, } from "../../store/slices/reportSlice";
 
@@ -25,50 +22,47 @@ interface MedicalHistoryData {
 const MedicalHistory: FC = () => {
 
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
-  const [medicalHistoryData, setMedicalHistoryData] = useState<MedicalHistoryData>({
-    chronic_conditions: '',
-    past_surgeries: '',
-    family_medical_history: '',
-    allergies: '',
-  });
+  const [condition, setConditions] = useState<string>("");
+  const [surgery, setSurgery] = useState<string>("");
+  const [hisory, setHistory] = useState<string>("");
+  const [allergy, setAllergy] = useState<string>("");
 
   const handleChronicConditionsChange = async (value: string) => {
-    setMedicalHistoryData({...medicalHistoryData, chronic_conditions: value});
-    await AsyncStorage.setItem('chronic_conditions', value);
-
+    setConditions(value);
     dispatch(setChronicConditions(value));
   }
 
   const handlePastSurgeriesChange = async (value: string) => {
-    setMedicalHistoryData({...medicalHistoryData, past_surgeries: value});
-    await AsyncStorage.setItem('past_surgeries', value);
-
+    setSurgery(value);
     dispatch(setPastSurgeries(value));
   }
 
   const handleFamilyMedicalHistoryChange = async(value: string) => {
-    setMedicalHistoryData({...medicalHistoryData, family_medical_history: value});
-    await AsyncStorage.setItem('family_medical_history', value);
-
+    setHistory(value);
     dispatch(setFamilyMedicalHistory(value));
   }
 
   const handleAllergiesChange = async (value: string) => {
-    setMedicalHistoryData({...medicalHistoryData, allergies: value});
-    await AsyncStorage.setItem('allergies', value);
-
+    setAllergy(value);
     dispatch(setAllergies(value));
   }
 
   const handleContinuePress = () => {
-    console.log("success");
-    AsyncStorage.getAllKeys().then(keys => {
-      AsyncStorage.multiGet(keys).then((result) => {
-        console.log(result);
-      });
-    });    
-    // Navigate to Step 6 
+    if(condition && surgery && hisory && allergy){
+      navigation.navigate("MedicationsAndHabits" as never, {} as never);
+    }
+    else{
+      Alert.alert(
+        'Fails',
+        'Missing Field. Please may sure to fill all fields.',
+        [
+          { text: 'OK' }
+        ],
+        { cancelable: false }
+      );
+    }
   }
 
   return (
