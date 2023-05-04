@@ -90,7 +90,7 @@ const ChangePassword: FC = () => {
         })
         .then((response) => {
             //Navigate to the login SCREEN
-            dispatch(setIsLoggedIn(0));
+            dispatch(setIsLoggedIn('0'));
         })
         .catch((error) => {
             console.error('An error occurred during logout');
