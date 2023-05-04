@@ -3,9 +3,8 @@ import { SafeAreaView, Image, FlatList } from 'react-native';
 import { Text } from 'react-native-elements';
 import axios from 'axios';
 import { Card } from '@rneui/base';
-
-import NavBar from '../../components/NavBar';
-import QuestionTypeSelector from '../../components/QuestionTypeSelector';
+import { useNavigation } from '@react-navigation/core';
+import NavBar3 from '../../components/NavBar3';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import SearchBySelector from '../../components/SearchBySelector'; 
 import CustomButton from '../../components/CustomButton';
@@ -25,6 +24,9 @@ interface Doctor {
 }
 
 const PatientSearch: FC = () => {
+
+    const navigation = useNavigation();
+
     const [searchFor, setSearchFor] = useState('');
     const [searchBy, setSearchBy] = useState<SearchByOption | null>(null);
     const [doctorsData, setDoctorsData] = useState<Doctor[]>([]);
@@ -34,6 +36,17 @@ const PatientSearch: FC = () => {
     const handleSearchForChange = (text: string) => {
         setSearchFor(text);
     };
+
+    const handleFileNumberPress = () => {
+        navigation.navigate("FileNum " as never, {} as never);
+    }
+
+    const handleResultPress = () => {
+        navigation.navigate("MedicalResults " as never, {} as never);
+    }
+
+    const handleSearchDoctorPress = () => {}
+
 
     const handleSearchPress = async () => {
         try {
@@ -54,7 +67,12 @@ const PatientSearch: FC = () => {
     
     return (
         <SafeAreaView style={styles.container}>
-            <NavBar title="Patient Search" />
+            <NavBar3
+                title="Patient Search"
+                image1={{ source: require('../../../assets/filenumber.png'), onPress: handleFileNumberPress }}
+                image2={{ source: require('../../../assets/results.png'), onPress: handleResultPress }}
+                image3={{ source: require('../../../assets/searchdoc.png'), onPress: handleSearchDoctorPress }}
+            />            `
             <Image source={require('../../../assets/searchdoctorscreen.png')} style={styles.image} />
             <SearchBySelector
                 searchByOptions={['name', 'major']}
