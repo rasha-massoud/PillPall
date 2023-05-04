@@ -5,7 +5,7 @@ import Body1Text from '../../components/Body1Text';
 import axios from 'axios';
 import DisplayData from '../../components/DisplayData';
 import appStyles from '../../constants/appStyles';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import PageTitle from '../../components/PageTitle';
@@ -30,7 +30,8 @@ interface Doctor {
 
 const Profile: React.FC = () => {
 
-    // const navigation = useNavigation();
+    const navigation = useNavigation();
+
     const [allResult, setAllResult] = useState<any>();
     const [result, setResult] = useState<Doctor>();
     
@@ -41,7 +42,7 @@ const Profile: React.FC = () => {
         const token = await AsyncStorage.getItem('token');
         setLoading(true);
         try {
-            const endpoint = 'doctor/get_report';   //Create it 
+            const endpoint = 'doctor/get_report';   //Create it and modify accordingly 
             const response = await axios.get<{ user: Doctor }>(
             `${API_URL}${endpoint}`,
             {
@@ -64,7 +65,7 @@ const Profile: React.FC = () => {
     }, []);
 
     const handleEditPress = () => {
-        //Navigate to Edit Screen
+        navigation.navigate("EditProfile" as never, {} as never);
     }
 
     if (loading) {
