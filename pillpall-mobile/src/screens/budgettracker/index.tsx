@@ -1,11 +1,12 @@
 import React, { FC, useState, useEffect } from 'react'
-import { SafeAreaView, Image } from 'react-native';
-import NavBar from '../../components/NavBar';
-import SubTitleText from '../../components/SubTitleText';
+import { SafeAreaView, Image, Alert } from 'react-native';
+import NavBar1 from '../../components/NavBar1';
 import BudgetPieChart from '../../components/BudgetPieChart';
 import axios from 'axios';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/core';
+
 import styles from './styles';
 
 interface BudgetPieChartProps {
@@ -14,27 +15,47 @@ interface BudgetPieChartProps {
 
 const BudgetTracker: FC = () => {
 
+  const navigation = useNavigation();
+
   const [budgetData, setBudgetData] = useState<BudgetPieChartProps['data']>({});
   const [successState, setSuccessState] = useState('');
 
-    useEffect(() => {
+  const handleBackPress = () => {
+    navigation.navigate("MedicationSchedule" as never, {} as never);
+  }
 
-      const fetchBudgetData = async () => {
-            const token = await AsyncStorage.getItem('token');
+  useEffect(() => {
 
-            const endpoint = 'budget/tracker';
-            const response = await axios.get(`${API_URL}${endpoint}`, {
-                headers: {
-                    'Content-Type': "multipart/form-data",
-                    'Accept': 'application/json',
-                    'Authorization': `Bearer ${token}`,
+    const fetchBudgetData = async () => {
+        const token = await AsyncStorage.getItem('token');
+
+        const endpoint = 'budget/tracker';
+        const response = await axios.get(`${API_URL}${endpoint}`, {
+            headers: {
+                'Content-Type': "multipart/form-data",
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+        });
+
+        if (response.data.status === 'success') {
+          setSuccessState('success');
+          setBudgetData(response.data.prices);
+        }
+        else{
+          Alert.alert(
+            'Failure',
+            'Request fails.',
+            [
+              { 
+                text: 'OK',
+                onPress: () => {
+                    navigation.navigate("MedicationSchedule " as never, {} as never);
                 },
-            });
-
-            if (response.data.status === 'success') {
-              setSuccessState('success');
-              setBudgetData(response.data.prices);
-            }
+            }            ],
+            { cancelable: false }
+        );
+        }
       };
 
       fetchBudgetData();
@@ -42,7 +63,10 @@ const BudgetTracker: FC = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <NavBar title="Budget Tracker" />
+            <NavBar1
+                title="Budget Tracker"
+                image1={{ source: require('../../../assets/back.png'), onPress: handleBackPress }}
+            />
             <Image source={require('../../../assets/budgettrackerscreen.png')} style={styles.image} />
             {successState === 'success' ? <BudgetPieChart data={budgetData} /> : null}
         </SafeAreaView>
