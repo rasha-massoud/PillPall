@@ -1,9 +1,11 @@
 import React, { FC, useEffect, useState } from 'react';
-import { View, Text, SafeAreaView } from 'react-native';
+import { Alert, SafeAreaView } from 'react-native';
 import axios from 'axios';
 import FileNumberCard from '../../components/FileNumberCards';
 import NavBar3 from '../../components/NavBar3';
 import CustomButton from '../../components/CustomButton';
+import API_URL from '../../constants/url';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
 
@@ -23,17 +25,38 @@ const FileNum: FC = () => {
 
   const handleAddPress = () => {}
 
-  
   useEffect(() => {
-    axios
-      .get('http://192.168.0.103:8000/api/v0.0.0/get_file_numbers')
+    const fetchData = async () => {
+      const token = await AsyncStorage.getItem('token');
+  
+      const endpoint = 'med/get_file_numbers';
+  
+      await axios.post(`${API_URL}${endpoint}`, {
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': "multipart/form-data",
+        },
+      })
       .then((response) => {
         setFileNumbers(response.data.file_numbers);
+        Alert.alert(
+          'Success',
+          'The report is successfully created.',
+          [
+            { text: 'OK' }
+          ],
+          { cancelable: false }
+        );
       })
       .catch((error) => {
-        console.error(error);
+          console.error('An error occurred while getting the File numbers');
       });
+    };
+  
+    fetchData();
   }, []);
+  
 
   return (
 
