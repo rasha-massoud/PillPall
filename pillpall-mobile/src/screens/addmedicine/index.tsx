@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, ScrollView, Alert, ActivityIndicator } from 'react-native';
-import NavBar1 from '../../components/NavBar1';
+import { SafeAreaView, ScrollView, Alert } from 'react-native';
+import NavBar from '../../components/NavBar';
 import axios from 'axios';
 import styles from './styles';
 import AddImage from '../../components/AddImage';
@@ -11,7 +11,7 @@ import TimingChecklist from '../../components/TimingCheckList';
 import OnDemandCheckBox from '../../components/OnDemandCheckBox';
 import FirstOfEachMonth from '../../components/FirstOfEachMonth';
 import TwoCustomButton from '../../components/TwoCustomButton';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -23,6 +23,8 @@ type Timing = '6:00' | '8:00' | '10:00' | '12:00' | '14:00' | '16:00' | '18:00' 
 
 const AddMedicine: FC = () => {
     
+    const navigation = useNavigation();
+
     const [processing, setProcessing] = useState<boolean>(false);
     const [name, setName] = useState<string>('');
     const [quantity, setQuantity] = useState<string>('');
@@ -37,10 +39,6 @@ const AddMedicine: FC = () => {
     const [selectedTiming, setSelectedTiming] = useState<Timing>();
 
     const [imageFile, setImageFile] = useState<File | null>(null);
-
-    const handleDeleteMedPress = () => {
-        // navigate to Delete Medicine Screen
-    }
 
     const handleImageSelected = (file: File | null) => {
       setImageFile(file);
@@ -83,8 +81,19 @@ const AddMedicine: FC = () => {
     };
 
     const handleAddPress = async () => {
+
         setProcessing(true);
 
+        if( !name && !quantity && !price && !instructions && !onDemand && !firstOfEachMonth){
+            Alert.alert(
+                'Fails',
+                'Missing Field. Please may sure to fill all fields.',
+                [
+                  { text: 'OK' }
+                ],
+                { cancelable: false }
+            );
+        }
 
         const data = new FormData();
         data.append('name', name);
@@ -112,7 +121,7 @@ const AddMedicine: FC = () => {
         if (selectedMonth !== undefined) {
             data.append('month', selectedMonth);
         } else {
-        data.append('month', '');
+            data.append('month', '');
         }
 
         const token = await AsyncStorage.getItem('token');
@@ -126,12 +135,21 @@ const AddMedicine: FC = () => {
             },
         })
         .then((response) => {
-            console.log(response.data);
             if (response.data== 'success'){
                 setProcessing(false);
                 Alert.alert(
                     'Success',
                     'Medicine added successfully.',
+                    [
+                      { text: 'OK' }
+                    ],
+                    { cancelable: false }
+                );
+            }
+            else{
+                Alert.alert(
+                    'Failure',
+                    'Add Medicine fails.',
                     [
                       { text: 'OK' }
                     ],
@@ -154,16 +172,30 @@ const AddMedicine: FC = () => {
     };
 
     const handleCancelPress = () => {
-  
+        Alert.alert(
+            "Confirmation",
+            "Are you sure you want to cancel? All unsaved data will be lost.",
+            [
+                {
+                    text: "Stay",
+                    style: "cancel",
+                },
+                {
+                    text: "Accept",
+                    onPress: () => {
+                        navigation.navigate("Login" as never, {} as never);
+                    },
+                },
+            ]
+        );   
     };
 
     return (
     
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                <NavBar1
-                    title="Medication Schedule"
-                    image1={{ source: require('../../../assets/deletemed.png'), onPress: handleDeleteMedPress }}
+                <NavBar
+                    title="Add Medicine"
                 />
                 <AddImage onImageSelected={handleImageSelected} />
                 
