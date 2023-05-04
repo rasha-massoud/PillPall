@@ -141,7 +141,12 @@ const AddMedicine: FC = () => {
                     'Success',
                     'Medicine added successfully.',
                     [
-                      { text: 'OK' }
+                        { 
+                            text: 'OK',
+                            onPress: () => {
+                                navigation.navigate("MedicationSchedule " as never, {} as never);
+                            },
+                        }
                     ],
                     { cancelable: false }
                 );
@@ -183,7 +188,7 @@ const AddMedicine: FC = () => {
                 {
                     text: "Accept",
                     onPress: () => {
-                        navigation.navigate("Login" as never, {} as never);
+                        navigation.navigate("MedicationSchedule" as never, {} as never);
                     },
                 },
             ]
