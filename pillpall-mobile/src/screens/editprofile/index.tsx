@@ -1,15 +1,12 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, ScrollView, Image } from 'react-native';
-import CustomButton from '../../components/CustomButton';
+import { SafeAreaView, ScrollView, Alert } from 'react-native';
 import PageTitle from '../../components/PageTitle';
-import Body1Text from '../../components/Body1Text';
 import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import AddImage from '../../components/AddImage';
 import GenderCheckBox from '../../components/GenderCheckBox';
-import StepText from '../../components/StepText';
 import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
@@ -35,85 +32,130 @@ interface EditProfileData {
 const EditProfile: FC = () => {
 
     const dispatch = useDispatch();
+    const navigation = useNavigation();
 
     const [imageUri, setImageUri] = useState<string | null>(null);
 
+    const [username, setUsername] = useState<string>("");
+    const [emailAddress, setEmailAddress] = useState<string>("");
+    const [phone, setPhone] = useState<string>("");
+    const [DOB, setDOB] = useState<string>("");
+    const [chosenGender, setChosenGender] = useState<string>("");
+    const [hours, setHours] = useState<string>("");
+    const [education, setEducation] = useState<string>("");
+    const [cert, setCert] = useState<string>("");
+    const [location, setLocation] = useState<string>("");
+    const [exp, setExp] = useState<string>("");
+
     const handleImageSelected = async (imageFile: File | null) => {
         if (imageFile) {
-        const url = URL.createObjectURL(imageFile);
-        setImageUri(url);
-        dispatch(setImage(url));
+            const url = URL.createObjectURL(imageFile);
+            setImageUri(url);
+            dispatch(setImage(url));
         } else {
-        setImageUri(null);
-        dispatch(setImage(null));
+            setImageUri(null);
+            dispatch(setImage(null));
         }
     };
     
     const [contactInfoData, setContactInfoData] = useState<EditProfileData>({
-            name: '',
-            email: '',
-            address: '',
-            dob: '',
-            phoneNumber: '',
-            gender: undefined,
-            working_hours: '',
-            major: '',
-            certificates: '',
-            expertise: '',
+        name: '',
+        email: '',
+        address: '',
+        dob: '',
+        phoneNumber: '',
+        gender: undefined,
+        working_hours: '',
+        major: '',
+        certificates: '',
+        expertise: '',
     });
 
-    // const navigation = useNavigation();
-
     const handleNameChange = async (value: string) => {
+        setUsername(value);
         dispatch(setName(value));
     };
 
     const handleEmailChange = async (value: string) => {
+        setEmailAddress(value);
         dispatch(setEmail(value));
     };
 
     const handlePhoneNumberChange = async (value: string) => {
+        setPhone(value);
         dispatch(setPhoneNumber(value));
     };
 
     const handleAddressChange = async (value: string) => {
+        setLocation(value);
         dispatch(setAddress(value));
     };
 
     const handleDoBChange = async (value: string) => {
+        setDOB(value);
         dispatch(setDob(value));
     };
 
     const handleGenderSelect = async (selectedGender: string) => {
+        setChosenGender(selectedGender);
         dispatch(setGender(selectedGender));
     };
 
     const handleWorkingHoursChange = async (value: string) => {
+        setHours(value);
         dispatch(setWorkingHours(value));
     };
 
     const handleMajorChange = async (value: string) => {
+        setEducation(value);
         dispatch(setMajor(value));
     };
 
     const handleCertificatesChange = async (value: string) => {
+        setCert(value);
         dispatch(setCertificates(value));
     };
 
     const handleExpertiseChange = async (value: string) => {
+        setExp(value);
         dispatch(setExpertise(value));
     };
 
-    const handleSubmitPress = async () => {
-        //Linking here
-        ////////SAVE FIRST TIME LOG IN AS 0////////
-        setFirstLogin('0');
-    }
-
     const handleCancelPress = () => {
+        Alert.alert(
+            "Confirmation",
+            "Are you sure you want to cancel? Any unsaved data will be lost.",
+            [
+                {
+                    text: "Stay",
+                    style: "cancel",
+                },
+                {
+                    text: "Accept",
+                    onPress: () => {
+                        navigation.navigate("Profile" as never, {} as never);
+                    },
+                },
+            ]
+        ); 
     };
 
     const handleSavePress = () => {
+        if(!username && !emailAddress && !location && !DOB && !chosenGender && !phone && !hours && !education && !cert && !exp){
+            Alert.alert(
+                'Fails',
+                'Missing Field. Please make sure to fill all fields.',
+                [
+                  { text: 'OK' }
+                ],
+                { cancelable: false }
+            );
+        }
+        
+        //AXIOS REQUEST AND THE BELOW
+        // if(Response.data.status == "success"){
+        //     navigation.navigate("Profile" as never, {} as never);
+        // }
     };
 
     return (
