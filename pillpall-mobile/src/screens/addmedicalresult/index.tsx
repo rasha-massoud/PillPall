@@ -1,15 +1,18 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
-import NavBar from '../../components/NavBar';
+import { SafeAreaView, Alert } from 'react-native';
+import NavBar1 from '../../components/NavBar1';
 import axios from 'axios';
 import TwoCustomButton from '../../components/TwoCustomButton';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import AddDocument from '../../components/AddDocument';
+import { useNavigation } from '@react-navigation/core';
 
 import styles from './styles';
 
 const AddMedicalResult: FC = () => {
       
+    const navigation = useNavigation();
+
     const [file, setFile] = useState<File | null>(null);
     const [testingDate, setTestingDate] = useState('');
     const [fileName, setFileName] = useState('');
@@ -49,7 +52,22 @@ const AddMedicalResult: FC = () => {
     };
 
     const handleCancelPress = () => {
-  
+        Alert.alert(
+            "Confirmation",
+            "Are you sure you want to cancel? Any unsaved data will be lost.",
+            [
+                {
+                    text: "Stay",
+                    style: "cancel",
+                },
+                {
+                    text: "Accept",
+                    onPress: () => {
+                        navigation.navigate("MedicalResults" as never, {} as never);
+                    },
+                },
+            ]
+        ); 
     };
 
 
@@ -57,11 +75,16 @@ const AddMedicalResult: FC = () => {
       setFile(document);
     };
 
+    const handleBackPress = () => {
+        navigation.navigate("MedicalResults" as never, {} as never);
+    }
+
     return (
     
         <SafeAreaView style={styles.container}>
-            <NavBar
+            <NavBar1
                 title="Add Medical Results"
+                image1={{ source: require('../../../assets/back.png'), onPress: handleBackPress }}
             />
 
             <AddDocument onDocumentSelected={handleDocumentSelected} />
