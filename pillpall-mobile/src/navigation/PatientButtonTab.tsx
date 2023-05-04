@@ -63,7 +63,7 @@ const PatientButtonTab = () => {
             options={{
                 tabBarIcon: () => (
                 <Image
-                    source={require('../assets/navRobot.png')}
+                    source={require('../../assets/navRobot.png')}
                     style={{ width: 55, height: 52 }}
                 />
                 ),
@@ -75,7 +75,7 @@ const PatientButtonTab = () => {
             options={{
                 tabBarIcon: () => (
                 <Image
-                    source={require('../assets/navSettings.png')}
+                    source={require('../../assets/navSettings.png')}
                     style={{ width: 55, height: 52 }}
                 />
                 ),
