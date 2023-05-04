@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, ScrollView, Image } from 'react-native';
+import { SafeAreaView, ScrollView, Alert } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import PageTitle from '../../components/PageTitle';
 import Body1Text from '../../components/Body1Text';
@@ -9,11 +9,11 @@ import AddImage from '../../components/AddImage';
 import GenderCheckBox from '../../components/GenderCheckBox';
 import StepText from '../../components/StepText';
 import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
 import { setFirstLogin, setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, setWorkingHours, setMajor, setCertificates, setExpertise } from "../../store/slices/reportSlice";
+import { useNavigation } from '@react-navigation/core';
 
 import styles from './styles';
 import SubTitleText from '../../components/SubTitleText';
@@ -32,19 +32,31 @@ interface FillProfileData {
 }
 
 const FillProfile: FC = () => {
-
+    
     const dispatch = useDispatch();
+    const navigation = useNavigation();
+    
+    const [username, setUsername] = useState<string>("");
+    const [emailAddress, setEmailAddress] = useState<string>("");
+    const [phone, setPhone] = useState<string>("");
+    const [DOB, setDOB] = useState<string>("");
+    const [chosenGender, setChosenGender] = useState<string>("");
+    const [hours, setHours] = useState<string>("");
+    const [education, setEducation] = useState<string>("");
+    const [cert, setCert] = useState<string>("");
+    const [location, setLocation] = useState<string>("");
+    const [exp, setExp] = useState<string>("");
 
     const [imageUri, setImageUri] = useState<string | null>(null);
 
     const handleImageSelected = async (imageFile: File | null) => {
         if (imageFile) {
-        const url = URL.createObjectURL(imageFile);
-        setImageUri(url);
-        dispatch(setImage(url));
+            const url = URL.createObjectURL(imageFile);
+            setImageUri(url);
+            dispatch(setImage(url));
         } else {
-        setImageUri(null);
-        dispatch(setImage(null));
+            setImageUri(null);
+            dispatch(setImage(null));
         }
     };
     
@@ -61,52 +73,74 @@ const FillProfile: FC = () => {
             expertise: '',
     });
 
-    // const navigation = useNavigation();
 
     const handleNameChange = async (value: string) => {
+        setUsername(value);
         dispatch(setName(value));
     };
 
     const handleEmailChange = async (value: string) => {
+        setEmailAddress(value);
         dispatch(setEmail(value));
     };
 
     const handlePhoneNumberChange = async (value: string) => {
+        setPhone(value);
         dispatch(setPhoneNumber(value));
     };
 
     const handleAddressChange = async (value: string) => {
+        setLocation(value);
         dispatch(setAddress(value));
     };
 
     const handleDoBChange = async (value: string) => {
+        setDOB(value);
         dispatch(setDob(value));
     };
 
     const handleGenderSelect = async (selectedGender: string) => {
+        setChosenGender(selectedGender);
         dispatch(setGender(selectedGender));
     };
 
     const handleWorkingHoursChange = async (value: string) => {
+        setHours(value);
         dispatch(setWorkingHours(value));
     };
 
     const handleMajorChange = async (value: string) => {
+        setEducation(value);
         dispatch(setMajor(value));
     };
 
     const handleCertificatesChange = async (value: string) => {
+        setCert(value);
         dispatch(setCertificates(value));
     };
 
     const handleExpertiseChange = async (value: string) => {
+        setExp(value);
         dispatch(setExpertise(value));
     };
 
     const handleSubmitPress = async () => {
-        //Linking here
-        ////////SAVE FIRST TIME LOG IN AS 0////////
-        setFirstLogin('0');
+        if(!username && !emailAddress && !location && !DOB && !chosenGender && !phone && !hours && !education && !cert && !exp){
+            Alert.alert(
+                'Fails',
+                'Missing Field. Please make sure to fill all fields.',
+                [
+                  { text: 'OK' }
+                ],
+                { cancelable: false }
+            );
+        }
+
+        //AXIOS REQUEST AND THE BELOW
+        // if(Response.data.status == "success"){
+        //     setFirstLogin('0');
+        //     navigation.navigate("Profile" as never, {} as never);
+        // }
     }
 
   return (
