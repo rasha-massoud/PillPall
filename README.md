@@ -66,10 +66,10 @@
 1. Download Node.js installer from [https://nodejs.org/en/download]
 
 2. Install Expo CLI 
-
-```sh
-npm install -g expo-cli
-```
+    ```sh
+    npm install -g expo-cli
+    ```
+    
 3. Download XAMPP from [https://www.apachefriends.org/download.html]
 
 4. Download Composer from [https://getcomposer.org/download/]
