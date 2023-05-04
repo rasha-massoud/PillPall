@@ -8,10 +8,13 @@ import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import { useDispatch, useSelector } from "react-redux";
+import { setIsLoggedIn } from "../../store/slices/reportSlice";
 import styles from './styles'
 
 const ChangePassword: FC = () => {
+
+    const dispatch = useDispatch();
 
     const [previousPassword, setPreviousPassword] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -87,6 +90,7 @@ const ChangePassword: FC = () => {
         })
         .then((response) => {
             //Navigate to the login SCREEN
+            dispatch(setIsLoggedIn(0));
         })
         .catch((error) => {
             console.error('An error occurred during logout');
