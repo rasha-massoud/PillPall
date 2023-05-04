@@ -15,6 +15,7 @@ import Welcome from '../welcome';
 import Report from '../report';
 import FillProfile from '../fillprofile';
 import Profile from '../profile';
+import PatientButtonTab from '../../navigation/PatientButtonTab';
 
 import styles from './styles'
 
