@@ -10,7 +10,7 @@ import PatientResult from '../screens/patientresult';
 
 const Stack = createStackNavigator();
 
-const WelcomeDoctorStack = () => {
+export const WelcomeDoctorStack = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="FillProfile" component={FillProfile} />
@@ -18,7 +18,7 @@ const WelcomeDoctorStack = () => {
     );
 };
 
-const ProfileStack = () => {
+export const ProfileStack = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Profile" component={Profile} />
@@ -27,7 +27,7 @@ const ProfileStack = () => {
     );
 };
 
-const PatientStack = () => {
+export const PatientStack = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="DoctorSearch" component={DoctorSearch} />
@@ -36,9 +36,3 @@ const PatientStack = () => {
         </Stack.Navigator>
     );
 };
-
-export default {
-    WelcomeDoctorStack,
-    ProfileStack,
-    PatientStack
-}
