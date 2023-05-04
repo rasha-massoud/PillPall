@@ -4,6 +4,7 @@ import axios from 'axios';
 import NavBar3 from '../../components/NavBar3';
 import CustomButton from '../../components/CustomButton';
 import MedicalResultCard from '../../components/MedicalResultCard';
+import { useNavigation } from '@react-navigation/core';
 
 import styles from './styles';
 
@@ -17,6 +18,9 @@ interface MedicalResult {
 }
 
 const MedicalResults: FC = () => {
+
+  const navigation = useNavigation();
+
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -30,27 +34,28 @@ const MedicalResults: FC = () => {
       });
   }, []);
 
-  const handleAddPress = () => {
-    // TODO: Implement handleAddPress
-  };
-
   const renderItem = ({ item }: { item: MedicalResult }) => (
     <MedicalResultCard
       file={item}
-      testingDate="April 30, 2023"
+      testingDate="YYYY-MM-DD"
       fileName={item.name}
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      description=""
     />
   );
 
-    function handleSearchDoctorPress(): void {
-    }
+  const handleFileNumberPress = () => {
+    navigation.navigate("FileNum " as never, {} as never);
+  }
 
-    function handleFileNumberPress(): void {
-    }
+  const handleResultPress = () => {}
 
-    function handleResultPress(): void {
-    }
+  const handleSearchDoctorPress = () => {
+    navigation.navigate("PatientSearch " as never, {} as never);
+  }
+
+  const handleAddPress = () => {
+    navigation.navigate("AddMedicalResult " as never, {} as never);
+  }
 
   return (
     <SafeAreaView style={styles.container}>
