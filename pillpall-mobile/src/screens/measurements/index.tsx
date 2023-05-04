@@ -1,65 +1,55 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, Alert } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import PageTitle from '../../components/PageTitle';
 import Body1Text from '../../components/Body1Text';
 import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import StepText from '../../components/StepText';
-import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
-import API_URL from '../../constants/url';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/core';
 import { useDispatch, useSelector } from "react-redux";
 import { setBloodType, setHeight, setWeight } from "../../store/slices/reportSlice";
 
 import styles from './styles';
 
-interface AnthropometricMeasurements {
-  height: string;
-  weight: string;
-  blood_type: string;
-}
-
 const AnthropometricMeasurements: FC = () => {
 
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
-  const [anthropometricMeasurements, setAnthropometricMeasurements] = useState<AnthropometricMeasurements>({
-    height: '',
-    weight: '',
-    blood_type: ''
-  });
+  const [h, setH] = useState<string>("");
+  const [w, setW] = useState<string>("");
+  const [type, setType] = useState<string>("");
 
   const handleHeightChange = async (value: string) => {
-    setAnthropometricMeasurements({...anthropometricMeasurements, height: value});
-    await AsyncStorage.setItem('height', value);
-
+    setH(value);
     dispatch(setHeight(value));
   }
 
   const handleWeightChange = async (value: string) => {
-    setAnthropometricMeasurements({...anthropometricMeasurements, weight: value});
-    await AsyncStorage.setItem('weight', value);
-
+    setW(value);
     dispatch(setWeight(value));
   }
 
   const handleBloodTypeChange = async (value: string) => {
-    setAnthropometricMeasurements({...anthropometricMeasurements, blood_type: value});
-    await AsyncStorage.setItem('blood_type', value);
-
+    setType(value);
     dispatch(setBloodType(value));
   }
 
-  const handleContinuePress = () => {
-    console.log("success");
-    AsyncStorage.getAllKeys().then(keys => {
-      AsyncStorage.multiGet(keys).then((result) => {
-        console.log(result);
-      });
-    });    
-    // Navigate to Step 3  
+  const handleContinuePress = () => {    
+    if (h && w && type){
+      navigation.navigate("EmergencyContact" as never, {} as never);
+    }
+    else{
+      Alert.alert(
+        'Fails',
+        'Missing Field. Please may sure to fill all fields.',
+        [
+          { text: 'OK' }
+        ],
+        { cancelable: false }
+      );
+    } 
   }
 
   return (
