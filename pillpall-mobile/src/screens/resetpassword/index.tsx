@@ -1,16 +1,18 @@
 import React, { FC, useState} from 'react'
 import { SafeAreaView, Alert, Image } from 'react-native';
-import CustomButton from '../../components/CustomButton';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import TextTitle from '../../components/TextTitle';
 import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import SubTitleText from '../../components/SubTitleText';
+import TwoCustomButton from '../../components/TwoCustomButton';
 
 import styles from './styles'
 
 const ResetPassword: FC = () => {
+
+    const navigation = useNavigation();
 
     const [token, setToken] = useState<string>('');
     const [email, setEmail] = useState<string>('');
@@ -43,6 +45,26 @@ const ResetPassword: FC = () => {
         setConfirmPassword(value);
     };
 
+    const handleCancelPress = () => {
+        
+        Alert.alert(
+            "Confirmation",
+            "Are you sure you want to cancel? You have to repeat the process if you canceled .",
+            [
+                {
+                    text: "Stay",
+                    style: "cancel",
+                },
+                {
+                    text: "Accept",
+                    onPress: () => {
+                        navigation.navigate("Login" as never, {} as never);
+                    },
+                },
+            ]
+        );    
+    };
+
     const handleSavePress = async () => {
         if (!validatePassword(password)) {
             Alert.alert('Invalid password', 'Password must contain at least 8 characters including at least one uppercase letter, one lowercase letter, and one digit.');
@@ -70,15 +92,26 @@ const ResetPassword: FC = () => {
             },
         })
         .then((response) => {
-            console.log(response.data);
-            Alert.alert(
-                'Success',
-                'The password was reset.',
-                [
-                  { text: 'OK' }
-                ],
-                { cancelable: false }
-              );
+            if(response.data.status == 'success'){
+                Alert.alert(
+                    'Success',
+                    'The password was reset.',
+                    [
+                      { text: 'OK' }
+                    ],
+                    { cancelable: false }
+                );
+            }
+            else{
+                Alert.alert(
+                    'Fails',
+                    'Reset Password Fails.',
+                    [
+                      { text: 'OK' }
+                    ],
+                    { cancelable: false }
+                );
+            }
         })
         .catch((error) => {
             console.error('An error occurred resetting the password');
@@ -102,7 +135,7 @@ const ResetPassword: FC = () => {
         <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true }} onChangeText= {handlePasswordChange} />
         <TextInputwithLabel label="ConfirmPassword" placeholder='Re-enter your Password' textinputprops={{ secureTextEntry: true }} onChangeText= {handleConfirmPasswordChange} />
         
-        <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Save", onPress: handleSavePress}}  />
+        <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: handleCancelPress }} buttonprops1={{ title: "Save", onPress: handleSavePress  }} />
 
     </SafeAreaView>
   );
