@@ -1,13 +1,17 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, Alert, Image } from 'react-native';
 import NavBar from '../../components/NavBar';
 import axios from 'axios';
 import TwoCustomButton from '../../components/TwoCustomButton';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
+import { useNavigation } from '@react-navigation/core';
 
 import styles from './styles';
+
 const AddFileNumber: FC = () => {
   
+    const navigation = useNavigation();
+
     const handleDoctorNameChange = () => {
 
     }
@@ -25,7 +29,22 @@ const AddFileNumber: FC = () => {
     };
 
     const handleCancelPress = () => {
-  
+        Alert.alert(
+            "Confirmation",
+            "Are you sure you want to cancel? Any unsaved data will be lost.",
+            [
+                {
+                    text: "Stay",
+                    style: "cancel",
+                },
+                {
+                    text: "Accept",
+                    onPress: () => {
+                        navigation.navigate("PatientSearch" as never, {} as never);
+                    },
+                },
+            ]
+        ); 
     };
 
     return (
