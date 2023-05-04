@@ -5,7 +5,7 @@ import TextTitle from '../../components/TextTitle';
 import TwoCustomButton from '../../components/TwoCustomButton';
 import LogoutButton from '../../components/LogoutButton';
 import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
@@ -15,6 +15,7 @@ import styles from './styles'
 const ChangePassword: FC = () => {
 
     const dispatch = useDispatch();
+    const navigation = useNavigation();
 
     const [previousPassword, setPreviousPassword] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -64,15 +65,26 @@ const ChangePassword: FC = () => {
             },
         })
         .then((response) => {
-            console.log(response.data);
-            Alert.alert(
-                'Success',
-                'The password was changed.',
-                [
-                  { text: 'OK' }
-                ],
-                { cancelable: false }
-              );
+            if (response.data.status == 'success'){
+                Alert.alert(
+                    'Success',
+                    'The password was changed.',
+                    [
+                      { text: 'OK' }
+                    ],
+                    { cancelable: false }
+                );
+            }
+            else{
+                Alert.alert(
+                    'Failure',
+                    'Password change fails.',
+                    [
+                      { text: 'OK' }
+                    ],
+                    { cancelable: false }
+                );
+            }
         })
         .catch((error) => {
             console.error('An error occurred while changing the password');
@@ -89,8 +101,25 @@ const ChangePassword: FC = () => {
             },
         })
         .then((response) => {
-            //Navigate to the login SCREEN
-            dispatch(setIsLoggedIn('0'));
+            if (response.data.status == 'success'){
+                dispatch(setIsLoggedIn('0'));
+                Alert.alert(
+                    "Confirmation",
+                    "Are you sure you want to logout?",
+                    [
+                        {
+                            text: "Stay",
+                            style: "cancel",
+                        },
+                        {
+                            text: "Accept",
+                            onPress: () => {
+                                navigation.navigate("Login" as never, {} as never);
+                            },
+                        },
+                    ]
+                );             
+            }
         })
         .catch((error) => {
             console.error('An error occurred during logout');
