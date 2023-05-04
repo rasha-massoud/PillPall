@@ -71,6 +71,16 @@ const PersonalAssistant: FC = () => {
           { cancelable: false },
         );
       }
+      else{
+        Alert.alert(
+          'Failure',
+          'Request fails.',
+          [
+            { text: 'OK' }
+          ],
+          { cancelable: false }
+        );
+      }
     } catch (error) {
       setIsLoading(false);
       Alert.alert(
