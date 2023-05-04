@@ -7,7 +7,7 @@ import PersonalAssistant from "../screens/personalassistant";
 import PatientSearch from "../screens/patientseach";
 import ChangePassword from "../screens/changepassword";
 
-const PatientTabStack = () => {
+const PatientButtonTab = () => {
   const Tabs = createBottomTabNavigator();
   return (
     <Tabs.Navigator screenOptions={{ headerShown: false }}>
@@ -87,4 +87,4 @@ const PatientTabStack = () => {
   );
 };
 
-export default PatientTabStack;
+export default PatientButtonTab;
