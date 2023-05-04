@@ -5,13 +5,13 @@ import Body1Text from '../../components/Body1Text';
 import axios from 'axios';
 import DisplayData from '../../components/DisplayData';
 import appStyles from '../../constants/appStyles';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import PageTitle from '../../components/PageTitle';
+import TextTitle from '../../components/TextTitle';
 
 import styles from './styles';
-import TextTitle from '../../components/TextTitle';
 
 interface Patient {
   name: string;
@@ -44,7 +44,7 @@ interface Patient {
 
 const Report: React.FC = () => {
 
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
   const [allResult, setAllResult] = useState<any>();
   const [result, setResult] = useState<Patient>();
   
@@ -78,7 +78,7 @@ const Report: React.FC = () => {
   }, []);
 
   const handleEditPress = () => {
-    //Navigate to Edit Screen
+    navigation.navigate("EditReport" as never, {} as never);
   }
 
   if (loading) {
@@ -198,7 +198,7 @@ const Report: React.FC = () => {
               value={result.patients_info.life_style_habits}
             />
           </View>
-        <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Edit", onPress: () => console.log('Edit') }}  />
+        <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Edit", onPress: handleEditPress}}  />
         </ScrollView>  
       </View>
       ) : (
