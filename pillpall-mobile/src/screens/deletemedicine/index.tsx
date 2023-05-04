@@ -8,7 +8,7 @@ import TextInputwithLabel from '../../components/TextInputwithLabel';
 import DaySelector from '../../components/DaySelector';
 import TimingChecklist from '../../components/TimingCheckList';
 import TwoCustomButton from '../../components/TwoCustomButton';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -20,6 +20,8 @@ type Timing = '6:00' | '8:00' | '10:00' | '12:00' | '14:00' | '16:00' | '18:00' 
 
 
 const DeleteMedicine: FC = () => {
+
+    const navigation = useNavigation();
 
     const [processing, setProcessing] = useState<boolean>(false);
     const [selectedDay, setSelectedDay] = useState<Day>();
@@ -74,11 +76,25 @@ const DeleteMedicine: FC = () => {
             },
         })
         .then((response) => {
-            console.log(response.data);
             if (response.data.status == 'success'){
                 Alert.alert(
                     'Success',
                     'Medicine deleted successfully.',
+                    [
+                        { 
+                            text: 'OK',
+                            onPress: () => {
+                                navigation.navigate("MedicationSchedule " as never, {} as never);
+                            },
+                        }
+                    ],
+                    { cancelable: false }
+                );
+            }
+            else{
+                Alert.alert(
+                    'Failure',
+                    'Delete Medicine fails.',
                     [
                       { text: 'OK' }
                     ],
@@ -102,14 +118,29 @@ const DeleteMedicine: FC = () => {
 
 
     const handleCancelPress = () => {
-  
+        Alert.alert(
+            "Confirmation",
+            "Are you sure you want to cancel? All unsaved data will be lost.",
+            [
+                {
+                    text: "Stay",
+                    style: "cancel",
+                },
+                {
+                    text: "Accept",
+                    onPress: () => {
+                        navigation.navigate("MedicationSchedule " as never, {} as never);
+                    },
+                },
+            ]
+        );  
     };
 
     return (
     
         <SafeAreaView style={styles.container}>
             <NavBar
-                title="Medication Schedule"
+                title="Delete Medicine"
             />
             <Image
                 source={require('../../../assets/deletemedicinescreen.png')}
