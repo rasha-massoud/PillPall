@@ -11,10 +11,24 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from "react-redux";
 import { setIsLoggedIn, setFirstLogin, setRole } from "../../store/slices/reportSlice";
+import Welcome from '../welcome';
+import Report from '../report';
+import FillProfile from '../fillprofile';
+import Profile from '../profile';
 
 import styles from './styles'
 
+interface RootState {
+    report: {
+       is_logged_in: string,
+       first_login: string,
+       role: string,
+    };
+ }
+
 const Login: FC = () => {
+
+    const navigation = useNavigation();
 
     const dispatch = useDispatch();
 
@@ -68,6 +82,32 @@ const Login: FC = () => {
                 dispatch(setFirstLogin(response.data.user.first_login.toString()));
                 dispatch(setRole(response.data.user.role));
                 dispatch(setIsLoggedIn('1'));
+
+                const is_logged_in = useSelector(
+                    (state: RootState) => state.report.is_logged_in
+                );
+                const role = useSelector(
+                    (state: RootState) => state.report.role
+                );
+                const first_login = useSelector(
+                    (state: RootState) => state.report.first_login
+                );
+
+                if (is_logged_in === '1' && first_login === '1' && role === 'patient') {
+                    navigation.navigate('Welcome')
+                }
+              
+                if (is_logged_in === '1' && first_login === '0' && role === 'patient') {
+                    navigation.navigate('Report')
+                }
+            
+                if (is_logged_in === '1' && first_login === '1' && role === 'doctor') {
+                    navigation.navigate('FillProfile')
+                }
+            
+                if (is_logged_in === '1' && first_login === '0' && role === 'doctor') {
+                    navigation.navigate('Profile')
+                }
             }
 
             Alert.alert(
