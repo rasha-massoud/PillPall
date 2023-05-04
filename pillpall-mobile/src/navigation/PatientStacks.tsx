@@ -24,7 +24,7 @@ import PatientSearch from "../screens/patientseach";
 
 const Stack = createStackNavigator();
 
-const WelcomePatientStack = () => {
+export const WelcomePatientStack = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Welcome" component={Welcome} />
@@ -38,7 +38,7 @@ const WelcomePatientStack = () => {
     );
 };
 
-const ReportStack = () => {
+export const ReportStack = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Report" component={Report} />
@@ -47,7 +47,7 @@ const ReportStack = () => {
     );
 };
 
-const MedicationScheduleStack = () => {
+export const MedicationScheduleStack = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="MedicationSchedule" component={MedicationSchedule} />
@@ -59,7 +59,7 @@ const MedicationScheduleStack = () => {
     );
 };
 
-const MedicalStack = () => {
+export const MedicalStack = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="PatientSearch" component={PatientSearch} />
@@ -71,9 +71,3 @@ const MedicalStack = () => {
     );
 };
 
-export default {
-    WelcomePatientStack,
-    ReportStack,
-    MedicationScheduleStack,
-    MedicalStack
-}
