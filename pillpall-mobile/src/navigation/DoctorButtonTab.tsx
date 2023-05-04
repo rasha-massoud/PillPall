@@ -37,7 +37,7 @@ const DoctorButtonTab = () => {
                 options={{
                     tabBarIcon: () => (
                     <Image
-                        source={require('../assets/navSettings.png')}
+                        source={require('../../assets/navSettings.png')}
                         style={{ width: 55, height: 52 }}
                     />
                     ),
