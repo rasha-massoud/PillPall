@@ -33,6 +33,7 @@ import { Provider } from "react-redux";
 import store from "./src/store";
 import * as Font from 'expo-font';
 import loadFonts from './src/constants/font';
+import StackSwitcher from './src/navigation/StackSwitcher';
 
 export default function App() {
 
@@ -54,9 +55,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Provider store={store}>
-        <NavigationContainer>
-          <FillProfile/>
-        </NavigationContainer>
+        <StackSwitcher/>
       </Provider>
     </View>
   );

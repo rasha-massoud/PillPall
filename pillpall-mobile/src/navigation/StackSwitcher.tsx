@@ -44,11 +44,7 @@ const StackSwitcher = () => {
    }
 
    if (is_logged_in === '1' && first_login === '0' && role === 'patient') {
-      return (
-         <NavigationContainer>
-            <PatientButtonTab />
-         </NavigationContainer>
-      );
+      return <PatientButtonTab />;
    }
 
    if (is_logged_in === '1' && first_login === '1' && role === 'doctor') {
@@ -60,14 +56,10 @@ const StackSwitcher = () => {
    }
 
    if (is_logged_in === '1' && first_login === '0' && role === 'doctor') {
-      return (
-         <NavigationContainer>
-            <DoctorButtonTab />
-         </NavigationContainer>
-      );
+      return <DoctorButtonTab />;
    }
 
-   return AuthNavigator;
+   return <AuthNavigator />;
 };
 
 export default StackSwitcher;
