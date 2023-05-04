@@ -5,13 +5,14 @@ import TextInputwithLabel from '../../components/TextInputwithLabel';
 import TextTitle from '../../components/TextTitle';
 import SubTitleText from '../../components/SubTitleText';
 import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 
 import styles from './styles'
 
 const ForgotPassword: FC = () => {
 
+    const navigation = useNavigation();
     const [email, setEmail] = useState<string>('');
 
     const validateEmail = (email: string): boolean => {
@@ -41,20 +42,59 @@ const ForgotPassword: FC = () => {
             },
         })
         .then((response) => {
-            Alert.alert(
-                'Success',
-                'An email has been sent to your email address to reset your password.',
-                [
-                  { text: 'OK' }
-                ],
-                { cancelable: false }
-              );
+            if (response.data.status == 'success'){
+                Alert.alert(
+                    'Success',
+                    'An email has been sent to your email address to reset your password.',
+                    [
+                        {
+                            text: 'OK',
+                            onPress: () => {
+                                navigation.navigate("ResetPassword" as never, {} as never);
+                            },
+                        }
+                    ],
+                    { cancelable: false }
+                );
+            }
+            else {
+                Alert.alert(
+                    "Failure",
+                    "Request Fails",
+                    [
+                        {
+                            text: "Ok",
+                            style: "cancel",
+                        },
+                    ]
+                );
+            }
         })
         .catch((error) => {
-            console.error('An error occurred or invalid email');
+            console.error('An error has occurred.');
         });
     }
 
+    const handleCancelPress = () => {
+        
+        Alert.alert(
+            "Confirmation",
+            "Are you sure you want to cancel? All unsaved data will be lost.",
+            [
+                {
+                    text: "Stay",
+                    style: "cancel",
+                },
+                {
+                    text: "Accept",
+                    onPress: () => {
+                        navigation.navigate("Login" as never, {} as never);
+                    },
+                },
+            ]
+        );    
+    };
+    
     return (
     
         <SafeAreaView style={styles.container}>
@@ -68,7 +108,7 @@ const ForgotPassword: FC = () => {
 
             <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
 
-            <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: () => console.log('Cancel') }} buttonprops1={{ title: "Reset", onPress: handleResetPress }} />
+            <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: handleCancelPress }} buttonprops1={{ title: "Reset", onPress: handleResetPress }} />
             
         </SafeAreaView>
   );
