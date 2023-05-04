@@ -1,74 +1,61 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, Alert } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import PageTitle from '../../components/PageTitle';
 import Body1Text from '../../components/Body1Text';
 import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import StepText from '../../components/StepText';
-import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
-import API_URL from '../../constants/url';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/core';
 import { useDispatch, useSelector } from "react-redux";
 import { setBodyTemperature, setPulseRate, setRespirationRate, setSystolicBloodPressure } from "../../store/slices/reportSlice";
 
 import styles from './styles';
 
-interface VitalSignsData {
-  body_temperature: string;
-  pulse_rate: string;
-  respiration_rate: string;
-  systolic_blood_pressure: string;
-}
-
 const VitalSigns: FC = () => {
 
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
-  const [vitalSignsData, setVitalSignsData] = useState<VitalSignsData>({
-    body_temperature: '',
-    pulse_rate: '',
-    respiration_rate: '',
-    systolic_blood_pressure: '',
-  });
-
+  const [temperature, setTemperature] = useState<string>("");
+  const [pulse, setPulse] = useState<string>("");
+  const [respiration, setRespiration] = useState<string>("");
+  const [pressure, setPressure] = useState<string>("");
+  
   const handleTemperatureChange = async (value: string) => {
-    setVitalSignsData({...vitalSignsData, body_temperature: value});
-    await AsyncStorage.setItem('body_temperature', value);
-
+    setTemperature(value);
     dispatch(setBodyTemperature(value));
   }
 
   const handlePulseChange = async (value: string) => {
-    setVitalSignsData({...vitalSignsData, pulse_rate: value});
-    await AsyncStorage.setItem('pulse_rate', value);
-
+    setPulse(value);
     dispatch(setPulseRate(value));
   }
 
   const handleRespirationRateChange = async(value: string) => {
-    setVitalSignsData({...vitalSignsData, respiration_rate: value});
-    await AsyncStorage.setItem('respiration_rate', value);
-
+    setRespiration(value);
     dispatch(setRespirationRate(value));
   }
 
   const handleBloodPressureChange = async (value: string) => {
-    setVitalSignsData({...vitalSignsData, systolic_blood_pressure: value});
-    await AsyncStorage.setItem('systolic_blood_pressure', value);
-
+    setPressure(value);
     dispatch(setSystolicBloodPressure(value));
   }
 
   const handleContinuePress = () => {
-    console.log("success");
-    AsyncStorage.getAllKeys().then(keys => {
-      AsyncStorage.multiGet(keys).then((result) => {
-        console.log(result);
-      });
-    });    
-    // Navigate to Step 5
+    if(temperature && pulse && respiration && pressure ){
+      navigation.navigate("MedicalHistory" as never, {} as never);
+    }
+    else{
+      Alert.alert(
+        'Fails',
+        'Missing Field. Please may sure to fill all fields.',
+        [
+          { text: 'OK' }
+        ],
+        { cancelable: false }
+      );
+    }
   }
 
   return (
