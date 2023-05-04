@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+    is_logged_in: '',
     first_login: '',
     role: '',
     name: '',
@@ -37,6 +38,9 @@ const reportSlice = createSlice({
     name: "report",
     initialState,
     reducers: {
+        setIsLoggedIn: (state, action) => {
+            state.is_logged_in = action.payload;
+        },
         setFirstLogin: (state, action) => {
             state.first_login = action.payload;
         },
@@ -133,6 +137,7 @@ const reportSlice = createSlice({
 });
 
 export const {
+    setIsLoggedIn,
     setFirstLogin,
     setRole,
     setName,
