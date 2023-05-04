@@ -63,18 +63,80 @@
 
 ### Prerequisites
 
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+1. Download Node.js installer from [https://nodejs.org/en/download]
 
-  * npm
-  ```sh
-  npm install node@latest -g
-  ```
+2. Install Expo CLI 
+
+```sh
+npm install -g expo-cli
+```
+3. Download XAMPP from [https://www.apachefriends.org/download.html]
+
+4. Download Composer from [https://getcomposer.org/download/]
+
+5. Download VS Code from [https://code.visualstudio.com/download]
+
 
 ### Installation
 
-1. 
+1. Get an Key for OpenAPI at [https://openai.com/] 
+
+2. Launch MySQL and Apache from XAMPP
+
+3. Open the terminal and navigate to the desired project directory
+
+4. Clone the repository to your local machine
+    ```sh
+    git clone https://github.com/rasha-massoud/PillPall.git
+    ```
+
+5. Run the following command to install the Laravel app dependencies
+    ```sh
+    composer install
+    ```
+
+6. Open the folder
+    ```sh
+    code .
+    ```
+
+8. Install the official Node.js Library for OpenAi
+    ```sh
+    npm install openai
+    ```
+
+7. Copy the .env.example file to .env
+    * Configure the database settings in the .env file
+    * Add the OPENAI_API_KEY
+
+8. Navigate to pillpall-backend 
+    * Generate a Secret Key to handle token encryption
+    ```sh
+    php artisan jwt:secret
+    ```
+
+    * Ceate the database tables
+    ```sh
+    php artisan migrate
+    ```
+
+    * Start the Laravel app
+    ```sh
+    php artisan serve
+    ```
+
+9. Open a new terminal window, and navigate to pillpall-mobile
+    * Install the React Native app dependencies
+    ```sh
+    npm install
+    ```
+
+    * Start the Expo Server
+    ```sh
+    expo start
+    ```
+10. Download Expo Go on your Iphones
+
+11. Scan the barcode in the terminal to launch the app on a physical device (Design based on Iphone) 
 
 Now, you should be able to run PillPall locally and explore its features.
