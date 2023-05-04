@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { View, Text, SafeAreaView, FlatList } from 'react-native';
 import axios from 'axios';
-import NavBar3 from '../../components/NavBar3';
+import NavBar1 from '../../components/NavBar1';
 import CustomButton from '../../components/CustomButton';
 import MedicalResultCard from '../../components/MedicalResultCard';
 import { useNavigation } from '@react-navigation/core';
@@ -43,28 +43,16 @@ const MedicalResults: FC = () => {
     />
   );
 
-  const handleFileNumberPress = () => {
-    navigation.navigate("FileNum " as never, {} as never);
-  }
-
-  const handleResultPress = () => {}
-
-  const handleSearchDoctorPress = () => {
-    navigation.navigate("PatientSearch " as never, {} as never);
-  }
-
-  const handleAddPress = () => {
-    navigation.navigate("AddMedicalResult " as never, {} as never);
+  const handleBackPress = () => {
+    navigation.navigate("MedicationSchedule" as never, {} as never);
   }
 
   return (
     <SafeAreaView style={styles.container}>
-      <NavBar3
-        title="Medical Results"
-        image1={{ source: require('../../../assets/filenumber.png'), onPress: handleFileNumberPress }}
-        image2={{ source: require('../../../assets/results.png'), onPress: handleResultPress }}
-        image3={{ source: require('../../../assets/searchdoc.png'), onPress: handleSearchDoctorPress }}
-      />
+      <NavBar1
+        title="Medical Results1"
+          image1={{ source: require('../../../assets/back.png'), onPress: handleBackPress }}
+        />
 
       <FlatList
         style={styles.flatList}
@@ -73,10 +61,6 @@ const MedicalResults: FC = () => {
         keyExtractor={(item, index) => index.toString()}
       />
 
-      <CustomButton
-        containerStyle={{ alignSelf: 'center' }}
-        buttonprops={{ title: "Add", onPress: handleAddPress }}
-      />
     </SafeAreaView>
   );
 };
