@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import { SafeAreaView, Alert, Image } from 'react-native';
-import NavBar from '../../components/NavBar';
+import NavBar1 from '../../components/NavBar1';
 import axios from 'axios';
 import TwoCustomButton from '../../components/TwoCustomButton';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
@@ -28,6 +28,10 @@ const AddFileNumber: FC = () => {
 
     };
 
+    const handleBackPress = () => {
+        navigation.navigate("PatientSearch" as never, {} as never);
+    }
+
     const handleCancelPress = () => {
         Alert.alert(
             "Confirmation",
@@ -50,8 +54,9 @@ const AddFileNumber: FC = () => {
     return (
     
         <SafeAreaView style={styles.container}>
-            <NavBar
+            <NavBar1
                 title="Add File Number"
+                image1={{ source: require('../../../assets/back.png'), onPress: handleBackPress }}
             />
             <Image
                 source={require('../../../assets/filenumberscreen.png')}
