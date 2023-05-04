@@ -5,7 +5,13 @@ import PatientButtonTab from "./PatientButtonTab";
 import DoctorButtonTab from "./DoctorButtonTab";
 
 import { WelcomePatientStack } from './PatientStacks';
+import { ReportStack } from './PatientStacks';
+import { MedicationScheduleStack } from './PatientStacks';
+import { MedicalStack } from './PatientStacks';
+
 import { WelcomeDoctorStack } from './DoctorStacks';
+import { ProfileStack } from './DoctorStacks';
+import { PatientStack } from './DoctorStacks';
 
 interface RootState {
    report: {
