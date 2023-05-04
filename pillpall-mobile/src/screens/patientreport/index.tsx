@@ -5,7 +5,7 @@ import Body1Text from '../../components/Body1Text';
 import axios from 'axios';
 import DisplayData from '../../components/DisplayData';
 import appStyles from '../../constants/appStyles';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import PageTitle from '../../components/PageTitle';
@@ -43,7 +43,8 @@ interface Patient {
 
 const PatientReport: React.FC = () => {
 
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
+
   const [allResult, setAllResult] = useState<any>();
   const [result, setResult] = useState<Patient>();
   
@@ -76,10 +77,6 @@ const PatientReport: React.FC = () => {
     getData();
   }, []);
 
-  const handleEditPress = () => {
-    //Navigate to Edit Screen
-  }
-
   if (loading) {
     return (
       <View>
@@ -88,8 +85,12 @@ const PatientReport: React.FC = () => {
     );
   }
 
+  const handleBackPress = () => {
+    navigation.navigate("DoctorSearch" as never, {} as never);
+  }
+
   return (
-    ////CHANGE TESTS HERE AS FOR THE DOCTOR
+    ////CHANGE TEXTS HERE AS FOR THE DOCTOR
     <SafeAreaView style={styles.container}>
         <View style={styles.top}>
             <View style={styles.topLeft}>
@@ -106,12 +107,8 @@ const PatientReport: React.FC = () => {
         {result && allResult.status === 'success' ? (
 
         <View>
-            <ScrollView>
+          <ScrollView>
             <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals." />
-        
-            <TouchableOpacity onPress={handleEditPress}> 
-                    <Text style={styles.editText}>**Press me to Edit**</Text>
-            </TouchableOpacity>
 
             <View>
                 <DisplayData title='Name' value={result.name} />
@@ -198,7 +195,9 @@ const PatientReport: React.FC = () => {
                 value={result.patients_info.life_style_habits}
                 />
             </View>
-            </ScrollView>  
+          </ScrollView>  
+          <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 20 }} buttonprops={{ title: "Back", onPress: handleBackPress }} />
+
         </View>
         ) : (
         <View style={appStyles.body1}>
