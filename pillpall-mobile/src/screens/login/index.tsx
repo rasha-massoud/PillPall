@@ -74,7 +74,7 @@ const Login: FC = () => {
             },
         })
         .then( async (response) => {
-            if (response.data.success){
+            if (response.data.status == "success"){
                 AsyncStorage.setItem('token', response.data.authorisation.token);
 
                 dispatch(setFirstLogin(response.data.user.first_login.toString()));
@@ -91,19 +91,20 @@ const Login: FC = () => {
                     (state: RootState) => state.report.first_login
                 );
 
-                if (is_logged_in === '1' && first_login === '1' && role === 'patient') {
+                console.log(first_login, is_logged_in, role);
+                if (is_logged_in == '1' && first_login == '1' && role == "patient") {
                     navigation.navigate("Welcome" as never, {} as never)
                 }
               
-                if (is_logged_in === '1' && first_login === '0' && role === 'patient') {
+                if (is_logged_in == '1' && first_login == '0' && role == "patient") {
                     navigation.navigate("Report" as never, {} as never)
                 }
             
-                if (is_logged_in === '1' && first_login === '1' && role === 'doctor') {
+                if (is_logged_in == '1' && first_login == '1' && role == "doctor") {
                     navigation.navigate("FillProfile" as never, {} as never)
                 }
             
-                if (is_logged_in === '1' && first_login === '0' && role === 'doctor') {
+                if (is_logged_in == '1' && first_login == '0' && role == "doctor") {
                     navigation.navigate("Profile" as never, {} as never)
                 }
             }
