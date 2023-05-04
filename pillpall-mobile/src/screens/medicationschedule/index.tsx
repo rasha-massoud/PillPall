@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import { SafeAreaView, View, Text, FlatList } from 'react-native';
 import { colors } from '../../constants/palette';
-import NavBar3 from '../../components/NavBar3';
+import NavBar4 from '../../components/NavBar4';
 import MyCalendar from '../../components/MyCalendar';
 import axios from 'axios';
 import styles from './styles';
@@ -27,6 +27,10 @@ const MedicationSchedule: FC = () => {
 
     const handleAddMedPress = () => {
         navigation.navigate("AddMedicine" as never, {} as never);
+    }
+
+    const handleDeleteMedPress = () => {
+        navigation.navigate("DeleteMedicine" as never, {} as never);
     }
 
     const handleBudgetTrackerPress = () => {
@@ -75,11 +79,12 @@ const MedicationSchedule: FC = () => {
     return (
     
         <SafeAreaView style={styles.container}>
-            <NavBar3
+            <NavBar4
                 title="Medication Schedule"
                 image1={{ source: require('../../../assets/addmed.png'), onPress: handleAddMedPress }}
-                image2={{ source: require('../../../assets/budget.png'), onPress: handleBudgetTrackerPress }}
-                image3={{ source: require('../../../assets/rename.png'), onPress: handlePharmPress }}
+                image2={{ source: require('../../../assets/deletemed.png'), onPress: handleDeleteMedPress }}
+                image3={{ source: require('../../../assets/budget.png'), onPress: handleBudgetTrackerPress }}
+                image4={{ source: require('../../../assets/rename.png'), onPress: handlePharmPress }}
             />
             <MyCalendar onSelectDate={handleSelectDate} />
 
