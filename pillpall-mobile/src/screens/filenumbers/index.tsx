@@ -6,6 +6,7 @@ import NavBar3 from '../../components/NavBar3';
 import CustomButton from '../../components/CustomButton';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/core';
 
 import styles from './styles';
 
@@ -17,13 +18,23 @@ type FileNumber = {
 };
 
 const FileNum: FC = () => {
+
+  const navigation = useNavigation();
   const [fileNumbers, setFileNumbers] = useState<FileNumber[]>([]);
 
   const handleFileNumberPress = () => {}
-  const handleResultPress = () => {}
-  const handleSearchDoctorPress = () => {}
 
-  const handleAddPress = () => {}
+  const handleResultPress = () => {
+    navigation.navigate("MedicalResults " as never, {} as never);
+  }
+
+  const handleSearchDoctorPress = () => {
+    navigation.navigate("PatientSearch " as never, {} as never);
+  }
+
+  const handleAddPress = () => {
+    navigation.navigate("AddFileNumber " as never, {} as never);
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,14 +51,16 @@ const FileNum: FC = () => {
       })
       .then((response) => {
         setFileNumbers(response.data.file_numbers);
-        Alert.alert(
-          'Success',
-          'The report is successfully created.',
-          [
-            { text: 'OK' }
-          ],
-          { cancelable: false }
-        );
+        if (response.data.status != "success"){
+          Alert.alert(
+            'Failure',
+            'Request Fails.',
+            [
+              { text: 'OK' }
+            ],
+            { cancelable: false }
+          );
+        }
       })
       .catch((error) => {
           console.error('An error occurred while getting the File numbers');
