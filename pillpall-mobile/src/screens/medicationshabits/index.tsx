@@ -8,7 +8,7 @@ import TextInputwithLabel from '../../components/TextInputwithLabel';
 import StepText from '../../components/StepText';
 import HabitsMultiSelectChecklist from '../../components/HabitsMultiSelectCheckList';
 import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
@@ -48,19 +48,18 @@ interface RootState {
 const MedicationsAndHabits: FC = () => {
 
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [currentMedicationsHistory, setCurrentMedications] = useState<string>('');
 
   const handleSelectOption = (options: string[]) => {
     setSelectedOptions(options);
-
     dispatch(setLifeStyleHabits(options));
   };
 
   const handleCurrentMedicationsChange = (value: string) => {
     setCurrentMedications(value);
-
     dispatch(setMedications(value));
   };
 
@@ -198,7 +197,6 @@ const MedicationsAndHabits: FC = () => {
       })
       .then((response) => {
         dispatch(setFirstLogin('0'));
-        
         if(response.data.status == 'success'){
           Alert.alert(
             'Success',
@@ -208,6 +206,8 @@ const MedicationsAndHabits: FC = () => {
             ],
             { cancelable: false }
           );
+          navigation.navigate("Report" as never, {} as never);
+
         }
       })
       .catch((error) => {
