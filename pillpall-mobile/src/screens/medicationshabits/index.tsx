@@ -197,8 +197,8 @@ const MedicationsAndHabits: FC = () => {
           },
       })
       .then((response) => {
-        setFirstLogin('0');
-
+        dispatch(setFirstLogin('0'));
+        
         if(response.data.status == 'success'){
           Alert.alert(
             'Success',
