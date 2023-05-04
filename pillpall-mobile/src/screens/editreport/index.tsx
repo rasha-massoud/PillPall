@@ -9,7 +9,7 @@ import SubTitleText from '../../components/SubTitleText';
 import GenderCheckBox from '../../components/GenderCheckBox';
 import HabitsMultiSelectChecklist from '../../components/HabitsMultiSelectCheckList';
 import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
@@ -51,7 +51,8 @@ interface RootState {
 const EditReport: FC = () => {
       
     const dispatch = useDispatch();
-    
+    const navigation = useNavigation();
+
     const [imageUri, setImageUri] = useState<string | null>(null);
     const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
     const [currentMedicationsHistory, setCurrentMedications] = useState<string>('');
@@ -61,126 +62,101 @@ const EditReport: FC = () => {
         const url = URL.createObjectURL(imageFile);
         setImageUri(url);
         dispatch(setImage(url));
-        await AsyncStorage.setItem('imageUri', url);
       } else {
         setImageUri(null);
         dispatch(setImage(null));
-        await AsyncStorage.setItem('imageUri', '');
       }
     };
 
     const handleNameChange = async (value: string) => {
-        await AsyncStorage.setItem('name', value);
         dispatch(setName(value));
     };
 
     const handleEmailChange = async (value: string) => {
-        await AsyncStorage.setItem('email', value);
         dispatch(setEmail(value));
     };
 
     const handleGenderSelect = async (selectedGender: string) => {
-        await AsyncStorage.setItem('gender', selectedGender);
         dispatch(setGender(selectedGender));
     };
 
     const handlePhoneNumberChange = async (value: string) => {
-        await AsyncStorage.setItem('phoneNumber', value);
         dispatch(setPhoneNumber(value));
       }
     
       const handleAddressChange = async (value: string) => {
-        await AsyncStorage.setItem('address', value);
         dispatch(setAddress(value));
       }
     
       const handleDoBChange = async (value: string) => {
-        await AsyncStorage.setItem('dob', value);
         dispatch(setDob(value));
       }
 
       const handleHeightChange = async (value: string) => {
-        await AsyncStorage.setItem('height', value);
         dispatch(setHeight(value));
       }
     
       const handleWeightChange = async (value: string) => {
-        await AsyncStorage.setItem('weight', value);
         dispatch(setWeight(value));
       }
     
       const handleBloodTypeChange = async (value: string) => {
-        await AsyncStorage.setItem('blood_type', value);
         dispatch(setBloodType(value));
       }
 
       const handleEmergencyNameChange = async (value: string) => {
-        await AsyncStorage.setItem('emergency_name', value);
         dispatch(setEmergencyName(value));
       }
     
       const handleEmergencyPhoneNumberChange = async (value: string) => {
-        await AsyncStorage.setItem('emergency_number', value);
         dispatch(setEmergencyNumber(value));
       }
     
       const handleEmergencyEmailChange = async(value: string) => {
-        await AsyncStorage.setItem('emergency_email', value);
         dispatch(setEmergencyEmail(value));
       }
     
       const handleEmergencyRelationChange = async (value: string) => {
-        await AsyncStorage.setItem('emergency_contact_relation', value);
         dispatch(setEmergencyContactRelation(value));
       }
 
       const handleTemperatureChange = async (value: string) => {
-        await AsyncStorage.setItem('body_temperature', value);
         dispatch(setBodyTemperature(value));
       }
     
       const handlePulseChange = async (value: string) => {
-        await AsyncStorage.setItem('pulse_rate', value);
         dispatch(setPulseRate(value));
       }
     
       const handleRespirationRateChange = async(value: string) => {
-        await AsyncStorage.setItem('respiration_rate', value);
         dispatch(setRespirationRate(value));
       }
     
       const handleBloodPressureChange = async (value: string) => {
-        await AsyncStorage.setItem('systolic_blood_pressure', value);
         dispatch(setSystolicBloodPressure(value));
       }
 
       const handleChronicConditionsChange = async (value: string) => {
-        await AsyncStorage.setItem('chronic_conditions', value);
         dispatch(setChronicConditions(value));
       }
     
       const handlePastSurgeriesChange = async (value: string) => {
-        await AsyncStorage.setItem('past_surgeries', value);
         dispatch(setPastSurgeries(value));
       }
     
       const handleFamilyMedicalHistoryChange = async(value: string) => {
-        await AsyncStorage.setItem('family_medical_history', value);
         dispatch(setFamilyMedicalHistory(value));
       }
     
       const handleAllergiesChange = async (value: string) => {
-        await AsyncStorage.setItem('allergies', value);
         dispatch(setAllergies(value));
       }
     
       const handleSelectOption = (options: string[]) => {
-        setSelectedOptions(options);
         dispatch(setLifeStyleHabits(options));
       };
     
       const handleCurrentMedicationsChange = (value: string) => {
-        setCurrentMedications(value);
         dispatch(setMedications(value));
       };
 
@@ -318,22 +294,56 @@ const EditReport: FC = () => {
             },
         })
         .then((response) => {
-            console.log(response.data);
+          if (response.data.status == 'success'){
             Alert.alert(
                 'Success',
                 'The report is successfully created.',
                 [
-                { text: 'OK' }
+                  { 
+                    text: 'OK',
+                    onPress: () => {
+                      navigation.navigate("Report" as never, {} as never);
+                  },
+                  }
                 ],
                 { cancelable: false }
             );
+          }
+          else{
+            Alert.alert(
+              "Failure",
+              "Update Fails",
+              [
+                  {
+                      text: "Ok",
+                      style: "cancel",
+                  },
+              ]
+          );
+          }
         })
         .catch((error) => {
-            console.error('An error occurred while creating the report', error);
+            console.error('An error occurred while editing the report.');
         });
     };
 
     const handleCancelPress = () => {
+      Alert.alert(
+        "Confirmation",
+        "Are you sure you want to cancel? All unsaved data will be lost.",
+        [
+            {
+                text: "Stay",
+                style: "cancel",
+            },
+            {
+                text: "Accept",
+                onPress: () => {
+                    navigation.navigate("Login" as never, {} as never);
+                },
+            },
+        ]
+    );    
     };
 
     return (
