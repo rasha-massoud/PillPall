@@ -10,7 +10,7 @@ import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from "react-redux";
-import { setFirstLogin, setRole } from "../../store/slices/reportSlice";
+import { setIsLoggedIn, setFirstLogin, setRole } from "../../store/slices/reportSlice";
 
 import styles from './styles'
 
@@ -58,14 +58,17 @@ const Login: FC = () => {
             },
         })
         .then( async (response) => {
-            AsyncStorage.setItem('token', response.data.authorisation.token);
-            AsyncStorage.setItem('name', response.data.user.name);
-            AsyncStorage.setItem('email', response.data.user.email);
-            AsyncStorage.setItem('role', response.data.user.role);
-            AsyncStorage.setItem('first_login', response.data.user.first_login.toString());
-            
-            dispatch(setFirstLogin(response.data.user.first_login.toString()));
-            dispatch(setRole(response.data.user.role));
+            if (response.data.success){
+                AsyncStorage.setItem('token', response.data.authorisation.token);
+                AsyncStorage.setItem('name', response.data.user.name);
+                AsyncStorage.setItem('email', response.data.user.email);
+                AsyncStorage.setItem('role', response.data.user.role);
+                AsyncStorage.setItem('first_login', response.data.user.first_login.toString());
+                
+                dispatch(setFirstLogin(response.data.user.first_login.toString()));
+                dispatch(setRole(response.data.user.role));
+                dispatch(setIsLoggedIn('1'));
+            }
 
             Alert.alert(
                 'Success',
