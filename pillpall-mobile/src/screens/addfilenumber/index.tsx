@@ -44,7 +44,7 @@ const AddFileNumber: FC = () => {
                 {
                     text: "Accept",
                     onPress: () => {
-                        navigation.navigate("PatientSearch" as never, {} as never);
+                        navigation.navigate("FileNum" as never, {} as never);
                     },
                 },
             ]
