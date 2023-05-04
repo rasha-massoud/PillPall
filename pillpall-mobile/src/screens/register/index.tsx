@@ -7,7 +7,7 @@ import LoginSignupSwitch from '../../components/LoginSignupSwitch';
 import TwoCustomButton from '../../components/TwoCustomButton';
 import RoleCheckBox from '../../components/RoleCheckBox';
 import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import { useDispatch, useSelector } from "react-redux";
 import { setName, setEmail } from "../../store/slices/reportSlice";
@@ -17,7 +17,7 @@ import styles from './styles'
 const Register: FC = () => {
 
     const dispatch = useDispatch();
-    // const navigation = useNavigation();
+    const navigation = useNavigation();
 
     const [role, setRole] = useState<string>('patient');
     const [username, setUsername] = useState<string>('');
@@ -58,27 +58,29 @@ const Register: FC = () => {
     };
 
     const handleLoginPress = () => {
-        // navigation.navigate('Login');
+        navigation.navigate("Login" as never, {} as never);
     };
 
     const handleCancelPress = () => {
+        
         Alert.alert(
             "Confirmation",
             "Are you sure you want to cancel? All unsaved data will be lost.",
             [
-              {
-                text: "Stay",
-                style: "cancel",
-              },
-              {
-                text: "Accept",
-                onPress: () => {
-                //   navigation.goBack();
+                {
+                    text: "Stay",
+                    style: "cancel",
                 },
-              },
+                {
+                    text: "Accept",
+                    onPress: () => {
+                        navigation.navigate("Login" as never, {} as never);
+                    },
+                },
             ]
-          );    
-        };
+        );    
+    };
+        
 
     const handleSignupPress = async () => {
         
@@ -111,7 +113,29 @@ const Register: FC = () => {
                 'Accept': 'application/json',
             },
         })
-        .then((response) => {})
+        .then((response) => {
+            if (response.data.status == 'success'){
+                navigation.navigate("Login" as never, {} as never);
+            }
+            else {
+                Alert.alert(
+                    "Failure",
+                    "An error occured while creating the account.",
+                    [
+                        {
+                            text: "Stay",
+                            style: "cancel",
+                        },
+                        {
+                            text: "Accept",
+                            onPress: () => {
+                                navigation.navigate("Login" as never, {} as never);
+                            },
+                        },
+                    ]
+                );   
+            }
+        })
         .catch((error) => {
             console.error('An error occurred during registration or incorrect entries during signup');
         });
