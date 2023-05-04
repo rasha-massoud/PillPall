@@ -8,6 +8,7 @@ import styles from './styles';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import MedicationItem from '../../components/MedicationItem';
+import { useNavigation } from '@react-navigation/core';
 
 type Medication = {
     name: string;
@@ -17,21 +18,23 @@ type Medication = {
 
 const MedicationSchedule: FC = () => {
    
+    const navigation = useNavigation();
+
     const [selectedDate, setSelectedDate] = useState(new Date().toISOString().substring(0, 10));
     const [selectedDay, setSelectedDay] = useState('');
     const [successState, setSuccessState] = useState('');
     const [medications, setMedications] = useState<Medication[]>([]);
 
     const handleAddMedPress = () => {
-        // navigate to Add Medicine Screen
+        navigation.navigate("AddMedicine" as never, {} as never);
     }
 
     const handleBudgetTrackerPress = () => {
-        // navigate to Buget Tracker Screen
+        navigation.navigate("BudgetTracker" as never, {} as never);
     }
 
     const handlePharmPress = () => {
-        // navigate to Nearby Pharm Screen
+        navigation.navigate("NearbyPharms" as never, {} as never);
     }
 
     const handleSelectDate = async (date: string) => {
