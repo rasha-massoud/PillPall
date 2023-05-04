@@ -16,7 +16,7 @@ interface RootState {
 }
 
 const StackSwitcher = () => {
-
+   
    const is_logged_in = useSelector(
       (state: RootState) => state.report.is_logged_in
    );

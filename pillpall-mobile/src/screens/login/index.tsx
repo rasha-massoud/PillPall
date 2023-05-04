@@ -8,7 +8,7 @@ import LoginSignupSwitch from '../../components/LoginSignupSwitch';
 import axios from 'axios';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import { useDispatch, useSelector } from "react-redux";
 import { setIsLoggedIn, setFirstLogin, setRole } from "../../store/slices/reportSlice";
 import Welcome from '../welcome';
@@ -16,6 +16,7 @@ import Report from '../report';
 import FillProfile from '../fillprofile';
 import Profile from '../profile';
 import PatientButtonTab from '../../navigation/PatientButtonTab';
+
 
 import styles from './styles'
 
@@ -95,19 +96,19 @@ const Login: FC = () => {
                 );
 
                 if (is_logged_in === '1' && first_login === '1' && role === 'patient') {
-                    navigation.navigate('Welcome')
+                    navigation.navigate("Welcome" as never, {} as never)
                 }
               
                 if (is_logged_in === '1' && first_login === '0' && role === 'patient') {
-                    navigation.navigate('Report')
+                    navigation.navigate("Report" as never, {} as never)
                 }
             
                 if (is_logged_in === '1' && first_login === '1' && role === 'doctor') {
-                    navigation.navigate('FillProfile')
+                    navigation.navigate("FillProfile" as never, {} as never)
                 }
             
                 if (is_logged_in === '1' && first_login === '0' && role === 'doctor') {
-                    navigation.navigate('Profile')
+                    navigation.navigate("Profile" as never, {} as never)
                 }
             }
 
@@ -128,7 +129,7 @@ const Login: FC = () => {
     // const navigation = useNavigation();
 
     const handleSignUpPress = () => {
-        // navigation.navigate('Register');
+        navigation.navigate("Register" as never, {} as never);
     };
 
     const handleForgotPasswordPress = () => {
