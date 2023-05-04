@@ -63,7 +63,11 @@ const StackSwitcher = () => {
       ) 
    }
 
-   return <AuthNavigator />;
+   return(
+      <NavigationContainer>
+         <AuthNavigator />
+      </NavigationContainer>
+   ) 
 };
 
 export default StackSwitcher;
