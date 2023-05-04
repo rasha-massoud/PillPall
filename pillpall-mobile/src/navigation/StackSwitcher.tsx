@@ -4,28 +4,70 @@ import AuthNavigator from "./AuthNavigator";
 import PatientButtonTab from "./PatientButtonTab";
 import DoctorButtonTab from "./DoctorButtonTab";
 
-// import { WelcomePatientStack, ReportStack, MedicationScheduleStack, MedicalStack } from './PatientStacks';
-// import { WelcomeDoctorStack, ProfileStack, PatientStack } from './DoctorStacks';
+import { WelcomePatientStack } from './PatientStacks';
+import { WelcomeDoctorStack } from './DoctorStacks';
 
 interface RootState {
    report: {
+      is_logged_in: string,
       first_login: string,
       role: string,
    };
 }
 
 const StackSwitcher = () => {
+
+   const is_logged_in = useSelector(
+      (state: RootState) => state.report.is_logged_in
+   );
    const role = useSelector(
       (state: RootState) => state.report.role
    );
    const first_login = useSelector(
       (state: RootState) => state.report.first_login
    );
-   return (
-      <NavigationContainer>
-      {/* {authSlice.isloggedin ? <AppStack /> : <OnboardingStack />} */}
-      </NavigationContainer>
-   );
+
+   if (is_logged_in === '0') {
+      return (
+         <NavigationContainer>
+            <AuthNavigator />
+         </NavigationContainer>
+      );
+   }
+
+   if (is_logged_in === '1' && first_login === '1' && role === 'patient') {
+      return (
+         <NavigationContainer>
+            <WelcomePatientStack />
+         </NavigationContainer>
+      );
+   }
+
+   if (is_logged_in === '1' && first_login === '0' && role === 'patient') {
+      return (
+         <NavigationContainer>
+            <PatientButtonTab />
+         </NavigationContainer>
+      );
+   }
+
+   if (is_logged_in === '1' && first_login === '1' && role === 'doctor') {
+      return (
+         <NavigationContainer>
+            <WelcomeDoctorStack />
+         </NavigationContainer>
+      );
+   }
+
+   if (is_logged_in === '1' && first_login === '0' && role === 'doctor') {
+      return (
+         <NavigationContainer>
+            <DoctorButtonTab />
+         </NavigationContainer>
+      );
+   }
+
+   return AuthNavigator;
 };
 
 export default StackSwitcher;
