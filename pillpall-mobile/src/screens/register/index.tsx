@@ -151,7 +151,7 @@ const Register: FC = () => {
         <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
 
         <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true}} onChangeText= {handlePasswordChange} />
-        <TextInputwithLabel label="ConfirmPassword" placeholder='Re-enter your Password' textinputprops={{ secureTextEntry: true}} onChangeText= {handleConfirmPasswordChange} />
+        <TextInputwithLabel label="Confirm Password" placeholder='Re-enter your Password' textinputprops={{ secureTextEntry: true}} onChangeText= {handleConfirmPasswordChange} />
         
         <RoleCheckBox selectedRole={role} onRoleSelect={handleRoleSelect} />
 
