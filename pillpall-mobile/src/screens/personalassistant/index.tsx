@@ -29,16 +29,17 @@ const PersonalAssistant: FC = () => {
   };
 
   const handleSendPress = async () => {
+
     if (!selectedQuestionType || !question) return;
     setIsLoading(true);
   
-    const token = await AsyncStorage.getItem('token');
+
     const data = new FormData();
     data.append('prompt', question);
   
     let endpoint = '';
   
-    switch (question) {
+    switch (selectedQuestionType) {
       case 'replacement':
         endpoint = 'chatbot/replacement';
         break;
@@ -53,25 +54,18 @@ const PersonalAssistant: FC = () => {
     }
   
     try {
+      const token = await AsyncStorage.getItem('token');
+
       const response = await axios.post(`${API_URL}${endpoint}`, data, {
         headers: {
-          'Accept': 'application/json',
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
         },
       });
-  
+
       setIsLoading(false);
-      setAnswer(response.data.answer.match(/^.+?\.(?!.*\.) /s)[0]);
-      if (response.data.status === 'success') {
-        Alert.alert(
-          'Success',
-          'Answer Retrived Successfully.',
-          [{ text: 'OK' }],
-          { cancelable: false },
-        );
-      }
-      else{
+      setAnswer(response.data.answer);
+      if (response.data.status != 'success') {
         Alert.alert(
           'Failure',
           'Request fails.',
