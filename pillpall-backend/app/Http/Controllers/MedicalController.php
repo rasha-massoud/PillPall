@@ -137,12 +137,6 @@ class MedicalController extends Controller{
             $file->doctor_name = $request->doctor_name;
             $file->address = $request->address;
             $file->file_number = $request->file_number;
-            $file->image = null; 
-
-            // if ($request->hasFile('image')) {
-            //     $imagePath = $request->file('image')->store('images');
-            //     $file->image = $imagePath;
-            // }
     
             $file->save();
     
