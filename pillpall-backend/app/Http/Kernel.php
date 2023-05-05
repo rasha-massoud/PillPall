@@ -38,6 +38,7 @@ class Kernel extends HttpKernel{
         'auth' => \App\Http\Middleware\Authenticate::class,
         'check.patient.role' => \App\Http\Middleware\CheckPatientRole::class,
         'check.doctor.role' => \App\Http\Middleware\CheckDoctorRole::class,
+        'check.admin.role' => \App\Http\Middleware\CheckAdminRole::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
