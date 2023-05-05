@@ -77,6 +77,7 @@ const DeleteMedicine: FC = () => {
         })
         .then((response) => {
             if (response.data.status == 'success'){
+                setProcessing(false);
                 Alert.alert(
                     'Success',
                     'Medicine deleted successfully.',
@@ -84,7 +85,7 @@ const DeleteMedicine: FC = () => {
                         { 
                             text: 'OK',
                             onPress: () => {
-                                navigation.navigate("MedicationSchedule " as never, {} as never);
+                                navigation.navigate("MedicationSchedule" as never, {} as never);
                             },
                         }
                     ],
@@ -129,7 +130,7 @@ const DeleteMedicine: FC = () => {
                 {
                     text: "Accept",
                     onPress: () => {
-                        navigation.navigate("MedicationSchedule " as never, {} as never);
+                        navigation.navigate("MedicationSchedule" as never, {} as never);
                     },
                 },
             ]
