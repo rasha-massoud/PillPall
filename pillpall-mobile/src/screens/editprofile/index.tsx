@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
-import { setFirstLogin, setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, setWorkingHours, setMajor, setCertificates, setExpertise } from "../../store/slices/reportSlice";
+import { setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, setWorkingHours, setMajor, setCertificates, setExpertise } from "../../store/slices/reportSlice";
 import SubTitleText from '../../components/SubTitleText';
 import TwoCustomButton from '../../components/TwoCustomButton';
 
@@ -33,6 +33,8 @@ const EditProfile: FC = () => {
 
     const dispatch = useDispatch();
     const navigation = useNavigation();
+
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const [imageUri, setImageUri] = useState<string | null>(null);
 
@@ -99,6 +101,10 @@ const EditProfile: FC = () => {
     const handleGenderSelect = async (selectedGender: string) => {
         setChosenGender(selectedGender);
         dispatch(setGender(selectedGender));
+        setContactInfoData({
+            ...contactInfoData,
+            gender: selectedGender,
+        });
     };
 
     const handleWorkingHoursChange = async (value: string) => {
@@ -140,22 +146,69 @@ const EditProfile: FC = () => {
         ); 
     };
 
-    const handleSavePress = () => {
-        if(!username && !emailAddress && !location && !DOB && !chosenGender && !phone && !hours && !education && !cert && !exp){
+    const handleSavePress = async () => {
+        if(!imageUri && !username && !emailAddress && !location && !DOB && !chosenGender && !phone && !hours && !education && !cert && !exp){
             Alert.alert(
                 'Fails',
                 'Missing Field. Please make sure to fill all fields.',
                 [
-                  { text: 'OK' }
+                    { text: 'OK' }
                 ],
                 { cancelable: false }
             );
         }
+        setIsLoading(true);
+
         
-        //AXIOS REQUEST AND THE BELOW
-        // if(Response.data.status == "success"){
-        //     navigation.navigate("Profile" as never, {} as never);
-        // }
+        const data = new FormData();
+        if (imageUri) {
+            data.append('image', imageUri);
+        }
+        data.append('phone_number', phone);
+        data.append('address', location);
+        data.append('dob', DOB);
+        data.append('gender', chosenGender);
+        data.append('working_hours', hours);
+        data.append('major', education);
+        data.append('certificates', cert);
+        data.append('expertise', exp);
+
+        const token = await AsyncStorage.getItem('token');
+        const endpoint = 'doctor/report';
+        await axios.post(`${API_URL}${endpoint}`, data, {
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': "multipart/form-data",
+            },
+        })
+        .then((response) => {
+            if(response.data.status == 'success'){
+                Alert.alert(
+                    'Success',
+                    'The report is successfully updated.',
+                    [
+                        { text: 'OK' }
+                    ],
+                    { cancelable: false }
+                );
+                navigation.navigate("Profile" as never, {} as never);
+            }
+            else{
+                Alert.alert(
+                    'Fails',
+                    'Request Fails.',
+                    [
+                        { text: 'OK' }
+                    ],
+                    { cancelable: false }
+                );
+            }
+        })
+        .catch((error) => {
+            console.error('An error occurred while updating the report');
+        });
+        setIsLoading(false);
     };
 
     return (
