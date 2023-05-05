@@ -42,7 +42,7 @@ const FileNum: FC = () => {
   
       const endpoint = 'med/get_file_numbers';
   
-      await axios.post(`${API_URL}${endpoint}`, {
+      await axios.get(`${API_URL}${endpoint}`, {
         headers: {
           'Accept': 'application/json',
           'Authorization': `Bearer ${token}`,
