@@ -22,21 +22,13 @@ const ContactInfo: FC = () => {
 
   const dispatch = useDispatch();
   const navigation = useNavigation();
+  const [selectedImageFile, setSelectedImageFile] = useState<File | null>(null);
 
-  const [imageUri, setImageUri] = useState<string | null>(null);
-
-  const handleImageSelected = async (imageFile: File | null) => {
-    if (imageFile) {
-      const url = URL.createObjectURL(imageFile);
-      setImageUri(url);
-      dispatch(setImage(url));
-    } else {
-      setImageUri(null);
-      dispatch(setImage(null));
-    }
+  const handleImageSelected = (imageFile: File | null) => {
+      setSelectedImageFile(imageFile);
+      dispatch(setImage(imageFile ? URL.createObjectURL(imageFile) : ""));
   };
   
-
   const [contactInfoData, setContactInfoData] = useState<ContactInfoData>({
     gender: undefined
   });
@@ -83,7 +75,7 @@ const ContactInfo: FC = () => {
   };
 
   const handleContinuePress = async () => {
-    if(username && emailAddress && location && DOB && chosenGender && phone){
+    if(selectedImageFile && username && emailAddress && location && DOB && chosenGender && phone){
       navigation.navigate("AnthropometricMeasurements" as never, {} as never);
     }
     else{
