@@ -339,7 +339,7 @@ const EditReport: FC = () => {
             {
                 text: "Accept",
                 onPress: () => {
-                    navigation.navigate("Login" as never, {} as never);
+                    navigation.navigate("Report" as never, {} as never);
                 },
             },
         ]
