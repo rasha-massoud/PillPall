@@ -42,7 +42,7 @@ const Profile: React.FC = () => {
         const token = await AsyncStorage.getItem('token');
         setLoading(true);
         try {
-            const endpoint = 'doctor/get_report';   //Create it and modify accordingly 
+            const endpoint = 'doctor/get_profile';  
             const response = await axios.get<{ user: Doctor }>(
             `${API_URL}${endpoint}`,
             {
@@ -109,25 +109,24 @@ const Profile: React.FC = () => {
                 </View>
             
                 <View>
-                    <DisplayData title='Blood Type' value={result.doctors_info.address} />
-                    <DisplayData title='Height' value={`${result.doctors_info.working_hours} cm`} />
+                    <DisplayData title='Address' value={result.doctors_info.address} />
+                    <DisplayData title='Working Hours' value={result.doctors_info.working_hours} />
                 </View>
             
                 <View>
                     <DisplayData
-                    title='Emergency Contact Name'
+                    title='Major'
                     value={result.doctors_info.major}
                     />
                     <DisplayData
-                    title='Emergency Contact Number'
+                    title='Certificates'
                     value={result.doctors_info.certificates}
                     />
                     <DisplayData
-                    title='Emergency Contact Email'
+                    title='Expertise'
                     value={result.doctors_info.expertise}
                     />
                     </View>
-                <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Edit", onPress: () => console.log('Edit') }}  />
                 </ScrollView>  
             </View>
             ) : (
