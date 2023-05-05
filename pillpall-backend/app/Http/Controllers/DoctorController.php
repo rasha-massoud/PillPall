@@ -13,17 +13,6 @@ use App\Models\PatientsInfo;
 use App\Models\UserUser;
 
 class DoctorController extends Controller{
-    
-    public function __construct(){
-
-        $this->middleware('auth');
-        $this->middleware(function ($request, $next) {
-            if (Auth::user()->role !== 'doctor') {
-                return response()->json(['error' => 'Unauthorized'], 401);
-            }
-            return $next($request);
-        });
-    }
 
     public function CreateOrUpdateReport(Request $request){
         if (!$request->user()) {
