@@ -76,6 +76,10 @@ const ContactInfo: FC = () => {
   const handleGenderSelect = async (selectedGender: string) => {
     setChosenGender(selectedGender);
     dispatch(setGender(selectedGender));
+    setContactInfoData({
+      ...contactInfoData,
+      gender: selectedGender,
+    });
   };
 
   const handleContinuePress = async () => {
