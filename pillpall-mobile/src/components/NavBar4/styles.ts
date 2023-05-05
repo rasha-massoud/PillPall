@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
       width: 100,
-      marginRight: 11,
+      marginRight: 20,
     },
     imageContainer: {
       justifyContent: 'center',
