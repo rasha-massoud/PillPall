@@ -18,7 +18,10 @@ const styles = StyleSheet.create({
     },
     noDataText: {
       ...appStyles.subTitle,
-    }
+    },
+    fileNumberList: {
+      flexGrow: 1,
+    },
 });
 
 

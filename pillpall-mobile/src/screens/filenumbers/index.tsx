@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Alert, SafeAreaView, Text, View } from 'react-native';
+import { Alert, SafeAreaView, Text, View, FlatList } from 'react-native';
 import axios from 'axios';
 import FileNumberCard from '../../components/FileNumberCards';
 import NavBar3 from '../../components/NavBar3';
@@ -7,14 +7,15 @@ import CustomButton from '../../components/CustomButton';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
+import { colors } from '../../constants/palette';
 
 import styles from './styles';
 
 type FileNumber = {
   id: number;
   doctor_name: string;
-  location: string;
-  number: string;
+  address: string;
+  file_number: string;
 };
 
 const FileNum: FC = () => {
@@ -52,6 +53,7 @@ const FileNum: FC = () => {
         },
       })
       .then((response) => {
+        console.log(response.data);
         setFileNumbers(response.data.file_numbers);
         setIsLoading(false);
         if (response.data.status !== "success"){
@@ -74,6 +76,15 @@ const FileNum: FC = () => {
     fetchData();
   }, []);
   
+  const renderFileNumber = ({ item }: { item: FileNumber }) => (
+    <FileNumberCard
+      key={item.id}
+      doctorName={item.doctor_name}
+      location={item.address}
+      fileNumber={item.file_number}
+    />
+  );
+
   return (
     <SafeAreaView style={styles.container}>
         <NavBar3
@@ -92,17 +103,19 @@ const FileNum: FC = () => {
           </View>
         )}
   
-        {fileNumbers.map((fileNumber) => (
-            <FileNumberCard
-                key={fileNumber.id}
-                doctorName={fileNumber.doctor_name}
-                location={fileNumber.location}
-                fileNumber={fileNumber.number}
+          {fileNumbers.length !== 0 && isSuccess && (
+            <FlatList
+              data={fileNumbers}
+              renderItem={renderFileNumber}
+              keyExtractor={(item) => item.id.toString()}
+              contentContainerStyle={styles.fileNumberList}
+              showsVerticalScrollIndicator={true}
+              scrollEnabled={true}
             />
-        ))}
+          )}
   
         {fileNumbers.length !== 0 && isSuccess && (
-          <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Add", onPress: handleAddPress }}  />
+          <CustomButton containerStyle={{ alignSelf: 'center', width: 55, margin: 5, backgroundColor: colors.darker_gray }} buttonprops={{ title: "+", onPress: handleAddPress }}  />
         )}
   
     </SafeAreaView>
