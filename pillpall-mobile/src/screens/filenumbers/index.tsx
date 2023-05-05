@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Alert, SafeAreaView } from 'react-native';
+import { Alert, SafeAreaView, Text, View } from 'react-native';
 import axios from 'axios';
 import FileNumberCard from '../../components/FileNumberCards';
 import NavBar3 from '../../components/NavBar3';
@@ -21,19 +21,21 @@ const FileNum: FC = () => {
 
   const navigation = useNavigation();
   const [fileNumbers, setFileNumbers] = useState<FileNumber[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isSuccess, setIsSuccess] = useState<boolean>(true);
 
   const handleFileNumberPress = () => {}
 
   const handleResultPress = () => {
-    navigation.navigate("MedicalResults " as never, {} as never);
+    navigation.navigate("MedicalResults" as never, {} as never);
   }
 
   const handleSearchDoctorPress = () => {
-    navigation.navigate("PatientSearch " as never, {} as never);
+    navigation.navigate("PatientSearch" as never, {} as never);
   }
 
   const handleAddPress = () => {
-    navigation.navigate("AddFileNumber " as never, {} as never);
+    navigation.navigate("AddFileNumber" as never, {} as never);
   }
 
   useEffect(() => {
@@ -51,7 +53,9 @@ const FileNum: FC = () => {
       })
       .then((response) => {
         setFileNumbers(response.data.file_numbers);
-        if (response.data.status != "success"){
+        setIsLoading(false);
+        if (response.data.status !== "success"){
+          setIsLoading(true);
           Alert.alert(
             'Failure',
             'Request Fails.',
@@ -70,9 +74,7 @@ const FileNum: FC = () => {
     fetchData();
   }, []);
   
-
   return (
-
     <SafeAreaView style={styles.container}>
         <NavBar3
             title="File Numbers"
@@ -80,7 +82,16 @@ const FileNum: FC = () => {
             image2={{ source: require('../../../assets/results.png'), onPress: handleResultPress }}
             image3={{ source: require('../../../assets/searchdoc.png'), onPress: handleSearchDoctorPress }}
         />
-
+  
+        {fileNumbers.length === 0 && isSuccess && (
+          <View style={styles.noDataContainer}>
+            <View>
+              <Text style={styles.noDataText}>There is no data yet.</Text>
+            </View>
+            <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "ADD", onPress: handleAddPress }}  />
+          </View>
+        )}
+  
         {fileNumbers.map((fileNumber) => (
             <FileNumberCard
                 key={fileNumber.id}
@@ -89,11 +100,14 @@ const FileNum: FC = () => {
                 fileNumber={fileNumber.number}
             />
         ))}
-
-        <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Add", onPress: handleAddPress }}  />
-
+  
+        {fileNumbers.length !== 0 && isSuccess && (
+          <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Add", onPress: handleAddPress }}  />
+        )}
+  
     </SafeAreaView>
   );
 };
-
+        
 export default FileNum;
+        
