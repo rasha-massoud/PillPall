@@ -8,6 +8,7 @@ import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './styles';
 import NavBar3 from '../../components/NavBar3';
+import { colors } from '../../constants/palette';
 
 interface MedicalResult {
     id: number;
