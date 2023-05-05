@@ -7,6 +7,10 @@ import PersonalAssistant from "../screens/personalassistant";
 import PatientSearch from "../screens/patientseach";
 import ChangePassword from "../screens/changepassword";
 
+import { ReportStack } from '../navigation/PatientStacks'
+import { MedicationScheduleStack } from '../navigation/PatientStacks'
+import { MedicalStack } from '../navigation/PatientStacks'
+
 const PatientButtonTab = () => {
   const Tabs = createBottomTabNavigator();
   return (
@@ -25,7 +29,7 @@ const PatientButtonTab = () => {
             ),
             }}
             name="Report"
-            component={Report}
+            component={ReportStack}
         />
         <Tabs.Screen
             options={{
@@ -37,7 +41,7 @@ const PatientButtonTab = () => {
                 ),
                 }}
                 name="Med"
-                component={MedicationSchedule}
+                component={MedicationScheduleStack}
         />
         <Tabs.Screen
         options={{
@@ -49,7 +53,7 @@ const PatientButtonTab = () => {
             ),
             }}
             name="Search"
-            component={PatientSearch}
+            component={MedicalStack}
         />
         {/* <Tabs.Screen
             options={{
