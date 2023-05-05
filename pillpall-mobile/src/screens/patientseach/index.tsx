@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { SafeAreaView, Image, FlatList } from 'react-native';
+import { SafeAreaView, Image, FlatList, TouchableOpacity, Alert } from 'react-native';
 import { Text } from 'react-native-elements';
 import axios from 'axios';
 import { Card } from '@rneui/base';
@@ -8,6 +8,9 @@ import NavBar3 from '../../components/NavBar3';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import SearchBySelector from '../../components/SearchBySelector'; 
 import CustomButton from '../../components/CustomButton';
+import API_URL from '../../constants/url';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import DisplayData from '../../components/DisplayData';
 
 import styles from './styles';
 
@@ -18,11 +21,21 @@ interface Doctor {
     name: string;
     email: string;
     role: string;
+    created_at: string;
     doctors_info: {
+        id: number;
+        address: string;
+        certificates: string;
+        created_at: string;
+        dob: string;
+        expertise: string;
+        gender: string;
+        image: string;
         major: string;
-    }
+        phone_number: string;
+    };
 }
-
+  
 const PatientSearch: FC = () => {
 
     const navigation = useNavigation();
@@ -47,16 +60,50 @@ const PatientSearch: FC = () => {
 
     const handleSearchDoctorPress = () => {}
 
-
     const handleSearchPress = async () => {
         try {
-            setIsLoading(true);
-            const response = await axios.post('/api/search_for_doctor', {
-                search_by: searchBy,
-                search_for: searchFor,
-            });
-            setDoctorsData(response.data.doctors);
-            setErrorMessage('');
+          const token = await AsyncStorage.getItem('token');
+      
+          const data = new FormData();
+          data.append('search_for', searchFor);
+          if (searchBy !== null) {
+            data.append('search_by', searchBy);
+          }
+
+          const endpoint = 'patient/search';
+          setIsLoading(true);
+      
+          const response = await axios.post(`${API_URL}${endpoint}`, data, {
+            headers: {
+              'Accept': 'application/json',
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'multipart/form-data',
+            },
+          });
+          console.log(response.data);
+          if (Array.isArray(response.data.doctors) && response.data.doctors.length > 0) {
+            setDoctorsData(response.data.doctors.map((doctor: any) => ({
+                id: doctor.id,
+                name: doctor.name,
+                email: doctor.email,
+                role: doctor.role,
+                created_at: doctor.created_at,
+                doctors_info: {
+                    id: doctor.doctors_info.id,
+                    address: doctor.doctors_info.address,
+                    certificates: doctor.doctors_info.certificates,
+                    created_at: doctor.doctors_info.created_at,
+                    dob: doctor.doctors_info.dob,
+                    expertise: doctor.doctors_info.expertise,
+                    gender: doctor.doctors_info.gender,
+                    image: doctor.doctors_info.image,
+                    major: doctor.doctors_info.major,
+                    phone_number: doctor.doctors_info.phone_number,
+                },
+            })));
+          } else {
+                setErrorMessage('No approved doctors found based on your selection.');
+          }
         } catch (error) {
             setErrorMessage('An error occurred while searching.');
             console.log(error);
@@ -64,6 +111,57 @@ const PatientSearch: FC = () => {
             setIsLoading(false);
         }
     };
+      
+    const handleConnectPress = async (id: number) => {
+
+        try {
+            const token = await AsyncStorage.getItem('token');
+
+            const endpoint = 'patient/connect';
+            setIsLoading(true);
+        
+            const response = await axios.post(`${API_URL}${endpoint}`, { doctor_id: id }, {
+                headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'multipart/form-data',
+                },
+            });
+            console.log(response.data);
+            if (response.data.status == 'success'){
+                setIsLoading(false);
+                Alert.alert(
+                    'Success',
+                    'Connected successfully.',
+                    [
+                        { 
+                            text: 'OK',
+                        }
+                    ],
+                    { cancelable: false }
+                );
+            }
+            else{
+                setIsLoading(false);
+                Alert.alert(
+                    'Failure',
+                    'Coonection Fails.',
+                    [
+                        { 
+                            text: 'OK',
+                        }
+                    ],
+                    { cancelable: false }
+                );
+            }
+        } 
+        catch (error) {
+            setErrorMessage('An error occurred while connecting.');
+            console.log(error);
+        } finally {
+            setIsLoading(false);
+        }
+    }
     
     return (
         <SafeAreaView style={styles.container}>
@@ -72,7 +170,7 @@ const PatientSearch: FC = () => {
                 image1={{ source: require('../../../assets/filenumber.png'), onPress: handleFileNumberPress }}
                 image2={{ source: require('../../../assets/results.png'), onPress: handleResultPress }}
                 image3={{ source: require('../../../assets/searchdoc.png'), onPress: handleSearchDoctorPress }}
-            />            `
+            />
             <Image source={require('../../../assets/searchdoctorscreen.png')} style={styles.image} />
             <SearchBySelector
                 searchByOptions={['name', 'major']}
@@ -99,15 +197,20 @@ const PatientSearch: FC = () => {
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({ item }) => (
                         <Card>
-                            <Text>Name: {item.name}</Text>
-                            <Text>Email: {item.email}</Text>
-                            <Text>Role: {item.role}</Text>
-                            <Text>Major: {item.doctors_info.major}</Text>
+                            <DisplayData title='Name' value={item.name} />
+                            <DisplayData title='Email' value={item.email} />
+                            <DisplayData title='Role' value={item.role} />
+                            <DisplayData title='Major' value={item.doctors_info.major} />
+                        
+                            <TouchableOpacity onPress={() => handleConnectPress(item.id)}> 
+                                <Text style={styles.editText}>**Press me to Connect**</Text>
+                            </TouchableOpacity>
                         </Card>
                     )}
                 />
             )}
         </SafeAreaView>
+
     );
 };
 
