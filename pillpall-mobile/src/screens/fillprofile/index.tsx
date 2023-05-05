@@ -18,24 +18,23 @@ import { useNavigation } from '@react-navigation/core';
 import styles from './styles';
 import SubTitleText from '../../components/SubTitleText';
 
+
+interface RootState {
+    report: {
+      image: string;
+    }
+}
+
 interface FillProfileData {
-    name: string;
-    email: string;
-    address: string;
-    dob: string;
-    phoneNumber: string;
     gender: string | undefined;
-    working_hours: string,
-    major: string,
-    certificates: string,
-    expertise: string,
 }
 
 const FillProfile: FC = () => {
     
     const dispatch = useDispatch();
     const navigation = useNavigation();
-    
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
     const [username, setUsername] = useState<string>("");
     const [emailAddress, setEmailAddress] = useState<string>("");
     const [phone, setPhone] = useState<string>("");
@@ -46,31 +45,15 @@ const FillProfile: FC = () => {
     const [cert, setCert] = useState<string>("");
     const [location, setLocation] = useState<string>("");
     const [exp, setExp] = useState<string>("");
+    const [selectedImageFile, setSelectedImageFile] = useState<File | null>(null);
 
-    const [imageUri, setImageUri] = useState<string | null>(null);
-
-    const handleImageSelected = async (imageFile: File | null) => {
-        if (imageFile) {
-            const url = URL.createObjectURL(imageFile);
-            setImageUri(url);
-            dispatch(setImage(url));
-        } else {
-            setImageUri(null);
-            dispatch(setImage(null));
-        }
+    const handleImageSelected = (imageFile: File | null) => {
+        setSelectedImageFile(imageFile);
+        dispatch(setImage(imageFile ? URL.createObjectURL(imageFile) : ""));
     };
-    
+
     const [contactInfoData, setContactInfoData] = useState<FillProfileData>({
-            name: '',
-            email: '',
-            address: '',
-            dob: '',
-            phoneNumber: '',
-            gender: undefined,
-            working_hours: '',
-            major: '',
-            certificates: '',
-            expertise: '',
+        gender: undefined,
     });
 
 
@@ -102,6 +85,10 @@ const FillProfile: FC = () => {
     const handleGenderSelect = async (selectedGender: string) => {
         setChosenGender(selectedGender);
         dispatch(setGender(selectedGender));
+        setContactInfoData({
+            ...contactInfoData,
+            gender: selectedGender,
+        });
     };
 
     const handleWorkingHoursChange = async (value: string) => {
@@ -124,8 +111,14 @@ const FillProfile: FC = () => {
         dispatch(setExpertise(value));
     };
 
+    
+    const image = useSelector(
+        (state: RootState) => state.report.image
+    );
+
     const handleSubmitPress = async () => {
-        if(!username && !emailAddress && !location && !DOB && !chosenGender && !phone && !hours && !education && !cert && !exp){
+
+        if(!selectedImageFile && !username && !emailAddress && !location && !DOB && !chosenGender && !phone && !hours && !education && !cert && !exp){
             Alert.alert(
                 'Fails',
                 'Missing Field. Please make sure to fill all fields.',
@@ -134,13 +127,66 @@ const FillProfile: FC = () => {
                 ],
                 { cancelable: false }
             );
+            return;
         }
 
-        //AXIOS REQUEST AND THE BELOW
-        // if(Response.data.status == "success"){
-        //     setFirstLogin('0');
-        //     navigation.navigate("Profile" as never, {} as never);
-        // }
+        setIsLoading(true);
+
+        const data = new FormData();
+        if (selectedImageFile) {
+            data.append('image', selectedImageFile);
+        }
+        data.append('name', username);
+        data.append('email', emailAddress);
+        data.append('phone_number', phone);
+        data.append('address', location);
+        data.append('dob', DOB);
+        data.append('gender', chosenGender);
+        data.append('working_hours', hours);
+        data.append('major', education);
+        data.append('certificates', cert);
+        data.append('expertise', exp);
+
+        const token = await AsyncStorage.getItem('token');
+        console.log(token);
+        const endpoint = 'doctor/report';
+        await axios.post(`${API_URL}${endpoint}`, data, {
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': "multipart/form-data",
+            },
+        })
+        .then((response) => {
+            if(response.data.status == 'success'){
+                dispatch(setFirstLogin('0'));
+                Alert.alert(
+                    'Success',
+                    'The report is successfully created.',
+                    [
+                        { text: 'OK' }
+                    ],
+                    { cancelable: false }
+                );
+                navigation.navigate("Report" as never, {} as never);
+            }
+            else{
+                console.log(response.data);
+                Alert.alert(
+                    'Fails',
+                    'Request Fails.',
+                    [
+                        { text: 'OK' }
+                    ],
+                    { cancelable: false }
+                );
+            }
+        })
+        .catch((error) => {
+            console.error('An error occurred while creating the report', error);
+        });
+        setIsLoading(false);
+
     }
 
   return (
