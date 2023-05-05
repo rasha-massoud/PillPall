@@ -185,6 +185,7 @@ const MedicationsAndHabits: FC = () => {
       data.append('medications', medications);
       data.append('image', image);
 
+      console.log(data);
       const token = await AsyncStorage.getItem('token');
 
       const endpoint = 'patient/report';
@@ -196,8 +197,10 @@ const MedicationsAndHabits: FC = () => {
           },
       })
       .then((response) => {
-        dispatch(setFirstLogin('0'));
+        console.log(response.data);
         if(response.data.status == 'success'){
+          dispatch(setFirstLogin('0'));
+          navigation.navigate("Report" as never, {} as never);
           Alert.alert(
             'Success',
             'The report is successfully created.',
@@ -206,8 +209,16 @@ const MedicationsAndHabits: FC = () => {
             ],
             { cancelable: false }
           );
-          navigation.navigate("Report" as never, {} as never);
-
+        }
+        else{
+          Alert.alert(
+            'Fails',
+            'Request Fails.',
+            [
+                { text: 'OK' }
+            ],
+            { cancelable: false }
+          );
         }
       })
       .catch((error) => {
