@@ -65,7 +65,7 @@ const Profile: React.FC = () => {
     }, []);
 
     const handleEditPress = () => {
-        navigation.navigate("EditProfile" as never, {} as never);
+        navigation.navigate('EditProfile' as never, {} as never);
     }
 
     if (loading) {
