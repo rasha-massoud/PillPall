@@ -28,58 +28,70 @@ Route::group(["prefix" => "v0.0.0"], function(){
     
     Route::group(["middleware" => ["auth:api"]], function(){
 
-        Route::group(["prefix" => "patient"], function(){
-            Route::post('/report',[PatientController:: class, "CreateOrUpdateReport"]);
-            Route::get('/get_report',[PatientController:: class, "GetReport"]);
-            Route::post('/search',[PatientController:: class, "SearchForDoctor"]);
-            Route::post('/connect',[PatientController:: class, "Connect"]);
+        Route::group(["middleware" => ["check.patient.role"]], function(){
+
+            Route::group(["prefix" => "patient"], function(){
+                Route::post('/report',[PatientController:: class, "CreateOrUpdateReport"]);
+                Route::get('/get_report',[PatientController:: class, "GetReport"]);
+                Route::post('/search',[PatientController:: class, "SearchForDoctor"]);
+                Route::post('/connect',[PatientController:: class, "Connect"]);
+            });
+
+            Route::group(["prefix" => "med"], function(){
+                Route::post('/add_medicine',[MedicalController:: class, "AddMedicine"]);
+                Route::post('/delete_medicine',[MedicalController:: class, "DeleteMedicine"]);
+                Route::post('/get_medications',[MedicalController:: class, "GetMedications"]);
+                Route::post('/add_file_number',[MedicalController:: class, "AddFileNumber"]);
+                Route::post('/add_medical_result',[MedicalController:: class, "AddMedicalResult"]);
+                Route::get('/get_medical_results',[MedicalController:: class, "GetMedicalResults"]);
+                Route::get('/get_file_numbers',[MedicalController:: class, "GetFileNumbers"]);
+            });
+
+            Route::group(["prefix" => "chatbot"], function(){
+                Route::post('/question',[ChatbotController:: class, "ChatbotQuestion"]);
+                Route::post('/replacement',[ChatbotController:: class, "ChatbotReplacement"]);
+                Route::post('/effect',[ChatbotController:: class, "ChatbotEffect"]);
+                Route::post('/instruction',[ChatbotController:: class, "ChatbotInstruction"]);
+            });
+
+            Route::group(["prefix" => "iot"], function(){
+                Route::get('/get_medications',[IoTController:: class, "GetCurrentDayMedications"]);
+            });
+
+            
+            Route::group(["prefix" => "budget"], function(){
+                Route::get('/tracker',[BudgetController:: class, "BudgetTracker"]);
+            });
         });
 
-        Route::group(["prefix" => "med"], function(){
-            Route::post('/add_medicine',[MedicalController:: class, "AddMedicine"]);
-            Route::post('/delete_medicine',[MedicalController:: class, "DeleteMedicine"]);
-            Route::post('/get_medications',[MedicalController:: class, "GetMedications"]);
-            Route::post('/add_file_number',[MedicalController:: class, "AddFileNumber"]);
-            Route::post('/add_medical_result',[MedicalController:: class, "AddMedicalResult"]);
-            Route::get('/get_medical_results',[MedicalController:: class, "GetMedicalResults"]);
-            Route::get('/get_file_numbers',[MedicalController:: class, "GetFileNumbers"]);
-        });
 
-        Route::group(["prefix" => "doctor"], function(){
-            Route::post('/report',[DoctorController:: class, "CreateOrUpdateReport"]);
-            Route::post('/search',[DoctorController:: class, "SearchForConnectedPatients"]);
-            Route::get('/get_patient_report/{id}',[DoctorController:: class, "GetPatientReport"]);
-            Route::get('/get_patient_results/{id}',[DoctorController:: class, "GetPatientResults"]);
-            Route::get('/get_connected_patients',[DoctorController:: class, "GetConnectedPatients"]);
-        });
+        Route::group(["middleware" => ["check.doctor.role"]], function(){
 
-        Route::group(["prefix" => "chatbot"], function(){
-            Route::post('/question',[ChatbotController:: class, "ChatbotQuestion"]);
-            Route::post('/replacement',[ChatbotController:: class, "ChatbotReplacement"]);
-            Route::post('/effect',[ChatbotController:: class, "ChatbotEffect"]);
-            Route::post('/instruction',[ChatbotController:: class, "ChatbotInstruction"]);
+            Route::group(["prefix" => "doctor"], function(){
+                Route::post('/report',[DoctorController:: class, "CreateOrUpdateReport"]);
+                Route::post('/search',[DoctorController:: class, "SearchForConnectedPatients"]);
+                Route::get('/get_patient_report/{id}',[DoctorController:: class, "GetPatientReport"]);
+                Route::get('/get_patient_results/{id}',[DoctorController:: class, "GetPatientResults"]);
+                Route::get('/get_connected_patients',[DoctorController:: class, "GetConnectedPatients"]);
+            });
         });
+        
 
-        Route::group(["prefix" => "admin"], function(){
-            Route::post('/approve',[AdminController:: class, "ApproveDoctor"]);
-            Route::get('/get_all_users',[AdminController:: class, "GetAllUsers"]);
-            Route::get('/get_report/{user_id}',[AdminController:: class, "GetReport"]);
-            Route::get('/get_patients',[AdminController:: class, "GetPatients"]);
-            Route::get('/get_doctors',[AdminController:: class, "GetDoctors"]);
-            Route::get('/get_approved_doctors',[AdminController:: class, "GetApprovedDoctors"]);
-            Route::get('/get_unapproved_doctors',[AdminController:: class, "GetUnapprovedDoctors"]);
+        Route::group(["middleware" => ["check.admin.role"]], function(){
+
+            Route::group(["prefix" => "admin"], function(){
+                Route::post('/approve',[AdminController:: class, "ApproveDoctor"]);
+                Route::get('/get_all_users',[AdminController:: class, "GetAllUsers"]);
+                Route::get('/get_report/{user_id}',[AdminController:: class, "GetReport"]);
+                Route::get('/get_patients',[AdminController:: class, "GetPatients"]);
+                Route::get('/get_doctors',[AdminController:: class, "GetDoctors"]);
+                Route::get('/get_approved_doctors',[AdminController:: class, "GetApprovedDoctors"]);
+                Route::get('/get_unapproved_doctors',[AdminController:: class, "GetUnapprovedDoctors"]);
+            });
         });
 
         Route::group(["prefix" => "password"], function(){
             Route::post('/change',[PasswordController:: class, "ChangePassword"]);
-        });
-
-        Route::group(["prefix" => "budget"], function(){
-            Route::get('/tracker',[BudgetController:: class, "BudgetTracker"]);
-        });
-        
-        Route::group(["prefix" => "iot"], function(){
-            Route::get('/get_medications',[IoTController:: class, "GetCurrentDayMedications"]);
         });
 
     });
