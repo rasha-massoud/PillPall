@@ -32,8 +32,8 @@ class MedicalController extends Controller{
             $medicine->month = $request->month;
 
             if ($request->hasFile('image')) {
-                $imagePath = $request->file('image')->store('images');
-                $medicine->image = $imagePath;
+                $imagePath = $request->file('image')->store('images', 'public');
+                $medicine->image = str_replace('public/', 'storage/', $imagePath);
             }
             
             $medicine->save();
@@ -61,6 +61,13 @@ class MedicalController extends Controller{
                                     ->where('user_id', Auth::id())
                                     ->first();            
     
+            if ($medicine->image) {
+                $oldImagePath = storage_path('app/public/' . $medicine->image);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
+
             if ($medicine) $medicine->delete();
 
             return response()->json([
