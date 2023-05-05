@@ -170,7 +170,7 @@ class MedicalController extends Controller{
     
             $result->save();
     
-            $file->storeAs('results', $fileName);
+            $file->storeAs('public/storage/images', $fileName);
 
             return response()->json([
                 'status' => 'success',
