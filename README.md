@@ -120,6 +120,11 @@
     php artisan migrate
     ```
 
+    * Create a symbolic link 
+    ```sh
+    php artisan storage:link
+    ```
+
     * Start the Laravel app
     ```sh
     php artisan serve
