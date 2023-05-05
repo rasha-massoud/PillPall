@@ -38,11 +38,11 @@ const AddMedicine: FC = () => {
     const [selectedMonth, setSelectedMonth] = useState<Month>();
     const [selectedTiming, setSelectedTiming] = useState<Timing>();
 
-    const [imageFile, setImageFile] = useState<File | null>(null);
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
     const handleImageSelected = (file: File | null) => {
-      setImageFile(file);
-    };
+        setSelectedFile(file);
+    }
 
     const handleMedicineNameChange = (value: string) => {
         setName(value);
@@ -82,9 +82,10 @@ const AddMedicine: FC = () => {
 
     const handleAddPress = async () => {
 
+        console.log('hiiiiiiii');
         setProcessing(true);
 
-        if( !name && !quantity && !price && !instructions && !onDemand && !firstOfEachMonth){
+        if( !selectedFile && !name && !quantity && !price && !instructions && !onDemand && !firstOfEachMonth){
             Alert.alert(
                 'Fails',
                 'Missing Field. Please may sure to fill all fields.',
@@ -106,23 +107,26 @@ const AddMedicine: FC = () => {
         if (selectedDay !== undefined) {
             data.append('days', selectedDay);
         } else {
-        data.append('days', '');
+            data.append('days', '');
         }
 
         if (selectedTiming !== undefined) {
             data.append('timing', selectedTiming);
         } else {
-        data.append('timing', '');
+            data.append('timing', '');
         }
 
-        if (imageFile) {
-            data.append('image', imageFile);
+        if (selectedFile) {
+            data.append('image', selectedFile);
         } 
+        
         if (selectedMonth !== undefined) {
             data.append('month', selectedMonth);
         } else {
             data.append('month', '');
         }
+
+        console.log(data);
 
         const token = await AsyncStorage.getItem('token');
   
@@ -135,7 +139,7 @@ const AddMedicine: FC = () => {
             },
         })
         .then((response) => {
-            if (response.data== 'success'){
+            if (response.data.status == 'success'){
                 setProcessing(false);
                 Alert.alert(
                     'Success',
@@ -152,9 +156,10 @@ const AddMedicine: FC = () => {
                 );
             }
             else{
+                console.log(response.data);
                 Alert.alert(
                     'Failure',
-                    'Add Medicine fails.',
+                    'Add Medicine fails or medicine already exists.',
                     [
                       { text: 'OK' }
                     ],
