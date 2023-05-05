@@ -43,13 +43,15 @@ const AddFileNumber: FC = () => {
                 { cancelable: false }
             );
         }
+
         setIsLoading(true);
 
         const data = new FormData();
-        data.append('doctor_name ', doctorName);
+        data.append('doctor_name', doctorName);
         data.append('address', address);
         data.append('file_number', fileNumber);
 
+        console.log(data);
         const token = await AsyncStorage.getItem('token');
         
         const endpoint = 'med/add_file_number';
@@ -61,6 +63,7 @@ const AddFileNumber: FC = () => {
             },
         })
         .then((response) => {
+            console.log(response.data);
             if(response.data.status == 'success'){
                 Alert.alert(
                     'Success',
