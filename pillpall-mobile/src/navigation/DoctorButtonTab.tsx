@@ -5,6 +5,9 @@ import ChangePassword from "../screens/changepassword";
 import Profile from "../screens/profile";
 import DoctorSearch from "../screens/doctorsearch";
 
+import { ProfileStack } from '../navigation/DoctorStacks'
+import { PatientStack } from '../navigation/DoctorStacks'
+
 const DoctorButtonTab = () => {
     const Tabs = createBottomTabNavigator();
     return (
@@ -24,7 +27,7 @@ const DoctorButtonTab = () => {
                     ),
                 }}
                 name="Profile"
-                component={Profile}
+                component={ProfileStack}
             />
             <Tabs.Screen
             options={{
@@ -36,7 +39,7 @@ const DoctorButtonTab = () => {
                     ),
                 }}
                 name="Search"
-                component={DoctorSearch}
+                component={PatientStack}
             />
             <Tabs.Screen
                 options={{
