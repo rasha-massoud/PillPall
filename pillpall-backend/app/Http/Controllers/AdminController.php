@@ -13,17 +13,6 @@ use App\Models\DoctorsInfo;
 
 class AdminController extends Controller{
     
-    public function __construct(){
-
-        $this->middleware('auth');
-        $this->middleware(function ($request, $next) {
-            if (Auth::user()->role !== 'admin') {
-                return response()->json(['error' => 'Unauthorized'], 401);
-            }
-            return $next($request);
-        });
-    }
-    
     public function ApproveDoctor(Request $request){
 
         try{
