@@ -51,11 +51,11 @@ const PatientSearch: FC = () => {
     };
 
     const handleFileNumberPress = () => {
-        navigation.navigate("FileNum " as never, {} as never);
+        navigation.navigate("FileNum" as never, {} as never);
     }
 
     const handleResultPress = () => {
-        navigation.navigate("MedicalResults " as never, {} as never);
+        navigation.navigate("MedicalResults" as never, {} as never);
     }
 
     const handleSearchDoctorPress = () => {}
