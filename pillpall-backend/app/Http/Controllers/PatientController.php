@@ -56,8 +56,14 @@ class PatientController extends Controller{
             $patient->medications = $request->medications;
 
             if ($request->hasFile('image')) {
-                $imagePath = $request->file('image')->store('images');
-                $patient->image = $imagePath;
+                if ($patient->image) {
+                    $oldImagePath = storage_path('app/public/' . $patient->image);
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath);
+                    }
+                }
+                $imagePath = $request->file('image')->store('images', 'public');
+                $patient->image = str_replace('public/', 'storage/', $imagePath);
             }
 
             $patient->save();
