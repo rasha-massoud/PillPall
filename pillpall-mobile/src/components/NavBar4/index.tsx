@@ -28,7 +28,7 @@ const NavBar4: FC<NavBar4Props> = (props) => {
             <TouchableOpacity onPress={props.image3.onPress} style={styles.imageContainer}>
                 <Image source={props.image3.source} style={styles.image} />
             </TouchableOpacity>
-            <TouchableOpacity onPress={props.image3.onPress} style={styles.imageContainer}>
+            <TouchableOpacity onPress={props.image4.onPress} style={styles.imageContainer}>
                 <Image source={props.image4.source} style={styles.image} />
             </TouchableOpacity>
         </View>
