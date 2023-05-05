@@ -148,7 +148,7 @@ const AddMedicine: FC = () => {
                         { 
                             text: 'OK',
                             onPress: () => {
-                                navigation.navigate("MedicationSchedule " as never, {} as never);
+                                navigation.navigate("MedicationSchedule" as never, {} as never);
                             },
                         }
                     ],
