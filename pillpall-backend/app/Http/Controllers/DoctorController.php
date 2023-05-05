@@ -27,7 +27,7 @@ class DoctorController extends Controller{
                 $user->save();
                 $doctor= new DoctorsInfo();
             }
-
+            
             $doctor->user_id = Auth::id();
             $doctor->phone_number = $request->phone_number;
             $doctor->dob = $request->dob;
@@ -39,15 +39,20 @@ class DoctorController extends Controller{
             $doctor->expertise = $request->expertise;
             
             if ($request->hasFile('image')) {
-                $imagePath = $request->file('image')->store('images');
-                $doctor->image = $imagePath;
+                if ($doctor->image) {
+                    $oldImagePath = storage_path('app/public/' . $doctor->image);
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath);
+                    }
+                }
+                $imagePath = $request->file('image')->store('images', 'public');
+                $doctor->image = str_replace('public/', 'storage/', $imagePath);
             }
-
+            
             $doctor->save();
-
             return response()->json([
                 'status' => 'success',
-                'message' => 'Doctor Report created/updated successfully'
+                'message' => 'Doctor Report created/updated successfully',
             ]);
 
         } catch (Exception $e) {
