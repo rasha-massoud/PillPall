@@ -13,7 +13,6 @@ return new class extends Migration{
             $table->string('doctor_name');
             $table->string('address');
             $table->integer('file_number');
-            $table->string('image');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unique(['doctor_name', 'address', 'file_number', 'user_id']);
