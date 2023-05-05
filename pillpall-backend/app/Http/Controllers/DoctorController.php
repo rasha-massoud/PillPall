@@ -63,6 +63,23 @@ class DoctorController extends Controller{
         }
     }
 
+    public function GetProfile(){
+        try {
+            $user= Auth::user();
+            $doctorInfo= $user->doctorsInfo;
+            return response()->json([
+                'status' => 'success',
+                'message' => 'The report is successfully returned.',
+                'user'=>$user,
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while getting the report.'
+            ]);
+        }
+    }
+
     public function SearchForConnectedPatients(Request $request){
 
         try{
