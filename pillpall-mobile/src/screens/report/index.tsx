@@ -68,6 +68,7 @@ const Report: React.FC = () => {
         );
         setAllResult(response.data);
         setResult(response.data.user);
+        console.log(response.data)
       } catch (error) {
         console.error('An error occurred while getting the report', error);
       } finally {
@@ -116,7 +117,7 @@ const Report: React.FC = () => {
           <View>
             <DisplayData title='Name' value={result.name} />
             <DisplayData title='Email' value={result.email} />
-            <DisplayData title='Phone Number' value={result.patients_info.phone_number} />
+            <DisplayData title='Phone Number' value={result && result.patients_info ? result.patients_info.phone_number : ''} />
             <DisplayData title='Date of Birth' value={result.patients_info.dob} />
             <DisplayData title='Address' value={result.patients_info.address} />
             <DisplayData title='Gender' value={result.patients_info.gender} />
