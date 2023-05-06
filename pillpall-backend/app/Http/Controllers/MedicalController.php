@@ -191,8 +191,15 @@ class MedicalController extends Controller{
             $results = $user->results;
     
             $formattedResults = $results->map(function ($result) {
-                $result->file_name = $result->file_name . '?id=' . $result->id;
-                return $result;
+                return [
+                    'id' => $result->id,
+                    'name' => $result->name,
+                    'type' => $result->type,
+                    'uri' => $result->file_name,
+                    'testing_date' => $result->testing_date,
+                    'description' => $result->description,
+                    'file_name' => $result->file_name,
+                ];
             });
     
             return response()->json([
