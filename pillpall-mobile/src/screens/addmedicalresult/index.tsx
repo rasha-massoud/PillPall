@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { SafeAreaView, Alert, View, Text, Image } from 'react-native';
+import { SafeAreaView, Alert, View, Text, Image, ActivityIndicator } from 'react-native';
 import NavBar1 from '../../components/NavBar1';
 import axios from 'axios';
 import TwoCustomButton from '../../components/TwoCustomButton';
@@ -156,12 +156,6 @@ const AddMedicalResult: FC = () => {
 
             <CustomButton containerStyle={ styles.btn} buttonprops={{ title: "Select File", onPress: selectFile }}  />
 
-            {selectedFile && (
-                <View style={styles.selectedFileContainer}>
-                    <DisplayData title='File Selected' value='Success'/>
-                </View>
-            )}
-
             <TextInputwithLabel
                 label='Testing Date'
                 placeholder="YYYY-MM-DD"
@@ -180,6 +174,8 @@ const AddMedicalResult: FC = () => {
                 buttonprops2={{ title: 'Cancel', onPress: handleCancelPress }}
                 buttonprops1={{ title: 'Add', onPress: handleAddPress }}
             />
+
+            {loading && <ActivityIndicator size="small" color="black" />}
 
             {statusMessage ? <Text style={styles.statusMessage}>{statusMessage}</Text> : null}
 
