@@ -50,7 +50,7 @@ const MedicalResults: FC = () => {
           if (response.data.status === 'success') {
             const formattedResults = response.data.results.map((result: MedicalResult) => ({
               ...result,
-              uri: `${API_URL}${endpoint}/${result.file_name}?id=${result.id}`,
+              uri: `${API_URL}med/medical_results/${result.file_name}`,
             }));
             setResults(formattedResults);
             setIsSuccess(true);
