@@ -149,62 +149,66 @@ class MedicalController extends Controller{
         
     }
 
-    public function AddMedicalResult(Request $request){
-
-        try{
-
+    public function AddMedicalResult(Request $request)
+    {
+        try {
             $request->validate([
                 'file' => 'required|mimes:pdf|max:2048',
                 'testing_date' => 'required|date',
             ]);
-
+    
             $file = $request->file('file');
-            $fileName = $file->getClientOriginalName();
-     
+            $fileName = uniqid() . '_' . $file->getClientOriginalName();
+    
             $result = new Result();
-
+    
             $result->user_id = Auth::id();
-            $result->testing_date  = $request->testing_date ;
+            $result->testing_date = $request->testing_date;
             $result->file_name = $fileName;
-            $result->description  = $request->description ;
+            $result->description = $request->description;
     
             $result->save();
     
             $file->storeAs('public/storage/images', $fileName);
-
+    
             return response()->json([
                 'status' => 'success',
                 'message' => 'Medical Result added successfully'
             ]);
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'An error occurred while adding the medical result.'
             ]);
         }
-        
     }
+    
 
-    public function GetMedicalResults(){
-
-        try{
-
+    public function GetMedicalResults()
+    {
+        try {
             $user = auth()->user();
-            $results= $user->results;  
+            $results = $user->results;
+    
+            $formattedResults = $results->map(function ($result) {
+                $result->file_name = $result->file_name . '?id=' . $result->id;
+                return $result;
+            });
     
             return response()->json([
                 'status' => 'success',
                 'message' => 'Results returned successfully',
-                'results' => $results
+                'results' => $formattedResults
             ]);
     
-        } catch(Exception $e){
+        } catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while getting the results.' 
+                'message' => 'An error occurred while getting the results.'
             ]);
         }
     }
+    
 
     public function GetFileNumbers(){
 
