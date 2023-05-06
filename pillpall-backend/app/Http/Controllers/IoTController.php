@@ -41,7 +41,7 @@ class IoTController extends Controller
             }
     
             $client = new Client();
-            $response = $client->post('COM9', [ 
+            $response = $client->post('http://192.168.1.100', [
                 'json' => [
                     'medications' => $medication
                 ]
