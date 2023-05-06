@@ -7,17 +7,17 @@ use Illuminate\Support\Facades\Auth;
 
 use Exception;
 use Carbon\Carbon;
+use GuzzleHttp\Client;
 
 use App\Models\User;
 use App\Models\Medication;
 
-class IoTController extends Controller{
-    
-    public function GetCurrentDayMedications(){
-        try{
-
+class IoTController extends Controller
+{
+    public function GetCurrentDayMedications()
+    {
+        try {
             $user = auth()->user();
-    
             $date = Carbon::now();
             $day = Carbon::now()->format('l');
     
@@ -36,20 +36,33 @@ class IoTController extends Controller{
                         }
                     })
                     ->get();
-            } else{
-                $medication= $user->medications()->where('days', 'like', $day)->orWhere('days', 'Everyday')->get();
+            } else {
+                $medication = $user->medications()->where('days', 'like', $day)->orWhere('days', 'Everyday')->get();
             }
     
-            return response()->json([
-                'status' => 'success',
-                'message' => 'Medications returned successfully',
-                'medications' => $medication
+            $client = new Client();
+            $response = $client->post('COM9', [ 
+                'json' => [
+                    'medications' => $medication
+                ]
             ]);
-    
-        } catch(Exception $e){
+
+            if ($response->getStatusCode() === 200) {
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'Medications sent successfully to Arduino',
+                    'medications' => $medication
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Failed to send medications to Arduino'
+                ]);
+            }
+        } catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while getting the medicine of the current day.' .$e->getMessage()
+                'message' => 'An error occurred while getting the medicine of the current day: ' . $e->getMessage()
             ]);
         }
     }
