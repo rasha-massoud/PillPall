@@ -36,7 +36,7 @@ const styles = StyleSheet.create<Styles>({
         textAlign: 'center',
     },
     image: {
-        marginTop: 20,
+        marginTop: 35,
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
