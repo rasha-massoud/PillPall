@@ -71,3 +71,11 @@ export const MedicalStack = () => {
     );
 };
 
+export const AssistStack = () => {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: 'white' } }}>
+            <Stack.Screen name="PersonalAssistant" component={PersonalAssistant} />
+        </Stack.Navigator>
+    );
+};
+
