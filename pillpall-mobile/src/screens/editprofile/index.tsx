@@ -1,9 +1,7 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, ScrollView, Alert } from 'react-native';
+import { SafeAreaView, ScrollView, Alert, View, TouchableOpacity, Image, Text } from 'react-native';
 import PageTitle from '../../components/PageTitle';
-import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
-import AddImage from '../../components/AddImage';
 import GenderCheckBox from '../../components/GenderCheckBox';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/core';
@@ -11,10 +9,11 @@ import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
 import { setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, setWorkingHours, setMajor, setCertificates, setExpertise } from "../../store/slices/reportSlice";
-import SubTitleText from '../../components/SubTitleText';
 import TwoCustomButton from '../../components/TwoCustomButton';
 import FormTitle from '../../components/FormTitle';
-
+import * as ImagePicker from 'expo-image-picker';
+import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
+import { Ionicons } from '@expo/vector-icons';
 import styles from './styles';
 
 interface EditProfileData {
@@ -37,8 +36,6 @@ const EditProfile: FC = () => {
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    const [imageUri, setImageUri] = useState<string | null>(null);
-
     const [username, setUsername] = useState<string>("");
     const [emailAddress, setEmailAddress] = useState<string>("");
     const [phone, setPhone] = useState<string>("");
@@ -49,16 +46,22 @@ const EditProfile: FC = () => {
     const [cert, setCert] = useState<string>("");
     const [location, setLocation] = useState<string>("");
     const [exp, setExp] = useState<string>("");
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-    const handleImageSelected = async (imageFile: File | null) => {
-        if (imageFile) {
-            const url = URL.createObjectURL(imageFile);
-            setImageUri(url);
-            dispatch(setImage(url));
-        } else {
-            setImageUri(null);
-            dispatch(setImage(null));
-        }
+    const pickImage = async () => {
+        let result: ImagePickerResult = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.All,
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1,
+        });
+    
+        console.log(result);
+        setSelectedImage(result.uri);
+    };
+    
+      const clearImage = () => {
+        setSelectedImage(null);
     };
     
     const [contactInfoData, setContactInfoData] = useState<EditProfileData>({
@@ -148,7 +151,7 @@ const EditProfile: FC = () => {
     };
 
     const handleSavePress = async () => {
-        if(!imageUri && !username && !emailAddress && !location && !DOB && !chosenGender && !phone && !hours && !education && !cert && !exp){
+        if(!selectedImage && !username && !emailAddress && !location && !DOB && !chosenGender && !phone && !hours && !education && !cert && !exp){
             Alert.alert(
                 'Fails',
                 'Missing Field. Please make sure to fill all fields.',
@@ -162,9 +165,16 @@ const EditProfile: FC = () => {
 
         
         const data = new FormData();
-        if (imageUri) {
-            data.append('image', imageUri);
-        }
+        const fileExtension = selectedImage.split('.').pop() || '';
+        const fileName = `image_${Date.now()}.${fileExtension}`;
+    
+        const file = {
+          uri: selectedImage,
+          name: fileName,
+          type: `image/${fileExtension}`,
+        };
+          
+        data.append('image', file);
         data.append('phone_number', phone);
         data.append('address', location);
         data.append('dob', DOB);
@@ -217,8 +227,25 @@ const EditProfile: FC = () => {
     <SafeAreaView style={styles.container}>
         <PageTitle title='Profile' />
 
-        <AddImage onImageSelected={handleImageSelected} />
-
+        <View style={styles.container1}>
+            {selectedImage ? (
+                <>
+                    <TouchableOpacity onPress={pickImage} style={styles.changeImage}>
+                        <Ionicons name="camera-outline" size={24} color="#fff" />
+                        <Text style={styles.changeImageText}>Change Image</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={clearImage}>
+                        <Image source={{ uri: selectedImage }} style={styles.image} />
+                    </TouchableOpacity>
+                    </>
+                ) : (
+                    <TouchableOpacity onPress={pickImage} style={styles.addImage}>
+                    <Ionicons name="add-outline" size={24} color="#fff" />
+                    <Text style={styles.addImageText}>Add Image</Text>
+                    </TouchableOpacity>
+                )
+            }
+        </View>
         <ScrollView>
             <TextInputwithLabel label='Name' placeholder='Enter your Username' textinputprops={{ secureTextEntry: false}} onChangeText= {handleNameChange} />
             <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
