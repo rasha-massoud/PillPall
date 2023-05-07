@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, setWorkingHours, setMajor, setCertificates, setExpertise } from "../../store/slices/reportSlice";
 import SubTitleText from '../../components/SubTitleText';
 import TwoCustomButton from '../../components/TwoCustomButton';
+import FormTitle from '../../components/FormTitle';
 
 import styles from './styles';
 
@@ -225,11 +226,11 @@ const EditProfile: FC = () => {
             <TextInputwithLabel label="Date of Birth" placeholder='YYYY-MM-DD' textinputprops={{ secureTextEntry: false }} onChangeText= {handleDoBChange} />
             <GenderCheckBox selectedGender={contactInfoData.gender} onGenderSelect={handleGenderSelect} />
 
-            <SubTitleText title="Profession Details" />
+            <FormTitle title="Profession Details" />
             <TextInputwithLabel label="Address" placeholder='Enter your Clinic Address' textinputprops={{ secureTextEntry: false }} onChangeText= {handleAddressChange} />
             <TextInputwithLabel label="Working Hours" placeholder='Enter your Working Hours' textinputprops={{ secureTextEntry: false }} onChangeText= {handleWorkingHoursChange} />
 
-            <SubTitleText title="Education" />
+            <FormTitle title="Education" />
             <TextInputwithLabel label="Major" placeholder='Enter your Major' textinputprops={{ secureTextEntry: false }} onChangeText= {handleMajorChange} />
             <TextInputwithLabel label="Certificates" placeholder='List your Certificates' textinputprops={{ secureTextEntry: false }} onChangeText= {handleCertificatesChange} />
             <TextInputwithLabel label="Expertise" placeholder='List your Expertise' textinputprops={{ secureTextEntry: false }} onChangeText= {handleExpertiseChange} />
