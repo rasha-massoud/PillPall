@@ -16,8 +16,10 @@ const PatientButtonTab = () => {
   return (
     <Tabs.Navigator 
         screenOptions={{ headerShown: false,  
-            tabBarStyle: {backgroundColor: colors.blue, height: 85},
-        }}       
+            tabBarStyle: {backgroundColor: colors.blue, height: 92},
+            tabBarLabelStyle: { fontSize: 16, fontWeight: 'bold' },
+            tabBarActiveTintColor: 'white',
+        }}    
     >
         <Tabs.Screen
             options={{
@@ -70,10 +72,10 @@ const PatientButtonTab = () => {
         <Tabs.Screen
             options={{
                 tabBarIcon: () => (
-                <Image
-                    source={require('../../assets/navRobot.png')}
-                    style={{ width: 40, height: 38 }}
-                />
+                    <Image
+                        source={require('../../assets/navRobot.png')}
+                        style={{ width: 40, height: 38 }}
+                    />
                 ),
             }}
             name="Robot"
