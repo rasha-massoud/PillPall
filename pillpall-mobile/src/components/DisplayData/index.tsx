@@ -12,7 +12,7 @@ interface DisplayDataProps {
 const DisplayData: FC<DisplayDataProps> = (props) => {
     return (
         <View style={styles.column}>
-          <Text style={[styles.title, appStyles.body1]}>{props.title}:</Text>
+          <Text style={[styles.title, appStyles.body1]}>{props.title}</Text>
           <Text style={[styles.value, appStyles.body2]}>{props.value}</Text>
         </View>
     );

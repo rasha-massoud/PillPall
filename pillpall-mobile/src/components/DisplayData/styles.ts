@@ -15,7 +15,7 @@ const styles = StyleSheet.create<Styles>({
       color: colors.blue,
     },
     title: {
-      fontWeight: '900',
+      fontWeight: '600',
       marginRight: 5,
       color: colors.blue,
     },
