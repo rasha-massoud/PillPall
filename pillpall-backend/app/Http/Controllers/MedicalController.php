@@ -45,7 +45,7 @@ class MedicalController extends Controller{
         }catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while adding the medicine.' 
+                'message' => 'An error occurred while adding the medicine.' .$e->getMEssage()
             ]);
         }
         
@@ -119,7 +119,7 @@ class MedicalController extends Controller{
         } catch(Exception $e){
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while getting the medicine of the selected day.'  .$e->getMessage()
+                'message' => 'An error occurred while getting the medicine of the selected day.'
             ]);
         }
     }

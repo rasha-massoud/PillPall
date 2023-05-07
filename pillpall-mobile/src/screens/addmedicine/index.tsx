@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, ScrollView, Alert } from 'react-native';
+import { SafeAreaView, ScrollView, Alert, View, TouchableOpacity, Image, Text } from 'react-native';
 import NavBar from '../../components/NavBar';
 import axios from 'axios';
 import styles from './styles';
@@ -14,6 +14,10 @@ import TwoCustomButton from '../../components/TwoCustomButton';
 import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as ImagePicker from 'expo-image-picker';
+import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
+import { Ionicons } from '@expo/vector-icons';
+import * as FileSystem from 'expo-file-system';
 
 const MONTHS: Month[] = ['All', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -21,6 +25,7 @@ type Day = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturda
 type Month = 'All' | 'January' | 'February' | 'March' | 'April' | 'May' | 'June' | 'July' | 'August' | 'September' | 'October' | 'November' | 'December';
 type Timing = '6:00' | '8:00' | '10:00' | '12:00' | '14:00' | '16:00' | '18:00' | '20:00' | '22:00';
 
+ 
 const AddMedicine: FC = () => {
     
     const navigation = useNavigation();
@@ -38,12 +43,24 @@ const AddMedicine: FC = () => {
     const [selectedMonth, setSelectedMonth] = useState<Month>();
     const [selectedTiming, setSelectedTiming] = useState<Timing>();
 
-    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-    const handleImageSelected = (file: File | null) => {
-        setSelectedFile(file);
-    }
-
+    const pickImage = async () => {
+        let result: ImagePickerResult = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.All,
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1,
+        });
+    
+        console.log(result);
+        setSelectedImage(result.uri);
+    };
+    
+      const clearImage = () => {
+        setSelectedImage(null);
+    };
+      
     const handleMedicineNameChange = (value: string) => {
         setName(value);
     }
@@ -82,10 +99,9 @@ const AddMedicine: FC = () => {
 
     const handleAddPress = async () => {
 
-        console.log('hiiiiiiii');
         setProcessing(true);
 
-        if( !selectedFile && !name && !quantity && !price && !instructions && !onDemand && !firstOfEachMonth){
+        if( !selectedImage && !name && !quantity && !price && !instructions && !onDemand && !firstOfEachMonth){
             Alert.alert(
                 'Fails',
                 'Missing Field. Please may sure to fill all fields.',
@@ -116,15 +132,22 @@ const AddMedicine: FC = () => {
             data.append('timing', '');
         }
 
-        if (selectedFile) {
-            data.append('image', selectedFile);
-        } 
-        
         if (selectedMonth !== undefined) {
             data.append('month', selectedMonth);
         } else {
             data.append('month', '');
         }
+
+        const fileExtension = selectedImage.split('.').pop() || '';
+        const fileName = `image_${Date.now()}.${fileExtension}`;
+    
+        const file = {
+          uri: selectedImage,
+          name: fileName,
+          type: `image/${fileExtension}`,
+        };
+          
+        data.append('image', file);
 
         console.log(data);
 
@@ -207,8 +230,24 @@ const AddMedicine: FC = () => {
                 <NavBar
                     title="Add Medicine"
                 />
-                <AddImage onImageSelected={handleImageSelected} />
-                
+                <View style={styles.container1}>
+                    {selectedImage ? (
+                        <>
+                        <TouchableOpacity onPress={pickImage} style={styles.changeImage}>
+                            <Ionicons name="camera-outline" size={24} color="#fff" />
+                            <Text style={styles.changeImageText}>Change Image</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={clearImage}>
+                            <Image source={{ uri: selectedImage }} style={styles.image} />
+                        </TouchableOpacity>
+                        </>
+                    ) : (
+                        <TouchableOpacity onPress={pickImage} style={styles.addImage}>
+                        <Ionicons name="add-outline" size={24} color="#fff" />
+                        <Text style={styles.addImageText}>Add Image</Text>
+                        </TouchableOpacity>
+                    )}
+                </View>                
                 <TextInputwithLabel label='Name' placeholder='Enter the Medicine Name' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicineNameChange} />
                 <TextInputwithLabel label='Dose Quantity' keyboardType="numeric" placeholder='Enter the Intake Dose Quantity as prescribed' textinputprops={{ secureTextEntry: false}} onChangeText= {handleDoseQuantityChange} />
                 <TextInputwithLabel label='Price per month (in $)' keyboardType="numeric" placeholder='Enter the Medicine Price per month' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicinePriceChange} />
