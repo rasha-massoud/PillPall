@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { SafeAreaView, Image, FlatList } from 'react-native';
 import { Text } from 'react-native-elements';
 import axios from 'axios';
-import { Card } from '@rneui/base';
+import { View } from 'react-native';
 import NavBar from '../../components/NavBar';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import CustomButton from '../../components/CustomButton';
@@ -20,13 +20,10 @@ interface Patient {
     patients_info: {
         id: number;
         address: string;
-        certificates: string;
         created_at: string;
         dob: string;
-        expertise: string;
         gender: string;
         image: string;
-        major: string;
         phone_number: string;
         blood_type: string;
         height: string;
@@ -49,7 +46,6 @@ interface Patient {
 }
 
 const DoctorSearch: FC = () => {
-
     const [name, setName] = useState('');
     const [patientData, setPatientData] = useState<Patient[]>([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -61,86 +57,109 @@ const DoctorSearch: FC = () => {
 
     const handleSearchPress = async () => {
         try {
-
             const token = await AsyncStorage.getItem('token');
-      
             const data = new FormData();
             data.append('name', name);
 
             const endpoint = 'doctor/search';
             setIsLoading(true);
-        
+
             const response = await axios.post(`${API_URL}${endpoint}`, data, {
-              headers: {
+                headers: {
                 'Accept': 'application/json',
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'multipart/form-data',
-              },
+                },
             });
-            console.log(response.data);
-            // if (Array.isArray(response.data.patients) && response.data.patients.length > 0) {
-            //     setPatientData(response.data.patients.map((patient: any) => ({
-            //       id: patient.id,
-            //       name: patient.name,
-            //       email: patient.email,
-            //       role: patient.role,
-            //       created_at: patient.created_at,
-            //       patients_info: {
-            //           id: patient.patients_info.id,
-            //           address: patient.patients_info.address,
-            //           certificates: patient.doctors_info.certificates,
-            //           created_at: patient.patients_info.created_at,
-            //           dob: patient.patients_info.dob,
-            //           expertise: patient.patients_info.expertise,
-            //           gender: patient.patients_info.gender,
-            //           image: patient.patients_info.image,
-            //           major: patient.patients_info.major,
-            //           phone_number: patient.patients_info.phone_number,
-            //       },
-            //   })));
-            // } else {
-            //       setErrorMessage('No patient with the name provided.');
-            // }
 
+        console.log(response.data);
+
+        if (response.data.patient) {
+            const patient = response.data.patient;
+            const patientData: Patient = {
+                id: patient.id,
+                name: patient.name,
+                email: patient.email,
+                role: patient.role,
+                created_at: patient.created_at,
+                patients_info: {
+                    id: patient.patients_info.id,
+                    address: patient.patients_info.address,
+                    created_at: patient.patients_info.created_at,
+                    dob: patient.patients_info.dob,
+                    gender: patient.patients_info.gender,
+                    image: patient.patients_info.image,
+                    phone_number: patient.patients_info.phone_number,
+                    blood_type: patient.patients_info.blood_type,
+                    height: patient.patients_info.height,
+                    weight: patient.patients_info.weight,
+                    emergency_name: patient.patients_info.emergency_name,
+                    emergency_number: patient.patients_info.emergency_number,
+                    emergency_email: patient.patients_info.emergency_email,
+                    emergency_contact_relation: patient.patients_info.emergency_contact_relation,
+                    body_temperature: patient.patients_info.body_temperature,
+                    pulse_rate: patient.patients_info.pulse_rate,
+                    respiration_rate: patient.patients_info.respiration_rate,
+                    systolic_blood_pressure: patient.patients_info.systolic_blood_pressure,
+                    chronic_conditions: patient.patients_info.chronic_conditions,
+                    past_surgeries: patient.patients_info.past_surgeries,
+                    family_medical_history: patient.patients_info.family_medical_history,
+                    allergies: patient.patients_info.allergies,
+                    life_style_habits: patient.patients_info.life_style_habits,
+                    medications: patient.patients_info.medications,
+                },
+            };
+            setPatientData([patientData]);
+        }
         } catch (error) {
             setErrorMessage('An error occurred while searching.');
         } finally {
             setIsLoading(false);
         }
+
     };
     
     return (
         <SafeAreaView style={styles.container}>
             <NavBar title="Patient Search" />
             <Image source={require('../../../assets/doctorsearchscreen.png')} style={styles.image} />
-   
+    
             <TextInputwithLabel
                 label="Name"
-                placeholder="Enter the Doctor's Name or the Major based on your Search by Selection"
+                placeholder="Enter the Connected Patient's Name"
                 textinputprops={{ secureTextEntry: false }}
                 onChangeText={handleNameChange}
             />
             <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Search", onPress: handleSearchPress }} />
-
+    
             {isLoading ? (
                 <Text style={{ alignSelf: 'center', marginVertical: 20 }}>Loading...</Text>
-            ) : errorMessage ? (
-                <Text style={{ alignSelf: 'center', marginVertical: 20, color: 'red' }}>{errorMessage}</Text>
-            ) : patientData.length === 0 ? (
-                <Text style={{ alignSelf: 'center', marginVertical: 20 }}>No doctors found.</Text>
             ) : (
-                <FlatList
-                    data={patientData}
-                    keyExtractor={(item) => item.id.toString()}
-                    renderItem={({ item }) => (
-                        <Card>
-                            <Text>Email: {item.email}</Text>
-                        </Card>
+                <>
+                    {patientData.length === 0 ? (
+                        <Text style={{ alignSelf: 'center', color: 'red', marginVertical: 20 }}>No connected patient found.</Text>
+                    ) : (
+                        <FlatList
+                            data={patientData}
+                            keyExtractor={(item) => item.id.toString()}
+                            renderItem={({ item }) => (
+                                <View style={styles.card}>
+                                    <Image source={{ uri: `http://192.168.0.100:8000/storage/${item.patients_info.image}` }} style={styles.img} />
+                                    <View style={styles.data}>
+                                        <Text>{item.name}</Text>
+                                        <Text>{item.email}</Text>
+                                        <Text>{item.patients_info.address}</Text>
+                                        <Text>{item.patients_info.phone_number}</Text>
+                                    </View>
+                              </View>
+                            )}
+                        />
                     )}
-                />
+                </>
             )}
         </SafeAreaView>
     );
+    
 };
 
 export default DoctorSearch;
