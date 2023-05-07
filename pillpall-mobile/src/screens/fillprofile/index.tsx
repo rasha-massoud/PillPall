@@ -1,11 +1,9 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, ScrollView, Alert } from 'react-native';
+import { SafeAreaView, ScrollView, Alert, View, TouchableOpacity, Image, Text } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import PageTitle from '../../components/PageTitle';
-import Body1Text from '../../components/Body1Text';
 import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
-import AddImage from '../../components/AddImage';
 import GenderCheckBox from '../../components/GenderCheckBox';
 import StepText from '../../components/StepText';
 import axios from 'axios';
@@ -14,16 +12,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
 import { setFirstLogin, setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, setWorkingHours, setMajor, setCertificates, setExpertise } from "../../store/slices/reportSlice";
 import { useNavigation } from '@react-navigation/core';
-
-import styles from './styles';
+import * as ImagePicker from 'expo-image-picker';
+import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
+import { Ionicons } from '@expo/vector-icons';
 import SubTitleText from '../../components/SubTitleText';
 
-
-interface RootState {
-    report: {
-      image: string;
-    }
-}
+import styles from './styles';
 
 interface FillProfileData {
     gender: string | undefined;
@@ -45,11 +39,22 @@ const FillProfile: FC = () => {
     const [cert, setCert] = useState<string>("");
     const [location, setLocation] = useState<string>("");
     const [exp, setExp] = useState<string>("");
-    const [selectedImageFile, setSelectedImageFile] = useState<File | null>(null);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-    const handleImageSelected = (imageFile: File | null) => {
-        setSelectedImageFile(imageFile);
-        dispatch(setImage(imageFile ? URL.createObjectURL(imageFile) : ""));
+    const pickImage = async () => {
+        let result: ImagePickerResult = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.All,
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1,
+        });
+    
+        console.log(result);
+        setSelectedImage(result.uri);
+    };
+    
+      const clearImage = () => {
+        setSelectedImage(null);
     };
 
     const [contactInfoData, setContactInfoData] = useState<FillProfileData>({
@@ -111,14 +116,9 @@ const FillProfile: FC = () => {
         dispatch(setExpertise(value));
     };
 
-    
-    const image = useSelector(
-        (state: RootState) => state.report.image
-    );
-
     const handleSubmitPress = async () => {
 
-        if(!selectedImageFile && !username && !emailAddress && !location && !DOB && !chosenGender && !phone && !hours && !education && !cert && !exp){
+        if(!selectedImage && !username && !emailAddress && !location && !DOB && !chosenGender && !phone && !hours && !education && !cert && !exp){
             Alert.alert(
                 'Fails',
                 'Missing Field. Please make sure to fill all fields.',
@@ -133,9 +133,16 @@ const FillProfile: FC = () => {
         setIsLoading(true);
 
         const data = new FormData();
-        if (selectedImageFile) {
-            data.append('image', selectedImageFile);
-        }
+        const fileExtension = selectedImage.split('.').pop() || '';
+        const fileName = `image_${Date.now()}.${fileExtension}`;
+    
+        const file = {
+          uri: selectedImage,
+          name: fileName,
+          type: `image/${fileExtension}`,
+        };
+          
+        data.append('image', file);
         data.append('name', username);
         data.append('email', emailAddress);
         data.append('phone_number', phone);
@@ -195,9 +202,25 @@ const FillProfile: FC = () => {
       <PageTitle title='Profile' />
       <StepText title='Step 1' color={colors.blue}></StepText>
 
-      <AddImage onImageSelected={handleImageSelected} />
-
       <ScrollView>
+        <View style={styles.container1}>
+            {selectedImage ? (
+                <>
+                <TouchableOpacity onPress={pickImage} style={styles.changeImage}>
+                    <Ionicons name="camera-outline" size={24} color="#fff" />
+                    <Text style={styles.changeImageText}>Change Image</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={clearImage}>
+                    <Image source={{ uri: selectedImage }} style={styles.image} />
+                </TouchableOpacity>
+                </>
+            ) : (
+                <TouchableOpacity onPress={pickImage} style={styles.addImage}>
+                <Ionicons name="add-outline" size={24} color="#fff" />
+                <Text style={styles.addImageText}>Add Image</Text>
+                </TouchableOpacity>
+            )}
+        </View> 
         <TextInputwithLabel label='Name' placeholder='Enter your Username' textinputprops={{ secureTextEntry: false}} onChangeText= {handleNameChange} />
         <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
         <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePhoneNumberChange} />
