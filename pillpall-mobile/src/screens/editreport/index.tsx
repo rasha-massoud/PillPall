@@ -1,11 +1,9 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, ScrollView, Alert } from 'react-native';
+import { SafeAreaView, ScrollView, Alert, View, TouchableOpacity, Image, Text } from 'react-native';
 import { colors } from '../../constants/palette';
 import NavBar from '../../components/NavBar';
 import TwoCustomButton from '../../components/TwoCustomButton';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
-import AddImage from '../../components/AddImage';
-import SubTitleText from '../../components/SubTitleText';
 import GenderCheckBox from '../../components/GenderCheckBox';
 import HabitsMultiSelectChecklist from '../../components/HabitsMultiSelectCheckList';
 import axios from 'axios';
@@ -14,6 +12,9 @@ import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
 import FormTitle from '../../components/FormTitle';
+import * as ImagePicker from 'expo-image-picker';
+import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
+import { Ionicons } from '@expo/vector-icons';
 import { setName, setEmail, setImage, setPhoneNumber, setDob, setAddress, setGender, setBloodType, setHeight, setWeight, setEmergencyName,  setEmergencyNumber,
      setEmergencyEmail, setEmergencyContactRelation, setBodyTemperature, setPulseRate, setRespirationRate, setSystolicBloodPressure, setChronicConditions, 
      setPastSurgeries, setFamilyMedicalHistory, setAllergies, setLifeStyleHabits, setMedications } from "../../store/slices/reportSlice";
@@ -54,19 +55,25 @@ const EditReport: FC = () => {
     const dispatch = useDispatch();
     const navigation = useNavigation();
 
-    const [imageUri, setImageUri] = useState<string | null>(null);
     const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
     const [currentMedicationsHistory, setCurrentMedications] = useState<string>('');
 
-    const handleImageSelected = async (imageFile: File | null) => {
-      if (imageFile) {
-        const url = URL.createObjectURL(imageFile);
-        setImageUri(url);
-        dispatch(setImage(url));
-      } else {
-        setImageUri(null);
-        dispatch(setImage(null));
-      }
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+    const pickImage = async () => {
+        let result: ImagePickerResult = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.All,
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1,
+        });
+    
+        console.log(result);
+        setSelectedImage(result.uri);
+    };
+    
+      const clearImage = () => {
+        setSelectedImage(null);
     };
 
     const handleNameChange = async (value: string) => {
@@ -282,8 +289,16 @@ const EditReport: FC = () => {
         data.append('allergies', allergies);
         data.append('life_style_habits', life_style_habits);
         data.append('medications', medications);
-        data.append('image', image);
-
+        const fileExtension = selectedImage.split('.').pop() || '';
+        const fileName = `image_${Date.now()}.${fileExtension}`;
+    
+        const file = {
+          uri: selectedImage,
+          name: fileName,
+          type: `image/${fileExtension}`,
+        };
+          
+        data.append('image', file);
         const token = await AsyncStorage.getItem('token');
 
         const endpoint = 'patient/report';
@@ -356,7 +371,24 @@ const EditReport: FC = () => {
 
             <ScrollView>
 
-                <AddImage onImageSelected={handleImageSelected} />
+                  <View style={styles.container1}>
+                    {selectedImage ? (
+                        <>
+                        <TouchableOpacity onPress={pickImage} style={styles.changeImage}>
+                            <Ionicons name="camera-outline" size={24} color="#fff" />
+                            <Text style={styles.changeImageText}>Change Image</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={clearImage}>
+                            <Image source={{ uri: selectedImage }} style={styles.image} />
+                        </TouchableOpacity>
+                        </>
+                    ) : (
+                        <TouchableOpacity onPress={pickImage} style={styles.addImage}>
+                        <Ionicons name="add-outline" size={24} color="#fff" />
+                        <Text style={styles.addImageText}>Add Image</Text>
+                        </TouchableOpacity>
+                    )}
+                </View>                 
                 <TextInputwithLabel label='Name' placeholder='Enter your Username' textinputprops={{ secureTextEntry: false}} onChangeText= {handleNameChange} />
                 <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
                 <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePhoneNumberChange} />
