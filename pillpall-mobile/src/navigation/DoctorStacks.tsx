@@ -7,6 +7,7 @@ import EditProfile from '../screens/editprofile';
 import DoctorSearch from '../screens/doctorsearch';
 import PatientReport from '../screens/patientreport';
 import PatientResult from '../screens/patientresult';
+import ChangePassword from "../screens/changepassword";
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,14 @@ export const PatientStack = () => {
             <Stack.Screen name="DoctorSearch" component={DoctorSearch} />
             <Stack.Screen name="PatientReport" component={PatientReport} />
             <Stack.Screen name="PatientResult" component={PatientResult} />
+        </Stack.Navigator>
+    );
+};
+
+export const ChangePasswordStack = () => {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: 'white' } }}>
+            <Stack.Screen name="ChangePassword" component={ChangePassword} />
         </Stack.Navigator>
     );
 };
