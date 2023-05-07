@@ -8,8 +8,8 @@ import EmergencyContact from '../screens/emergencycontact';
 import VitalSigns from '../screens/vitalsigns';
 import MedicalHistory from '../screens/medicalhistory';
 import MedicationsAndHabits from '../screens/medicationshabits';
-import Report from "../screens/report";
-import EditReport from "../screens/editreport"
+import Report from '../screens/report';
+import EditReport from '../screens/editreport';
 import MedicationSchedule from '../screens/medicationschedule';
 import AddMedicine from '../screens/addmedicine';
 import DeleteMedicine from '../screens/deletemedicine';
@@ -20,7 +20,8 @@ import FileNum from '../screens/filenumbers';
 import AddFileNumber from '../screens/addfilenumber';
 import MedicalResults from '../screens/medicalresults';
 import AddMedicalResult from '../screens/addmedicalresult';
-import PatientSearch from "../screens/patientseach";
+import PatientSearch from '../screens/patientseach';
+import ChangePassword from '../screens/changepassword';
 
 const Stack = createStackNavigator();
 
@@ -79,3 +80,10 @@ export const AssistStack = () => {
     );
 };
 
+export const ChangePasswordStack = () => {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: 'white' } }}>
+            <Stack.Screen name="ChangePassword" component={ChangePassword} />
+        </Stack.Navigator>
+    );
+};
