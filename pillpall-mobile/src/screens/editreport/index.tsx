@@ -13,6 +13,7 @@ import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
+import FormTitle from '../../components/FormTitle';
 import { setName, setEmail, setImage, setPhoneNumber, setDob, setAddress, setGender, setBloodType, setHeight, setWeight, setEmergencyName,  setEmergencyNumber,
      setEmergencyEmail, setEmergencyContactRelation, setBodyTemperature, setPulseRate, setRespirationRate, setSystolicBloodPressure, setChronicConditions, 
      setPastSurgeries, setFamilyMedicalHistory, setAllergies, setLifeStyleHabits, setMedications } from "../../store/slices/reportSlice";
@@ -363,33 +364,33 @@ const EditReport: FC = () => {
                 <TextInputwithLabel label="Address" placeholder='Enter your Address' textinputprops={{ secureTextEntry: false }} onChangeText= {handleAddressChange} />
                 <GenderCheckBox selectedGender={gender} onGenderSelect={handleGenderSelect} />
       
-                <SubTitleText title='Anthropometric Measurements' color={colors.blue} />
+                <FormTitle title='Anthropometric Measurements' color={colors.blue} />
                 <TextInputwithLabel label="Blood Type" placeholder='Enter your Blood Type' textinputprops={{ secureTextEntry: false }} onChangeText= {handleBloodTypeChange} />
                 <TextInputwithLabel label="Height (cm)" keyboardType="numeric" placeholder='Enter your Height' textinputprops={{ secureTextEntry: false }} onChangeText= {handleHeightChange} />
                 <TextInputwithLabel label="Weight (Kg)" keyboardType="numeric" placeholder='Enter your Weight' textinputprops={{ secureTextEntry: false }} onChangeText= {handleWeightChange} />
 
-                <SubTitleText title='Emergency Contact Info Measurements' color={colors.blue}/>
+                <FormTitle title='Emergency Contact Info' color={colors.blue}/>
                 <TextInputwithLabel label="Name" placeholder='Enter your Name' textinputprops={{ secureTextEntry: false }} onChangeText= {handleEmergencyNameChange} />
                 <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }} onChangeText= {handleEmergencyPhoneNumberChange} />
                 <TextInputwithLabel label="Email" keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false }} onChangeText= {handleEmergencyEmailChange} />
                 <TextInputwithLabel label="Relation" placeholder='Enter your Relation with the Contact' textinputprops={{ secureTextEntry: false }} onChangeText= {handleEmergencyRelationChange} />
 
-                <SubTitleText title='Vital Signs' color={colors.blue} />
+                <FormTitle title='Vital Signs' color={colors.blue} />
                 <TextInputwithLabel label="Normal Body Temperature (°C)" keyboardType="numeric" placeholder='Enter your Normal Body Temperature' textinputprops={{ secureTextEntry: false }} onChangeText= {handleTemperatureChange} />
                 <TextInputwithLabel label="Normal Pulse Rate " keyboardType="numeric" placeholder='Enter your Normal Pulse Rate' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePulseChange} />
                 <TextInputwithLabel label="Normal Respiration Rate" keyboardType="numeric" placeholder='Enter your Normal Respiration Rate' textinputprops={{ secureTextEntry: false }} onChangeText= {handleRespirationRateChange} />
                 <TextInputwithLabel label="Normal Systolic Blood Pressure" keyboardType="numeric" placeholder='Enter your Normal Systolic Blood Pressure' textinputprops={{ secureTextEntry: false }} onChangeText= {handleBloodPressureChange} />
 
-                <SubTitleText title='Medical History' color={colors.blue} />
+                <FormTitle title='Medical History' color={colors.blue} />
                 <TextInputwithLabel label="Chronic Condition or Illness" placeholder='Enter your Chronic Condition or Illness if any' textinputprops={{ secureTextEntry: false }} onChangeText= {handleChronicConditionsChange} />
                 <TextInputwithLabel label="Past Surgeries or Hospitalizations" placeholder='Enter your Past Surgeries or Hospitalizations if any' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePastSurgeriesChange} />
                 <TextInputwithLabel label="Family Medical History" placeholder='Enter your Family Medical History if any' textinputprops={{ secureTextEntry: false }} onChangeText= {handleFamilyMedicalHistoryChange} />
                 <TextInputwithLabel label="Allergies" placeholder='Enter your Allergies if any' textinputprops={{ secureTextEntry: false }} onChangeText= {handleAllergiesChange} />
 
-                <SubTitleText title='Current Medications' color={colors.blue} />
+                <FormTitle title='Current Medications' color={colors.blue} />
                 <TextInputwithLabel label="Current Medications" placeholder='Enter your Current Medications if any' textinputprops={{ secureTextEntry: false }} onChangeText= {handleCurrentMedicationsChange} />
       
-                <SubTitleText title='Life Style Habits' color={colors.blue} />
+                <FormTitle title='Life Style Habits' color={colors.blue} />
                 <HabitsMultiSelectChecklist selectedOptions={selectedOptions} onSelectOption={handleSelectOption}/>            
             </ScrollView>
 
