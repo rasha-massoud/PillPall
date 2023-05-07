@@ -13,6 +13,9 @@ import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
 import { setFirstLogin, setLifeStyleHabits, setMedications, } from "../../store/slices/reportSlice";
+import * as ImagePicker from 'expo-image-picker';
+import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
+import { Ionicons } from '@expo/vector-icons';
 
 import styles from './styles';
 
@@ -183,6 +186,17 @@ const MedicationsAndHabits: FC = () => {
       data.append('allergies', allergies);
       data.append('life_style_habits', life_style_habits);
       data.append('medications', medications);
+      const fileExtension = image.split('.').pop() || '';
+      const fileName = `image_${Date.now()}.${fileExtension}`;
+  
+      const file = {
+        uri: image,
+        name: fileName,
+        type: `image/${fileExtension}`,
+      };
+        
+      data.append('image', file);
+
       data.append('image', image);
 
       console.log(data);
