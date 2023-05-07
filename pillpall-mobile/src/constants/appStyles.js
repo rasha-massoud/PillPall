@@ -8,8 +8,8 @@ const appStyles = StyleSheet.create({
     letterSpacing: 0.73, 
   },
   pageTitle: {
-    ...fonts.medium,
-    fontSize: 24,
+    ...fonts.bold,
+    fontSize: 28,
     letterSpacing: 0, 
   },
   subTitle: {
