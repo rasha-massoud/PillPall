@@ -7,6 +7,8 @@ import PersonalAssistant from "../screens/personalassistant";
 import PatientSearch from "../screens/patientseach";
 import ChangePassword from "../screens/changepassword";
 
+import { ChangePasswordStack } from '../navigation/PatientStacks'
+import { AssistStack } from '../navigation/PatientStacks'
 import { ReportStack } from '../navigation/PatientStacks'
 import { MedicationScheduleStack } from '../navigation/PatientStacks'
 import { MedicalStack } from '../navigation/PatientStacks'
@@ -79,7 +81,7 @@ const PatientButtonTab = () => {
                 ),
             }}
             name="Robot"
-            component={PersonalAssistant}
+            component={AssistStack}
         />
         <Tabs.Screen
             options={{
@@ -91,7 +93,7 @@ const PatientButtonTab = () => {
                 ),
             }}
             name="Settings"
-            component={ChangePassword}
+            component={ChangePasswordStack}
         />
     </Tabs.Navigator>
   );
