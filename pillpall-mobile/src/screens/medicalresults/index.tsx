@@ -50,7 +50,7 @@ const MedicalResults: FC = () => {
           if (response.data.status === 'success') {
             const formattedResults = response.data.results.map((result: MedicalResult) => ({
               ...result,
-              uri: `http://192.168.0.100:8000/storage/images/${result.file_name}`,
+              uri: `http://192.168.0.100:8000/storage/storage/images/${result.file_name}`,
             }));
             setResults(formattedResults);
             setIsSuccess(true);
