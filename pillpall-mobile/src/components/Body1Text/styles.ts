@@ -4,7 +4,7 @@ import appStyles from '../../constants/appStyles';
 const styles = StyleSheet.create({
     text: {
         ...appStyles.body1, 
-        textAlign: 'justify',
+        // textAlign: 'justify',
         marginBottom: 8,
     },
 });
