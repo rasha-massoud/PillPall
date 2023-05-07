@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, ScrollView, Alert } from 'react-native';
+import { SafeAreaView, ScrollView, Alert, View, TouchableOpacity, Image, Text } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import PageTitle from '../../components/PageTitle';
 import Body1Text from '../../components/Body1Text';
@@ -11,6 +11,9 @@ import StepText from '../../components/StepText';
 import { useNavigation } from '@react-navigation/core';
 import { useDispatch, useSelector } from "react-redux";
 import { setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, } from "../../store/slices/reportSlice";
+import * as ImagePicker from 'expo-image-picker';
+import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
+import { Ionicons } from '@expo/vector-icons';
 
 import styles from './styles';
 
@@ -22,11 +25,24 @@ const ContactInfo: FC = () => {
 
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const handleImageSelected = (file: File | null) => {
-    setSelectedFile(file);
-    dispatch(setImage(file));
+  const pickImage = async () => {
+      let result: ImagePickerResult = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+  
+      console.log(result);
+      setSelectedImage(result.uri);
+      setImage(result.uri);
+  };
+  
+    const clearImage = () => {
+      setSelectedImage(null);
+      setImage(result.uri);
   };
   
   const [contactInfoData, setContactInfoData] = useState<ContactInfoData>({
@@ -75,7 +91,7 @@ const ContactInfo: FC = () => {
   };
 
   const handleContinuePress = async () => {
-    if(selectedFile && username && emailAddress && location && DOB && chosenGender && phone){
+    if(selectedImage && username && emailAddress && location && DOB && chosenGender && phone){
       navigation.navigate("AnthropometricMeasurements" as never, {} as never);
     }
     else{
@@ -98,8 +114,25 @@ const ContactInfo: FC = () => {
 
       <Body1Text context="To provide you with the best care possible, we need your contact information, such as your phone number, date of birth, address, and gender. This information helps us keep in touch with you and keep your medical records up-to-date."></Body1Text>
 
-      <AddImage onImageSelected={handleImageSelected} />
-
+      <View style={styles.container1}>
+            {selectedImage ? (
+                <>
+                    <TouchableOpacity onPress={pickImage} style={styles.changeImage}>
+                        <Ionicons name="camera-outline" size={24} color="#fff" />
+                        <Text style={styles.changeImageText}>Change Image</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={clearImage}>
+                        <Image source={{ uri: selectedImage }} style={styles.image} />
+                    </TouchableOpacity>
+                    </>
+                ) : (
+                    <TouchableOpacity onPress={pickImage} style={styles.addImage}>
+                    <Ionicons name="add-outline" size={24} color="#fff" />
+                    <Text style={styles.addImageText}>Add Image</Text>
+                    </TouchableOpacity>
+                )
+            }
+        </View>
       <ScrollView>
         <TextInputwithLabel label='Name' placeholder='Enter your Username' textinputprops={{ secureTextEntry: false}} onChangeText= {handleNameChange} />
         <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
