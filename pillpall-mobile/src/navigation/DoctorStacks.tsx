@@ -20,7 +20,7 @@ export const WelcomeDoctorStack = () => {
 
 export const ProfileStack = () => {
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: 'white' } }}>
             <Stack.Screen name="Profile" component={Profile} />
             <Stack.Screen name="EditProfile" component={EditProfile} />
         </Stack.Navigator>
@@ -29,7 +29,7 @@ export const ProfileStack = () => {
 
 export const PatientStack = () => {
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: 'white' } }}>
             <Stack.Screen name="DoctorSearch" component={DoctorSearch} />
             <Stack.Screen name="PatientReport" component={PatientReport} />
             <Stack.Screen name="PatientResult" component={PatientResult} />
