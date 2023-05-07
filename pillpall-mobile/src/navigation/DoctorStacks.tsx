@@ -12,8 +12,8 @@ const Stack = createStackNavigator();
 
 export const WelcomeDoctorStack = () => {
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="FillProfile" component={FillProfile} />
+        <Stack.Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: 'white' } }}>
+            <Stack.Screen name="FillProfile" component={FillProfile} />
         </Stack.Navigator>
     );
 };
