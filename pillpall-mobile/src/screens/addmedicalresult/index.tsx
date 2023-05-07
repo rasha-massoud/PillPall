@@ -150,7 +150,7 @@ const AddMedicalResult: FC = () => {
             />
             
             <Image
-                source={require('../../../assets/addresultscreen.png')}
+                source={require('../../../assets/118249-removebg-preview.png')}
                 style={styles.image}
             />        
 
