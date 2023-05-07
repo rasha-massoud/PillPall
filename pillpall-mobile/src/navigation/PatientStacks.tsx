@@ -26,7 +26,7 @@ const Stack = createStackNavigator();
 
 export const WelcomePatientStack = () => {
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: 'white' } }}>
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="ContactInfo" component={ContactInfo} />
         <Stack.Screen name="AnthropometricMeasurements" component={AnthropometricMeasurements} />
@@ -40,7 +40,7 @@ export const WelcomePatientStack = () => {
 
 export const ReportStack = () => {
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: 'white' } }}>
             <Stack.Screen name="Report" component={Report} />
             <Stack.Screen name="EditReport" component={EditReport} />
         </Stack.Navigator>
@@ -49,7 +49,7 @@ export const ReportStack = () => {
 
 export const MedicationScheduleStack = () => {
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: 'white' } }}>
         <Stack.Screen name="MedicationSchedule" component={MedicationSchedule} />
         <Stack.Screen name="AddMedicine" component={AddMedicine} />
         <Stack.Screen name="DeleteMedicine" component={DeleteMedicine} />
@@ -61,7 +61,7 @@ export const MedicationScheduleStack = () => {
 
 export const MedicalStack = () => {
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: 'white' } }}>
             <Stack.Screen name="PatientSearch" component={PatientSearch} />
             <Stack.Screen name="FileNum" component={FileNum} />
             <Stack.Screen name="AddFileNumber" component={AddFileNumber} />
