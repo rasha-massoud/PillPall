@@ -92,40 +92,49 @@ const ChangePassword: FC = () => {
     };
 
     const handleLogout = async () => {
-        await AsyncStorage.clear();
-
-        const endpoint = 'logout';
-        await axios.post(`${API_URL}${endpoint}`, {
-            headers: {
-                'Accept': 'application/json',
-            },
-        })
-        .then((response) => {
-            if (response.data.status == 'success'){
-                dispatch(setIsLoggedIn('0'));
-                Alert.alert(
-                    "Confirmation",
-                    "Are you sure you want to logout?",
-                    [
-                        {
-                            text: "Stay",
-                            style: "cancel",
-                        },
-                        {
-                            text: "Accept",
-                            onPress: () => {
-                                navigation.navigate("Login" as never, {} as never);
+        try {
+          const token = await AsyncStorage.getItem('token');
+          const endpoint = 'logout';
+          
+          const headers = {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          };
+          
+          await axios.post(`${API_URL}${endpoint}`, {}, { headers })
+            .then(async (response) => {
+                await AsyncStorage.clear();
+                navigation.navigate('Login' as never, {} as never);
+            
+                    if (response.data.status === 'success') {
+                        dispatch(setIsLoggedIn('0'));
+                        Alert.alert(
+                        'Confirmation',
+                        'Are you sure you want to logout?',
+                        [
+                            {
+                                text: 'Stay',
+                                style: 'cancel',
                             },
-                        },
-                    ]
-                );             
-            }
-        })
-        .catch((error) => {
-            console.error('An error occurred during logout');
-        });
-
-    }
+                            {
+                                text: 'Accept',
+                                onPress: () => {
+                                    navigation.navigate('Login' as never, {} as never);
+                                },
+                            },
+                        ]
+                        );
+                    }
+            })
+            .catch((error) => {
+                console.error('An error occurred during logout', error);
+            });
+        } catch (error) {
+            console.error(error);
+        }
+    };
+      
 
     return (
     
