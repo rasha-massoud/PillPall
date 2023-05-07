@@ -94,6 +94,7 @@ class DoctorController extends Controller{
 
             $patient = User::where('name', 'like', $request->name)
                         ->where('role', 'patient')
+                        ->with('patientsInfo')
                         ->first();
 
             if (!$patient) {
