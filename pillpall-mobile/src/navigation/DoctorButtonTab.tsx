@@ -15,6 +15,7 @@ const DoctorButtonTab = () => {
             screenOptions={{ headerShown: false,  
                 tabBarStyle: {backgroundColor: colors.blue, height: 92},
                 tabBarLabelStyle: { fontSize: 16, fontWeight: 'bold' }, 
+                tabBarActiveTintColor: 'white',
             }}       
         >            
             <Tabs.Screen
