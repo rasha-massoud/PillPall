@@ -1,50 +1,34 @@
-#include <SoftwareSerial.h>
-#include <ArduinoJson.h>
+#include <ESP8266WiFi.h>
+#include <ESP8266WebServer.h>
 
-SoftwareSerial bluetoothSerial(10, 11);
-
+const char* ssid = "Kent 100";
+const char* password = "Rash@1998";
 const int buzzerPin = 8;
 
-void setup() {
-    Serial.begin(9600);  
-    bluetoothSerial.begin(9600);
+ESP8266WebServer server(80);
 
-    pinMode(buzzerPin, OUTPUT);
+void handleBuzzRequest() {
+  int duration = server.arg("duration").toInt();
+  
+  digitalWrite(buzzerPin, HIGH);
+  delay(duration * 1000);
+  digitalWrite(buzzerPin, LOW);
+
+  server.send(200, "text/plain", "Buzzer activated");
+}
+
+void setup() {
+  pinMode(buzzerPin, OUTPUT);
+  
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+  }
+  
+  server.on("/buzz", handleBuzzRequest);
+  server.begin();
 }
 
 void loop() {
-    if (bluetoothSerial.available()) {
-        String jsonData = bluetoothSerial.readStringUntil('\n');
-        
-        Serial.print("Received JSON data: ");
-        Serial.println(jsonData);
-        
-        StaticJsonDocument<256> doc;
-        DeserializationError error = deserializeJson(doc, jsonData);
-        
-        if (error) {
-            Serial.print("Failed to parse JSON: ");
-            Serial.println(error.c_str());
-            return;
-        }
-        
-        if (doc.containsKey("medications")) {
-            JsonArray medications = doc["medications"].as<JsonArray>();
-            
-            int currentTime = hour() * 100 + minute();
-            
-            for (JsonObject medication : medications) {
-                String name = medication["name"].as<String>();
-                int dosage = medication["dosage"].as<int>();
-                int timing = medication["timing"].as<int>();
-                
-                if (timing == currentTime) {
-                    digitalWrite(buzzerPin, HIGH);
-                    delay(3000);
-                    digitalWrite(buzzerPin, LOW);
-                }
-                
-            }
-        }
-    }
+  server.handleClient();
 }
