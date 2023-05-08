@@ -11,9 +11,6 @@ import StepText from '../../components/StepText';
 import { useNavigation } from '@react-navigation/core';
 import { useDispatch, useSelector } from "react-redux";
 import { setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, } from "../../store/slices/reportSlice";
-import * as ImagePicker from 'expo-image-picker';
-import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
-import { Ionicons } from '@expo/vector-icons';
 
 import styles from './styles';
 
@@ -25,36 +22,36 @@ const ContactInfo: FC = () => {
 
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  // const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const pickImage = async () => {
-      let result: ImagePickerResult = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 1,
-      });
+  // const pickImage = async () => {
+  //     let result: ImagePickerResult = await ImagePicker.launchImageLibraryAsync({
+  //       mediaTypes: ImagePicker.MediaTypeOptions.All,
+  //       allowsEditing: true,
+  //       aspect: [4, 3],
+  //       quality: 1,
+  //     });
   
-      const fileExtension = result.split('.').pop() || '';
+  //     const fileExtension = result.split('.').pop() || '';
 
-      const fileName = `image_${Date.now()}.${fileExtension}`;
+  //     const fileName = `image_${Date.now()}.${fileExtension}`;
     
-      const file = {
-        uri: result,
-        name: fileName,
-        type: `image/${fileExtension}`,
-      };
+  //     const file = {
+  //       uri: result,
+  //       name: fileName,
+  //       type: `image/${fileExtension}`,
+  //     };
 
-      console.log(result);
-      setSelectedImage(result.uri);
+  //     console.log(result);
+  //     setSelectedImage(result.uri);
       
-      setImage(file);
-  };
+  //     setImage(file);
+  // };
   
-    const clearImage = () => {
-      setSelectedImage(null);
-      setImage(result.uri);
-  };
+  //   const clearImage = () => {
+  //     setSelectedImage(null);
+  //     setImage(result.uri);
+  // };
   
   const [contactInfoData, setContactInfoData] = useState<ContactInfoData>({
     gender: undefined
@@ -102,7 +99,7 @@ const ContactInfo: FC = () => {
   };
 
   const handleContinuePress = async () => {
-    if(selectedImage && username && emailAddress && location && DOB && chosenGender && phone){
+    if( username && emailAddress && location && DOB && chosenGender && phone){
       navigation.navigate("AnthropometricMeasurements" as never, {} as never);
     }
     else{
@@ -125,7 +122,7 @@ const ContactInfo: FC = () => {
 
       <Body1Text context="To provide you with the best care possible, we need your contact information, such as your phone number, date of birth, address, and gender. This information helps us keep in touch with you and keep your medical records up-to-date."></Body1Text>
 
-      <View style={styles.container1}>
+      {/* <View style={styles.container1}>
             {selectedImage ? (
                 <>
                     <TouchableOpacity onPress={pickImage} style={styles.changeImage}>
@@ -143,7 +140,7 @@ const ContactInfo: FC = () => {
                     </TouchableOpacity>
                 )
             }
-        </View>
+        </View> */}
       <ScrollView>
         <TextInputwithLabel label='Name' placeholder='Enter your Username' textinputprops={{ secureTextEntry: false}} onChangeText= {handleNameChange} />
         <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
