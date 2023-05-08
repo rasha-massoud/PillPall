@@ -44,20 +44,19 @@ class MedicationReminderCommand extends Command{
                 $this->info('No medications to remind at the current time.');
             }
         } catch(Exception $e){
-            return response()->json([
-                'status' => 'error',
-                'message' => 'An error occurred while sending the medications to the Arduino'
-            ]);
+            $this->error('Error message from the handle function');
         }
     }
 
     private function sendCommandToArduino(){
 
-        // $arduinoIpAddress = 'ARDUINO-IP';
-        
-        // $client = new Client();
-        // $response = $client->get("http://{$arduinoIpAddress}/ring-buzzer");
+        $arduinoIp = '192.168.0.132';
+        $buzzDuration = 5;
 
+        $client = new Client();
+        $url = "http://{$arduinoIp}/buzz?duration={$buzzDuration}";
+
+        $response = $client->get($url);
         // $statusCode = $response->getStatusCode();
     }
 }
