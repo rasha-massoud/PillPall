@@ -12,6 +12,14 @@ import PageTitle from '../../components/PageTitle';
 
 import styles from './styles';
 
+interface PatientReportProps {
+  route: {
+      params: {
+        patientId: number;
+      };
+  };
+}
+
 interface Patient {
   name: string;
   email: string;
@@ -41,7 +49,9 @@ interface Patient {
   }
 }
 
-const PatientReport: React.FC = () => {
+const PatientReport: FC<PatientReportProps> = ({route }) => {
+
+  const { patientId } = route.params;
 
   const navigation = useNavigation();
 
@@ -55,19 +65,19 @@ const PatientReport: React.FC = () => {
       const token = await AsyncStorage.getItem('token');
       setLoading(true);
       try {
-        const endpoint = 'patient/get_report';
-        const response = await axios.get<{ user: Patient }>(
-          `${API_URL}${endpoint}`,
+        const endpoint = 'doctor/get_patient_report';
+        const response = await axios.get<any>(
+          `${API_URL}${endpoint}/${patientId}`,
           {
             headers: {
-              Accept: 'application/json',
-              Authorization: `Bearer ${token}`,
+              'Accept': 'application/json',
+              'Authorization': `Bearer ${token}`,
               'Content-Type': 'application/json',
             },
           }
         );
+        console.log(response.data);
         setAllResult(response.data);
-        setResult(response.data.user);
       } catch (error) {
         console.error('An error occurred while getting the report', error);
       } finally {
@@ -104,95 +114,95 @@ const PatientReport: React.FC = () => {
             </View>
         </View>
 
-        {result && allResult.status === 'success' ? (
+        {allResult && allResult.status === 'success' ? (
 
         <View>
           <ScrollView>
             <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals." />
 
             <View>
-                <DisplayData title='Name' value={result.name} />
-                <DisplayData title='Email' value={result.email} />
-                <DisplayData title='Phone Number' value={result.patients_info.phone_number} />
-                <DisplayData title='Date of Birth' value={result.patients_info.dob} />
-                <DisplayData title='Address' value={result.patients_info.address} />
-                <DisplayData title='Gender' value={result.patients_info.gender} />
+                <DisplayData title='Name' value={allResult.patient.name} />
+                <DisplayData title='Email' value={allResult.patient.email} />
+                <DisplayData title='Phone Number' value={allResult.report[0].phone_number} />
+                <DisplayData title='Date of Birth' value={allResult.report[0].dob} />
+                <DisplayData title='Address' value={allResult.report[0].address} />
+                <DisplayData title='Gender' value={allResult.report[0].gender} />
             </View>
         
             <View>
-                <DisplayData title='Blood Type' value={result.patients_info.blood_type} />
-                <DisplayData title='Height' value={`${result.patients_info.height} cm`} />
-                <DisplayData title='Weight' value={`${result.patients_info.weight} kg`} />
+                <DisplayData title='Blood Type' value={allResult.report[0].blood_type} />
+                <DisplayData title='Height' value={`${allResult.report[0].height} cm`} />
+                <DisplayData title='Weight' value={`${allResult.report[0].weight} kg`} />
             </View>
         
             <View>
                 <DisplayData
                 title='Emergency Contact Name'
-                value={result.patients_info.emergency_name}
+                value={allResult.report[0].emergency_name}
                 />
                 <DisplayData
                 title='Emergency Contact Number'
-                value={result.patients_info.emergency_number}
+                value={allResult.report[0].emergency_number}
                 />
                 <DisplayData
                 title='Emergency Contact Email'
-                value={result.patients_info.emergency_email}
+                value={allResult.report[0].emergency_email}
                 />
                 <DisplayData
                 title='Emergency Contact Relation'
-                value={result.patients_info.emergency_contact_relation}
+                value={allResult.report[0].emergency_contact_relation}
                 />
             </View>
         
             <View>
                 <DisplayData
                 title='Body Temperature'
-                value={`${result.patients_info.body_temperature} °C`}
+                value={`${allResult.report[0].body_temperature} °C`}
                 />
                 <DisplayData
                 title='Pulse Rate'
-                value={`${result.patients_info.pulse_rate} bpm`}
+                value={`${allResult.report[0].pulse_rate} bpm`}
                 />
                 <DisplayData
                 title='Respiration Rate'
-                value={`${result.patients_info.respiration_rate} breaths/min`}
+                value={`${allResult.report[0].respiration_rate} breaths/min`}
                 />
                 <DisplayData
                 title='Systolic Blood Pressure'
-                value={`${result.patients_info.systolic_blood_pressure} mmHg`}
+                value={`${allResult.report[0].systolic_blood_pressure} mmHg`}
                 />
             </View>
         
             <View>
                 <DisplayData
                 title='Chronic Conditions or Illness'
-                value={result.patients_info.chronic_conditions}
+                value={allResult.report[0].chronic_conditions}
                 />
                 <DisplayData
                 title='Past Surgeries'
-                value={result.patients_info.past_surgeries}
+                value={allResult.report[0].past_surgeries}
                 />
                 <DisplayData
                 title='Family Medical History'
-                value={result.patients_info.family_medical_history}
+                value={allResult.report[0].family_medical_history}
                 />
                 <DisplayData
                 title='Allergies'
-                value={result.patients_info.allergies}
+                value={allResult.report[0].allergies}
                 />
             </View>
 
             <View>
                 <DisplayData
                 title='Medications'
-                value={result.patients_info.medications}
+                value={allResult.report[0].medications}
                 />
             </View>
 
             <View>
                 <DisplayData
                 title='Life Style Habits'
-                value={result.patients_info.life_style_habits}
+                value={allResult.report[0].life_style_habits}
                 />
             </View>
           </ScrollView>  
