@@ -9,8 +9,11 @@ import CustomButton from '../../components/CustomButton';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
-
+import { useDispatch, useSelector } from "react-redux";
+import { colors } from '../../constants/palette';
 import styles from './styles';
+import Body1Text from '../../components/Body1Text';
+import SubTitleText from '../../components/SubTitleText';
 
 interface Patient {
     id: number;
@@ -76,8 +79,6 @@ const DoctorSearch: FC = () => {
                 },
             });
 
-        console.log(response.data);
-
         if (response.data.patient) {
             const patient = response.data.patient;
             const patientData: Patient = {
@@ -136,20 +137,21 @@ const DoctorSearch: FC = () => {
             <NavBar title="Patient Search" />
             <Image source={require('../../../assets/doctorsearchscreen.png')} style={styles.image} />
     
+            <Text style={styles.details}>To ensure security and privacy, only approved doctors have the privilege to utilize this particular feature. Furthermore, they can only view the data of the patients who are directly connected to them.</Text>
             <TextInputwithLabel
                 label="Name"
                 placeholder="Enter the Connected Patient's Name"
                 textinputprops={{ secureTextEntry: false }}
                 onChangeText={handleNameChange}
             />
-            <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Search", onPress: handleSearchPress }} />
+            <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 35 }} buttonprops={{ title: "Search", onPress: handleSearchPress }} />
     
             {isLoading ? (
                 <Text style={{ alignSelf: 'center', marginVertical: 20 }}>Loading...</Text>
             ) : (
                 <>
                     {patientData.length === 0 ? (
-                        <Text style={{ alignSelf: 'center', color: 'red', marginVertical: 20 }}>No connected patient found.</Text>
+                        <Text style={{ alignSelf: 'center', marginVertical: 20 }}>No connected patient found.</Text>
                     ) : (
                         <FlatList
                             data={patientData}

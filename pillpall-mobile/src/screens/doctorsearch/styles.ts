@@ -3,6 +3,7 @@ import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import { Dimensions } from 'react-native';
 import appStyles from '../../constants/appStyles';
 import { colors } from '../../constants/palette';
+import { color } from 'react-native-reanimated';
 
 interface Styles {
     container: ViewStyle;
@@ -12,6 +13,7 @@ interface Styles {
     data: TextStyle;
     buttons: ViewStyle;
     btnText: TextStyle;
+    details: TextStyle;
 }
 
 const { width, height } = Dimensions.get('window');
@@ -59,9 +61,12 @@ const styles = StyleSheet.create<Styles>({
         textDecorationLine: 'underline',
         ...appStyles.button,
         fontWeight: '600',
+    },
+    details: {
+        ...appStyles.body2,
+        borderRadius: 10,
+        color: colors.darker_gray,
     }
-
-
 });
 
 export default styles;
