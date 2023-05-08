@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, Alert } from 'react-native';
+import { SafeAreaView, ScrollView, Alert, View, TouchableOpacity, Image, Text } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import PageTitle from '../../components/PageTitle';
 import Body1Text from '../../components/Body1Text';
@@ -56,6 +56,24 @@ const MedicationsAndHabits: FC = () => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [currentMedicationsHistory, setCurrentMedications] = useState<string>('');
 
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const pickImage = async () => {
+      let result: ImagePickerResult = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+  
+      console.log(result);
+      setSelectedImage(result.uri);
+  };
+  
+    const clearImage = () => {
+      setSelectedImage(null);
+  };
+
   const handleSelectOption = (options: string[]) => {
     setSelectedOptions(options);
     dispatch(setLifeStyleHabits(options));
@@ -72,10 +90,6 @@ const MedicationsAndHabits: FC = () => {
 
   const email = useSelector(
     (state: RootState) => state.report.email
-  );
-
-  const image = useSelector(
-    (state: RootState) => state.report.image
   );
 
   const phone_number = useSelector(
@@ -186,18 +200,16 @@ const MedicationsAndHabits: FC = () => {
       data.append('allergies', allergies);
       data.append('life_style_habits', life_style_habits);
       data.append('medications', medications);
-      const fileExtension = image.split('.').pop() || '';
+      const fileExtension = selectedImage.split('.').pop() || '';
       const fileName = `image_${Date.now()}.${fileExtension}`;
   
       const file = {
-        uri: image,
+        uri: selectedImage,
         name: fileName,
         type: `image/${fileExtension}`,
       };
         
       data.append('image', file);
-
-      data.append('image', image);
 
       console.log(data);
       const token = await AsyncStorage.getItem('token');
@@ -249,6 +261,27 @@ const MedicationsAndHabits: FC = () => {
       <StepText title='Step 6' color={colors.blue}></StepText>
 
       <Body1Text context="Finally, you are asked to fill your current medications and lifestyle habits. This information is important for healthcare professionals to determine potential drug interactions, as well as to provide guidance on healthy lifestyle habits that can help improve the patient's overall health."></Body1Text>
+
+
+      <View style={styles.container1}>
+            {selectedImage ? (
+                <>
+                    <TouchableOpacity onPress={pickImage} style={styles.changeImage}>
+                        <Ionicons name="camera-outline" size={24} color="#fff" />
+                        <Text style={styles.changeImageText}>Change Image</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={clearImage}>
+                        <Image source={{ uri: selectedImage }} style={styles.image} />
+                    </TouchableOpacity>
+                    </>
+                ) : (
+                    <TouchableOpacity onPress={pickImage} style={styles.addImage}>
+                    <Ionicons name="add-outline" size={24} color="#fff" />
+                    <Text style={styles.addImageText}>Add Image</Text>
+                    </TouchableOpacity>
+                )
+            }
+        </View>
 
       <TextInputwithLabel label="Current Medications" placeholder='Enter your Current Medications if any' textinputprops={{ secureTextEntry: false }} onChangeText= {handleCurrentMedicationsChange} />
       

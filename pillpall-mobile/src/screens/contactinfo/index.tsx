@@ -35,9 +35,20 @@ const ContactInfo: FC = () => {
         quality: 1,
       });
   
+      const fileExtension = result.split('.').pop() || '';
+
+      const fileName = `image_${Date.now()}.${fileExtension}`;
+    
+      const file = {
+        uri: result,
+        name: fileName,
+        type: `image/${fileExtension}`,
+      };
+
       console.log(result);
       setSelectedImage(result.uri);
-      setImage(result.uri);
+      
+      setImage(file);
   };
   
     const clearImage = () => {
