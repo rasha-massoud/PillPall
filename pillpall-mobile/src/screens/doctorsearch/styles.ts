@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import { Dimensions } from 'react-native';
 import appStyles from '../../constants/appStyles';
+import { colors } from '../../constants/palette';
 
 interface Styles {
     container: ViewStyle;
@@ -9,6 +10,8 @@ interface Styles {
     card: ViewStyle;
     img: ImageStyle;
     data: TextStyle;
+    buttons: ViewStyle;
+    btnText: TextStyle;
 }
 
 const { width, height } = Dimensions.get('window');
@@ -41,10 +44,24 @@ const styles = StyleSheet.create<Styles>({
     },
     data: {
         flexDirection: 'column',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         alignItems: 'flex-start',
         ...appStyles.body1,
     },
+    buttons: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignSelf: 'center',
+        gap: 42,
+    },
+    btnText: {
+        color: colors.blue,
+        textDecorationLine: 'underline',
+        ...appStyles.button,
+        fontWeight: '600',
+    }
+
+
 });
 
 export default styles;

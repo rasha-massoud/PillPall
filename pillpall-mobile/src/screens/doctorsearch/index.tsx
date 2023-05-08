@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { SafeAreaView, Image, FlatList } from 'react-native';
+import { SafeAreaView, Image, FlatList, TouchableOpacity } from 'react-native';
 import { Text } from 'react-native-elements';
 import axios from 'axios';
 import { View } from 'react-native';
@@ -8,6 +8,7 @@ import TextInputwithLabel from '../../components/TextInputwithLabel';
 import CustomButton from '../../components/CustomButton';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/core';
 
 import styles from './styles';
 
@@ -46,6 +47,9 @@ interface Patient {
 }
 
 const DoctorSearch: FC = () => {
+
+    const navigation = useNavigation();
+
     const [name, setName] = useState('');
     const [patientData, setPatientData] = useState<Patient[]>([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -119,6 +123,14 @@ const DoctorSearch: FC = () => {
 
     };
     
+    const handleReportPress = (patientId: number) => {
+        navigation.navigate('PatientReport' as never, { patientId } as never);
+    };
+
+    const handleResultPress = (patientId: number) => {
+        navigation.navigate('PatientResult' as never, { patientId } as never);
+    };
+    
     return (
         <SafeAreaView style={styles.container}>
             <NavBar title="Patient Search" />
@@ -150,6 +162,15 @@ const DoctorSearch: FC = () => {
                                         <Text>{item.email}</Text>
                                         <Text>{item.patients_info.address}</Text>
                                         <Text>{item.patients_info.phone_number}</Text>
+                                        <View style={styles.buttons}>
+                                            <TouchableOpacity onPress={() => handleReportPress(item.id)}>
+                                                <Text style={styles.btnText}> Report</Text>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity onPress={() => handleResultPress(item.id)}>
+                                                <Text style={styles.btnText}> Result</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                    
                                     </View>
                               </View>
                             )}
