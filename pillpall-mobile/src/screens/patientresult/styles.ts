@@ -37,6 +37,12 @@ const styles = StyleSheet.create({
       fontSize: 14,
       color: '#888888',
     },
+    empty: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      alignSelf: 'center',
+    }
 });
 
 export default styles;

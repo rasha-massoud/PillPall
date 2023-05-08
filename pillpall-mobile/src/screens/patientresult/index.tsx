@@ -46,81 +46,86 @@ const PatientResult: FC<PatientReportProps> = ({route}) => {
             const endpoint = 'doctor/get_patient_results';
         
             await axios
-              .get(`${API_URL}${endpoint}/${patientId}`, {
-                headers: {
-                  Accept: 'application/json',
-                  Authorization: `Bearer ${token}`,
-                  'Content-Type': 'multipart/form-data',
-                },
-              })
-              .then((response) => {
-                console.log(response.data);
-                setIsLoading(false);
-                console.log(response.data);
-                if (response.data.status === 'success') {
-                  const formattedResults = response.data.results.map((result: PatientResultData) => ({
-                    ...result,
-                    uri: `http://192.168.0.100:8000/storage/storage/images/${result.file_name}`,
-                  }));
-                  setResults(formattedResults);
-                  setIsSuccess(true);
-                } else {
-                  setIsSuccess(false);
-                  setIsLoading(true);
-                  Alert.alert(
-                    'Failure',
-                    'Request Fails.',
-                    [{ text: 'OK' }],
-                    { cancelable: false }
-                  );
-                }
-              })
-              .catch((error) => {
-                console.error('An error occurred while getting the medical results');
-              });
-          };
+                .get(`${API_URL}${endpoint}/${patientId}`, {
+                    headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data',
+                    },
+                })
+                .then((response) => {
+                    setIsLoading(false);
+                    if (response.data.status === 'success') {
+                        const formattedResults = response.data.results.map((result: PatientResultData) => ({
+                            ...result,
+                            uri: `http://192.168.0.100:8000/storage/storage/images/${result.file_name}`,
+                        }));
+                        setResults(formattedResults);
+                        setIsSuccess(true);
+                    } else {
+                        setIsSuccess(false);
+                        setIsLoading(false);
+                        Alert.alert(
+                            'Failure',
+                            'Request Fails.',
+                            [{ text: 'OK' }],
+                            { cancelable: false }
+                        );
+                    }
+                })
+                .catch((error) => {
+                    console.error('An error occurred while getting the medical results');
+                });
+            };
         
-          fetchData();
+            fetchData();
         }, []);
 
-        const handleOpenFile = (uri: string) => {
-            Linking.canOpenURL(uri)
-              .then((supported) => {
+    const handleOpenFile = (uri: string) => {
+        Linking.canOpenURL(uri)
+            .then((supported) => {
                 if (supported) {
-                  Linking.openURL(uri);
+                    Linking.openURL(uri);
                 } else {
-                  console.error('Cannot open URL:', uri);
+                    console.error('Cannot open URL:', uri);
                 }
-              })
-              .catch((error) => {
+            })
+            .catch((error) => {
                 console.error('An error occurred while opening the file:', error);
-              });
-          };
+            });
+    };
 
-          const renderItem = ({ item }: { item: PatientResultData }) => (
-            <TouchableOpacity
-              style={styles.cardContainer}
-              onPress={() => handleOpenFile(item.uri)}
-            >
-              <View>
-                <Text style={styles.testingDate}>{item.testing_date}</Text>
-                <Text style={styles.description}>{item.description}</Text>
-              </View>
-            </TouchableOpacity>
-          );
+    const renderItem = ({ item }: { item: PatientResultData }) => (
+        <TouchableOpacity
+            style={styles.cardContainer}
+            onPress={() => handleOpenFile(item.uri)}
+        >
+            <View>
+            <Text style={styles.testingDate}>{item.testing_date}</Text>
+            <Text style={styles.description}>{item.description}</Text>
+            </View>
+        </TouchableOpacity>
+    );
 
     return (
         <SafeAreaView style={styles.container}>
-        <NavBar title="Medical Results"/>
+            <NavBar title="Medical Results"/>
 
-        <FlatList
-            style={styles.flatList}
-            data={results}
-            renderItem={renderItem}
-            keyExtractor={(item, index) => index.toString()}
-        />
-
+            {isLoading ? (
+                <Text>Loading...</Text>
+            ) : isSuccess && results.length > 0 ? (
+                <FlatList style={styles.flatList}
+                    data={results}
+                    renderItem={renderItem}
+                    keyExtractor={(item, index) => index.toString()}
+                />
+            ) : (
+                <View style={styles.empty}>
+                    <Text>This user has no posted results</Text>
+                </View>
+            )}
         </SafeAreaView>
+
     );
 };
 
