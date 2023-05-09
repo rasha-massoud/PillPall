@@ -12,9 +12,9 @@ interface GenderCheckBoxProps {
 
 const GenderCheckBox: FC<GenderCheckBoxProps> = (props) => {
   const genderOptions = [
-    { label: 'Female', value: 'female' },
-    { label: 'Male', value: 'male' },
-    { label: 'Other', value: 'other' },
+    { label: 'Female', value: 'Female' },
+    { label: 'Male', value: 'Male' },
+    { label: 'Other', value: 'Other' },
   ];
 
   return (
