@@ -108,13 +108,9 @@ const ChangePassword: FC = () => {
                     if (response.data.status === 'success') {
                         dispatch(setIsLoggedIn('0'));
                         Alert.alert(
-                        'Confirmation',
-                        'Are you sure you want to logout?',
+                        'Bye bye PillPaller',
+                        'Wishing you good health and safety!',
                         [
-                            {
-                                text: 'Stay',
-                                style: 'cancel',
-                            },
                             {
                                 text: 'Accept',
                                 onPress: () => {
