@@ -18,6 +18,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
 import { Ionicons } from '@expo/vector-icons';
 import * as FileSystem from 'expo-file-system';
+import SubTitleText from '../../components/SubTitleText';
 
 const MONTHS: Month[] = ['All', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -235,6 +236,8 @@ const AddMedicine: FC = () => {
                     title="Add Medicine"
                     image1={{ source: require('../../../assets/back.png'), onPress: handleBackPress }}
                 />
+                <SubTitleText title='Same medication with a different schedule should be entered separately.' />
+
                 <View style={styles.container1}>
                     {selectedImage ? (
                         <>
