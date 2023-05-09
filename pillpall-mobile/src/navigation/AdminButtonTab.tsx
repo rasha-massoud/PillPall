@@ -13,7 +13,7 @@ const AdminButtonTab = () => {
         <Tabs.Navigator
             screenOptions={({ route }) => ({
                 headerShown: false,
-                tabBarStyle: { backgroundColor: colors.blue, height: 92 },
+                tabBarStyle: { backgroundColor: colors.black, height: 92 },
                 tabBarLabelStyle: { fontSize: 16, fontWeight: 'bold' },
                 tabBarActiveTintColor: 'white',
                 tabBarIcon: ({ focused }) => {
