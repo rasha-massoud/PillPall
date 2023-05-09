@@ -22,7 +22,7 @@ const MedicationItem: React.FC<MedicationItemProps> = ({
     <View style={styles.container}>
 
       <Text style={styles.name}>{name}</Text>
-      <Text style={styles.dosage}>{dosage}</Text>
+      <Text style={styles.dosage}>{dosage} unit</Text>
       <Text style={styles.timing}>{timing}</Text>
       <View style={styles.IMG}>
         {image && 

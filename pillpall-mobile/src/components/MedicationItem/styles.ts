@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     dosage: {
-        flex:0.2,
+        flex:0.25,
         ...appStyles.body2,
     },
     timing: {
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     name: {
-        flex:0.70,
+        flex:0.61,
         ...appStyles.body1,
         fontWeight: 'bold',
     },
