@@ -1,8 +1,9 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { useSelector } from "react-redux";
-import AuthNavigator from "./AuthNavigator";
-import PatientButtonTab from "./PatientButtonTab";
-import DoctorButtonTab from "./DoctorButtonTab";
+import { NavigationContainer } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
+import AuthNavigator from './AuthNavigator';
+import PatientButtonTab from './PatientButtonTab';
+import DoctorButtonTab from './DoctorButtonTab';
+import AdminButtonTab from './AdminButtonTab';
 
 import { WelcomePatientStack } from './PatientStacks';
 import { ReportStack } from './PatientStacks';
@@ -12,6 +13,11 @@ import { MedicalStack } from './PatientStacks';
 import { WelcomeDoctorStack } from './DoctorStacks';
 import { ProfileStack } from './DoctorStacks';
 import { PatientStack } from './DoctorStacks';
+
+
+import { PatientsStack } from './AdminStacks';
+import { ApprovedDoctorsStack } from './AdminStacks';
+import { UnapprovedDoctorsStack } from './AdminStacks';
 
 interface RootState {
    report: {
@@ -69,6 +75,14 @@ const StackSwitcher = () => {
       return (
          <NavigationContainer>
             <DoctorButtonTab />
+         </NavigationContainer>
+      ) 
+   }
+
+   if (is_logged_in === '1' && role === 'admin') {
+      return (
+         <NavigationContainer>
+            <AdminButtonTab />
          </NavigationContainer>
       ) 
    }
