@@ -191,4 +191,32 @@ class AdminController extends Controller{
             ]);
         }
     }
+
+    public function GetPatientReport($id){
+
+        try{
+            $patient = User::find($id);
+
+            if (!$patient || $patient->role != 'patient') {
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'No patient found with the given ID.'
+                ]);
+            }
+
+            $report = $patient->patientsInfo()->get();
+        
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Report retrieved successfully.',
+                'patient' => $patient,
+                'report' => $report
+            ]);
+        } catch (exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while returning the patient\'s report.'
+            ]);
+        }
+    }
 }
