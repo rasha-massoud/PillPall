@@ -144,7 +144,7 @@ const DeleteMedicine: FC = () => {
     
         <SafeAreaView style={styles.container}>
             <NavBar1
-                title="Budget Tracker"
+                title="Delete Medicine"
                 image1={{ source: require('../../../assets/back.png'), onPress: handleBackPress }}
             />
             <Image
