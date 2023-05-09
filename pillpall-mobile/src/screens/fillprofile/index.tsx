@@ -5,7 +5,6 @@ import PageTitle from '../../components/PageTitle';
 import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import GenderCheckBox from '../../components/GenderCheckBox';
-import StepText from '../../components/StepText';
 import axios from 'axios';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -200,7 +199,6 @@ const FillProfile: FC = () => {
   
     <SafeAreaView style={styles.container}>
       <PageTitle title='Profile' />
-      <StepText title='Step 1' color={colors.blue}></StepText>
 
       <ScrollView>
         <View style={styles.container1}>
