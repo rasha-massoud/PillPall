@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import { SafeAreaView, ScrollView, Alert, View, TouchableOpacity, Image, Text } from 'react-native';
-import NavBar from '../../components/NavBar';
+import NavBar1 from '../../components/NavBar1';
 import axios from 'axios';
 import styles from './styles';
 import AddImage from '../../components/AddImage';
@@ -96,6 +96,10 @@ const AddMedicine: FC = () => {
     const handleOnDemandSelect = (onDemand: string) => {
         setOnDemand(onDemand);
     };
+
+    const handleBackPress = () => {
+        navigation.navigate("MedicationSchedule" as never, {} as never);
+    }
 
     const handleAddPress = async () => {
 
@@ -227,8 +231,9 @@ const AddMedicine: FC = () => {
     
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                <NavBar
+                <NavBar1
                     title="Add Medicine"
+                    image1={{ source: require('../../../assets/back.png'), onPress: handleBackPress }}
                 />
                 <View style={styles.container1}>
                     {selectedImage ? (
