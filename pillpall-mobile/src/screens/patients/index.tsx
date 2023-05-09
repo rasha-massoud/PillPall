@@ -1,14 +1,14 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Alert, SafeAreaView, Text, View, FlatList } from 'react-native';
+import { Alert, SafeAreaView, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import NavBar1 from '../../components/NavBar1';
 import CustomButton from '../../components/CustomButton';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
-import { colors } from '../../constants/palette';
 import { useDispatch, useSelector } from "react-redux";
 import { setIsLoggedIn } from "../../store/slices/reportSlice";
+import SubTitleText from '../../components/SubTitleText';
 
 import styles from './styles';
 
@@ -23,7 +23,7 @@ const Patients: FC = () => {
     const dispatch = useDispatch();
 
     const navigation = useNavigation();
-    const [allPatients, setAllPatients] = useState([]);
+    const [allPatients, setAllPatients] = useState<Patient[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [isSuccess, setIsSuccess] = useState<boolean>(true);
 
@@ -65,7 +65,6 @@ const Patients: FC = () => {
         }
     }
 
-
     useEffect(() => {
         const fetchData = async () => {
         const token = await AsyncStorage.getItem('token');
@@ -81,7 +80,7 @@ const Patients: FC = () => {
         })
         .then((response) => {
             console.log(response.data);
-            // setAllPatients(response.data.file_numbers);
+            setAllPatients(response.data.user);
             setIsLoading(false);
             if (response.data.status !== "success"){
                 setIsSuccess(true);
@@ -111,7 +110,8 @@ const Patients: FC = () => {
             title="All Patients"
             image1={{ source: require('../../../assets/logout.png'), onPress: handleLogoutPress }}
         />
-  
+        <SubTitleText title="Press on the card to view the report"/>
+
         {allPatients.length === 0 && isSuccess && (
             <View style={styles.noDataContainer}>
                 <View>
@@ -121,8 +121,22 @@ const Patients: FC = () => {
         )}
   
         {allPatients.length !== 0 && isSuccess && (
-            //Display the data is flatList
-            <Text></Text>
+            <FlatList
+            data={allPatients}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('PatientReport', { patientId: item.id });
+                }}
+              >
+                <View style={styles.card}>
+                    <Text style={styles.nameText}>{item.name}</Text>
+                    <Text style={styles.emailText}>{item.email}</Text>
+                </View>
+              </TouchableOpacity>
+            )}
+          />
         )}
   
   
