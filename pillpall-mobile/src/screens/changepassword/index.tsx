@@ -104,9 +104,7 @@ const ChangePassword: FC = () => {
           
           await axios.post(`${API_URL}${endpoint}`, {}, { headers })
             .then(async (response) => {
-                await AsyncStorage.clear();
-                navigation.navigate('Login' as never, {} as never);
-            
+                await AsyncStorage.clear();            
                     if (response.data.status === 'success') {
                         dispatch(setIsLoggedIn('0'));
                         Alert.alert(
