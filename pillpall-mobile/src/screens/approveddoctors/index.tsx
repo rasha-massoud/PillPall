@@ -1,14 +1,14 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Alert, SafeAreaView, Text, View, FlatList } from 'react-native';
+import { Alert, SafeAreaView, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import NavBar1 from '../../components/NavBar1';
 import CustomButton from '../../components/CustomButton';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
-import { colors } from '../../constants/palette';
 import { useDispatch, useSelector } from "react-redux";
 import { setIsLoggedIn } from "../../store/slices/reportSlice";
+import SubTitleText from '../../components/SubTitleText';
 
 import styles from './styles';
 
@@ -23,7 +23,7 @@ const ApprovedDoctors: FC = () => {
     const dispatch = useDispatch();
 
     const navigation = useNavigation();
-    const [approvedDoctors, setApprovedDoctors] = useState([]);
+    const [approvedDoctors, setApprovedDoctors] = useState<Doctor[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [isSuccess, setIsSuccess] = useState<boolean>(true);
 
@@ -65,12 +65,11 @@ const ApprovedDoctors: FC = () => {
         }
     }
 
-
     useEffect(() => {
         const fetchData = async () => {
         const token = await AsyncStorage.getItem('token');
     
-        const endpoint = 'admin/get_patients';
+        const endpoint = 'admin/get_approved_doctors';
     
         await axios.get(`${API_URL}${endpoint}`, {
             headers: {
@@ -80,8 +79,7 @@ const ApprovedDoctors: FC = () => {
             },
         })
         .then((response) => {
-            console.log(response.data);
-            // setApprovedDoctors(response.data);
+            setApprovedDoctors(response.data.user);
             setIsLoading(false);
             if (response.data.status !== "success"){
                 setIsSuccess(true);
@@ -111,7 +109,8 @@ const ApprovedDoctors: FC = () => {
             title="Approved Doctors"
             image1={{ source: require('../../../assets/logout.png'), onPress: handleLogoutPress }}
         />
-  
+        <SubTitleText title="Press on the card to view the report"/>
+
         {approvedDoctors.length === 0 && isSuccess && (
             <View style={styles.noDataContainer}>
                 <View>
@@ -121,8 +120,22 @@ const ApprovedDoctors: FC = () => {
         )}
   
         {approvedDoctors.length !== 0 && isSuccess && (
-            //Display the data is flatList
-            <Text></Text>
+            <FlatList
+            data={approvedDoctors}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+                <TouchableOpacity
+                    onPress={() => {
+                    navigation.navigate('DoctorReportByAdmin' as never, { doctorId: item.id } as never);
+                    }}
+                >
+                    <View style={styles.card}>
+                        <Text style={styles.nameText}>{item.name}</Text>
+                        <Text style={styles.emailText}>{item.email}</Text>
+                    </View>
+                </TouchableOpacity>
+            )}
+          />
         )}
   
   
