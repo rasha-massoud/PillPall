@@ -123,8 +123,6 @@ const Login: FC = () => {
         });
     };
 
-    // const navigation = useNavigation();
-
     const handleSignUpPress = () => {
         navigation.navigate("Register" as never, {} as never);
     };
@@ -147,7 +145,7 @@ const Login: FC = () => {
 
             <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true}} onChangeText= {handlePasswordChange} />
             
-            <CustomButton containerStyle={{ alignSelf: 'center' }} buttonprops={{ title: "Login", onPress: handleLoginPress }}  />
+            <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 10 }} buttonprops={{ title: "Login", onPress: handleLoginPress }}  />
             
             <TouchableOpacity style={styles.forgotPassword} onPress={handleForgotPasswordPress}> 
                 <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
