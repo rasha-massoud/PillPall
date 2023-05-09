@@ -19,9 +19,31 @@ const PersonalAssistant: FC = () => {
   const [question, setQuestion] = useState<string>('');
   const [answer, setAnswer] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const[placeholder, setPlaceholder] = useState<string>('');
 
   const handleSelectQuestionType = (questionType: QuestionType) => {
     setSelectedQuestionType(questionType);
+
+    let placeholder = '';
+    switch (questionType) {
+      case 'question':
+        placeholder = 'Enter your pure medical question';
+        break;
+      case 'replacement':
+        placeholder = 'Input the medicine name you wish to replace';
+        break;
+      case 'effect':
+        placeholder = 'Enter the medicine name to learn about its effects';
+        break;
+      case 'instruction':
+        placeholder = 'Enter the medicine name for instructions';
+        break;
+      default:
+        placeholder = 'Enter your question';
+    }
+    setQuestion('');
+    setAnswer('');
+    setPlaceholder(placeholder);
   };
 
   const handleQuestionChange = (text: string) => {
@@ -99,7 +121,7 @@ const PersonalAssistant: FC = () => {
       />
       <TextInputwithLabel
         label="Question"
-        placeholder="Enter your Question"
+        placeholder={placeholder}
         textinputprops={{ secureTextEntry: false }}
         onChangeText={handleQuestionChange}
       />
