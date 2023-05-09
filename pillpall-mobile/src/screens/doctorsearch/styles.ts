@@ -4,6 +4,7 @@ import { Dimensions } from 'react-native';
 import appStyles from '../../constants/appStyles';
 import { colors } from '../../constants/palette';
 import { color } from 'react-native-reanimated';
+import { fonts } from '../../constants/font';
 
 interface Styles {
     container: ViewStyle;
@@ -26,7 +27,7 @@ const styles = StyleSheet.create<Styles>({
         marginHorizontal: width * 0.05, 
     },
     image: {
-        marginTop: 15,
+        marginTop: 5,
         justifyContent: 'center',
         alignSelf: 'center',
         marginBottom: 20,
@@ -64,8 +65,8 @@ const styles = StyleSheet.create<Styles>({
     },
     details: {
         ...appStyles.body2,
-        borderRadius: 10,
-        color: colors.darker_gray,
+        textAlign: 'justify',
+        marginBottom: 10,
     }
 });
 

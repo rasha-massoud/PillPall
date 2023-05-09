@@ -135,7 +135,7 @@ const DoctorSearch: FC = () => {
     return (
         <SafeAreaView style={styles.container}>
             <NavBar title="Patient Search" />
-            <Image source={require('../../../assets/doctorsearchscreen.png')} style={styles.image} />
+            <Image source={require('../../../assets/search3.jpg')} style={styles.image} />
     
             <Text style={styles.details}>To ensure security and privacy, only approved doctors have the privilege to utilize this particular feature. Furthermore, they can only view the data of the patients who are directly connected to them.</Text>
             <TextInputwithLabel
