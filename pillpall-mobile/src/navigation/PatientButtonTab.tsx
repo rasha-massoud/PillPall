@@ -17,81 +17,66 @@ const PatientButtonTab = () => {
   const Tabs = createBottomTabNavigator();
   return (
     <Tabs.Navigator 
-        screenOptions={{ headerShown: false,  
+        screenOptions={({ route }) => ({
+            headerShown: false,  
             tabBarStyle: {backgroundColor: colors.blue, height: 92},
             tabBarLabelStyle: { fontSize: 16, fontWeight: 'bold' },
             tabBarActiveTintColor: 'white',
-        }}    
+            tabBarIcon: ({ focused, color, size }) => {
+                let iconSource;
+
+                if (route.name === "Report") {
+                    iconSource = focused
+                        ? require('../../assets/navReportPatientFocused.png')
+                        : require('../../assets/navReportPatient.png');
+                } else if (route.name === "Med") {
+                    iconSource = focused
+                        ? require('../../assets/navMedScheduleFocused.png')
+                        : require('../../assets/navMedSchedule.png');
+                } else if (route.name === "Search") {
+                    iconSource = focused
+                        ? require('../../assets/navSearchDocFocused.png')
+                        : require('../../assets/navSearchDoc.png');
+                } else if (route.name === "Robot") {
+                    iconSource = focused
+                        ? require('../../assets/navRobotFocused.png')
+                        : require('../../assets/navRobot.png');
+                } else if (route.name === "Settings") {
+                    iconSource = focused
+                        ? require('../../assets/navSettingsFocused.png')
+                        : require('../../assets/navSettings.png');
+                }
+
+                return (
+                    <Image
+                        source={iconSource}
+                        style={{ width: 40, height: 38 }}
+                    />
+                );
+            },
+        })}
     >
         <Tabs.Screen
-            options={{
-            tabBarIcon: () => (
-                <Image
-                    source={require('../../assets/navReportPatient.png')}
-                    style={{ width: 40, height: 38 }}
-                />
-            ),
-            }}
             name="Report"
             component={ReportStack}
         />
         <Tabs.Screen
-            options={{
-                tabBarIcon: () => (
-                    <Image
-                        source={require('../../assets/navMedSchedule.png')}
-                        style={{ width: 40, height: 38 }}
-                    />
-                ),
-                }}
-                name="Med"
-                component={MedicationScheduleStack}
+            name="Med"
+            component={MedicationScheduleStack}
         />
         <Tabs.Screen
-        options={{
-            tabBarIcon: () => (
-                <Image
-                    source={require('../../assets/navSearchDoc.png')}
-                    style={{ width: 40, height: 38 }}
-                />
-            ),
-            }}
             name="Search"
             component={MedicalStack}
         />
         {/* <Tabs.Screen
-            options={{
-            tabBarIcon: () => (
-                <Image
-                    source={require('../../assets/navIot.png')}
-                    style={{ width: 40, height: 38 }}
-                />
-            ),
-            }}
             name="IoT"
             component={Report}                   
         /> */}
         <Tabs.Screen
-            options={{
-                tabBarIcon: () => (
-                    <Image
-                        source={require('../../assets/navRobot.png')}
-                        style={{ width: 40, height: 38 }}
-                    />
-                ),
-            }}
             name="Robot"
             component={AssistStack}
         />
         <Tabs.Screen
-            options={{
-                tabBarIcon: () => (
-                <Image
-                    source={require('../../assets/navSettings.png')}
-                    style={{ width: 40, height: 38 }}
-                />
-                ),
-            }}
             name="Settings"
             component={ChangePasswordStack}
         />
