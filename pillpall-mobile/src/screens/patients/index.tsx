@@ -127,7 +127,7 @@ const Patients: FC = () => {
             renderItem={({ item }) => (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate('PatientReport' as never, { patientId: item.id } as never);
+                  navigation.navigate('PatientReportByAdmin' as never, { patientId: item.id } as never);
                 }}
               >
                 <View style={styles.card}>
