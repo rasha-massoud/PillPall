@@ -6,7 +6,7 @@ import { PatientsStack } from '../navigation/AdminStacks'
 import { ApprovedDoctorsStack } from '../navigation/AdminStacks'
 import { UnapprovedDoctorsStack } from '../navigation/AdminStacks'
 
-const DoctorButtonTab = () => {
+const AdminButtonTab = () => {
     const Tabs = createBottomTabNavigator();
 
     return (
@@ -48,4 +48,4 @@ const DoctorButtonTab = () => {
     );
 };
 
-export default DoctorButtonTab;
+export default AdminButtonTab;
