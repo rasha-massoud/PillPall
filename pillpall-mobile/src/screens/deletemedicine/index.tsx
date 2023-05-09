@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import { SafeAreaView, Alert, Image, ActivityIndicator  } from 'react-native';
 import { colors } from '../../constants/palette';
-import NavBar from '../../components/NavBar';
+import NavBar1 from '../../components/NavBar1';
 import axios from 'axios';
 import styles from './styles';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
@@ -117,6 +117,9 @@ const DeleteMedicine: FC = () => {
         });
     };
 
+    const handleBackPress = () => {
+        navigation.navigate("MedicationSchedule" as never, {} as never);
+    }
 
     const handleCancelPress = () => {
         Alert.alert(
@@ -140,8 +143,9 @@ const DeleteMedicine: FC = () => {
     return (
     
         <SafeAreaView style={styles.container}>
-            <NavBar
-                title="Delete Medicine"
+            <NavBar1
+                title="Budget Tracker"
+                image1={{ source: require('../../../assets/back.png'), onPress: handleBackPress }}
             />
             <Image
                 source={require('../../../assets/deletemedicinescreen.png')}

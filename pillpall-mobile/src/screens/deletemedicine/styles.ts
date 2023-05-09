@@ -19,8 +19,8 @@ const styles = StyleSheet.create<Styles>({
     image: {
         justifyContent: 'center',
         alignSelf: 'center',
-        marginTop: 25,
-        marginBottom: 25,
+        marginTop: 13,
+        marginBottom: 15,
         width: '100%',
         height: '30%',
     },
