@@ -145,7 +145,7 @@ const Login: FC = () => {
 
             <TextInputwithLabel label="Password" placeholder='Enter your Password' textinputprops={{ secureTextEntry: true}} onChangeText= {handlePasswordChange} />
             
-            <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 10 }} buttonprops={{ title: "Login", onPress: handleLoginPress }}  />
+            <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 18 }} buttonprops={{ title: "Login", onPress: handleLoginPress }}  />
             
             <TouchableOpacity style={styles.forgotPassword} onPress={handleForgotPasswordPress}> 
                 <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
