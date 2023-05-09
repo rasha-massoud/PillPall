@@ -169,7 +169,7 @@ const PatientSearch: FC = () => {
                 title="Patient Search"
                 image1={{ source: require('../../../assets/filenumber.png'), onPress: handleFileNumberPress }}
                 image2={{ source: require('../../../assets/results.png'), onPress: handleResultPress }}
-                image3={{ source: require('../../../assets/searchdoc.png'), onPress: handleSearchDoctorPress }}
+                image3={{ source: require('../../../assets/searchdocfocused.png'), onPress: handleSearchDoctorPress }}
             />
             <Image source={require('../../../assets/searchdoctorscreen.png')} style={styles.image} />
             <SearchBySelector
