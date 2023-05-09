@@ -219,4 +219,32 @@ class AdminController extends Controller{
             ]);
         }
     }
+
+    public function GetDoctorReport($id){
+
+        try{
+            $doctor = User::find($id);
+
+            if (!$doctor || $doctor->role != 'doctor') {
+                return response()->json([
+                    'status' => 'failure',
+                    'message' => 'No doctor found with the given ID.'
+                ]);
+            }
+
+            $report = $doctor->doctorsInfo()->get();
+        
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Report retrieved successfully.',
+                'doctor' => $doctor,
+                'report' => $report
+            ]);
+        } catch (exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while returning the doctor\'s report.'
+            ]);
+        }
+    }
 }
