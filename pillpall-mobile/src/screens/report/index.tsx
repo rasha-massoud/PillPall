@@ -94,7 +94,7 @@ const Report: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.top}>
         <View style={styles.topLeft}>
-          <PageTitle title='PILL PALL' />
+          <PageTitle title='PILLPALL' />
         </View>
         <View style={styles.topRight}>
           <Image
