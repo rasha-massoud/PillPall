@@ -122,6 +122,7 @@ const UnapprovedDoctors: FC = () => {
   
         {unapprovedDoctors.length !== 0 && isSuccess && (
             //Display the data is flatList
+            <Text></Text>
         )}
   
   
