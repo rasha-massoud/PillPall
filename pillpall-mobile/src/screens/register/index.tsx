@@ -157,7 +157,7 @@ const Register: FC = () => {
 
         <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: handleCancelPress }} buttonprops1={{ title: "Signup", onPress: handleSignupPress  }}></TwoCustomButton>
 
-        <LoginSignupSwitch style={{ marginTop: '12%' }} fontWeight= 'bold' textTitle="Already have an account?" action="Login" onPress={handleLoginPress}></LoginSignupSwitch>
+        <LoginSignupSwitch style={{ marginTop: '11%' }} fontWeight= 'bold' textTitle="Already have an account?" action="Login" onPress={handleLoginPress}></LoginSignupSwitch>
     </SafeAreaView>
   );
 };
