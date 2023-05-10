@@ -5,9 +5,9 @@
 <!-- project philosophy -->
 <img src="./readme/title2.svg"/>
 
-> 
+> Empowering patients, connecting doctors, and revolutionizing healthcare management.
 >
-> 
+>A mobile application providing patients the ease to manage their meds, track budgets, and access a personal assistant for guidance. Besides, patients can conveniently add their medical laboratory results and connect with approved doctors to strengthen the patient-doctor relationship, all while ensuring privacy and convenience.
 
 ### User Stories
 - 
