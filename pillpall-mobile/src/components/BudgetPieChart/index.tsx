@@ -1,11 +1,12 @@
 import React, { FC, useState, useEffect } from 'react';
 import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
-import NavBar from '../../components/NavBar';
 import SubTitleText from '../../components/SubTitleText';
 import { PieChart } from 'react-native-chart-kit';
 import axios from 'axios';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import styles from './styles';
 
 interface BudgetPieChartProps {
   data: { [month: string]: number };
@@ -57,7 +58,7 @@ const BudgetPieChart: FC<BudgetPieChartProps> = (props) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <SubTitleText title="Last Three Months" />
+      <Text style={styles.textTitle}>Last Three Months</Text>
 
       <PieChart
         data={chartData}
@@ -83,16 +84,5 @@ const BudgetPieChart: FC<BudgetPieChartProps> = (props) => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  image: {
-    width: '100%',
-    height: 200,
-  },
-});
 
 export default BudgetPieChart;
