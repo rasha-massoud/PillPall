@@ -30,7 +30,7 @@ const Welcome: FC = () => {
 
         <Body1Text context="To ensure we have a thorough understanding of your medical needs and can provide you with the best care possible, we have developed a six-step process to gather all the necessary health information. Let's walk through each step together." />
 
-        <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 50 }} buttonprops={{ title: "Continue", onPress: handleCancelPress }}  />
+        <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 50, height: 45 }} buttonprops={{ title: "Continue", onPress: handleCancelPress }}  />
 
     </SafeAreaView>
   );
