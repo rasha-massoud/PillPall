@@ -6,6 +6,7 @@ import ApprovedDoctors from '../screens/approveddoctors';
 import UnapprovedDoctors from '../screens/unapproveddoctors';
 import PatientReportByAdmin from '../screens/patientreportbyadmin';
 import DoctorReportByAdmin from '../screens/doctorreportbyadmin';
+import UnapprovedDoctorReportByAdmin from '../screens/unapproveddoctorreportbyadmin';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,7 @@ export const UnapprovedDoctorsStack = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: 'white' } }}>
             <Stack.Screen name="UnapprovedDoctors" component={UnapprovedDoctors} />
+            <Stack.Screen name="UnapprovedDoctorReportByAdmin" component={UnapprovedDoctorReportByAdmin} />
         </Stack.Navigator>
     );
 };
