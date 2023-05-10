@@ -1,9 +1,11 @@
 import { StyleSheet } from 'react-native';
 import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import { Dimensions } from 'react-native';
+import appStyles from '../../constants/appStyles';
 
 interface Styles {
     container: ViewStyle;
+    result: TextStyle;
 }
 
 const { width, height } = Dimensions.get('window');
@@ -15,6 +17,10 @@ const styles = StyleSheet.create<Styles>({
         width: LOGIN_PAGE_WIDTH,
         marginHorizontal: width * 0.05, 
     },
+    result: {
+        marginTop: 10,
+        ...appStyles.body2,
+    }
 });
 
 export default styles;

@@ -133,10 +133,10 @@ const MedicationSchedule: FC = () => {
                   )}
                 />
               ) : (
-                <Text>No medication for {selectedDay}.</Text>
+                <Text style={styles.result}>No medication for {selectedDay}.</Text>
               )
             ) : (
-              <Text>Fetching medication list...</Text>
+              <Text style={styles.result}>Fetching medication list...</Text>
             )}
           </View>
         </SafeAreaView>
