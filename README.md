@@ -125,6 +125,11 @@
     php artisan storage:link
     ```
 
+     * Execute the scheduled tasks
+    ```sh
+    php artisan schedule:run
+    ```
+
     * Start the Laravel app
     ```sh
     php artisan serve
