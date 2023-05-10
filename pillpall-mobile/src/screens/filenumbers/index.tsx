@@ -104,6 +104,11 @@ const FileNum: FC = () => {
         )}
   
           {fileNumbers.length !== 0 && isSuccess && (
+            <>
+            <CustomButton
+              containerStyle={styles.btn}
+              buttonprops={{ title: "Add File Number", onPress: handleAddPress }}
+            />
             <FlatList
               data={fileNumbers}
               renderItem={renderFileNumber}
@@ -112,12 +117,8 @@ const FileNum: FC = () => {
               showsVerticalScrollIndicator={true}
               scrollEnabled={true}
             />
+            </>
           )}
-  
-        {fileNumbers.length !== 0 && isSuccess && (
-          <CustomButton containerStyle={{ alignSelf: 'center', width: 55, margin: 5, backgroundColor: colors.darker_gray }} buttonprops={{ title: "+", onPress: handleAddPress }}  />
-        )}
-  
     </SafeAreaView>
   );
 };

@@ -22,6 +22,12 @@ const styles = StyleSheet.create({
     fileNumberList: {
       flexGrow: 1,
     },
+    btn: {
+      alignSelf: 'center',
+      width: '90%', 
+      marginTop: 30, 
+      borderRadius:10,
+    }
 });
 
 
