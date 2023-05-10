@@ -15,6 +15,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
 import { Ionicons } from '@expo/vector-icons';
 import SubTitleText from '../../components/SubTitleText';
+import FormTitle from '../../components/FormTitle';
 
 import styles from './styles';
 
@@ -225,11 +226,11 @@ const FillProfile: FC = () => {
         <TextInputwithLabel label="Date of Birth" placeholder='YYYY-MM-DD' textinputprops={{ secureTextEntry: false }} onChangeText= {handleDoBChange} />
         <GenderCheckBox selectedGender={contactInfoData.gender} onGenderSelect={handleGenderSelect} />
 
-        <SubTitleText title="Profession Details" />
+        <FormTitle title='Profession Details' color={colors.blue} />
         <TextInputwithLabel label="Address" placeholder='Enter your Clinic Address' textinputprops={{ secureTextEntry: false }} onChangeText= {handleAddressChange} />
         <TextInputwithLabel label="Working Hours" placeholder='Enter your Working Hours' textinputprops={{ secureTextEntry: false }} onChangeText= {handleWorkingHoursChange} />
 
-        <SubTitleText title="Education" />
+        <FormTitle title='Education' color={colors.blue} />
         <TextInputwithLabel label="Major" placeholder='Enter your Major' textinputprops={{ secureTextEntry: false }} onChangeText= {handleMajorChange} />
         <TextInputwithLabel label="Certificates" placeholder='List your Certificates' textinputprops={{ secureTextEntry: false }} onChangeText= {handleCertificatesChange} />
         <TextInputwithLabel label="Expertise" placeholder='List your Expertise' textinputprops={{ secureTextEntry: false }} onChangeText= {handleExpertiseChange} />
