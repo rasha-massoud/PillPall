@@ -2,8 +2,6 @@ import React, { FC, useState } from 'react'
 import { SafeAreaView, ScrollView, Alert, View, TouchableOpacity, Image, Text } from 'react-native';
 import NavBar1 from '../../components/NavBar1';
 import axios from 'axios';
-import styles from './styles';
-import AddImage from '../../components/AddImage';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import DaySelector from '../../components/DaySelector';
 import MonthSelector from '../../components/MonthSelector';
@@ -17,8 +15,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as ImagePicker from 'expo-image-picker';
 import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
 import { Ionicons } from '@expo/vector-icons';
-import * as FileSystem from 'expo-file-system';
 import SubTitleText from '../../components/SubTitleText';
+
+import styles from './styles';
 
 const MONTHS: Month[] = ['All', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -257,7 +256,7 @@ const AddMedicine: FC = () => {
                     )}
                 </View>                
                 <TextInputwithLabel label='Name' placeholder='Enter the Medicine Name' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicineNameChange} />
-                <TextInputwithLabel label='Dose Quantity' keyboardType="numeric" placeholder='Enter the Intake Dose Quantity as prescribed' textinputprops={{ secureTextEntry: false}} onChangeText= {handleDoseQuantityChange} />
+                <TextInputwithLabel label='Dose Quantity' keyboardType="numeric" placeholder='Enter the Prescribed Intake Dose' textinputprops={{ secureTextEntry: false}} onChangeText= {handleDoseQuantityChange} />
                 <TextInputwithLabel label='Price per month (in $)' keyboardType="numeric" placeholder='Enter the Medicine Price per month' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicinePriceChange} />
                 <TextInputwithLabel label='Instructions' placeholder='Enter the Medicine Intake Instructions' textinputprops={{ secureTextEntry: false}} onChangeText= {handleInstructionsChange} />
 
