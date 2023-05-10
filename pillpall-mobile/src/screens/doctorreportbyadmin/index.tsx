@@ -63,6 +63,7 @@ const DoctorReportByAdmin: FC<DoctorReportByAdminProps> = ({route }) => {
             },
           }
         );
+        console.log(response.data);
         setAllResult(response.data);
         if(response.data.status == 'success'){
           setIsSuccess(true);
@@ -91,58 +92,54 @@ const DoctorReportByAdmin: FC<DoctorReportByAdminProps> = ({route }) => {
   return (
     ////CHANGE TEXTS HERE AS FOR THE ADMIN
     <SafeAreaView style={styles.container}>
-        <View style={styles.top}>
-            <View style={styles.topLeft}>
-            <PageTitle title='PILLPALL' />
-            </View>
-            <View style={styles.topRight}>
-            <Image
-                source={require('../../../assets/logo.png')}
-                style={styles.image}
-            />
-            </View>
-        </View>
+    <View style={styles.top}>
+      <View style={styles.topLeft}>
+        <PageTitle title='PILLPALL' />
+      </View>
+      <View style={styles.topRight}>
+        <Image
+          source={require('../../../assets/logo.png')}
+          style={styles.image}
+        />
+      </View>
+    </View>
 
-        {allResult && isSuccess ? (
+    {allResult && isSuccess ? (
+      <View>
+        <ScrollView>
+          <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals." />
 
-        <View>
-          <ScrollView>
-            <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals." />
+          <View>
+            <DisplayData title='Name' value={allResult.doctor.name} />
+            <DisplayData title='Email' value={allResult.doctor.email} />
+            <DisplayData title='Phone Number' value={allResult.report[0].phone_number} />
+            <DisplayData title='Date of Birth' value={allResult.report[0].dob} />
+            <DisplayData title='Gender' value={allResult.report[0].gender} />
+          </View>
 
-            <View>
-                <DisplayData title='Name' value={allResult.patient.name} />
-                <DisplayData title='Email' value={allResult.patient.email} />
-                <DisplayData title='Phone Number' value={allResult.report[0].phone_number} />
-                <DisplayData title='Date of Birth' value={allResult.report[0].dob} />
-                <DisplayData title='Gender' value={allResult.report[0].gender} />
-            </View>
-        
-            <View>
-                <DisplayData title='Address' value={allResult.report[0].address} />
-                <DisplayData title='Working hours' value={allResult.report[0].working_hours} />
-            </View>
-        
-            <View>
-                <DisplayData title='major' value={allResult.report[0].major} />
-                <DisplayData title='Certificates' value={allResult.report[0].certificates} />
-                <DisplayData title='expertise' value={allResult.report[0].expertise} />
-            </View>
-        
-            
-          </ScrollView>  
-          <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 20 }} buttonprops={{ title: "Back", onPress: handleBackPress }} />
+          <View>
+            <DisplayData title='Address' value={allResult.report[0].address} />
+            <DisplayData title='Working hours' value={allResult.report[0].working_hours} />
+          </View>
 
-        </View>
-        ) : (
-        <View style={appStyles.body1}>
-            <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals." />
+          <View>
+            <DisplayData title='Major' value={allResult.report[0].major} />
+            <DisplayData title='Certificates' value={allResult.report[0].certificates} />
+            <DisplayData title='Expertise' value={allResult.report[0].expertise} />
+          </View>
+        </ScrollView>
 
-            <Body1Text context='No report.' />
+        <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 20 }} buttonprops={{ title: "Back", onPress: handleBackPress }} />
+      </View>
+    ) : (
+      <View style={appStyles.body1}>
+        <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals." />
 
-            <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 20 }} buttonprops={{ title: "Back", onPress: handleBackPress }} />
+        <Body1Text context='No report.' />
 
-        </View>
-        )}
+        <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 20 }} buttonprops={{ title: "Back", onPress: handleBackPress }} />
+      </View>
+    )}
   </SafeAreaView>
   );
 };
