@@ -23,7 +23,7 @@ class AdminController extends Controller{
             if(!$doctor){
                 return response()->json([
                     'status' => 'failure',
-                    'message' => 'There is no doctor with this id.'
+                    'message' => 'There is no doctor with this id.',
                 ]);
             }
 

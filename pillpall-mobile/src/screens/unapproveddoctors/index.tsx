@@ -117,7 +117,6 @@ const ApprovedDoctors: FC = () => {
             const data = new FormData();
             data.append('doctor_id', doctorId.toString());
 
-            console.log(data);
             const token = await AsyncStorage.getItem('token');
             const endpoint = "admin/approve";
         
@@ -125,7 +124,7 @@ const ApprovedDoctors: FC = () => {
                 headers: {
                     'Accept': 'application/json',
                     'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'multipart/form-data',
                 },
             })
             .then((response) => {
