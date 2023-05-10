@@ -100,7 +100,6 @@ const PatientReportByAdmin: FC<PatientReportByAdminProps> = ({route }) => {
   }
 
   return (
-    ////CHANGE TEXTS HERE AS FOR THE ADMIN
     <SafeAreaView style={styles.container}>
         <View style={styles.top}>
             <View style={styles.topLeft}>
@@ -118,7 +117,7 @@ const PatientReportByAdmin: FC<PatientReportByAdminProps> = ({route }) => {
 
         <View>
           <ScrollView>
-            <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals." />
+            <Body1Text context="As an admin, you are currently viewing the comprehensive report of a patient within our system." />
 
             <View>
                 <DisplayData title='Name' value={allResult.patient.name} />
