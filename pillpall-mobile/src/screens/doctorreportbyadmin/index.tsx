@@ -1,10 +1,9 @@
 import React, { FC, useState, useEffect } from 'react'
-import { SafeAreaView, View, Text, Image , TouchableOpacity, ScrollView} from 'react-native';
+import { SafeAreaView, View, Text, Image, ScrollView } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import Body1Text from '../../components/Body1Text';
 import axios from 'axios';
 import DisplayData from '../../components/DisplayData';
-import appStyles from '../../constants/appStyles';
 import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -110,7 +109,7 @@ const DoctorReportByAdmin: FC<DoctorReportByAdminProps> = ({route }) => {
           {allResult && isSuccess && allResult.report && allResult.report.length > 0 ? (
             <ScrollView>
               <View>
-                <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals." />          
+                <Body1Text context="As an admin, you are currently viewing the comprehensive report of an approved doctor within our system." />          
                 <DisplayData title="Name" value={allResult.doctor?.name} />
                 <DisplayData title="Email" value={allResult.doctor?.email} />
                 <DisplayData title="Phone Number" value={allResult.report?.[0]?.phone_number} />
