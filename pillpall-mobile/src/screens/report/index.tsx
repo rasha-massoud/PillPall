@@ -9,7 +9,6 @@ import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import PageTitle from '../../components/PageTitle';
-import TextTitle from '../../components/TextTitle';
 
 import styles from './styles';
 
@@ -108,10 +107,10 @@ const Report: React.FC = () => {
 
       <View>
         <ScrollView>
-          <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals." />
+          <Body1Text context="Simplify your care with 'PillPall'! Generate comprehensive reports of your medical history and medications. Share directly with doctors, skip repetition, and guarantee accurate diagnoses. Get personalized, efficient care with effortless access to your medical records." />
     
           <TouchableOpacity onPress={handleEditPress}> 
-                <Text style={styles.editText}>**Press me to Edit**</Text>
+                <Text style={styles.editText}>Press me to Edit</Text>
           </TouchableOpacity>
 
           <View>
@@ -199,7 +198,6 @@ const Report: React.FC = () => {
               value={result.patients_info.life_style_habits}
             />
           </View>
-        <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Edit", onPress: handleEditPress}}  />
         </ScrollView>  
       </View>
       ) : (
