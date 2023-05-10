@@ -1,14 +1,14 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Alert, SafeAreaView, Text, View, FlatList } from 'react-native';
+import { Alert, SafeAreaView, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import NavBar1 from '../../components/NavBar1';
 import CustomButton from '../../components/CustomButton';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
-import { colors } from '../../constants/palette';
 import { useDispatch, useSelector } from "react-redux";
 import { setIsLoggedIn } from "../../store/slices/reportSlice";
+import SubTitleText from '../../components/SubTitleText';
 
 import styles from './styles';
 
@@ -18,12 +18,12 @@ type Doctor = {
     email: string;
 };
 
-const UnapprovedDoctors: FC = () => {
+const ApprovedDoctors: FC = () => {
 
     const dispatch = useDispatch();
 
     const navigation = useNavigation();
-    const [unapprovedDoctors, setUnapprovedDoctors] = useState([]);
+    const [unapprovedDoctors, setUnapprovedDoctors] = useState<Doctor[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [isSuccess, setIsSuccess] = useState<boolean>(true);
 
@@ -65,7 +65,6 @@ const UnapprovedDoctors: FC = () => {
         }
     }
 
-
     useEffect(() => {
         const fetchData = async () => {
         const token = await AsyncStorage.getItem('token');
@@ -81,7 +80,9 @@ const UnapprovedDoctors: FC = () => {
         })
         .then((response) => {
             console.log(response.data);
-            // setUnapprovedDoctors(response.data);
+            if (Array.isArray(response.data.user)) {
+                setUnapprovedDoctors(response.data.user);
+            }
             setIsLoading(false);
             if (response.data.status !== "success"){
                 setIsSuccess(true);
@@ -97,7 +98,7 @@ const UnapprovedDoctors: FC = () => {
             }
         })
         .catch((error) => {
-            console.error('An error occurred while getting approved doctors');
+            console.error('An error occurred while getting unapproved doctors');
         });
         };
   
@@ -108,21 +109,36 @@ const UnapprovedDoctors: FC = () => {
   return (
     <SafeAreaView style={styles.container}>
         <NavBar1
-            title="Approved Doctors"
+            title="Unapproved Doctors"
             image1={{ source: require('../../../assets/logout.png'), onPress: handleLogoutPress }}
         />
-  
+        <SubTitleText title="Press on the card to view the report"/>
+
         {unapprovedDoctors.length === 0 && isSuccess && (
             <View style={styles.noDataContainer}>
                 <View>
-                    <Text style={styles.noDataText}>No Approved Doctors yet.</Text>
+                    <Text style={styles.noDataText}>No Unapproved Doctors.</Text>
                 </View>
             </View>
         )}
   
         {unapprovedDoctors.length !== 0 && isSuccess && (
-            //Display the data is flatList
-            <Text></Text>
+            <FlatList
+            data={unapprovedDoctors}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+                <TouchableOpacity
+                    onPress={() => {
+                    navigation.navigate('DoctorReportByAdmin' as never, { doctorId: item.id } as never);
+                    }}
+                >
+                    <View style={styles.card}>
+                        <Text style={styles.nameText}>{item.name}</Text>
+                        <Text style={styles.emailText}>{item.email}</Text>
+                    </View>
+                </TouchableOpacity>
+            )}
+          />
         )}
   
   
@@ -130,5 +146,5 @@ const UnapprovedDoctors: FC = () => {
   );
 };
         
-export default UnapprovedDoctors;
+export default ApprovedDoctors;
         
