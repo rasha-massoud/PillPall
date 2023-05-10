@@ -23,7 +23,7 @@ const AddDocument: FC<AddDocumentProps> = (props) => {
     if (result.type === 'success') {
       const file = new File([result.uri], result.name, { type: 'application/pdf' });
       setDocument(result.uri);
-      props.onDocumentSelected(file); // send the file details to the parent screen
+      props.onDocumentSelected(file);
     }
   };
 
