@@ -35,7 +35,7 @@
 <!-- Prototyping -->
 <img src="./readme/title3.svg"/>
 
-> I designed PillPall using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
+> PillPall's design was meticulously crafted, starting with wireframes and mockups. Through a process of iteration and refinement, the layout was fine-tuned to prioritize easy navigation and deliver a seamless user experience.
 
 ### Wireframes
 | Login screen  | Register screen |
