@@ -65,7 +65,6 @@ const styles = StyleSheet.create<Styles>({
     },
     details: {
         ...appStyles.body2,
-        textAlign: 'justify',
         marginBottom: 10,
     }
 });

@@ -9,11 +9,8 @@ import CustomButton from '../../components/CustomButton';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
-import { useDispatch, useSelector } from "react-redux";
-import { colors } from '../../constants/palette';
+
 import styles from './styles';
-import Body1Text from '../../components/Body1Text';
-import SubTitleText from '../../components/SubTitleText';
 
 interface Patient {
     id: number;
@@ -137,7 +134,7 @@ const DoctorSearch: FC = () => {
             <NavBar title="Patient Search" />
             <Image source={require('../../../assets/search3.jpg')} style={styles.image} />
     
-            <Text style={styles.details}>To ensure security and privacy, only approved doctors have the privilege to utilize this particular feature. Furthermore, they can only view the data of the patients who are directly connected to them.</Text>
+            <Text style={styles.details}>To ensure security and privacy, only approved doctors have the privilege to utilize this particular feature and view the data of the patients who are directly connected to them.</Text>
             
             <TextInputwithLabel
                 label="Name"
