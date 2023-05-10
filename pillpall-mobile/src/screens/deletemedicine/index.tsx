@@ -1,9 +1,7 @@
 import React, { FC, useState } from 'react'
-import { SafeAreaView, Alert, Image, ActivityIndicator  } from 'react-native';
-import { colors } from '../../constants/palette';
+import { SafeAreaView, Alert, Image, ActivityIndicator, ScrollView } from 'react-native';
 import NavBar1 from '../../components/NavBar1';
 import axios from 'axios';
-import styles from './styles';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import DaySelector from '../../components/DaySelector';
 import TimingChecklist from '../../components/TimingCheckList';
@@ -12,12 +10,13 @@ import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import styles from './styles';
+
 const DAYS: Day[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'None', 'Everyday'];
 const TIMINGS: Timing[] = ['6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'];
 
 type Day = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday' | 'None' | 'Everyday';
 type Timing = '6:00' | '8:00' | '10:00' | '12:00' | '14:00' | '16:00' | '18:00' | '20:00' | '22:00';
-
 
 const DeleteMedicine: FC = () => {
 
@@ -29,7 +28,6 @@ const DeleteMedicine: FC = () => {
     const [name, setName] = useState<string>('');
     const [quantity, setQuantity] = useState<string>('');
     
-
     const handleMedicineNameChange = (value: string) => {
         setName(value);
     }
@@ -151,17 +149,19 @@ const DeleteMedicine: FC = () => {
                 source={require('../../../assets/deletemedicinescreen.png')}
                 style={styles.image}
             />
+            <ScrollView>
 
-            <TextInputwithLabel label='Name' placeholder='Enter the Medicine Name' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicineNameChange} />
-            <TextInputwithLabel label='Dose Quantity' keyboardType="numeric" placeholder='Enter the Intake Dose Quantity as prescribed' textinputprops={{ secureTextEntry: false}} onChangeText= {handleDoseQuantityChange} />
-            <DaySelector days={['Everyday', 'None', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']} selectedDay={selectedDay ?? null} onSelectDay={handleDaySelect} />
-            <TimingChecklist
-                timings={['6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00']}
-                selectedTiming={selectedTiming ?? null}
-                onSelectTiming={handleSelectTiming}
-            />  
+                <TextInputwithLabel label='Name' placeholder='Enter the Medicine Name' textinputprops={{ secureTextEntry: false}} onChangeText= {handleMedicineNameChange} />
+                <TextInputwithLabel label='Dose Quantity' keyboardType="numeric" placeholder='Enter the Prescribed Intake Dose' textinputprops={{ secureTextEntry: false}} onChangeText= {handleDoseQuantityChange} />
+                <DaySelector days={['Everyday', 'None', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']} selectedDay={selectedDay ?? null} onSelectDay={handleDaySelect} />
+                <TimingChecklist
+                    timings={['6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00']}
+                    selectedTiming={selectedTiming ?? null}
+                    onSelectTiming={handleSelectTiming}
+                />  
+                {processing && <ActivityIndicator />}
+            </ScrollView>
 
-            {processing && <ActivityIndicator />}
 
             <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: handleCancelPress }} buttonprops1={{ title: "Delete", onPress: handleDeletePress }} />
 
