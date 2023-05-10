@@ -7,13 +7,14 @@ import axios from 'axios';
 import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useDispatch, useSelector } from "react-redux";
-import { setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, setWorkingHours, setMajor, setCertificates, setExpertise } from "../../store/slices/reportSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, setWorkingHours, setMajor, setCertificates, setExpertise } from '../../store/slices/reportSlice';
 import TwoCustomButton from '../../components/TwoCustomButton';
 import FormTitle from '../../components/FormTitle';
 import * as ImagePicker from 'expo-image-picker';
 import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
 import { Ionicons } from '@expo/vector-icons';
+
 import styles from './styles';
 
 interface EditProfileData {
@@ -60,7 +61,7 @@ const EditProfile: FC = () => {
         setSelectedImage(result.uri);
     };
     
-      const clearImage = () => {
+    const clearImage = () => {
         setSelectedImage(null);
     };
     
@@ -228,24 +229,24 @@ const EditProfile: FC = () => {
         <PageTitle title='Profile' />
 
         <View style={styles.container1}>
-            {selectedImage ? (
-                <>
-                    <TouchableOpacity onPress={pickImage} style={styles.changeImage}>
-                        <Ionicons name="camera-outline" size={24} color="#fff" />
-                        <Text style={styles.changeImageText}>Change Image</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={clearImage}>
-                        <Image source={{ uri: selectedImage }} style={styles.image} />
-                    </TouchableOpacity>
-                    </>
-                ) : (
-                    <TouchableOpacity onPress={pickImage} style={styles.addImage}>
-                    <Ionicons name="add-outline" size={24} color="#fff" />
-                    <Text style={styles.addImageText}>Add Image</Text>
-                    </TouchableOpacity>
-                )
-            }
-        </View>
+        {selectedImage ? (
+          <>
+            <TouchableOpacity onPress={pickImage} style={styles.changeImage}>
+                <Ionicons name="camera-outline" size={24} color="#fff" />
+                <Text style={styles.changeImageText}>Change Image</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={clearImage}>
+                <Image source={{ uri: selectedImage }} style={styles.image} />
+            </TouchableOpacity>
+          </>
+          ) : (
+            <TouchableOpacity onPress={pickImage} style={styles.addImage}>
+              <Ionicons name="add-outline" size={24} color="#fff" />
+              <Text style={styles.addImageText}>Add Image</Text>
+            </TouchableOpacity>
+          )
+        } 
+      </View>
         <ScrollView>
             <TextInputwithLabel label='Name' placeholder='Enter your Username' textinputprops={{ secureTextEntry: false}} onChangeText= {handleNameChange} />
             <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />

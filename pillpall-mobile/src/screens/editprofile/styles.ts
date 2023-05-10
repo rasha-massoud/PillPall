@@ -13,20 +13,6 @@ const styles = StyleSheet.create({
         width: LOGIN_PAGE_WIDTH,
         marginHorizontal: width * 0.05, 
     },
-    image: {
-        justifyContent: 'center',
-        marginBottom: 20,
-        width: '58%',
-        height: '30%',
-    },
-    addImage: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: 80,
-        width: '100%',
-        opacity: 0.8,
-        borderRadius: 75,
-    },
     container1: {
         marginTop: 7,
         alignItems: 'center',
@@ -37,6 +23,20 @@ const styles = StyleSheet.create({
         borderRadius: 75,
         backgroundColor: colors.light_gray,
         overflow: 'hidden',
+    },
+    image: {
+        height: 120,
+        width: 120,
+        borderRadius: 60,
+        margin: 40,
+    },
+    addImage: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 80,
+        width: '100%',
+        opacity: 0.8,
+        borderRadius: 75,
     },
     addImageText: {
         color: colors.dark_gray,
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 75,
     },
     changeImageText: {
-        color: '#fff',
+        color: colors.white,
         fontSize: 14,
         marginLeft: 5,
     },
