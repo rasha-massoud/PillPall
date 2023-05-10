@@ -35,7 +35,7 @@
 <!-- Prototyping -->
 <img src="./readme/title3.svg"/>
 
-> Ii designed PillPall using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
+> I designed PillPall using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 ### Wireframes
 | Login screen  | Register screen |
@@ -67,8 +67,13 @@
 <img src="./readme/title5.svg"/>
 
 ###  PillPall is built using the following technologies:
+- Employed [Laravel](https://laravel.com/), a powerful PHP framework for the backend of PillPall. Laravel provides a solid foundation for building secure and scalable backend systems. 
+- Developed the frontend using [TypeScript with React Native](https://reactnative.dev/docs/typescript); this combination offers a more robust development experience by early error detection, and code maintainability.
+- Leveraged the capabilities of [MySQL](https://dev.mysql.com/doc/) to securely store and retrieve user data. 
+- Integrated the [ChatGPT API](https://openai.com/) for the personal assistant screen to get helpful guidance and assistance.
+  - 🚨  Please note that the functionality to find nearby pharmacies is currently unavailable due to maintenance of the underlying [HERE API](https://developer.here.com/)
+- Utilized the ["Open Sans"](https://fonts.google.com/specimen/Open+Sans) font as the main app font, and the design of the app adheres to the material design guidelines.
 
-- 
 
 <br><br>
 
