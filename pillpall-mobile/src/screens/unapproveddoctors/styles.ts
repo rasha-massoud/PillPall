@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
       shadowOffset: { width: 0, height: 2 },
       shadowOpacity: 0.3,
       shadowRadius: 4,
-      marginTop: 10,
+      marginTop: 15,
       flexDirection: 'row',
     },
     nameText: {
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
       flex: 1.5,
       ...appStyles.body2,
       color: colors.darker_gray,
-    }
+    },
 });
 
 
