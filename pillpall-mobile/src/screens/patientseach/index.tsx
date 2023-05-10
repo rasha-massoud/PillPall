@@ -13,6 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import DisplayData from '../../components/DisplayData';
 
 import styles from './styles';
+import appStyles from '../../constants/appStyles';
 
 export type SearchByOption = 'name' | 'major';
 
@@ -190,7 +191,7 @@ const PatientSearch: FC = () => {
             ) : errorMessage ? (
                 <Text style={{ alignSelf: 'center', marginVertical: 20, color: 'red' }}>{errorMessage}</Text>
             ) : doctorsData.length === 0 ? (
-                <Text style={{ alignSelf: 'center', marginVertical: 20 }}>No doctors found.</Text>
+                <Text style={{ alignSelf: 'center', marginVertical: 20, ...appStyles.body1}}>No doctors found.</Text>
             ) : (
                 <FlatList
                     data={doctorsData}
