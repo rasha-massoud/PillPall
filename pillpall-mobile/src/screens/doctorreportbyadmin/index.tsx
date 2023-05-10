@@ -44,8 +44,8 @@ const DoctorReportByAdmin: FC<DoctorReportByAdminProps> = ({route }) => {
 
   const [allResult, setAllResult] = useState<any>();
   const [result, setResult] = useState<Doctor>();
-  
   const [loading, setLoading] = useState<boolean>(false);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -64,6 +64,9 @@ const DoctorReportByAdmin: FC<DoctorReportByAdminProps> = ({route }) => {
           }
         );
         setAllResult(response.data);
+        if(response.data.status == 'success'){
+          setIsSuccess(true);
+        }
       } catch (error) {
         console.error('An error occurred while getting the report', error);
       } finally {
@@ -100,7 +103,7 @@ const DoctorReportByAdmin: FC<DoctorReportByAdminProps> = ({route }) => {
             </View>
         </View>
 
-        {allResult && allResult.status === 'success' ? (
+        {allResult && isSuccess ? (
 
         <View>
           <ScrollView>
