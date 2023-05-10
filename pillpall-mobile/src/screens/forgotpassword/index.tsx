@@ -103,8 +103,8 @@ const ForgotPassword: FC = () => {
                 style={styles.image}
             />
 
-            <TextTitle title='Forgot Password?'></TextTitle>
-            <SubTitleText title='Please fill your email address below to reset your email password'></SubTitleText>
+            <TextTitle title='Forgot Password?' />
+            <SubTitleText title='Please fill your email address below to reset your email password' />
 
             <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
 
