@@ -6,10 +6,9 @@ import Body1Text from '../../components/Body1Text';
 import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import StepText from '../../components/StepText';
-import { useNavigation } from '@react-navigation/core';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useDispatch, useSelector } from "react-redux";
-import { setEmergencyName, setEmergencyNumber, setEmergencyEmail, setEmergencyContactRelation } from "../../store/slices/reportSlice";
+import { useNavigation } from '@react-navigation/core'; 
+import { useDispatch, useSelector } from 'react-redux';
+import { setEmergencyName, setEmergencyNumber, setEmergencyEmail, setEmergencyContactRelation } from '../../store/slices/reportSlice';
 
 import styles from './styles';
 
@@ -68,23 +67,23 @@ const EmergencyContact: FC = () => {
 
   return (
   
-  <SafeAreaView style={styles.container}>
-    <PageTitle title='Emergency Contact Info' />
-    <StepText title='Step 3' color={colors.blue}></StepText>
+    <SafeAreaView style={styles.container}>
+      <PageTitle title='Emergency Contact Info' />
+      <StepText title='Step 3' color={colors.blue} />
 
-    <Body1Text context="In case of an emergency, we need the name, phone number, email address, and relation of a trusted friend or family member who we can contact. Providing this information helps us ensure your safety and well-being."></Body1Text>
+      <Body1Text context="Guard your peace of mind! Provide us with the contact details of a trusted friend or family member. In times of need, we'll be there, prioritizing your safety and well-being." />
 
-    <TextInputwithLabel label="Name" placeholder='Enter your Name' textinputprops={{ secureTextEntry: false }} onChangeText= {handleNameChange} />
+      <TextInputwithLabel label="Name" placeholder='Enter your Name' textinputprops={{ secureTextEntry: false }} onChangeText= {handleNameChange} />
 
-    <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePhoneNumberChange} />
+      <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Phone Number' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePhoneNumberChange} />
 
-    <TextInputwithLabel label="Email" keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false }} onChangeText= {handleEmailChange} />
+      <TextInputwithLabel label="Email" keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false }} onChangeText= {handleEmailChange} />
     
-    <TextInputwithLabel label="Relation" placeholder='Enter your Relation with the Contact' textinputprops={{ secureTextEntry: false }} onChangeText= {handleRelationChange} />
+      <TextInputwithLabel label="Relation" placeholder='Enter your Relation with the Contact' textinputprops={{ secureTextEntry: false }} onChangeText= {handleRelationChange} />
 
-    <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Continue", onPress: handleContinuePress }}  />
+      <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Continue", onPress: handleContinuePress }}  />
 
-  </SafeAreaView>
+    </SafeAreaView>
   );
 };
 
