@@ -9,14 +9,8 @@ import axios from 'axios';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
-import { useDispatch, useSelector } from "react-redux";
-import { setIsLoggedIn, setFirstLogin, setRole } from "../../store/slices/reportSlice";
-import Welcome from '../welcome';
-import Report from '../report';
-import FillProfile from '../fillprofile';
-import Profile from '../profile';
-import PatientButtonTab from '../../navigation/PatientButtonTab';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsLoggedIn, setFirstLogin, setRole } from '../../store/slices/reportSlice';
 
 import styles from './styles'
 
