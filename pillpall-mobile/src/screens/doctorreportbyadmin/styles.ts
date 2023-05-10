@@ -10,7 +10,7 @@ interface Styles {
     top: ViewStyle;
     topLeft: TextStyle;
     topRight: ImageStyle;
-    editText: TextStyle;
+    emptyText: TextStyle;
 }
 
 const { width, height } = Dimensions.get('window');
@@ -41,14 +41,13 @@ const styles = StyleSheet.create<Styles>({
         width: '120%',
         height: '70%',
     },
-    editText: {
-        alignContent:'center',
+    emptyText: {
+        flex: 1,
+        alignItems:'center',
         justifyContent: 'center',
-        alignSelf: 'center',
-        color: colors.blue,
-        ...appStyles.body1,
-        textDecorationLine: 'underline',
-    },
+        marginTop: '80%',
+        height: 38,
+    }
 });
 
 export default styles;
