@@ -104,7 +104,7 @@ const UnapprovedDoctorReportByAdmin: FC<DoctorReportByAdminProps> = ({ route }) 
           {allResult && isSuccess && allResult.report && allResult.report.length > 0 ? (
             <ScrollView>
               <View>
-                <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals." />          
+                <Body1Text context="As an administrator, you are currently viewing the profile of a doctor who is yet to be approved on PillPall. Your diligence in the approval process will contribute to maintaining the trustworthiness of our platform among both doctors and patients." />          
                 <DisplayData title="Name" value={allResult.doctor?.name} />
                 <DisplayData title="Email" value={allResult.doctor?.email} />
                 <DisplayData title="Phone Number" value={allResult.report?.[0]?.phone_number} />
