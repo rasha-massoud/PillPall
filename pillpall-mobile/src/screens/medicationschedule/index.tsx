@@ -103,8 +103,7 @@ const MedicationSchedule: FC = () => {
       .catch((error) => {
         console.error('An error occurred when getting the medications');
       });
-
-    };
+  };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -142,6 +141,6 @@ const MedicationSchedule: FC = () => {
           </View>
         </SafeAreaView>
         );
-        };
+      };
         
 export default MedicationSchedule;
