@@ -129,7 +129,7 @@ const ApprovedDoctors: FC = () => {
             renderItem={({ item }) => (
                 <TouchableOpacity
                     onPress={() => {
-                    navigation.navigate('DoctorReportByAdmin' as never, { doctorId: item.id } as never);
+                    navigation.navigate('UnapprovedDoctorReportByAdmin' as never, { doctorId: item.id } as never);
                     }}
                 >
                     <View style={styles.card}>
