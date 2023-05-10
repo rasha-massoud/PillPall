@@ -9,8 +9,8 @@ import AddImage from '../../components/AddImage';
 import GenderCheckBox from '../../components/GenderCheckBox';
 import StepText from '../../components/StepText';
 import { useNavigation } from '@react-navigation/core';
-import { useDispatch, useSelector } from "react-redux";
-import { setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, } from "../../store/slices/reportSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { setName, setEmail, setPhoneNumber, setImage, setDob, setAddress, setGender, } from '../../store/slices/reportSlice';
 
 import styles from './styles';
 
@@ -42,7 +42,6 @@ const ContactInfo: FC = () => {
   //       type: `image/${fileExtension}`,
   //     };
 
-  //     console.log(result);
   //     setSelectedImage(result.uri);
       
   //     setImage(file);
@@ -118,9 +117,9 @@ const ContactInfo: FC = () => {
   
     <SafeAreaView style={styles.container}>
       <PageTitle title='Contact Information' />
-      <StepText title='Step 1' color={colors.blue}></StepText>
+      <StepText title='Step 1' color={colors.blue} />
 
-      <Body1Text context="To provide you with the best care possible, we need your contact information, such as your phone number, date of birth, address, and gender. This information helps us keep in touch with you and keep your medical records up-to-date."></Body1Text>
+      <Body1Text context="Unlock exceptional care! Share your contact details so we can keep you in the loop and maintain accurate medical records." />
 
       {/* <View style={styles.container1}>
             {selectedImage ? (
