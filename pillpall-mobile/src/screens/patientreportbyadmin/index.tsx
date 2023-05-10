@@ -89,9 +89,9 @@ const PatientReportByAdmin: FC<PatientReportByAdminProps> = ({route }) => {
 
   if (loading) {
     return (
-      <View>
+      <SafeAreaView>
         <Text>Loading...</Text>
-      </View>
+      </SafeAreaView>
     );
   }
 
@@ -114,7 +114,7 @@ const PatientReportByAdmin: FC<PatientReportByAdminProps> = ({route }) => {
             </View>
         </View>
 
-        {allResult && allResult.status === 'success' ? (
+        {allResult && allResult.status === 'success' && allResult.report.length > 0 ? (
 
         <View>
           <ScrollView>
@@ -210,15 +210,11 @@ const PatientReportByAdmin: FC<PatientReportByAdminProps> = ({route }) => {
 
         </View>
         ) : (
-        <View style={appStyles.body1}>
-            <Body1Text context="The purpose of this report is to provide doctors with a comprehensive overview of a patient's medical history and current medications. The report is generated through the use of 'PillPall', a platform that allows users to record and assess their medical history and medications. By submitting this report directly to doctors, patients are able to avoid the repetitive task of recounting their medical history during each visit, and they are less likely to forget any important details. This can ultimately lead to more accurate diagnoses and better treatment outcomes. The use of this platform ensures that patients are able to receive more personalized and effective care, while also streamlining the process of accessing medical records for healthcare professionals." />
-
-            <Body1Text context='No report.' />
-
-            <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 20 }} buttonprops={{ title: "Back", onPress: handleBackPress }} />
-
-        </View>
-        )}
+            <View style = {styles.emptyText}>
+              <Body1Text context={`No report yet for ${allResult?.patient?.name}`} />
+              <CustomButton containerStyle={{ alignSelf: 'center', height: 30, marginTop: 10 }} buttonprops={{ title: "Back", onPress: handleBackPress }} />
+            </View>
+          )}        
   </SafeAreaView>
   );
 };
