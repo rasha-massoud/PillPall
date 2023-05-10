@@ -46,7 +46,7 @@ const styles = StyleSheet.create<Styles>({
         alignItems:'center',
         justifyContent: 'center',
         marginTop: '80%',
-        height: 38,
+        ...appStyles.body1,
     }
 });
 

@@ -79,9 +79,9 @@ const DoctorReportByAdmin: FC<DoctorReportByAdminProps> = ({route }) => {
 
   if (loading) {
     return (
-      <View>
+      <SafeAreaView>
         <Text>Loading...</Text>
-      </View>
+      </SafeAreaView>
     );
   }
 
@@ -105,7 +105,7 @@ const DoctorReportByAdmin: FC<DoctorReportByAdminProps> = ({route }) => {
           <Text>Loading...</Text>
         </View>
       ) : (
-        <View style={appStyles.body1}>
+        <ScrollView>
 
           {allResult && isSuccess && allResult.report && allResult.report.length > 0 ? (
             <ScrollView>
@@ -130,15 +130,12 @@ const DoctorReportByAdmin: FC<DoctorReportByAdminProps> = ({route }) => {
               </View>
             </ScrollView>
           ) : (
-            <View >
+            <View style = {styles.emptyText}>
               <Body1Text context={`No report yet for ${allResult?.doctor?.name}`} />
+              <CustomButton containerStyle={{ alignSelf: 'center', height: 30, marginTop: 10 }} buttonprops={{ title: "Back", onPress: handleBackPress }} />
             </View>
           )}
-          <View style = {styles.emptyText}>
-            <CustomButton containerStyle={{ alignSelf: 'center', height: 30, marginTop: 20 }} buttonprops={{ title: "Back", onPress: handleBackPress }} />
-          </View>
-  
-        </View>
+        </ScrollView>
       )}
     </SafeAreaView>
   );
