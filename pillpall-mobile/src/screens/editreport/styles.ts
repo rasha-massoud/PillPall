@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import { Dimensions } from 'react-native';
 import { colors } from '../../constants/palette';
 
