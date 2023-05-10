@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import appStyles from '../../constants/appStyles';
 import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import { colors } from '../../constants/palette'
 import { Dimensions } from 'react-native';
@@ -32,7 +31,7 @@ const styles = StyleSheet.create<Styles>({
     },
     forgotPasswordText: {
         color: colors.blue,
-        marginBottom: "33%",
+        marginBottom: '33%',
     },
     image: {
         justifyContent: 'center',
