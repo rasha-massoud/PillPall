@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import { Dimensions } from 'react-native';
 import { colors } from '../../constants/palette';
 
@@ -57,7 +56,7 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 75,
     },
     changeImageText: {
-        color: '#fff',
+        color: colors.white,
         fontSize: 14,
         marginLeft: 5,
     },

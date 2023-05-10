@@ -11,8 +11,8 @@ import axios from 'axios';
 import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useDispatch, useSelector } from "react-redux";
-import { setFirstLogin, setLifeStyleHabits, setMedications, } from "../../store/slices/reportSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { setFirstLogin, setLifeStyleHabits, setMedications, } from '../../store/slices/reportSlice';
 import * as ImagePicker from 'expo-image-picker';
 import { ImagePickerResult } from 'expo-image-picker/build/ImagePicker.types';
 import { Ionicons } from '@expo/vector-icons';
@@ -260,34 +260,34 @@ const MedicationsAndHabits: FC = () => {
       <PageTitle title='Medications And Habits' />
       <StepText title='Step 6' color={colors.blue}></StepText>
 
-      <Body1Text context="Finally, you are asked to fill your current medications and lifestyle habits. This information is important for healthcare professionals to determine potential drug interactions, as well as to provide guidance on healthy lifestyle habits that can help improve the patient's overall health."></Body1Text>
+      <Body1Text context="Power up your care! Share your current medications and lifestyle habits to help healthcare professionals identify potential drug interactions and offer guidance on healthy habits for a boosted well-being." />
 
 
       <View style={styles.container1}>
-            {selectedImage ? (
-                <>
-                    <TouchableOpacity onPress={pickImage} style={styles.changeImage}>
-                        <Ionicons name="camera-outline" size={24} color="#fff" />
-                        <Text style={styles.changeImageText}>Change Image</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={clearImage}>
-                        <Image source={{ uri: selectedImage }} style={styles.image} />
-                    </TouchableOpacity>
-                    </>
-                ) : (
-                    <TouchableOpacity onPress={pickImage} style={styles.addImage}>
-                    <Ionicons name="add-outline" size={24} color="#fff" />
-                    <Text style={styles.addImageText}>Add Image</Text>
-                    </TouchableOpacity>
-                )
-            }
-        </View>
+        {selectedImage ? (
+          <>
+            <TouchableOpacity onPress={pickImage} style={styles.changeImage}>
+                <Ionicons name="camera-outline" size={24} color="#fff" />
+                <Text style={styles.changeImageText}>Change Image</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={clearImage}>
+                <Image source={{ uri: selectedImage }} style={styles.image} />
+            </TouchableOpacity>
+          </>
+          ) : (
+            <TouchableOpacity onPress={pickImage} style={styles.addImage}>
+              <Ionicons name="add-outline" size={24} color="#fff" />
+              <Text style={styles.addImageText}>Add Image</Text>
+            </TouchableOpacity>
+          )
+        } 
+      </View>
 
       <TextInputwithLabel label="Current Medications" placeholder='Enter your Current Medications if any' textinputprops={{ secureTextEntry: false }} onChangeText= {handleCurrentMedicationsChange} />
       
       <HabitsMultiSelectChecklist selectedOptions={selectedOptions} onSelectOption={handleSelectOption}/>
       
-      <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Submit", onPress: handleSubmitPress }}  />
+      <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40, height: 45 }} buttonprops={{ title: "Submit", onPress: handleSubmitPress }}  />
 
     </SafeAreaView>
   );
