@@ -81,7 +81,7 @@ const EmergencyContact: FC = () => {
     
       <TextInputwithLabel label="Relation" placeholder='Enter your Relation with the Contact' textinputprops={{ secureTextEntry: false }} onChangeText= {handleRelationChange} />
 
-      <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Continue", onPress: handleContinuePress }}  />
+      <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 45, height:45 }} buttonprops={{ title: "Continue", onPress: handleContinuePress }}  />
 
     </SafeAreaView>
   );
