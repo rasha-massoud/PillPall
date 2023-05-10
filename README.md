@@ -22,13 +22,12 @@
 - As a patient, I want to save my whole medical results with dates in PDF formats so that I can have a comprehensive and organized record of my medical history that is easily accessible, shareable, and secure.
 - As a patient, I want to have an AI personal medical assistant so that I can receive reliable guidance, support, and information about my health and medications.
 - As a patient, I want to be reminded for my prescription intake through a buzzer so that I can maintain a consistent and effective treatment regimen.
-
+<br>
 - As a doctor, I want to have the ability to create and update a profile so that I can showcase my professional expertise, qualifications, and experience.
 - As a doctor, I want to have access to my patients’ medical report and medication online so that follow I can follow my patients’ health easily, quickly and effectively.
-
+<br>
 - As an admin, I want to have the ability to access all users' reports and profiles so that I can maintain data integrity, and monitor the overall system's performance.
 - As an admin, I want to be able to approve doctors so that I can provide them the access to the platform's specialized features and facilitate seamless collaboration between doctors and patients. 
-
 -As a user, I want to have the ability to create a new password in case I forget it, so that I can regain access to my account and ensure the security of my personal information.
 
 <br><br>
