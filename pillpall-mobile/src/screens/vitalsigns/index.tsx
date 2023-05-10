@@ -7,8 +7,8 @@ import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import StepText from '../../components/StepText';
 import { useNavigation } from '@react-navigation/core';
-import { useDispatch, useSelector } from "react-redux";
-import { setBodyTemperature, setPulseRate, setRespirationRate, setSystolicBloodPressure } from "../../store/slices/reportSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { setBodyTemperature, setPulseRate, setRespirationRate, setSystolicBloodPressure } from '../../store/slices/reportSlice';
 
 import styles from './styles';
 
@@ -60,23 +60,23 @@ const VitalSigns: FC = () => {
 
   return (
   
-  <SafeAreaView style={styles.container}>
-    <PageTitle title='Vital Signs' />
-    <StepText title='Step 4' color={colors.blue}></StepText>
+    <SafeAreaView style={styles.container}>
+      <PageTitle title='Vital Signs' />
+      <StepText title='Step 4' color={colors.blue}></StepText>
 
-    <Body1Text context="You are asked to provide your vital signs normal ranges, such as your respiratory rate, pulse rate, systolic blood pressure, and body temperature. These indicators give us an idea of your overall health and help us monitor any changes that may occur."></Body1Text>
+      <Body1Text context="Stay in the healthy zone! Share your vital signs' normal ranges. These benchmarks empower us to track your well-being and detect any deviations." />
 
-    <TextInputwithLabel label="Normal Body Temperature (°C)" keyboardType="numeric" placeholder='Enter your Normal Body Temperature' textinputprops={{ secureTextEntry: false }} onChangeText= {handleTemperatureChange} />
+      <TextInputwithLabel label="Normal Body Temperature (°C)" keyboardType="numeric" placeholder='Enter your Normal Body Temperature' textinputprops={{ secureTextEntry: false }} onChangeText= {handleTemperatureChange} />
 
-    <TextInputwithLabel label="Normal Pulse Rate " keyboardType="numeric" placeholder='Enter your Normal Pulse Rate' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePulseChange} />
+      <TextInputwithLabel label="Normal Pulse Rate " keyboardType="numeric" placeholder='Enter your Normal Pulse Rate' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePulseChange} />
 
-    <TextInputwithLabel label="Normal Respiration Rate" keyboardType="numeric" placeholder='Enter your Normal Respiration Rate' textinputprops={{ secureTextEntry: false }} onChangeText= {handleRespirationRateChange} />
-    
-    <TextInputwithLabel label="Normal Systolic Blood Pressure" keyboardType="numeric" placeholder='Enter your Normal Systolic Blood Pressure' textinputprops={{ secureTextEntry: false }} onChangeText= {handleBloodPressureChange} />
+      <TextInputwithLabel label="Normal Respiration Rate" keyboardType="numeric" placeholder='Enter your Normal Respiration Rate' textinputprops={{ secureTextEntry: false }} onChangeText= {handleRespirationRateChange} />
+      
+      <TextInputwithLabel label="Normal Systolic Blood Pressure" keyboardType="numeric" placeholder='Enter your Normal Systolic Blood Pressure' textinputprops={{ secureTextEntry: false }} onChangeText= {handleBloodPressureChange} />
 
-    <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Continue", onPress: handleContinuePress }}  />
+      <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40, height: 45 }} buttonprops={{ title: "Continue", onPress: handleContinuePress }}  />
 
-  </SafeAreaView>
+    </SafeAreaView>
   );
 };
 
