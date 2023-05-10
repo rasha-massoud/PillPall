@@ -7,8 +7,8 @@ import { colors } from '../../constants/palette';
 import TextInputwithLabel from '../../components/TextInputwithLabel';
 import StepText from '../../components/StepText';
 import { useNavigation } from '@react-navigation/core';
-import { useDispatch, useSelector } from "react-redux";
-import { setBloodType, setHeight, setWeight } from "../../store/slices/reportSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { setBloodType, setHeight, setWeight } from '../../store/slices/reportSlice';
 
 import styles from './styles';
 
@@ -54,21 +54,21 @@ const AnthropometricMeasurements: FC = () => {
 
   return (
   
-  <SafeAreaView style={styles.container}>
-    <PageTitle title='Anthropometric Measurements' />
-    <StepText title='Step 2' color={colors.blue}></StepText>
+    <SafeAreaView style={styles.container}>
+      <PageTitle title='Anthropometric Measurements' />
+      <StepText title='Step 2' color={colors.blue} />
 
-    <Body1Text context="As a patient you are requested to provide your anthropometric measurements, including blood type, height, and weight. These measurements help us assess your overall health status and provide a baseline for future visits."></Body1Text>
+      <Body1Text context="Measure up for optimal care! Share your vital stats to pave the way for a thorough evaluation of your health and set the foundation for future visits." />
 
-    <TextInputwithLabel label="Blood Type" placeholder='Enter your Blood Type' textinputprops={{ secureTextEntry: false }} onChangeText= {handleBloodTypeChange} />
+      <TextInputwithLabel label="Blood Type" placeholder='Enter your Blood Type' textinputprops={{ secureTextEntry: false }} onChangeText= {handleBloodTypeChange} />
 
-    <TextInputwithLabel label="Height (cm)" keyboardType="numeric" placeholder='Enter your Height' textinputprops={{ secureTextEntry: false }} onChangeText= {handleHeightChange} />
+      <TextInputwithLabel label="Height (cm)" keyboardType="numeric" placeholder='Enter your Height' textinputprops={{ secureTextEntry: false }} onChangeText= {handleHeightChange} />
 
-    <TextInputwithLabel label="Weight (Kg)" keyboardType="numeric" placeholder='Enter your Weight' textinputprops={{ secureTextEntry: false }} onChangeText= {handleWeightChange} />
+      <TextInputwithLabel label="Weight (Kg)" keyboardType="numeric" placeholder='Enter your Weight' textinputprops={{ secureTextEntry: false }} onChangeText= {handleWeightChange} />
 
-    <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 40 }} buttonprops={{ title: "Continue", onPress: handleContinuePress }} />
+      <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 44, height: 45 }} buttonprops={{ title: "Continue", onPress: handleContinuePress }} />
 
-  </SafeAreaView>
+    </SafeAreaView>
   );
 };
 
