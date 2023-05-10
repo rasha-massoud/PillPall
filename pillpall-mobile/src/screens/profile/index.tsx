@@ -94,10 +94,10 @@ const Profile: React.FC = () => {
 
             <View>
                 <ScrollView>
-                <Body1Text context="It has been brought to our attention that the doctor’s contact information listed on the “PillPall” platform have been provided through a verified source. Any unauthorized access or misuse of this information will be monitored and dealt with in accordance with applicable laws and regulations." />
+                <Body1Text context="Doctor's contact information on 'PillPall' platform is verified. Any unauthorized access or misuse of this information will be monitored and dealt in accordance with applicable laws and regulations." />
             
                 <TouchableOpacity onPress={handleEditPress}> 
-                        <Text style={styles.editText}>**Press me to Edit**</Text>
+                        <Text style={styles.editText}>Press me to Edit</Text>
                 </TouchableOpacity>
 
                 <View>
@@ -131,8 +131,6 @@ const Profile: React.FC = () => {
             </View>
             ) : (
                 <View style={appStyles.body1}>
-                    <Body1Text context="It has been brought to our attention that the doctor’s contact information listed on the “PillPall” platform have been provided through a verified source. Any unauthorized access or misuse of this information will be monitored and dealt with in accordance with applicable laws and regulations." />
-
                     <Body1Text context='No report.' />
                 </View>
             )}
