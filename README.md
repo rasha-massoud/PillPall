@@ -86,59 +86,77 @@
 
 > Using the wireframes and mockups as a guide, we implemented the PillPall app with the following features:
 
+### Common Screens (Mobile)
+| Login | Register | Forget Password | Reset Password |
+| ---| ---| ---| ---|
+| ![Login](/readme/implementation/login.png)| ![Register](/readme/implementation/register.png)| ![ForgetPassword](/readme/implementation/forgetpassword.png)| ![ResetPassword](/readme/implementation/resetpassword.png)|
+
 ### Patient Screens (Mobile)
-| Add File  | Add Medicine | Add Result|
-| ---| ---| ---|
-| <img src="/readme/gif/addfilenumber.jpeg" width="300px"> | <img src="/readme/gif/addmed.gif" width="300px"> | <img src="/readme/gif/addresult.gif" width="300px"> |
+| Welcome Patient  | Contact Info | Anthrometric Measurements |
+| ---| ---| ---| 
+|![WelcomePatient](/readme/implementation/welcome.png)| ![ContactInfo](/readme/implementation/contactinfo.png)| ![ContactInfo](/readme/implementation/measurements.png)|
 
-| Personal Assistant | Logout | Delete Medicine |
-| ---| ---| ---|
-| <img src="/readme/gif/assiatant.gif" width="300px"> | <img src="/readme/gif/changepassword.gif" width="300px"> | <img src="/readme/gif/deletemed.gif" width="300px"> |
+| Emergency Contact Info | Vital Signs | Medical History |
+| ---| ---| ---| 
+| ![EmergencyContactInfo](/readme/implementation/emergencycontactinfo.png)| ![VitalSigns](/readme/implementation/vitalsigns.png)| ![MedicalHistory](/readme/implementation/medicalhistory.png)|
 
-| File Number (Empty State) | Results (Empty State)| File Number |
+| Medications and Habits | Report | Edit Report |
 | ---| ---| ---|
-| <img src="/readme/gif/emptystatefilenumber.jpeg" width="300px"> | <img src="/readme/gif/emptystateresult.jpeg" width="300px"> | <img src="/readme/gif/filenumber.jpeg" width="300px"> |
+| ![MedicationsAndHabits](/readme/implementation/medicationsandhabits.png)| ![Report](/readme/implementation/report.png)| ![EditReport](/readme/implementation/editreport.png)| 
 
-| Nearby Pharmacies | Anthrometric Measurements | Medical History |
+| Medication Schedule | Add Medicine | Delete Medicine |
 | ---| ---| ---|
-| <img src="/readme/gif/map.gif" width="300px"> | <img src="/readme/gif/measurements.gif" width="300px"> | <img src="/readme/gif/medicalhistory.jpeg" width="300px"> |
+| ![MedicationSchedule](/readme/implementation/medicationschedule.png)| ![AddMedicine](/readme/implementation/addmedicine.png)| ![DeleteMedicine](/readme/implementation/deletemedicine.png)| 
 
-| Medications and Habits | Medication Schedule | Patient Search |
+| Nearby Pharmacies | Budget Tracker | Patient Search |
 | ---| ---| ---|
-| <img src="/readme/gif/medicationsandhabits.jpeg" width="300px"> | <img src="/readme/gif/medicationschedule.gif" width="300px"> | <img src="/readme/gif/patientsearch.gif" width="300px"> |
+| ![NearbyPharmacies](/readme/implementation/map.png)| ![BudgetTracker](/readme/implementation/budgettracker.png)| ![PatientSearch](/readme/implementation/patientsearch.png)| 
 
-| Report | Vital Signs | Welcome Patient |
+| File Numbers (Empty State) | Add File Number | File Numbers |
 | ---| ---| ---|
-| <img src="/readme/gif/report.jpeg" width="300px"> | <img src="/readme/gif/vitalsigns.gif" width="300px"> | <img src="/readme/gif/welcome.gif" width="300px"> |
+| ![EmptyFileNumbers](/readme/implementation/emptyfilenumber.png)| ![AddFileNumber](/readme/implementation/addfilenumber.png)| ![FileNumbers](/readme/implementation/filenumbers.png)| 
+
+| Medical Results (Empty) | Add Medical Result | Medical Results |
+| ---| ---| ---|
+| ![EmptyMedicalResults](/readme/implementation/emptymedicalresult.png)| ![AddMedicalResult](/readme/implementation/addmedicalresult.png)| ![MedicalResults](/readme/implementation/medicalresult.png)| 
+
+| Medical Result File | Personal Assistant (Question) | Personal Assistant (Side Effect) |
+| ---| ---| ---|
+| ![MedicalResultFile](/readme/implementation/medicalresultfile.png)| ![SideEffect](/readme/implementation/question.png)| ![MedicalResults](/readme/implementation/sideeffect.png)| 
+
+| Personal Assistant (Instructions) | Personal Assistant (Replacement) | Change Password |
+| ---| ---| ---|
+| ![Instructions](/readme/implementation/instructions.png)| ![Replacement](/readme/implementation/replacement.png)| ![ChangePassword](/readme/implementation/changepassword.png)| 
 
 ### Doctor Screens (Mobile)
-| Doctor Search  | Doctor Search | Edit Profile |
+| Fill Profile | Profile | Edit Profile |
 | ---| ---| ---|
-| <img src="/readme/gif/DoctorSearch.gif" width="300px"> | <img src="/readme/gif/DoctorSearch2.gif" width="300px"> | <img src="/readme/gif/editprofile.gif" width="300px"> |
+| ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![EditProfile](/readme/implementation/editprofile.png)| 
 
-| Patient Results |
-| ---|
-| <img src="/readme/gif/patientresults.gif" width="300px"> |
+| Doctor Search | Patient Report | Patient Results |
+| ---| ---| ---|
+| ![FillProfile](/readme/implementation/doctorsearch.png)| ![Profile](/readme/implementation/patientreport.png)| ![EditProfile](/readme/implementation/patientresult.png)| 
 
+| Doctor Search (Not Connected/Approved) | Change Password | 
+| ---| ---|
+| ![FillProfile](/readme/implementation/doctorsearchnotconnected.png)| ![ChanePassword](/readme/implementation/changepassworddoctor.png)|
 
 ### Admin Screens (Mobile)
-| Naviation | Approve Doctor | Patients |
+| Patients | Patient Report | Patient Report (Empty) | 
 | ---| ---| ---|
-| <img src="/readme/gif/adminNav.gif" width="300px"> | <img src="/readme/gif/approve.gif" width="300px"> | <img src="/readme/gif/patients.gif" width="300px"> |
+| ![Patients](/readme/implementation/patients.png)| ![PatientReport](/readme/implementation/patientreportbyadmin.png)| ![PatientReportEmpty](/readme/implementation/patientreportempty.png)|
 
-| Unapproved Doctors|
-| ---|
-unapprovedadmin
-| <img src="/readme/gif/unapprovedadmin.jpeg" width="300px"> |
-
-### Common Screens (Mobile)
-| Forget Password | Reset Password | Register |
+| Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) | 
 | ---| ---| ---|
-| <img src="/readme/gif/forgetpassword.jpeg" width="300px"> | <img src="/readme/gif/resetpassword.jpeg" width="300px"> | <img src="/readme/gif/register.gif" width="300px"> |
+| ![ApprovedDoctors](/readme/implementation/approveddoctors.png)| ![ApprovedDoctorReport](/readme/implementation/approveddoctorreport.png)| ![ApprovedDoctorReportEmpty](/readme/implementation/approveddoctorreportempty.png)|
 
-| Login |
-| ---|
-| <img src="/readme/gif/login.png" width="300px"> |
+| Patients | Patient Report | Patient Report (Empty) | 
+| ---| ---| ---|
+| ![Patients](/readme/implementation/patients.png)| ![PatientReport](/readme/implementation/patientreportbyadmin.png)| ![PatientReportEmpty](/readme/implementation/patientreportempty.png)|
+
+| Unapproved Doctors | Unapproved Doctor Report | Approve Doctor |
+| ---| ---| ---|
+| ![UnapprovedDoctors](/readme/implementation/unapproveddoctors.png)| ![UnapprovedDoctorReport](/readme/implementation/unapproveddoctorsreport.png)| ![ApproveDoctor](/readme/implementation/approve.png)|
 
 
 <br><br>
@@ -151,6 +169,7 @@ unapprovedadmin
 - Developed the frontend using [TypeScript with React Native](https://reactnative.dev/docs/typescript); this combination offers a more robust development experience by early error detection, and code maintainability.
 - Leveraged the capabilities of [MySQL](https://dev.mysql.com/doc/) to securely store and retrieve user data. 
 - Integrated the [ChatGPT API](https://openai.com/) for the personal assistant screen to get helpful guidance and assistance.
+- Combined the power of [Arduino](https://www.arduino.cc/) with PillPall to create a more interactive and effective medication reminder system.
 - Utilized the ["Open Sans"](https://fonts.google.com/specimen/Open+Sans) font as the main app font, and the design of the app adheres to the material design guidelines.
    🚨  Please note that the functionality to find nearby pharmacies is currently unavailable due to maintenance of the underlying [HERE API](https://developer.here.com/)
 

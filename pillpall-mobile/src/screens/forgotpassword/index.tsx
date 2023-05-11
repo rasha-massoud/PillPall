@@ -42,7 +42,7 @@ const ForgotPassword: FC = () => {
             },
         })
         .then((response) => {
-            if (response.data.status == 'success'){
+            if (response.data.message === 'Reset password link sent on your email id.') {
                 Alert.alert(
                     'Success',
                     'An email has been sent to your email address to reset your password.',
