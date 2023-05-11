@@ -67,6 +67,11 @@
 | ---| ---| ---|
 | ![PersonalAssistant ](/readme/mockups/personalassistant.png)| ![FileNumbers](/readme/mockups/filenum.png)| ![AddFileNumber](/readme/mockups/addfilenumber.png)|
 
+| Medical Results | Add Medical Result | Patient Search |
+| ---| ---| ---|
+| ![MedicalResults ](/readme/mockups/medicalresults.png)| ![AddMedicalResult](/readme/mockups/addmedicalresult.png)| ![PatientSearch](/readme/mockups/patientsearch.png)|
+
+
 
 <br><br>
 
