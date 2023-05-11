@@ -57,7 +57,6 @@ const UnapprovedDoctorReportByAdmin: FC<DoctorReportByAdminProps> = ({ route }) 
             'Content-Type': 'application/json',
           },
         });
-        console.log(response.data);
         setAllResult(response.data);
         if (response.data.status == 'success') {
           setIsSuccess(true);
