@@ -66,7 +66,6 @@ const MedicationsAndHabits: FC = () => {
         quality: 1,
       });
   
-      console.log(result);
       setSelectedImage(result.uri);
   };
   
@@ -211,7 +210,6 @@ const MedicationsAndHabits: FC = () => {
         
       data.append('image', file);
 
-      console.log(data);
       const token = await AsyncStorage.getItem('token');
 
       const endpoint = 'patient/report';
@@ -223,7 +221,6 @@ const MedicationsAndHabits: FC = () => {
           },
       })
       .then((response) => {
-        console.log(response.data);
         if(response.data.status == 'success'){
           dispatch(setFirstLogin('0'));
           navigation.navigate("Report" as never, {} as never);
