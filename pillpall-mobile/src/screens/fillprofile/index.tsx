@@ -49,7 +49,6 @@ const FillProfile: FC = () => {
           quality: 1,
         });
     
-        console.log(result);
         setSelectedImage(result.uri);
     };
     
@@ -155,7 +154,6 @@ const FillProfile: FC = () => {
         data.append('expertise', exp);
 
         const token = await AsyncStorage.getItem('token');
-        console.log(token);
         const endpoint = 'doctor/report';
         await axios.post(`${API_URL}${endpoint}`, data, {
             headers: {
@@ -178,7 +176,6 @@ const FillProfile: FC = () => {
                 navigation.navigate("Report" as never, {} as never);
             }
             else{
-                console.log(response.data);
                 Alert.alert(
                     'Fails',
                     'Request Fails.',
