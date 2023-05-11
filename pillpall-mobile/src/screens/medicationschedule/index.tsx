@@ -84,7 +84,6 @@ const MedicationSchedule: FC = () => {
         },
       })
       .then((response) => {
-        console.log(response.data);
         if (response.data.status == 'success') {
           const medicationData: MedicationResponse = response.data;
           const mappedMedications: MedicationProps[] = medicationData.medications.map(
@@ -97,7 +96,6 @@ const MedicationSchedule: FC = () => {
           );
           setSuccessState('success');
           setMedications(mappedMedications);
-          console.log(medications);
         }
       })
       .catch((error) => {
