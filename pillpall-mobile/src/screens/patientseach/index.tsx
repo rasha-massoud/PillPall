@@ -81,7 +81,6 @@ const PatientSearch: FC = () => {
               'Content-Type': 'multipart/form-data',
             },
           });
-          console.log(response.data);
           if (Array.isArray(response.data.doctors) && response.data.doctors.length > 0) {
             setDoctorsData(response.data.doctors.map((doctor: any) => ({
                 id: doctor.id,
@@ -107,7 +106,6 @@ const PatientSearch: FC = () => {
           }
         } catch (error) {
             setErrorMessage('An error occurred while searching.');
-            console.log(error);
         } finally {
             setIsLoading(false);
         }
@@ -128,7 +126,6 @@ const PatientSearch: FC = () => {
                 'Content-Type': 'multipart/form-data',
                 },
             });
-            console.log(response.data);
             if (response.data.status == 'success'){
                 setIsLoading(false);
                 Alert.alert(
@@ -158,7 +155,6 @@ const PatientSearch: FC = () => {
         } 
         catch (error) {
             setErrorMessage('An error occurred while connecting.');
-            console.log(error);
         } finally {
             setIsLoading(false);
         }
