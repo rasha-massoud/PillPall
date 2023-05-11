@@ -7,28 +7,27 @@
 
 > Empowering patients, connecting doctors, and revolutionizing healthcare management.
 >
->A mobile application providing patients the ease to manage their meds, track budgets, and access a personal assistant for guidance. Besides, patients can conveniently add their medical laboratory results and connect with approved doctors to strengthen the patient-doctor relationship, all while ensuring privacy and convenience.
+>A mobile application providing patients the ease to manage their meds, track budgets, and access a personal assistant for guidance. Besides, patients can conveniently add their medical laboratory results, and connect with approved doctors to strengthen the patient-doctor relationship, all while ensuring privacy and convenience.
 
 ### User Stories
-- As a patient, I want to have a detailed medical report so that I can easily share my medical information with healthcare providers to avoid the repetitive task of recounting my medical history.
-- As a patient, I want to be able to update the created medical report so that I have the ability to keep my medical information accurate and up-to-date with any change.
-- As a patient, I want to easily add a prescribed medicine along with its timing, dose quantity, and instructions so that I can efficiently manage my medication schedule and ensure proper adherence to my treatment plan.
-- As a patient, I want to effortlessly delete a medicine from my medication list so that I can maintain an up-to-date record of my current medications.
-- As a patient, I want to be able to press on any day in the calendar and instantly view the medications scheduled so that I can effectively manage my medication intake and stay on track with my treatment plan.
-- As a patient, I want to find nearby pharmacies based on my location so that I can easily find a pharmacy that is convenient for me to visit for prescription refill.
-- As a patient, I want to be able to track my medical expenses so that I can have a clear understanding of my medication costs.
-- As a patient, I want to search for and connect with doctors so that I allow them to access my medications and report.
-- As a patient, I want to have all my medical file numbers stored in one place so that I can avoid the hassle of looking for physical copies of my file number from different hospitals or clinics every time.
-- As a patient, I want to save my whole medical results with dates in PDF formats so that I can have a comprehensive and organized record of my medical history that is easily accessible, shareable, and secure.
-- As a patient, I want to have an AI personal medical assistant so that I can receive reliable guidance, support, and information about my health and medications.
-- As a patient, I want to be reminded for my prescription intake through a buzzer so that I can maintain a consistent and effective treatment regimen.
-<br><br>
-- As a doctor, I want to have the ability to create and update a profile so that I can showcase my professional expertise, qualifications, and experience.
-- As a doctor, I want to have access to my patients’ medical report and medication online so that follow I can follow my patients’ health easily, quickly and effectively.
-<br><br>
-- As an admin, I want to have the ability to access all users' reports and profiles so that I can maintain data integrity, and monitor the overall system's performance.
-- As an admin, I want to be able to approve doctors so that I can provide them the access to the platform's specialized features and facilitate seamless collaboration between doctors and patients. 
+- As a patient, I want to have a detailed medical report, so that I can easily share my medical information with healthcare providers to avoid the repetitive task of recounting my medical history.
+- As a patient, I want to be able to update the created medical report, so that I have the ability to keep my medical information accurate and up-to-date with any change.
+- As a patient, I want to easily add a prescribed medicine along with its timing, dose quantity, and instructions, so that I can efficiently manage my medication schedule and ensure proper adherence to my treatment plan.
+- As a patient, I want to effortlessly delete a medicine from my medication list, so that I can maintain an up-to-date record of my current medications.
+- As a patient, I want to be able to press on any day in the calendar and instantly view the medications scheduled, so that I can effectively manage my medication intake and stay on track with my treatment plan.
+- As a patient, I want to find nearby pharmacies based on my location, so that I can easily find a pharmacy that is convenient for me to visit for prescription refill.
+- As a patient, I want to be able to track my medical expenses, so that I can have a clear understanding of my medication costs.
+- As a patient, I want to search for and connect with doctors, so that I allow them to access my medications and report.
+- As a patient, I want to have all my medical file numbers stored in one place, so that I can avoid the hassle of looking for physical copies of my file number every time.
+- As a patient, I want to save my whole medical results in PDF formats with dates, so that I can have a comprehensive and organized record of my medical history that is easily accessible, shareable, and secure.
+- As a patient, I want to have an AI personal medical assistant, so that I can receive reliable guidance, support, and information about my health and medications.
+- As a patient, I want to be reminded for my prescription intake through a buzzer, so that I can maintain a consistent and effective treatment regimen.
+- As a doctor, I want to have the ability to create and update a profile, so that I can showcase my professional expertise, qualifications, and experience.
+- As a doctor, I want to have access to my patients’ medical report and medication online, so that follow I can follow my patients’ health easily, quickly and effectively.
+- As an admin, I want to have the ability to access all users' reports and profiles, so that I can maintain data integrity, and monitor the overall system's performance.
+- As an admin, I want to be able to approve doctors, so that I can provide them the access to the platform's specialized features and facilitate seamless collaboration between doctors and patients. 
 - As a user, I want to have the ability to create a new password in case I forget it, so that I can regain access to my account and ensure the security of my personal information.
+- As a user, I want to have the ability to change my password, so that I can ensure the security of my account and protect my personal information.
 
 <br><br>
 
@@ -71,8 +70,8 @@
 - Developed the frontend using [TypeScript with React Native](https://reactnative.dev/docs/typescript); this combination offers a more robust development experience by early error detection, and code maintainability.
 - Leveraged the capabilities of [MySQL](https://dev.mysql.com/doc/) to securely store and retrieve user data. 
 - Integrated the [ChatGPT API](https://openai.com/) for the personal assistant screen to get helpful guidance and assistance.
-  - 🚨  Please note that the functionality to find nearby pharmacies is currently unavailable due to maintenance of the underlying [HERE API](https://developer.here.com/)
 - Utilized the ["Open Sans"](https://fonts.google.com/specimen/Open+Sans) font as the main app font, and the design of the app adheres to the material design guidelines.
+   🚨  Please note that the functionality to find nearby pharmacies is currently unavailable due to maintenance of the underlying [HERE API](https://developer.here.com/)
 
 
 <br><br>
