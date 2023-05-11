@@ -26,7 +26,8 @@
 - As a doctor, I want to have access to my patients’ medical report and medication online, so that follow I can follow my patients’ health easily, quickly and effectively.
 - As an admin, I want to have the ability to access all users' reports and profiles, so that I can maintain data integrity, and monitor the overall system's performance.
 - As an admin, I want to be able to approve doctors, so that I can provide them the access to the platform's specialized features and facilitate seamless collaboration between doctors and patients. 
-- As a user, I want to have the ability to create a new password in case I forget it, so that I can regain access to my account and ensure the security of my personal information.
+
+- As a user, I want to have the ability to reset my password in case I forget it, so that I can regain access to my account and ensure the security of my personal information.
 - As a user, I want to have the ability to change my password, so that I can ensure the security of my account and protect my personal information.
 
 <br><br>
