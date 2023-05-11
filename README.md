@@ -39,13 +39,13 @@
 
 
 ### Mockups
-| Login screen  | Register Screen | Forget Password | Reset Password |
+| Login | Register | Forget Password | Reset Password |
 | ---| ---| ---| ---|
-| ![Login](/readme/mockups/login.png)| ![Register](/readme/mockups/register.png)| ![ForgetPassword](/readme/mockups/forgetpassword.png)| ![resetpassword](/readme/mockups/resetpassword.png)|
+| ![Login](/readme/mockups/login.png)| ![Register](/readme/mockups/register.png)| ![ForgetPassword](/readme/mockups/forgetpassword.png)| ![ResetPassword](/readme/mockups/resetpassword.png)|
 
-| Forget Password | Reset Password |
-| ---| ---|
-| ![ForgetPassword](/readme/mockups/forgetpassword.png)| ![resetpassword](/readme/mockups/resetpassword.png)|
+| Welcome | Contact Information | Anthropometric Measurements | Emergency Contact Info |
+| ---| ---| ---| ---|
+| ![WelcomePatient](/readme/mockups/welcome.png)| ![ContactInfo](/readme/mockups/contactinfo.png)| ![Measurements](/readme/mockups/measurements.png)| ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png)| 
 
 <br><br>
 
