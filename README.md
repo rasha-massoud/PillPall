@@ -45,8 +45,7 @@
 
 | Reset Password | Welcome | Contact Information | 
 | ---| ---| ---|
-| ![ResetPassword](/readme/mockups/resetpassword.png)| ![WelcomePatient](/readme/mockups/
-.png)| ![ContactInfo](/readme/mockups/contactinfo.png)|
+| ![ResetPassword](/readme/mockups/resetpassword.png)| ![WelcomePatient](/readme/mockups/welcome.png)| ![ContactInfo](/readme/mockups/contactinfo.png)|
 
 |Anthropometric Measurements | Emergency Contact Info | Vital Signs |
 | ---| ---| ---|
@@ -172,7 +171,7 @@
 - Integrated the [ChatGPT API](https://openai.com/) for the personal assistant screen to get helpful guidance and assistance.
 - Combined the power of [Arduino](https://www.arduino.cc/) with PillPall to create a more interactive and effective medication reminder system.
 - Utilized the ["Open Sans"](https://fonts.google.com/specimen/Open+Sans) font as the main app font, and the design of the app adheres to the material design guidelines.
-   🚨  Please note that the functionality to find nearby pharmacies is currently unavailable due to maintenance of the underlying [HERE API](https://developer.here.com/)
+- 🚨  Please note that the functionality to find nearby pharmacies is currently unavailable due to maintenance of the underlying [HERE API](https://developer.here.com/)
 
 
 <br><br>
@@ -236,7 +235,7 @@
     php artisan jwt:secret
     ```
 
-    * Ceate the database tables
+    * Create the database tables
     ```sh
     php artisan migrate
     ```
