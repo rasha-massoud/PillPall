@@ -48,8 +48,8 @@
 | ![ResetPassword](/readme/mockups/resetpassword.png)| ![WelcomePatient](/readme/mockups/welcome.png)| ![ContactInfo](/readme/mockups/contactinfo.png)|
 
 | Anthropometric Measurements | Emergency Contact Info | Vital Signs |
-| --- | --- | --- |
-| ![Measurements](/readme/mockups/measurements.png | width=1170) | ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png | width=1170) | ![VitalSigns](/readme/mockups/vitalsigns.png | width=1170) |
+| ---| ---| ---|
+| ![Measurements](/readme/mockups/measurements.png)| ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png)| ![VitalSigns](/readme/mockups/vitalsigns.png)|
 
 | Medical History | Medications and Habits | Report |
 | ---| ---| ---|
@@ -92,7 +92,7 @@
 | ![Login](/readme/implementation/login.png)| ![Register](/readme/implementation/register.png)| ![ForgetPassword](/readme/implementation/forgotpassword.png)| ![ResetPassword](/readme/implementation/resetpassword.png)|
 
 ### Patient Screens (Mobile)
-| Welcome Patient  | Contact Info | Anthrometric Measurements |
+| Welcome Patient | Contact Info | Anthrometric Measurements |
 | ---| ---| ---| 
 |![WelcomePatient](/readme/implementation/welcomepatient.png)| ![ContactInfo](/readme/implementation/contactinfo.png)| ![ContactInfo](/readme/implementation/measurements.png)|
 
