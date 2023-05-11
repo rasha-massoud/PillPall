@@ -76,7 +76,6 @@ const AddMedicalResult: FC = () => {
 
             const token = await AsyncStorage.getItem('token');
 
-            console.log(data);
             const endpoint = 'med/add_medical_result';
             await axios.post(`${API_URL}${endpoint}`, data, {
                 headers: {
@@ -85,7 +84,6 @@ const AddMedicalResult: FC = () => {
                 'Content-Type': 'multipart/form-data',
                 },
             }).then((response) => {
-                console.log(response.data);
                 if (response.data.status == 'success') {
                     Alert.alert(
                         'Success',
