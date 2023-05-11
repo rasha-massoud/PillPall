@@ -41,43 +41,43 @@
 ### Mockups
 | Login | Register | Forget Password |
 | ---| ---| ---|
-| ![Login](/readme/mockups/login.png)| ![Register](/readme/mockups/register.png)| ![ForgetPassword](/readme/mockups/forgetpassword.png)|
+| ![Login](/readme/mockups/login.png =200x)| ![Register](/readme/mockups/register.png =200x)| ![ForgetPassword](/readme/mockups/forgetpassword.png =200x)|
 
 | Reset Password | Welcome | Contact Information | 
 | ---| ---| ---|
-| ![ResetPassword](/readme/mockups/resetpassword.png)| ![WelcomePatient](/readme/mockups/welcome.png)| ![ContactInfo](/readme/mockups/contactinfo.png)|
+| ![ResetPassword](/readme/mockups/resetpassword.png =200x)| ![WelcomePatient](/readme/mockups/welcome.png =200x)| ![ContactInfo](/readme/mockups/contactinfo.png =200x)|
 
 | Anthropometric Measurements | Emergency Contact Info | Vital Signs |
 | ---| ---| ---|
-| ![Measurements](/readme/mockups/measurements.png)| ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png)| ![VitalSigns](/readme/mockups/vitalsigns.png)|
+| ![Measurements](/readme/mockups/measurements.png =200x)| ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png =200x)| ![VitalSigns](/readme/mockups/vitalsigns.png =200x)|
 
 | Medical History | Medications and Habits | Report |
 | ---| ---| ---|
-| ![MedicalHistory](/readme/mockups/medicalhistory.png)| ![MedicationsAndHabits](/readme/mockups/medicationsandhabits.png)| ![Report](/readme/mockups/report.png)|
+| ![MedicalHistory](/readme/mockups/medicalhistory.png =200x)| ![MedicationsAndHabits](/readme/mockups/medicationsandhabits.png =200x)| ![Report](/readme/mockups/report.png =200x)|
 
 | Edit Report | Medication Schedule | Add Medicine |
 | ---| ---| ---|
-| ![EditReport](/readme/mockups/editreport.png)| ![MedicationSchedule](/readme/mockups/medicationschedule.png)| ![AddMedicine](/readme/mockups/addmedicine.png)|
+| ![EditReport](/readme/mockups/editreport.png =200x)| ![MedicationSchedule](/readme/mockups/medicationschedule.png =200x)| ![AddMedicine](/readme/mockups/addmedicine.png =200x)|
 
 | Delete Medicine | Nearby Pharmacies | Budget Tracker |
 | ---| ---| ---|
-| ![DeleteMedicine](/readme/mockups/deletemedicine.png)| ![NearbyPharmacies](/readme/mockups/nearbypharmacies.png)| ![BudgetTracker](/readme/mockups/budgettracker.png)|
+| ![DeleteMedicine](/readme/mockups/deletemedicine.png =200x)| ![NearbyPharmacies](/readme/mockups/nearbypharmacies.png =200x)| ![BudgetTracker](/readme/mockups/budgettracker.png =200x)|
 
 | Personal Assistant | File Numbers | Add File Number |
 | ---| ---| ---|
-| ![PersonalAssistant ](/readme/mockups/personalassistant.png)| ![FileNumbers](/readme/mockups/filenum.png)| ![AddFileNumber](/readme/mockups/addfilenumber.png)|
+| ![PersonalAssistant ](/readme/mockups/personalassistant.png =200x)| ![FileNumbers](/readme/mockups/filenum.png =200x)| ![AddFileNumber](/readme/mockups/addfilenumber.png =200x)|
 
 | Medical Results | Add Medical Result | Patient Search |
 | ---| ---| ---|
-| ![MedicalResults ](/readme/mockups/medicalresults.png)| ![AddMedicalResult](/readme/mockups/addmedicalresult.png)| ![PatientSearch](/readme/mockups/patientsearch.png)|
+| ![MedicalResults ](/readme/mockups/medicalresults.png =200x)| ![AddMedicalResult](/readme/mockups/addmedicalresult.png =200x)| ![PatientSearch](/readme/mockups/patientsearch.png =200x)|
 
 | Fill Doctor Profile | Profile | Edit Profile |
 | ---| ---| ---|
-| ![FillProfile ](/readme/mockups/fillprofile.png)| ![Profile](/readme/mockups/profile.png)| ![EditProfile](/readme/mockups/editprofile.png)|
+| ![FillProfile ](/readme/mockups/fillprofile.png =200x)| ![Profile](/readme/mockups/profile.png =200x)| ![EditProfile](/readme/mockups/editprofile.png =200x)|
 
 | Doctor Search | Patient Report | Patient Result |
 | ---| ---| ---|
-| ![DoctorSearch ](/readme/mockups/doctorsearch.png)| ![PatientReport](/readme/mockups/patientreport.png)| ![PatientResult](/readme/mockups/patientresult.png)|
+| ![DoctorSearch ](/readme/mockups/doctorsearch.png =200x)| ![PatientReport](/readme/mockups/patientreport.png =200x)| ![PatientResult](/readme/mockups/patientresult.png =200x)|
 
 <br><br>
 
