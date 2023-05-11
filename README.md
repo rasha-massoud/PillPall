@@ -91,19 +91,54 @@
 | ---| ---| ---|
 | <img src="/readme/gif/addfilenumber.jpeg" width="300px"> | <img src="/readme/gif/addmed.gif" width="300px"> | <img src="/readme/gif/addresult.gif" width="300px"> |
 
+| Personal Assistant | Logout | Delete Medicine |
+| ---| ---| ---|
+| <img src="/readme/gif/assiatant.gif" width="300px"> | <img src="/readme/gif/changepassword.gif" width="300px"> | <img src="/readme/gif/deletemed.gif" width="300px"> |
+
+| File Number (Empty State) | Results (Empty State)| File Number |
+| ---| ---| ---|
+| <img src="/readme/gif/emptystatefilenumber.jpeg" width="300px"> | <img src="/readme/gif/emptystateresult.jpeg" width="300px"> | <img src="/readme/gif/filenumber.jpeg" width="300px"> |
+
+| Nearby Pharmacies | Anthrometric Measurements | Medical History |
+| ---| ---| ---|
+| <img src="/readme/gif/map.gif" width="300px"> | <img src="/readme/gif/measurements.gif" width="300px"> | <img src="/readme/gif/medicalhistory.jpeg" width="300px"> |
+
+| Medications and Habits | Medication Schedule | Patient Search |
+| ---| ---| ---|
+| <img src="/readme/gif/medicationsandhabits.jpeg" width="300px"> | <img src="/readme/gif/medicationschedule.gif" width="300px"> | <img src="/readme/gif/patientsearch.gif" width="300px"> |
+
+| Report | Vital Signs | Welcome Patient |
+| ---| ---| ---|
+| <img src="/readme/gif/report.jpeg" width="300px"> | <img src="/readme/gif/vitalsigns.gif" width="300px"> | <img src="/readme/gif/welcome.gif" width="300px"> |
 
 ### Doctor Screens (Mobile)
-| Login screen  | Register screen |
+| Doctor Search  | Doctor Search | Edit Profile |
+| ---| ---| ---|
+| <img src="/readme/gif/DoctorSearch.gif" width="300px"> | <img src="/readme/gif/DoctorSearch2.gif" width="300px"> | <img src="/readme/gif/editprofile.gif" width="300px"> |
+
+| Patient Results |
+| ---|
+| <img src="/readme/gif/patientresults.gif" width="300px"> |
+
 
 ### Admin Screens (Mobile)
+| Naviation | Approve Doctor | Patients |
+| ---| ---| ---|
+| <img src="/readme/gif/adminNav.gif" width="300px"> | <img src="/readme/gif/approve.gif" width="300px"> | <img src="/readme/gif/patients.gif" width="300px"> |
 
+| Unapproved Doctors|
+| ---|
+unapprovedadmin
+| <img src="/readme/gif/unapprovedadmin.jpeg" width="300px"> |
 
 ### Common Screens (Mobile)
 | Forget Password | Reset Password | Register |
 | ---| ---| ---|
 | <img src="/readme/gif/forgetpassword.jpeg" width="300px"> | <img src="/readme/gif/resetpassword.jpeg" width="300px"> | <img src="/readme/gif/register.gif" width="300px"> |
 
-
+| Login |
+| ---|
+| <img src="/readme/gif/login.png" width="300px"> |
 
 
 <br><br>
