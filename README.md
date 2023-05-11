@@ -59,6 +59,12 @@
 | ---| ---| ---|
 | ![EditReport](/readme/mockups/editreport.png)| ![MedicationSchedule](/readme/mockups/medicationschedule.png)| ![AddMedicine](/readme/mockups/addmedicine.png)|
 
+| Delete Medicine | Nearby Pharmacies | Budget Tracker |
+| ---| ---| ---|
+| ![DeleteMedicine](/readme/mockups/deletemedicine.png)| ![NearbyPharmacies](/readme/mockups/nearbypharmacies.png)| ![BudgetTracker](/readme/mockups/budgettracker.png)|
+
+
+
 <br><br>
 
 <!-- Implementation -->
