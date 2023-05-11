@@ -93,6 +93,19 @@
 ### Doctor Screens (Mobile)
 | Login screen  | Register screen |
 
+### Admin Screens (Mobile)
+
+
+### Common Screens (Mobile)
+| Login | Register | Change Password |
+| ---| ---| ---|
+| ![Login](/readme/gif/login.png)| ![Register](/readme/gif/register.gif)| ![ChangePassword](/readme/gif/changepassword.gif)|
+
+| Forget Password | Reset Password |
+| ---| ---|
+| ![ForgetPassword](/readme/gif/forgetpassword.jpeg)| ![ResetPassword](/readme/gif/resetpassword.jpeg)|
+
+
 <br><br>
 
 <!-- Tech stack -->
