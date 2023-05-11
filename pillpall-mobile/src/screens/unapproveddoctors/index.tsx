@@ -82,7 +82,6 @@ const ApprovedDoctors: FC = () => {
                 },
             })
             .then((response) => {
-                console.log(response.data);
                 const unapprovedDoctorsData = response.data.user.map((doctor: Doctor) => ({
                     ...doctor,
                     onApprove: () => approveDoctor(doctor.id),
@@ -128,7 +127,6 @@ const ApprovedDoctors: FC = () => {
                 },
             })
             .then((response) => {
-                console.log(response.data);
                 if (response.data.status == "success"){
                     Alert.alert('Success', 'Doctor approved successfully');
                 }
