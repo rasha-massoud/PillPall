@@ -110,7 +110,7 @@
 
 | Nearby Pharmacies | Budget Tracker | Patient Search |
 | ---| ---| ---|
-| ![NearbyPharmacies](/readme/implementation/map.png)| ![BudgetTracker](/readme/implementation/budgettracker.png)| ![PatientSearch](/readme/implementation/patientsearch.png)|
+| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/addmed.gif)| ![PatientSearch](/readme/gif/patientsearch.gif)|
 
 | File Numbers (Empty State) | Add File Number | File Numbers |
 | ---| ---| ---|
