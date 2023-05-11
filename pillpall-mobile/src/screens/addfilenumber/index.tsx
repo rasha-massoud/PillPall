@@ -51,7 +51,6 @@ const AddFileNumber: FC = () => {
         data.append('address', address);
         data.append('file_number', fileNumber);
 
-        console.log(data);
         const token = await AsyncStorage.getItem('token');
         
         const endpoint = 'med/add_file_number';
@@ -63,7 +62,6 @@ const AddFileNumber: FC = () => {
             },
         })
         .then((response) => {
-            console.log(response.data);
             if(response.data.status == 'success'){
                 Alert.alert(
                     'Success',
