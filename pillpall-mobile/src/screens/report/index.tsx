@@ -67,7 +67,6 @@ const Report: React.FC = () => {
         );
         setAllResult(response.data);
         setResult(response.data.user);
-        console.log(response.data)
       } catch (error) {
         console.error('An error occurred while getting the report', error);
       } finally {
