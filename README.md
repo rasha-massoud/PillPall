@@ -65,19 +65,19 @@
 
 | Personal Assistant | File Numbers | Add File Number |
 | ---| ---| ---|
-| ![PersonalAssistant ](/readme/mockups/personalassistant.png)| ![FileNumbers](/readme/mockups/filenum.png)| ![AddFileNumber](/readme/mockups/addfilenumber.png)|
+| ![PersonalAssistant](/readme/mockups/personalassistant.png)| ![FileNumbers](/readme/mockups/filenum.png)| ![AddFileNumber](/readme/mockups/addfilenumber.png)|
 
 | Medical Results | Add Medical Result | Patient Search |
 | ---| ---| ---|
-| ![MedicalResults ](/readme/mockups/medicalresults.png)| ![AddMedicalResult](/readme/mockups/addmedicalresult.png)| ![PatientSearch](/readme/mockups/patientsearch.png)|
+| ![MedicalResults](/readme/mockups/medicalresults.png)| ![AddMedicalResult](/readme/mockups/addmedicalresult.png)| ![PatientSearch](/readme/mockups/patientsearch.png)|
 
 | Fill Doctor Profile | Profile | Edit Profile |
 | ---| ---| ---|
-| ![FillProfile ](/readme/mockups/fillprofile.png)| ![Profile](/readme/mockups/profile.png)| ![EditProfile](/readme/mockups/editprofile.png)|
+| ![FillProfile](/readme/mockups/fillprofile.png)| ![Profile](/readme/mockups/profile.png)| ![EditProfile](/readme/mockups/editprofile.png)|
 
 | Doctor Search | Patient Report | Patient Result |
 | ---| ---| ---|
-| ![DoctorSearch ](/readme/mockups/doctorsearch.png)| ![PatientReport](/readme/mockups/patientreport.png)| ![PatientResult](/readme/mockups/patientresult.png)|
+| ![DoctorSearch](/readme/mockups/doctorsearch.png)| ![PatientReport](/readme/mockups/patientreport.png)| ![PatientResult](/readme/mockups/patientresult.png)|
 
 <br><br>
 
