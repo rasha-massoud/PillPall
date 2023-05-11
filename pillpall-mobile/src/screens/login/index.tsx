@@ -52,7 +52,14 @@ const Login: FC = () => {
     const handleLoginPress = async () => {
 
         if (!validateEmail(email) || !validatePassword(password)) {
-            console.error('Invalid Credentials');
+            Alert.alert(
+                'Fails',
+                'Invalid Credentials.',
+                [
+                  { text: 'OK' }
+                ],
+                { cancelable: false }
+            );
             return;
         }
 
@@ -85,7 +92,6 @@ const Login: FC = () => {
                     (state: RootState) => state.report.first_login
                 );
 
-                console.log(first_login, is_logged_in, role);
                 if (is_logged_in == '1' && first_login == '1' && role == "patient") {
                     navigation.navigate("Welcome" as never, {} as never)
                 }
