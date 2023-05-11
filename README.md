@@ -51,6 +51,10 @@
 | ---| ---| ---|
 | ![Measurements](/readme/mockups/measurements.png)| ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png)| ![VitalSigns](/readme/mockups/vitalsigns.png)|
 
+| Medical History | Medications and Habits | Report |
+| ---| ---| ---|
+| ![MedicalHistory](/readme/mockups/medicalhistory.png)| ![MedicationsAndHabits](/readme/mockups/medicationsandhabits.png)| ![Report](/readme/mockups/report.png)|
+
 <br><br>
 
 <!-- Implementation -->
