@@ -106,7 +106,7 @@
 
 | Medication Schedule | Add Medicine | Delete Medicine |
 | ---| ---| ---|
-| ![MedicationSchedule](/readme/implementation/medicationschedule.png)| ![AddMedicine](/readme/implementation/addmedicine.png)| ![DeleteMedicine](/readme/implementation/deletemedicine.png)|
+| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/implementation/addmedicine.png)| ![DeleteMedicine](/readme/implementation/deletemedicine.png)|
 
 | Nearby Pharmacies | Budget Tracker | Patient Search |
 | ---| ---| ---|
