@@ -22,35 +22,6 @@ const ContactInfo: FC = () => {
 
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  // const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
-  // const pickImage = async () => {
-  //     let result: ImagePickerResult = await ImagePicker.launchImageLibraryAsync({
-  //       mediaTypes: ImagePicker.MediaTypeOptions.All,
-  //       allowsEditing: true,
-  //       aspect: [4, 3],
-  //       quality: 1,
-  //     });
-  
-  //     const fileExtension = result.split('.').pop() || '';
-
-  //     const fileName = `image_${Date.now()}.${fileExtension}`;
-    
-  //     const file = {
-  //       uri: result,
-  //       name: fileName,
-  //       type: `image/${fileExtension}`,
-  //     };
-
-  //     setSelectedImage(result.uri);
-      
-  //     setImage(file);
-  // };
-  
-  //   const clearImage = () => {
-  //     setSelectedImage(null);
-  //     setImage(result.uri);
-  // };
   
   const [contactInfoData, setContactInfoData] = useState<ContactInfoData>({
     gender: undefined
@@ -120,26 +91,6 @@ const ContactInfo: FC = () => {
       <StepText title='Step 1' color={colors.blue} />
 
       <Body1Text context="Unlock exceptional care! Share your contact details so we can keep you in the loop and maintain accurate medical records." />
-
-      {/* <View style={styles.container1}>
-            {selectedImage ? (
-                <>
-                    <TouchableOpacity onPress={pickImage} style={styles.changeImage}>
-                        <Ionicons name="camera-outline" size={24} color="#fff" />
-                        <Text style={styles.changeImageText}>Change Image</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={clearImage}>
-                        <Image source={{ uri: selectedImage }} style={styles.image} />
-                    </TouchableOpacity>
-                    </>
-                ) : (
-                    <TouchableOpacity onPress={pickImage} style={styles.addImage}>
-                    <Ionicons name="add-outline" size={24} color="#fff" />
-                    <Text style={styles.addImageText}>Add Image</Text>
-                    </TouchableOpacity>
-                )
-            }
-        </View> */}
       <ScrollView>
         <TextInputwithLabel label='Name' placeholder='Enter your Username' textinputprops={{ secureTextEntry: false}} onChangeText= {handleNameChange} />
         <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
