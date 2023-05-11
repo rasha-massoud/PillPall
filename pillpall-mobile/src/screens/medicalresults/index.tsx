@@ -45,7 +45,6 @@ const MedicalResults: FC = () => {
           },
         })
         .then((response) => {
-          console.log(response.data);
           setIsLoading(false);
           if (response.data.status === 'success') {
             const formattedResults = response.data.results.map((result: MedicalResult) => ({
