@@ -131,7 +131,7 @@
 ### Doctor Screens (Mobile)
 | Fill Profile | Profile | Edit Profile |
 | ---| ---| ---|
-| ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![EditProfile](/readme/implementation/editprofile.png)|
+| ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![EditProfile](/readme/gif/editprofile.gif)|
 
 | Doctor Search | Patient Report (Doctor) | Patient Results (Doctor) |
 | ---| ---| ---|
