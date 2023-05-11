@@ -131,11 +131,11 @@
 ### Doctor Screens (Mobile)
 | Fill Profile | Profile | Edit Profile |
 | ---| ---| ---|
-| ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![EditProfile](/readme/gif/editprofile.gif =200x)|
+| ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![EditProfile](/readme/gif/editprofile.gif)|
 
 | Doctor Search | Patient Report (Doctor) | Patient Results (Doctor) |
 | ---| ---| ---|
-| ![DoctorSearch](/readme/implementation/doctorsearch.png)| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)|
+| ![DoctorSearch](/readme/gif/DoctorSearch.gif)| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)|
 
 | Doctor Search (Not Connected/Approved) | Change Password | 
 | ---| ---|
