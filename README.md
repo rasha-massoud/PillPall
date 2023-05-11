@@ -39,9 +39,9 @@
 
 
 ### Mockups
-| Login screen  | Register Screen | Forget Password | Reset Password |
-| ---| ---| 
-| ![Login](/readme/mockups/login.png)| [Register](/readme/mockups/register.png)| [ForgetPassword](/readme/mockups/forgetpassword.png)| [resetpassword](/readme/mockups/resetpassword.png)|
+| Login screen  | Register Screen | 
+| ---| ---|
+| ![Login](/readme/mockups/login.png)| [Register](/readme/mockups/register.png)| 
 
 | Forget Password | Reset Password |
 | ---| ---|
