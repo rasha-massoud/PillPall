@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from "react-redux";
 import { setIsLoggedIn } from "../../store/slices/reportSlice";
 import styles from './styles'
+import CustomButton from '../../components/CustomButton';
 
 const ChangePassword: FC = () => {
 
@@ -147,7 +148,7 @@ const ChangePassword: FC = () => {
             <TextInputwithLabel label="New Password" placeholder='Enter a New Password' textinputprops={{ secureTextEntry: true }} onChangeText= {handleNew1PasswordChange}  />
             <TextInputwithLabel label="Confirm New Password" placeholder='Re-enter the New Password' textinputprops={{ secureTextEntry: true }} onChangeText= {handleNew2PasswordChange}  />
             
-            <TwoCustomButton containerStyle={{ alignSelf: 'center'}} buttonprops2={{ title: "Cancel", onPress: () => console.log('Cancel') }} buttonprops1={{ title: "Save", onPress: handleSavePress }}></TwoCustomButton>
+            <CustomButton containerStyle={{ alignSelf: 'center', marginTop: 25 }} buttonprops={{ title: "Save", onPress: handleSavePress }}  />
 
         </SafeAreaView>
     );
