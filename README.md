@@ -39,13 +39,17 @@
 
 
 ### Mockups
-| Login | Register | Forget Password | Reset Password |
-| ---| ---| ---| ---|
-| ![Login](/readme/mockups/login.png)| ![Register](/readme/mockups/register.png)| ![ForgetPassword](/readme/mockups/forgetpassword.png)| ![ResetPassword](/readme/mockups/resetpassword.png)|
+| Login | Register | Forget Password |
+| ---| ---| ---|
+| ![Login](/readme/mockups/login.png)| ![Register](/readme/mockups/register.png)| ![ForgetPassword](/readme/mockups/forgetpassword.png)|
 
-| Welcome | Contact Information | Anthropometric Measurements | Emergency Contact Info |
+| Reset Password | Welcome | Contact Information | 
 | ---| ---| ---| ---|
-| ![WelcomePatient](/readme/mockups/welcome.png)| ![ContactInfo](/readme/mockups/contactinfo.png)| ![Measurements](/readme/mockups/measurements.png)| ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png)| 
+| ![ResetPassword](/readme/mockups/resetpassword.png)| ![WelcomePatient](/readme/mockups/welcome.png)| ![ContactInfo](/readme/mockups/contactinfo.png)|
+
+|Anthropometric Measurements | Emergency Contact Info | Vital Signs |
+| ---| ---| ---|
+| ![Measurements](/readme/mockups/measurements.png)| ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png)| ![VitalSigns](/readme/mockups/vitalsigns.png)|
 
 <br><br>
 
