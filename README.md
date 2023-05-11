@@ -97,13 +97,13 @@
 
 
 ### Common Screens (Mobile)
-| Login | Register | Change Password |
+| Login | Forget Password | Reset Password |
 | ---| ---| ---|
-| ![Login](/readme/gif/login.png)| ![Register](/readme/gif/register.gif)| ![ChangePassword](/readme/gif/changepassword.gif)|
+| ![Login](/readme/gif/login.png)| ![ForgetPassword](/readme/gif/forgetpassword.jpeg)| ![ResetPassword](/readme/gif/resetpassword.jpeg)|
 
-| Forget Password | Reset Password |
+| Register | Change Password |
 | ---| ---|
-| ![ForgetPassword](/readme/gif/forgetpassword.jpeg)| ![ResetPassword](/readme/gif/resetpassword.jpeg)|
+| ![Register](/readme/gif/register.gif)| ![ChangePassword](/readme/gif/changepassword.gif)|
 
 
 <br><br>
