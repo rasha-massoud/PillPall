@@ -10,6 +10,7 @@
 >A mobile application providing patients the ease to manage their meds, track budgets, and access a personal assistant for guidance. Besides, patients can conveniently add their medical laboratory results, and connect with approved doctors to strengthen the patient-doctor relationship, all while ensuring privacy and convenience.
 
 ### User Stories
+**Patient**
 - As a patient, I want to have a detailed medical report, so that I can easily share my medical information with healthcare providers to avoid the repetitive task of recounting my medical history.
 - As a patient, I want to be able to update the created medical report, so that I have the ability to keep my medical information accurate and up-to-date with any change.
 - As a patient, I want to easily add a prescribed medicine along with its timing, dose quantity, and instructions, so that I can efficiently manage my medication schedule and ensure proper adherence to my treatment plan.
