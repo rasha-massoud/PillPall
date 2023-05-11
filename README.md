@@ -97,9 +97,10 @@
 
 
 ### Common Screens (Mobile)
-| Forget Password | Reset Password | Register 
-| ---| ---|
-| ![ForgetPassword](/readme/gif/forgetpassword.jpeg)| ![ResetPassword](/readme/gif/resetpassword.jpeg)| ![Register](/readme/gif/register.gif)|
+| Forget Password | Reset Password | Register |
+| ---| ---| ---|
+| <img src="/readme/gif/forgetpassword.jpeg" width="1170px" height="2532px"> | <img src="/readme/gif/resetpassword.jpeg" width="1170px" height="2532px"> | <img src="/readme/gif/register.gif" width="1170px" height="2532px"> |
+
 
 
 <br><br>
