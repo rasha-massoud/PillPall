@@ -135,17 +135,13 @@
 
 | Doctor Search | Patient Report | Patient Results |
 | ---| ---| ---|
-| ![FillProfile](/readme/implementation/doctorsearch.png)| ![Profile](/readme/implementation/patientreport.png)| ![EditProfile](/readme/implementation/patientresult.png)|
+| ![DoctorSearch](/readme/implementation/doctorsearch.png)| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)|
 
 | Doctor Search (Not Connected/Approved) | Change Password | 
 | ---| ---|
-| ![FillProfile](/readme/implementation/doctorsearchnotconnected.png)| ![ChanePassword](/readme/implementation/changepassworddoctor.png)|
+| ![DoctorSearch](/readme/implementation/doctorsearchnotconnected.png)| ![ChanePassword](/readme/implementation/changepassworddoctor.png)|
 
 ### Admin Screens (Mobile)
-| Patients | Patient Report | Patient Report (Empty) |
-| ---| ---| ---|
-| ![Patients](/readme/implementation/patients.png)| ![PatientReport](/readme/implementation/patientreportbyadmin.png)| ![PatientReportEmpty](/readme/implementation/patientreportempty.png)|
-
 | Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) |
 | ---| ---| ---|
 | ![ApprovedDoctors](/readme/implementation/approveddoctors.png)| ![ApprovedDoctorReport](/readme/implementation/approveddoctorreport.png)| ![ApprovedDoctorReportEmpty](/readme/implementation/approveddoctorreportempty.png)|
