@@ -87,7 +87,9 @@
 > Using the wireframes and mockups as a guide, we implemented the PillPall app with the following features:
 
 ### Patient Screens (Mobile)
-| Login screen  | Register screen | 
+| Add File  | Add Medicine | Add Result|
+| ---| ---| ---|
+| <img src="/readme/gif/addfilenumber.jpeg" width="300px"> | <img src="/readme/gif/addmed.gif" width="300px"> | <img src="/readme/gif/addresult.gif" width="300px"> |
 
 
 ### Doctor Screens (Mobile)
