@@ -79,7 +79,6 @@ const ApprovedDoctors: FC = () => {
             },
         })
         .then((response) => {
-            console.log(response.data);
             if (Array.isArray(response.data.user)) {
                 setApprovedDoctors(response.data.user);
             }
