@@ -152,7 +152,7 @@
 
 | Unapproved Doctors | Unapproved Doctor Report | Approve Doctor |
 | ---| ---| ---|
-| ![UnapprovedDoctors](/readme/implementation/unapproveddoctors.png)| ![UnapprovedDoctorReport](/readme/implementation/unapproveddoctorsreport.png)| ![ApproveDoctor](/readme/implementation/approve.png)|
+| ![UnapprovedDoctors](/readme/implementation/unapproveddoctors.png)| ![UnapprovedDoctorReport](/readme/implementation/unapproveddoctorsreport.png)| ![ApproveDoctor](/readme/gif/approve.gif)|
 
 
 <br><br>
