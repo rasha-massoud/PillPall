@@ -7,7 +7,6 @@ import CustomButton from '../../components/CustomButton';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
-import { colors } from '../../constants/palette';
 
 import styles from './styles';
 
@@ -53,7 +52,6 @@ const FileNum: FC = () => {
         },
       })
       .then((response) => {
-        console.log(response.data);
         setFileNumbers(response.data.file_numbers);
         setIsLoading(false);
         if (response.data.status !== "success"){
