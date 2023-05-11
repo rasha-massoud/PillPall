@@ -55,6 +55,10 @@
 | ---| ---| ---|
 | ![MedicalHistory](/readme/mockups/medicalhistory.png)| ![MedicationsAndHabits](/readme/mockups/medicationsandhabits.png)| ![Report](/readme/mockups/report.png)|
 
+| Edit Report | Medication Schedule | Add Medicine |
+| ---| ---| ---|
+| ![EditReport](/readme/mockups/editreport.png)| ![MedicationSchedule](/readme/mockups/medicationschedule.png)| ![AddMedicine](/readme/mockups/addmedicine.png)|
+
 <br><br>
 
 <!-- Implementation -->
