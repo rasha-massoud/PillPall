@@ -76,7 +76,6 @@ const PatientReportByAdmin: FC<PatientReportByAdminProps> = ({route }) => {
             },
           }
         );
-        console.log(response.data);
         setAllResult(response.data);
       } catch (error) {
         console.error('An error occurred while getting the report', error);
