@@ -18,6 +18,7 @@ import SubTitleText from '../../components/SubTitleText';
 import FormTitle from '../../components/FormTitle';
 
 import styles from './styles';
+import Body1Text from '../../components/Body1Text';
 
 interface FillProfileData {
     gender: string | undefined;
@@ -197,7 +198,8 @@ const FillProfile: FC = () => {
   
     <SafeAreaView style={styles.container}>
       <PageTitle title='Profile' />
-
+      <Body1Text context="Welcome Doctor, this is your profile hub for seamless healthcare management. Stay connected, review reports, and provide personalized care. Let's make a difference together!" />
+      
       <ScrollView>
         <View style={styles.container1}>
             {selectedImage ? (
