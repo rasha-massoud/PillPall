@@ -93,64 +93,64 @@
 
 ### Patient Screens (Mobile)
 | Welcome Patient | Contact Info | Anthrometric Measurements |
-| ---| ---| ---| 
+| ---| ---| ---|
 |![WelcomePatient](/readme/implementation/welcomepatient.png)| ![ContactInfo](/readme/implementation/contactinfo.png)| ![ContactInfo](/readme/implementation/measurements.png)|
 
 | Emergency Contact Info | Vital Signs | Medical History |
-| ---| ---| ---| 
+| ---| ---| ---|
 | ![EmergencyContactInfo](/readme/implementation/emergencycontactinfo.png)| ![VitalSigns](/readme/implementation/vitalsigns.png)| ![MedicalHistory](/readme/implementation/medicalhistory.png)|
 
 | Medications and Habits | Report | Edit Report |
 | ---| ---| ---|
-| ![MedicationsAndHabits](/readme/implementation/medicationsandhabits.png)| ![Report](/readme/implementation/report.png)| ![EditReport](/readme/implementation/editreport.png)| 
+| ![MedicationsAndHabits](/readme/implementation/medicationsandhabits.png)| ![Report](/readme/implementation/report.png)| ![EditReport](/readme/implementation/editreport.png)|
 
 | Medication Schedule | Add Medicine | Delete Medicine |
 | ---| ---| ---|
-| ![MedicationSchedule](/readme/implementation/medicationschedule.png)| ![AddMedicine](/readme/implementation/addmedicine.png)| ![DeleteMedicine](/readme/implementation/deletemedicine.png)| 
+| ![MedicationSchedule](/readme/implementation/medicationschedule.png)| ![AddMedicine](/readme/implementation/addmedicine.png)| ![DeleteMedicine](/readme/implementation/deletemedicine.png)|
 
 | Nearby Pharmacies | Budget Tracker | Patient Search |
 | ---| ---| ---|
-| ![NearbyPharmacies](/readme/implementation/map.png)| ![BudgetTracker](/readme/implementation/budgettracker.png)| ![PatientSearch](/readme/implementation/patientsearch.png)| 
+| ![NearbyPharmacies](/readme/implementation/map.png)| ![BudgetTracker](/readme/implementation/budgettracker.png)| ![PatientSearch](/readme/implementation/patientsearch.png)|
 
 | File Numbers (Empty State) | Add File Number | File Numbers |
 | ---| ---| ---|
-| ![EmptyFileNumbers](/readme/implementation/emptyfilenumber.png)| ![AddFileNumber](/readme/implementation/addfilenumber.png)| ![FileNumbers](/readme/implementation/filenumbers.png)| 
+| ![EmptyFileNumbers](/readme/implementation/emptyfilenumber.png)| ![AddFileNumber](/readme/implementation/addfilenumber.png)| ![FileNumbers](/readme/implementation/filenumbers.png)|
 
 | Medical Results (Empty) | Add Medical Result | Medical Results |
 | ---| ---| ---|
-| ![EmptyMedicalResults](/readme/implementation/emptymedicalresult.png)| ![AddMedicalResult](/readme/implementation/addmedicalresult.png)| ![MedicalResults](/readme/implementation/medicalresult.png)| 
+| ![EmptyMedicalResults](/readme/implementation/emptymedicalresult.png)| ![AddMedicalResult](/readme/implementation/addmedicalresult.png)| ![MedicalResults](/readme/implementation/medicalresult.png)|
 
 | Medical Result File | Personal Assistant (Question) | Personal Assistant (Side Effect) |
 | ---| ---| ---|
-| ![MedicalResultFile](/readme/implementation/medicalresultfile.png)| ![SideEffect](/readme/implementation/question.png)| ![MedicalResults](/readme/implementation/sideeffect.png)| 
+| ![MedicalResultFile](/readme/implementation/medicalresultfile.png)| ![SideEffect](/readme/implementation/question.png)| ![MedicalResults](/readme/implementation/sideeffect.png)|
 
 | Personal Assistant (Instructions) | Personal Assistant (Replacement) | Change Password |
 | ---| ---| ---|
-| ![Instructions](/readme/implementation/instructions.png)| ![Replacement](/readme/implementation/replacement.png)| ![ChangePassword](/readme/implementation/changepassword.png)| 
+| ![Instructions](/readme/implementation/instructions.png)| ![Replacement](/readme/implementation/replacement.png)| ![ChangePassword](/readme/implementation/changepassword.png)|
 
 ### Doctor Screens (Mobile)
 | Fill Profile | Profile | Edit Profile |
 | ---| ---| ---|
-| ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![EditProfile](/readme/implementation/editprofile.png)| 
+| ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![EditProfile](/readme/implementation/editprofile.png)|
 
 | Doctor Search | Patient Report | Patient Results |
 | ---| ---| ---|
-| ![FillProfile](/readme/implementation/doctorsearch.png)| ![Profile](/readme/implementation/patientreport.png)| ![EditProfile](/readme/implementation/patientresult.png)| 
+| ![FillProfile](/readme/implementation/doctorsearch.png)| ![Profile](/readme/implementation/patientreport.png)| ![EditProfile](/readme/implementation/patientresult.png)|
 
 | Doctor Search (Not Connected/Approved) | Change Password | 
 | ---| ---|
 | ![FillProfile](/readme/implementation/doctorsearchnotconnected.png)| ![ChanePassword](/readme/implementation/changepassworddoctor.png)|
 
 ### Admin Screens (Mobile)
-| Patients | Patient Report | Patient Report (Empty) | 
+| Patients | Patient Report | Patient Report (Empty) |
 | ---| ---| ---|
 | ![Patients](/readme/implementation/patients.png)| ![PatientReport](/readme/implementation/patientreportbyadmin.png)| ![PatientReportEmpty](/readme/implementation/patientreportempty.png)|
 
-| Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) | 
+| Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) |
 | ---| ---| ---|
 | ![ApprovedDoctors](/readme/implementation/approveddoctors.png)| ![ApprovedDoctorReport](/readme/implementation/approveddoctorreport.png)| ![ApprovedDoctorReportEmpty](/readme/implementation/approveddoctorreportempty.png)|
 
-| Patients | Patient Report | Patient Report (Empty) | 
+| Patients | Patient Report | Patient Report (Empty) |
 | ---| ---| ---|
 | ![Patients](/readme/implementation/patients.png)| ![PatientReport](/readme/implementation/patientreportbyadmin.png)| ![PatientReportEmpty](/readme/implementation/patientreportempty.png)|
 
