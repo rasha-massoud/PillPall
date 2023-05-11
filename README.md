@@ -135,7 +135,7 @@
 
 | Doctor Search | Patient Report | Patient Results |
 | ---| ---| ---|
-| ![DoctorSearch](/readme/gif/DoctorSearch.gif)| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)|
+| ![DoctorSearch](/readme/implementation/doctorsearch.png)| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)|
 
 | Doctor Search (Not Connected/Approved) | Change Password | 
 | ---| ---|
