@@ -122,7 +122,7 @@
 
 | Medical Result File | Personal Assistant (Question) | Personal Assistant (Side Effect) |
 | ---| ---| ---|
-| ![MedicalResultFile](/readme/gif/medicalresult.gif)| ![SideEffect](/readme/implementation/question.png)| ![MedicalResults](/readme/implementation/sideeffect.png)|
+| ![MedicalResultFile](/readme/gif/patientresults.gif)| ![SideEffect](/readme/implementation/question.png)| ![MedicalResults](/readme/implementation/sideeffect.png)|
 
 | Personal Assistant (Instructions) | Personal Assistant (Replacement) | Change Password |
 | ---| ---| ---|
