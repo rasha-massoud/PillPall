@@ -53,7 +53,6 @@ const AddMedicine: FC = () => {
           quality: 1,
         });
     
-        console.log(result);
         setSelectedImage(result.uri);
     };
     
@@ -153,8 +152,6 @@ const AddMedicine: FC = () => {
           
         data.append('image', file);
 
-        console.log(data);
-
         const token = await AsyncStorage.getItem('token');
   
         const endpoint = 'med/add_medicine';
@@ -183,7 +180,6 @@ const AddMedicine: FC = () => {
                 );
             }
             else{
-                console.log(response.data);
                 Alert.alert(
                     'Failure',
                     'Add Medicine fails or medicine already exists.',
