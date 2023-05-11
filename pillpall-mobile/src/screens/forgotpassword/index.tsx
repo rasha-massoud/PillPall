@@ -104,7 +104,7 @@ const ForgotPassword: FC = () => {
             />
 
             <TextTitle title='Forgot Password?' />
-            <SubTitleText title='Please fill your email address below to reset your email password' />
+            <SubTitleText title='Please fill your email address below to reset your password' />
 
             <TextInputwithLabel label='Email' keyboardType="email-address" placeholder='Enter your Email' textinputprops={{ secureTextEntry: false}} onChangeText= {handleEmailChange} />
 
