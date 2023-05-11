@@ -73,7 +73,7 @@ const EmergencyContact: FC = () => {
 
       <Body1Text context="Guard your peace of mind! Provide us with the contact details of a trusted friend or family member. In times of need, we'll be there, prioritizing your safety and well-being." />
 
-      <TextInputwithLabel label="Name" placeholder='Enter the Emergency Contact Name' textinputprops={{ secureTextEntry: false }} onChangeText= {handleNameChange} />
+      <TextInputwithLabel label="Name" placeholder='Enter your Emergency Contact Name' textinputprops={{ secureTextEntry: false }} onChangeText= {handleNameChange} />
 
       <TextInputwithLabel label="Phone Number" keyboardType="numeric" placeholder='Enter your Emergency Contact Phone Number' textinputprops={{ secureTextEntry: false }} onChangeText= {handlePhoneNumberChange} />
 
