@@ -71,7 +71,9 @@
 | ---| ---| ---|
 | ![MedicalResults ](/readme/mockups/medicalresults.png)| ![AddMedicalResult](/readme/mockups/addmedicalresult.png)| ![PatientSearch](/readme/mockups/patientsearch.png)|
 
-
+| Fill Doctor Profile | Profile | Edit Profile |
+| ---| ---| ---|
+| ![FillProfile ](/readme/mockups/fillprofile.png)| ![Profile](/readme/mockups/profile.png)| ![EditProfile](/readme/mockups/editprofile.png)|
 
 <br><br>
 
