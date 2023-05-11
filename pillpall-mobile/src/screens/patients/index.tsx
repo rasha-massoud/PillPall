@@ -79,7 +79,6 @@ const Patients: FC = () => {
             },
         })
         .then((response) => {
-            console.log(response.data);
             setAllPatients(response.data.user);
             setIsLoading(false);
             if (response.data.status !== "success"){
