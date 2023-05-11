@@ -44,7 +44,7 @@
 | ![Login](/readme/mockups/login.png)| ![Register](/readme/mockups/register.png)| ![ForgetPassword](/readme/mockups/forgetpassword.png)|
 
 | Reset Password | Welcome | Contact Information | 
-| ---| ---| ---| ---|
+| ---| ---| ---|
 | ![ResetPassword](/readme/mockups/resetpassword.png)| ![WelcomePatient](/readme/mockups/welcome.png)| ![ContactInfo](/readme/mockups/contactinfo.png)|
 
 |Anthropometric Measurements | Emergency Contact Info | Vital Signs |
