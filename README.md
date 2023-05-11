@@ -133,7 +133,7 @@
 | ---| ---| ---|
 | ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![EditProfile](/readme/implementation/editprofile.png)|
 
-| Doctor Search | Patient Report | Patient Results |
+| Doctor Search | Patient Report (Doctor) | Patient Results (Doctor) |
 | ---| ---| ---|
 | ![DoctorSearch](/readme/implementation/doctorsearch.png)| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)|
 
