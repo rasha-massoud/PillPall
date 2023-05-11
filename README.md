@@ -37,15 +37,11 @@
 
 > PillPall's design was meticulously crafted, starting with wireframes and mockups. Through a process of iteration and refinement, the layout was fine-tuned to prioritize easy navigation and deliver a seamless user experience.
 
-### Wireframes
-| Login screen  | Register screen |
-| ---| ---| ---|
-| --- | --- |
 
 ### Mockups
-| Home screen  | Menu Screen | Order Screen |
-| ---| ---| ---|
-| ---| ---| ---|
+| Login screen  | Register Screen | Forget Password | Reset Password |
+| ---| ---| ---| ---|
+| ![Login](/readme/mockups/login.png)| [Register](/readme/mockups/register.png)| [ForgetPassword](/readme/mockups/forgetpassword.png)| [resetpassword](/readme/mockups/resetpassword.png)|
 
 <br><br>
 
