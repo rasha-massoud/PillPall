@@ -57,7 +57,6 @@ const EditProfile: FC = () => {
           quality: 1,
         });
     
-        console.log(result);
         setSelectedImage(result.uri);
     };
     
