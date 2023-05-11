@@ -94,7 +94,7 @@
 ### Patient Screens (Mobile)
 | Welcome Patient | Contact Info | Anthrometric Measurements |
 | ---| ---| ---|
-|![WelcomePatient](/readme/implementation/welcomepatient.png)| ![ContactInfo](/readme/implementation/contactinfo.png)| ![ContactInfo](/readme/implementation/measurements.png)|
+| ![WelcomePatient](/readme/implementation/welcomepatient.png)| ![ContactInfo](/readme/implementation/contactinfo.png)| ![ContactInfo](/readme/implementation/measurements.png)|
 
 | Emergency Contact Info | Vital Signs | Medical History |
 | ---| ---| ---|
