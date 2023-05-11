@@ -47,9 +47,9 @@
 | ---| ---| ---|
 | ![ResetPassword](/readme/mockups/resetpassword.png)| ![WelcomePatient](/readme/mockups/welcome.png)| ![ContactInfo](/readme/mockups/contactinfo.png)|
 
-|Anthropometric Measurements | Emergency Contact Info | Vital Signs |
-| ---| ---| ---|
-| ![Measurements](/readme/mockups/measurements.png  | width=1170) | ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png | width=1170) | ![VitalSigns](/readme/mockups/vitalsigns.png | width=1170) |
+| Anthropometric Measurements | Emergency Contact Info | Vital Signs |
+| --- | --- | --- |
+| ![Measurements](/readme/mockups/measurements.png | width=1170) | ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png | width=1170) | ![VitalSigns](/readme/mockups/vitalsigns.png | width=1170) |
 
 | Medical History | Medications and Habits | Report |
 | ---| ---| ---|
