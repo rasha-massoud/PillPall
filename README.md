@@ -75,6 +75,10 @@
 | ---| ---| ---|
 | ![FillProfile ](/readme/mockups/fillprofile.png)| ![Profile](/readme/mockups/profile.png)| ![EditProfile](/readme/mockups/editprofile.png)|
 
+| Doctor Search | Patient Report | Patient Result |
+| ---| ---| ---|
+| ![DoctorSearch ](/readme/mockups/doctorsearch.png)| ![PatientReport](/readme/mockups/patientreport.png)| ![PatientResult](/readme/mockups/patientresult.png)|
+
 <br><br>
 
 <!-- Implementation -->
