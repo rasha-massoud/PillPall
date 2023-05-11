@@ -81,8 +81,6 @@ const ResetPassword: FC = () => {
         data.append('email', email);
         data.append('password', password);
         data.append('confirm_password', confirmPassword);
-
-        console.log(data);
         
         const endpoint = 'password/reset';
         await axios.post(`${API_URL}${endpoint}`, data, {
