@@ -267,6 +267,6 @@
     ```
 10. Download Expo Go on your Iphones
 
-11. Scan the barcode in the terminal to launch the app on a physical device (Design based on Iphone) 
+11. Scan the barcode in the terminal to launch the app on a physical device (Design based on Iphone)  
 
 Now, you should be able to run PillPall locally and explore its features.
