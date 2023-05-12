@@ -69,7 +69,7 @@
 
 | Doctor Search | Patient Report (Seen by Doctor) | Patient Result (Seen by Doctor) |
 | ---| ---| ---|
-| ![PatientReport](/readme/mockups/patientreport.png)| ![PatientResult](/readme/mockups/patientresult.png)|
+| ![PatientReport](/readme/mockups/patientreport.png)| ![PatientReport](/readme/mockups/patientreport.png)| ![PatientResult](/readme/mockups/patientresult.png)|
 
 <br><br>
 
