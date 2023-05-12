@@ -94,19 +94,19 @@
 
 | Edit Report | Medication Schedule | Add Medicine | Delete Medicine |
 | ---| ---| ---| ---|
-| ![EditReport](/readme/gif/editreport.gif)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/gif/deletemedicine.gif)|
+| ![EditReport](/readme/gif/editreport.gif)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/implementation/deletemedicine.png)|
 
-| Nearby Pharmacies | Budget Tracker | Patient Search | File Numbers (Empty State) 
+| Nearby Pharmacies | Budget Tracker | Patient Search | File Numbers (Empty State)|
 | ---| ---| ---| ---|
-| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/budgettraker.gif)| ![PatientSearch](/readme/gif/patientsearch.gif)| ![EmptyFileNumbers](/readme/implementation/emptyfilenumber.png)|
+| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/budgettraker.gif)| ![PatientSearch](/readme/gif/patientsearch.gif)| ![EmptyFileNumbers](/readme/gif/filenumberempty.gif)|
 
 | Add File Number | File Numbers | Medical Results (Empty) | Add Medical Result |
 | ---| ---| ---| ---|
-| ![AddFileNumber](/readme/implementation/addfilenumber.png)| ![FileNumbers](/readme/implementation/filenumbers.png)| ![EmptyMedicalResults](/readme/implementation/emptymedicalresult.png)| ![AddMedicalResult](/readme/implementation/addmedicalresult.png)|
+| ![AddFileNumber](/readme/implementation/addfilenumber.png)| ![FileNumbers](/readme/implementation/filenumbers.png)| ![EmptyMedicalResults](/readme/implementation/emptymedicalresult.png)| ![AddMedicalResult](/readme/gif/addmedicalresult.gif)|
 
 | Medical Results | Medical Result File | Personal Assistant (Replacement) | Personal Assistant (Side Effect) |
 | ---| ---| ---| ---|
-| ![MedicalResults](/readme/implementation/medicalresult.png)| ![MedicalResultFile](/readme/gif/patientresults.gif)| ![Replacement](/readme/gif/assistant.gif)| ![SideEffect](/readme/implementation/sideeffect.png)|
+| ![MedicalResults](/readme/gif/medicalresult.gif)| ![MedicalResultFile](/readme/gif/patientresults.gif)| ![Replacement](/readme/gif/assistant.gif)| ![SideEffect](/readme/implementation/sideeffect.png)|
 
 | Personal Assistant (Instructions) | Personal Assistant (Question) | Change Password |
 | ---| ---| ---|
