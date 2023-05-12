@@ -92,7 +92,7 @@
 | ---| ---| ---| ---|
 | ![VitalSigns](/readme/implementation/vitalsigns.png)| ![MedicalHistory](/readme/implementation/medicalhistory.png)| ![MedicationsAndHabits](/readme/implementation/medicationsandhabits.png)| ![Report](/readme/implementation/report.png)|
 
-| Edit Report || Medication Schedule | Add Medicine | Delete Medicine |
+| Edit Report | Medication Schedule | Add Medicine | Delete Medicine |
 | ---| ---| ---| ---|
 | ![EditReport](/readme/gif/editreport.gif)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/gif/deletemed.gif)|
 
