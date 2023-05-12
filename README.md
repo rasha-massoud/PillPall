@@ -39,45 +39,37 @@
 
 
 ### Mockups
-| Login | Register | Forget Password |
-| ---| ---| ---|
-| ![Login](/readme/mockups/login.png )| ![Register](/readme/mockups/register.png)| ![ForgetPassword](/readme/mockups/forgetpassword.png)|
+| Login | Register | Forget Password | Reset Password |
+| ---| ---| ---| ---|
+| ![Login](/readme/mockups/login.png )| ![Register](/readme/mockups/register.png)| ![ForgetPassword](/readme/mockups/forgetpassword.png)| ![ResetPassword](/readme/mockups/resetpassword.png)
 
-| Reset Password | Welcome | Contact Information | 
-| ---| ---| ---|
-| ![ResetPassword](/readme/mockups/resetpassword.png)| ![WelcomePatient](/readme/mockups/welcome.png)| ![ContactInfo](/readme/mockups/contactinfo.png)|
+| Welcome | Contact Information | Anthropometric Measurements | Emergency Contact Info |
+| ---| ---| ---| ---|
+| ![WelcomePatient](/readme/mockups/welcome.png)| ![ContactInfo](/readme/mockups/contactinfo.png)| ![Measurements](/readme/mockups/measurements.png)| ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png)|
 
-| Anthropometric Measurements | Emergency Contact Info | Vital Signs |
-| ---| ---| ---|
-| ![Measurements](/readme/mockups/measurements.png)| ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png)| ![VitalSigns](/readme/mockups/vitalsigns.png)|
+| Vital Signs | Medical History | Medications and Habits | Report |
+| ---| ---| ---| ---|
+| ![VitalSigns](/readme/mockups/vitalsigns.png)| ![MedicalHistory](/readme/mockups/medicalhistory.png)| ![MedicationsAndHabits](/readme/mockups/medicationsandhabits.png)| ![Report](/readme/mockups/report.png)|
 
-| Medical History | Medications and Habits | Report |
-| ---| ---| ---|
-| ![MedicalHistory](/readme/mockups/medicalhistory.png)| ![MedicationsAndHabits](/readme/mockups/medicationsandhabits.png)| ![Report](/readme/mockups/report.png)|
+| Edit Report | Medication Schedule | Add Medicine | Delete Medicine |
+| ---| ---| ---| ---|
+| ![EditReport](/readme/mockups/editreport.png)| ![MedicationSchedule](/readme/mockups/medicationschedule.png)| ![AddMedicine](/readme/mockups/addmedicine.png)| ![DeleteMedicine](/readme/mockups/deletemedicine.png)|
 
-| Edit Report | Medication Schedule | Add Medicine |
-| ---| ---| ---|
-| ![EditReport](/readme/mockups/editreport.png)| ![MedicationSchedule](/readme/mockups/medicationschedule.png)| ![AddMedicine](/readme/mockups/addmedicine.png)|
+| Nearby Pharmacies | Budget Tracker | Personal Assistant | File Numbers |
+| ---| ---| ---| ---|
+| ![NearbyPharmacies](/readme/mockups/nearbypharmacies.png)| ![BudgetTracker](/readme/mockups/budgettracker.png)| ![PersonalAssistant](/readme/mockups/personalassistant.png)| ![FileNumbers](/readme/mockups/filenum.png)|
 
-| Delete Medicine | Nearby Pharmacies | Budget Tracker |
-| ---| ---| ---|
-| ![DeleteMedicine](/readme/mockups/deletemedicine.png)| ![NearbyPharmacies](/readme/mockups/nearbypharmacies.png)| ![BudgetTracker](/readme/mockups/budgettracker.png)|
+| Add File Number | Medical Results | Add Medical Result | Patient Search |
+| ---| ---| ---| ---|
+| ![AddFileNumber](/readme/mockups/addfilenumber.png)| ![MedicalResults](/readme/mockups/medicalresults.png)| ![AddMedicalResult](/readme/mockups/addmedicalresult.png)| ![PatientSearch](/readme/mockups/patientsearch.png)|
 
-| Personal Assistant | File Numbers | Add File Number |
-| ---| ---| ---|
-| ![PersonalAssistant](/readme/mockups/personalassistant.png)| ![FileNumbers](/readme/mockups/filenum.png)| ![AddFileNumber](/readme/mockups/addfilenumber.png)|
+| Fill Doctor Profile | Profile | Edit Profile | Doctor Search |
+| ---| ---| ---| ---|
+| ![FillProfile](/readme/mockups/fillprofile.png)| ![Profile](/readme/mockups/profile.png)| ![EditProfile](/readme/mockups/editprofile.png)| ![DoctorSearch](/readme/mockups/doctorsearch.png)|
 
-| Medical Results | Add Medical Result | Patient Search |
-| ---| ---| ---|
-| ![MedicalResults](/readme/mockups/medicalresults.png)| ![AddMedicalResult](/readme/mockups/addmedicalresult.png)| ![PatientSearch](/readme/mockups/patientsearch.png)|
-
-| Fill Doctor Profile | Profile | Edit Profile |
-| ---| ---| ---|
-| ![FillProfile](/readme/mockups/fillprofile.png)| ![Profile](/readme/mockups/profile.png)| ![EditProfile](/readme/mockups/editprofile.png)|
-
-| Doctor Search | Patient Report | Patient Result |
-| ---| ---| ---|
-| ![DoctorSearch](/readme/mockups/doctorsearch.png)| ![PatientReport](/readme/mockups/patientreport.png)| ![PatientResult](/readme/mockups/patientresult.png)|
+| Patient Report | Patient Result |
+| ---| ---|
+| ![PatientReport](/readme/mockups/patientreport.png)| ![PatientResult](/readme/mockups/patientresult.png)|
 
 <br><br>
 
@@ -92,67 +84,59 @@
 | ![Login](/readme/implementation/login.png)| ![Register](/readme/implementation/register.png)| ![ForgetPassword](/readme/implementation/forgotpassword.png)| ![ResetPassword](/readme/implementation/resetpassword.png)|
 
 ### Patient Screens (Mobile)
-| Welcome Patient | Contact Info | Anthrometric Measurements |
-| ---| ---| ---|
-| ![WelcomePatient](/readme/implementation/welcomepatient.png)| ![ContactInfo](/readme/implementation/contactinfo.png)| ![ContactInfo](/readme/implementation/measurements.png)|
+| Welcome Patient | Contact Info | Anthrometric Measurements | Emergency Contact Info |
+| ---| ---| ---| ---|
+| ![WelcomePatient](/readme/implementation/welcomepatient.png)| ![ContactInfo](/readme/implementation/contactinfo.png)| ![ContactInfo](/readme/implementation/measurements.png)| ![EmergencyContactInfo](/readme/implementation/emergencycontactinfo.png)|
 
-| Emergency Contact Info | Vital Signs | Medical History |
-| ---| ---| ---|
-| ![EmergencyContactInfo](/readme/implementation/emergencycontactinfo.png)| ![VitalSigns](/readme/implementation/vitalsigns.png)| ![MedicalHistory](/readme/implementation/medicalhistory.png)|
+| Vital Signs | Medical History | Medications and Habits | Report |
+| ---| ---| ---| ---|
+| ![VitalSigns](/readme/implementation/vitalsigns.png)| ![MedicalHistory](/readme/implementation/medicalhistory.png)| ![MedicationsAndHabits](/readme/implementation/medicationsandhabits.png)| ![Report](/readme/implementation/report.png)|
 
-| Medications and Habits | Report | Edit Report |
-| ---| ---| ---|
-| ![MedicationsAndHabits](/readme/implementation/medicationsandhabits.png)| ![Report](/readme/implementation/report.png)| ![EditReport](/readme/implementation/editreport.png)|
+| Edit Report || Medication Schedule | Add Medicine | Delete Medicine |
+| ---| ---| ---| ---|
+| ![EditReport](/readme/gif/editreport.gif)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/gif/deletemed.gif)|
 
-| Medication Schedule | Add Medicine | Delete Medicine |
-| ---| ---| ---|
-| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/gif/deletemed.gif)|
+| Nearby Pharmacies | Budget Tracker | Patient Search | File Numbers (Empty State) 
+| ---| ---| ---| ---|
+| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/addmed.gif)| ![PatientSearch](/readme/gif/patientsearch.gif)| ![EmptyFileNumbers](/readme/implementation/emptyfilenumber.png)|
 
-| Nearby Pharmacies | Budget Tracker | Patient Search |
-| ---| ---| ---|
-| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/addmed.gif)| ![PatientSearch](/readme/gif/patientsearch.gif)|
+| Add File Number | File Numbers | Medical Results (Empty) | Add Medical Result |
+| ---| ---| ---| ---|
+| ![AddFileNumber](/readme/implementation/addfilenumber.png)| ![FileNumbers](/readme/implementation/filenumbers.png)| ![EmptyMedicalResults](/readme/implementation/emptymedicalresult.png)| ![AddMedicalResult](/readme/implementation/addmedicalresult.png)|
 
-| File Numbers (Empty State) | Add File Number | File Numbers |
-| ---| ---| ---|
-| ![EmptyFileNumbers](/readme/implementation/emptyfilenumber.png)| ![AddFileNumber](/readme/implementation/addfilenumber.png)| ![FileNumbers](/readme/implementation/filenumbers.png)|
-
-| Medical Results (Empty) | Add Medical Result | Medical Results |
-| ---| ---| ---|
-| ![EmptyMedicalResults](/readme/implementation/emptymedicalresult.png)| ![AddMedicalResult](/readme/implementation/addmedicalresult.png)| ![MedicalResults](/readme/implementation/medicalresult.png)|
-
-| Medical Result File | Personal Assistant (Replacement) | Personal Assistant (Side Effect) |
-| ---| ---| ---|
-| ![MedicalResultFile](/readme/gif/patientresults.gif)| ![Replacement](/readme/gif/assistant.gif)| ![SideEffect](/readme/implementation/sideeffect.png)|
+| Medical Results | Medical Result File | Personal Assistant (Replacement) | Personal Assistant (Side Effect) |
+| ---| ---| ---| ---|
+| ![MedicalResults](/readme/implementation/medicalresult.png)| ![MedicalResultFile](/readme/gif/patientresults.gif)| ![Replacement](/readme/gif/assistant.gif)| ![SideEffect](/readme/implementation/sideeffect.png)|
 
 | Personal Assistant (Instructions) | Personal Assistant (Question) | Change Password |
 | ---| ---| ---|
 | ![Instructions](/readme/implementation/instructions.png)| ![Question](/readme/implementation/question.png)| ![ChangePassword](/readme/implementation/changepassword.png)|
 
 ### Doctor Screens (Mobile)
-| Fill Profile | Profile | Edit Profile |
-| ---| ---| ---|
-| ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![EditProfile](/readme/gif/editprofile.gif)|
+| Fill Profile | Profile | Edit Profile | Doctor Search |
+| ---| ---| ---| ---|
+| ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![EditProfile](/readme/gif/editprofile.gif)| ![DoctorSearch](/readme/gif/DoctorSearch.gif)|
 
-| Doctor Search | Patient Report (Doctor) | Patient Results (Doctor) |
-| ---| ---| ---|
-| ![DoctorSearch](/readme/gif/DoctorSearch.gif)| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)|
+| Patient Report (Doctor) | Patient Results (Doctor) | Doctor Search (Not Connected/Approved) |
+| ---| ---| ---| ---|
+| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)| ![DoctorSearch](/readme/implementation/doctorsearchnotconnected.png)|
 
-| Doctor Search (Not Connected/Approved) | Change Password | 
-| ---| ---|
-| ![DoctorSearch](/readme/implementation/doctorsearchnotconnected.png)| ![ChanePassword](/readme/implementation/changepassworddoctor.png)|
+| Change Password | 
+| ---|
+| ![ChanePassword](/readme/implementation/changepassworddoctor.png)|
 
 ### Admin Screens (Mobile)
-| Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) |
-| ---| ---| ---|
-| ![ApprovedDoctors](/readme/implementation/approveddoctors.png)| ![ApprovedDoctorReport](/readme/implementation/approveddoctorreport.png)| ![ApprovedDoctorReportEmpty](/readme/implementation/approveddoctorreportempty.png)|
+| Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) | Patients |
+| ---| ---| ---| ---|
+| ![ApprovedDoctors](/readme/implementation/approveddoctors.png)| ![ApprovedDoctorReport](/readme/implementation/approveddoctorreport.png)| ![ApprovedDoctorReportEmpty](/readme/implementation/approveddoctorreportempty.png)| ![Patients](/readme/implementation/patients.png)|
 
-| Patients | Patient Report | Patient Report (Empty) |
-| ---| ---| ---|
-| ![Patients](/readme/implementation/patients.png)| ![PatientReport](/readme/implementation/patientreportbyadmin.png)| ![PatientReportEmpty](/readme/implementation/patientreportempty.png)|
+| Patient Report | Patient Report (Empty) | Unapproved Doctors |
+| ---| ---| ---| ---|
+| ![PatientReport](/readme/implementation/patientreportbyadmin.png)| ![PatientReportEmpty](/readme/implementation/patientreportempty.png)| ![UnapprovedDoctors](/readme/implementation/unapproveddoctors.png)|
 
-| Unapproved Doctors | Unapproved Doctor Report | Approve Doctor |
-| ---| ---| ---|
-| ![UnapprovedDoctors](/readme/implementation/unapproveddoctors.png)| ![UnapprovedDoctorReport](/readme/implementation/unapproveddoctorsreport.png)| ![ApproveDoctor](/readme/gif/approve.gif)|
+| Unapproved Doctor Report | Approve Doctor |
+| ---| ---|
+| ![UnapprovedDoctorReport](/readme/implementation/unapproveddoctorsreport.png)| ![ApproveDoctor](/readme/gif/approve.gif)|
 
 
 <br><br>
