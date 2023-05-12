@@ -90,15 +90,15 @@
 
 | Vital Signs | Medical History | Medications and Habits | Report |
 | ---| ---| ---| ---|
-| ![VitalSigns](/readme/implementation/vitalsigns.png)| ![MedicalHistory](/readme/implementation/medicalhistory.png)| ![MedicationsAndHabits](/readme/gif/medicationsandhabits.gif)| ![Report](/readme/implementation/report.png)|
+| ![VitalSigns](/readme/implementation/vitalsigns.png)| ![MedicalHistory](/readme/implementation/medicalhistory.png)| ![MedicationsAndHabits](/readme/gif/medicationsandhabits.gif)| ![Report](/readme/gif/report.gif)|
 
 | Edit Report | Medication Schedule | Add Medicine | Delete Medicine |
 | ---| ---| ---| ---|
-| ![EditReport](/readme/gif/editreport.gif)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/gif/deletemed.gif)|
+| ![EditReport](/readme/gif/editreport.gif)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/gif/deletemedicine.gif)|
 
 | Nearby Pharmacies | Budget Tracker | Patient Search | File Numbers (Empty State) 
 | ---| ---| ---| ---|
-| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/addmed.gif)| ![PatientSearch](/readme/gif/patientsearch.gif)| ![EmptyFileNumbers](/readme/implementation/emptyfilenumber.png)|
+| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/budgettraker.gif)| ![PatientSearch](/readme/gif/patientsearch.gif)| ![EmptyFileNumbers](/readme/implementation/emptyfilenumber.png)|
 
 | Add File Number | File Numbers | Medical Results (Empty) | Add Medical Result |
 | ---| ---| ---| ---|
