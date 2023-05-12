@@ -122,13 +122,13 @@
 | ---| ---| ---| ---|
 | ![ApprovedDoctors](/readme/implementation/approveddoctors.png)| ![ApprovedDoctorReport](/readme/implementation/approveddoctorreport.png)| ![ApprovedDoctorReportEmpty](/readme/implementation/approveddoctorreportempty.png)| ![Patients](/readme/implementation/patients.png)|
 
-| Patient Report | Patient Report (Empty) | Unapproved Doctors |
+| Patient Report | Patient Report (Empty) | Unapproved Doctors | Unapproved Doctor Report |
 | ---| ---| ---| ---|
-| ![PatientReport](/readme/implementation/patientreportbyadmin.png)| ![PatientReportEmpty](/readme/implementation/patientreportempty.png)| ![UnapprovedDoctors](/readme/implementation/unapproveddoctors.png)|
+| ![PatientReport](/readme/implementation/patientreportbyadmin.png)| ![PatientReportEmpty](/readme/implementation/patientreportempty.png)| ![UnapprovedDoctors](/readme/implementation/unapproveddoctors.png)| ![UnapprovedDoctorReport](/readme/implementation/unapproveddoctorsreport.png)|
 
-| Unapproved Doctor Report | Approve Doctor |
-| ---| ---|
-| ![UnapprovedDoctorReport](/readme/implementation/unapproveddoctorsreport.png)| ![ApproveDoctor](/readme/gif/approve.gif)|
+| Approve Doctor |
+| ---|
+| ![ApproveDoctor](/readme/gif/approve.gif)|
 
 
 <br><br>
