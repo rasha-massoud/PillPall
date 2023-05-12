@@ -104,26 +104,18 @@
 | ---| ---| ---| ---|
 | ![AddFileNumber](/readme/implementation/addfilenumber.png)| ![FileNumbers](/readme/implementation/filenumbers.png)| ![EmptyMedicalResults](/readme/implementation/emptymedicalresult.png)| ![AddMedicalResult](/readme/gif/addmedicalresult.gif)|
 
-| Medical Results | Personal Assistant (Replacement) | Personal Assistant (Side Effect) | Personal Assistant (Instructions) |
+| Medical Results | Personal Assistant (Replacement) | Personal Assistant (Question) | Change Password |
 | ---| ---| ---| ---|
-| ![MedicalResults](/readme/gif/medicalresult.gif)| ![Replacement](/readme/gif/assistant.gif)| ![SideEffect](/readme/implementation/sideeffect.png)| ![Instructions](/readme/implementation/instructions.png)|
-
-| Personal Assistant (Question) | Change Password |
-| ---| ---|
-| ![Question](/readme/implementation/question.png)| ![ChangePassword](/readme/implementation/changepassword.png)|
+| ![MedicalResults](/readme/gif/medicalresult.gif)| ![Replacement](/readme/gif/assistant.gif)| ![Question](/readme/implementation/question.png)| ![ChangePassword](/readme/implementation/changepassword.png)|
 
 ### Doctor Screens (Mobile)
 | Fill Profile (First Login) | Profile | Edit Profile | Doctor Search |
 | ---| ---| ---| ---|
 | ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![EditProfile](/readme/gif/editprofile.gif)| ![DoctorSearch](/readme/gif/DoctorSearch.gif)|
 
-| Patient Report (Seen by Doctor) | Patient Results (Seen by Doctor) | Doctor Search (Not Connected/Approved) |
+| Patient Report (Seen by Doctor) | Patient Results (Seen by Doctor) | Doctor Search (Not Connected/Approved) | Change Password |
 | ---| ---| ---| ---|
-| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)| ![DoctorSearch](/readme/implementation/doctorsearchnotconnected.png)|
-
-| Change Password | 
-| ---|
-| ![ChanePassword](/readme/implementation/changepassworddoctor.png)|
+| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)| ![DoctorSearch](/readme/implementation/doctorsearchnotconnected.png)| ![ChanePassword](/readme/implementation/changepassworddoctor.png)|
 
 ### Admin Screens (Mobile)
 | Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) | Patients |
