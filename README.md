@@ -43,11 +43,11 @@
 | ---| ---| ---| ---|
 | ![Login](/readme/mockups/login.png )| ![Register](/readme/mockups/register.png)| ![ForgetPassword](/readme/mockups/forgetpassword.png)| ![ResetPassword](/readme/mockups/resetpassword.png)
 
-| Welcome Patient (First Login) | Contact Information | Anthropometric Measurements | Emergency Contact Info |
+| Welcome Patient (First Login) | Contact Information (First Login) | Anthropometric Measurements (First Login) | Emergency Contact Info (First Login) |
 | ---| ---| ---| ---|
 | ![WelcomePatient](/readme/mockups/welcome.png)| ![ContactInfo](/readme/mockups/contactinfo.png)| ![Measurements](/readme/mockups/measurements.png)| ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png)|
 
-| Vital Signs | Medical History | Medications and Habits | Report |
+| Vital Signs (First Login) | Medical History (First Login) | Medications and Habits (First Login) | Report |
 | ---| ---| ---| ---|
 | ![VitalSigns](/readme/mockups/vitalsigns.png)| ![MedicalHistory](/readme/mockups/medicalhistory.png)| ![MedicationsAndHabits](/readme/mockups/medicationsandhabits.png)| ![Report](/readme/mockups/report.png)|
 
