@@ -59,16 +59,16 @@
 | ---| ---| ---| ---|
 | ![NearbyPharmacies](/readme/mockups/nearbypharmacies.png)| ![BudgetTracker](/readme/mockups/budgettracker.png)| ![PersonalAssistant](/readme/mockups/personalassistant.png)| ![FileNumbers](/readme/mockups/filenum.png)|
 
-| Add File Number | Medical Results | Add Medical Result | Patient Search |
+| Add File Number | Medical Results | Add Medical Result | Change Password |
 | ---| ---| ---| ---|
-| ![AddFileNumber](/readme/mockups/addfilenumber.png)| ![MedicalResults](/readme/mockups/medicalresults.png)| ![AddMedicalResult](/readme/mockups/addmedicalresult.png)| ![PatientSearch](/readme/mockups/patientsearch.png)|
+| ![AddFileNumber](/readme/mockups/addfilenumber.png)| ![MedicalResults](/readme/mockups/medicalresults.png)| ![AddMedicalResult](/readme/mockups/addmedicalresult.png)| ![ChangePassword](/readme/mockups/changepassword.png)|
 
-| Fill Doctor Profile (First Login) | Profile | Edit Profile | Doctor Search |
+| Patient Search | Fill Doctor Profile (First Login) | Profile | Edit Profile |
 | ---| ---| ---| ---|
-| ![FillProfile](/readme/mockups/fillprofile.png)| ![Profile](/readme/mockups/profile.png)| ![EditProfile](/readme/mockups/editprofile.png)| ![DoctorSearch](/readme/mockups/doctorsearch.png)|
+| ![PatientSearch](/readme/mockups/patientsearch.png)| ![FillProfile](/readme/mockups/fillprofile.png)| ![Profile](/readme/mockups/profile.png)| ![EditProfile](/readme/mockups/editprofile.png)| ![DoctorSearch](/readme/mockups/doctorsearch.png)|
 
-| Patient Report (Seen by Doctor) | Patient Result (Seen by Doctor) |
-| ---| ---|
+| Doctor Search | Patient Report (Seen by Doctor) | Patient Result (Seen by Doctor) |
+| ---| ---| ---|
 | ![PatientReport](/readme/mockups/patientreport.png)| ![PatientResult](/readme/mockups/patientresult.png)|
 
 <br><br>
