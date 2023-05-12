@@ -86,11 +86,11 @@
 ### Patient Screens (Mobile)
 | Welcome Patient (First Login) | Contact Info | Anthrometric Measurements | Emergency Contact Info |
 | ---| ---| ---| ---|
-| ![WelcomePatient](/readme/implementation/welcomepatient.png)| ![ContactInfo](/readme/implementation/contactinfo.png)| ![ContactInfo](/readme/implementation/measurements.png)| ![EmergencyContactInfo](/readme/implementation/emergencycontactinfo.png)|
+| ![WelcomePatient](/readme/gif/welcome.gif)| ![ContactInfo](/readme/implementation/contactinfo.png)| ![ContactInfo](/readme/implementation/measurements.png)| ![EmergencyContactInfo](/readme/implementation/emergencycontactinfo.png)|
 
 | Vital Signs | Medical History | Medications and Habits | Report |
 | ---| ---| ---| ---|
-| ![VitalSigns](/readme/implementation/vitalsigns.png)| ![MedicalHistory](/readme/implementation/medicalhistory.png)| ![MedicationsAndHabits](/readme/implementation/medicationsandhabits.png)| ![Report](/readme/implementation/report.png)|
+| ![VitalSigns](/readme/implementation/vitalsigns.png)| ![MedicalHistory](/readme/implementation/medicalhistory.png)| ![MedicationsAndHabits](/readme/gif/medicationsandhabits.gif)| ![Report](/readme/implementation/report.png)|
 
 | Edit Report | Medication Schedule | Add Medicine | Delete Medicine |
 | ---| ---| ---| ---|
