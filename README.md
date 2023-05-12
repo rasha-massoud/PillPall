@@ -69,7 +69,7 @@
 
 | Doctor Search | Patient Report (Seen by Doctor) | Patient Result (Seen by Doctor) |
 | ---| ---| ---|
-| ![PatientReport](/readme/mockups/patientreport.png)| ![PatientReport](/readme/mockups/patientreport.png)| ![PatientResult](/readme/mockups/patientresult.png)|
+| ![DoctorSearch](/readme/mockups/doctorsearch.png)| ![PatientReport](/readme/mockups/patientreport.png)| ![PatientResult](/readme/mockups/patientresult.png)|
 
 <br><br>
 
@@ -115,7 +115,7 @@
 
 | Patient Report (Seen by Doctor) | Patient Results (Seen by Doctor) | Edit Profile | Doctor Search |
 | ---| ---| ---| ---|
-| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)| ![EditProfile](/readme/gif/editprofile.gif)| ![DoctorSearch](/readme/gif/DoctorSearch.gif)|
+| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)| ![EditProfile](/readme/gif/editprofile.gif)| ![DoctorSearch](/readme/gif/doctorsearch.gif)|
 
 ### Admin Screens (Mobile)
 | Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) | Patients |
