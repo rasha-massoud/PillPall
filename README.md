@@ -39,11 +39,11 @@
 
 
 ### Mockups
-| Login | Register | Forget Password | Reset Password |
+| Login | Register | Forgot Password | Reset Password |
 | ---| ---| ---| ---|
 | ![Login](/readme/mockups/login.png )| ![Register](/readme/mockups/register.png)| ![ForgetPassword](/readme/mockups/forgetpassword.png)| ![ResetPassword](/readme/mockups/resetpassword.png)
 
-| Welcome | Contact Information | Anthropometric Measurements | Emergency Contact Info |
+| Welcome Patient (First Login) | Contact Information | Anthropometric Measurements | Emergency Contact Info |
 | ---| ---| ---| ---|
 | ![WelcomePatient](/readme/mockups/welcome.png)| ![ContactInfo](/readme/mockups/contactinfo.png)| ![Measurements](/readme/mockups/measurements.png)| ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png)|
 
@@ -63,11 +63,11 @@
 | ---| ---| ---| ---|
 | ![AddFileNumber](/readme/mockups/addfilenumber.png)| ![MedicalResults](/readme/mockups/medicalresults.png)| ![AddMedicalResult](/readme/mockups/addmedicalresult.png)| ![PatientSearch](/readme/mockups/patientsearch.png)|
 
-| Fill Doctor Profile | Profile | Edit Profile | Doctor Search |
+| Fill Doctor Profile (First Login) | Profile | Edit Profile | Doctor Search |
 | ---| ---| ---| ---|
 | ![FillProfile](/readme/mockups/fillprofile.png)| ![Profile](/readme/mockups/profile.png)| ![EditProfile](/readme/mockups/editprofile.png)| ![DoctorSearch](/readme/mockups/doctorsearch.png)|
 
-| Patient Report | Patient Result |
+| Patient Report (Seen by Doctor) | Patient Result (Seen by Doctor) |
 | ---| ---|
 | ![PatientReport](/readme/mockups/patientreport.png)| ![PatientResult](/readme/mockups/patientresult.png)|
 
@@ -79,12 +79,12 @@
 > Using the wireframes and mockups as a guide, we implemented the PillPall app with the following features:
 
 ### Common Screens (Mobile)
-| Login | Register | Forget Password | Reset Password |
+| Login | Register | Forgot Password | Reset Password |
 | ---| ---| ---| ---|
 | ![Login](/readme/implementation/login.png)| ![Register](/readme/implementation/register.png)| ![ForgetPassword](/readme/implementation/forgotpassword.png)| ![ResetPassword](/readme/implementation/resetpassword.png)|
 
 ### Patient Screens (Mobile)
-| Welcome Patient | Contact Info | Anthrometric Measurements | Emergency Contact Info |
+| Welcome Patient (First Login) | Contact Info | Anthrometric Measurements | Emergency Contact Info |
 | ---| ---| ---| ---|
 | ![WelcomePatient](/readme/implementation/welcomepatient.png)| ![ContactInfo](/readme/implementation/contactinfo.png)| ![ContactInfo](/readme/implementation/measurements.png)| ![EmergencyContactInfo](/readme/implementation/emergencycontactinfo.png)|
 
@@ -113,11 +113,11 @@
 | ![Instructions](/readme/implementation/instructions.png)| ![Question](/readme/implementation/question.png)| ![ChangePassword](/readme/implementation/changepassword.png)|
 
 ### Doctor Screens (Mobile)
-| Fill Profile | Profile | Edit Profile | Doctor Search |
+| Fill Profile (First Login) | Profile | Edit Profile | Doctor Search |
 | ---| ---| ---| ---|
 | ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![EditProfile](/readme/gif/editprofile.gif)| ![DoctorSearch](/readme/gif/DoctorSearch.gif)|
 
-| Patient Report (Doctor) | Patient Results (Doctor) | Doctor Search (Not Connected/Approved) |
+| Patient Report (Seen by Doctor) | Patient Results (Seen by Doctor) | Doctor Search (Not Connected/Approved) |
 | ---| ---| ---| ---|
 | ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)| ![DoctorSearch](/readme/implementation/doctorsearchnotconnected.png)|
 
