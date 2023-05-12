@@ -104,13 +104,13 @@
 | ---| ---| ---| ---|
 | ![AddFileNumber](/readme/implementation/addfilenumber.png)| ![FileNumbers](/readme/implementation/filenumbers.png)| ![EmptyMedicalResults](/readme/implementation/emptymedicalresult.png)| ![AddMedicalResult](/readme/gif/addmedicalresult.gif)|
 
-| Medical Results | Medical Result File | Personal Assistant (Replacement) | Personal Assistant (Side Effect) |
+| Medical Results | Personal Assistant (Replacement) | Personal Assistant (Side Effect) | Personal Assistant (Instructions) |
 | ---| ---| ---| ---|
-| ![MedicalResults](/readme/gif/medicalresult.gif)| ![MedicalResultFile](/readme/gif/patientresults.gif)| ![Replacement](/readme/gif/assistant.gif)| ![SideEffect](/readme/implementation/sideeffect.png)|
+| ![MedicalResults](/readme/gif/medicalresult.gif)| ![Replacement](/readme/gif/assistant.gif)| ![SideEffect](/readme/implementation/sideeffect.png)| ![Instructions](/readme/implementation/instructions.png)|
 
-| Personal Assistant (Instructions) | Personal Assistant (Question) | Change Password |
-| ---| ---| ---|
-| ![Instructions](/readme/implementation/instructions.png)| ![Question](/readme/implementation/question.png)| ![ChangePassword](/readme/implementation/changepassword.png)|
+| Personal Assistant (Question) | Change Password |
+| ---| ---|
+| ![Question](/readme/implementation/question.png)| ![ChangePassword](/readme/implementation/changepassword.png)|
 
 ### Doctor Screens (Mobile)
 | Fill Profile (First Login) | Profile | Edit Profile | Doctor Search |
