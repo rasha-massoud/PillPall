@@ -113,9 +113,9 @@
 | ---| ---| ---| ---|
 | ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![DoctorSearch](/readme/implementation/doctorsearchnotconnected.png)| ![ChanePassword](/readme/implementation/changepassworddoctor.png)|
 
-| Patient Report (Seen by Doctor) | Patient Results (Seen by Doctor) | Edit Profile | Doctor Search |
+| Patient Report (Seen by Doctor) | Patient Results (Seen by Doctor) | Doctor Search (Patient Result) | Doctor Search (Patient Report) |
 | ---| ---| ---| ---|
-| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)| ![EditProfile](/readme/gif/editprofile.gif)| ![DoctorSearch](/readme/gif/doctorsearch.gif)|
+| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)| ![EditProfile](/readme/gif/patientresult.gif)| ![DoctorSearch](/readme/gif/patientreport.gif)|
 
 ### Admin Screens (Mobile)
 | Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) | Patients |
