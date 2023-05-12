@@ -94,7 +94,7 @@
 
 | Edit Report | Medication Schedule | Add Medicine | Delete Medicine |
 | ---| ---| ---| ---|
-| ![EditReport](/readme/gif/editreport.gif)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/implementation/deletemedicine.png)|
+| ![EditReport](/readme/implementation/editreport.png)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/implementation/deletemedicine.png)|
 
 | Nearby Pharmacies | Budget Tracker | Patient Search | File Numbers (Empty State)|
 | ---| ---| ---| ---|
