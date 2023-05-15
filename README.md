@@ -2,7 +2,7 @@
 
 <div align="center">
 
-> Hello world! Here's a concise summary of the project that describes the project plain and simple, limited to the space available. **[PROJECT PHILOSOPHY](https://github.com/rasha-massoud/PillPall#project-philosophy) • [WIREFRAMES](https://github.com/rasha-massoud/PillPal#wireframes) • [IMPLEMENTATION](https://github.com/rasha-massoud/PillPall#implementation) • [TECH STACK](https://github.com/rasha-massoud/PillPall#stacks) • [HOW TO RUN?](https://github.com/rasha-massoud/PillPall#installation)**
+> Hello world! Here's a concise summary of the project that describes the project plain and simple, limited to the space available. **[PROJECT PHILOSOPHY](https://github.com/rasha-massoud/PillPall#project-philosophy) • [PROTOTYPE](https://github.com/rasha-massoud/PillPall#prototyping) • [IMPLEMENTATION](https://github.com/rasha-massoud/PillPall#implementation) • [TECH STACK](https://github.com/rasha-massoud/PillPall#stacks) • [HOW TO RUN?](https://github.com/rasha-massoud/PillPall#installation)**
 
 </div>
 
@@ -39,7 +39,7 @@
 <br><br>
 
 <!-- Prototyping -->
-<img src="./readme/title3.svg" id="wireframes"/>
+<img src="./readme/title3.svg" id="prototyping"/>
 
 > PillPall's design was meticulously crafted, starting with wireframes and mockups. Through a process of iteration and refinement, the layout was fine-tuned to prioritize easy navigation and deliver a seamless user experience.
 
