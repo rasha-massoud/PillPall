@@ -1,9 +1,15 @@
 <img src="./readme/title1.svg"/>
 
+<div align="center">
+
+> Hello world! Here's a concise summary of the project that describes the project plain and simple, limited to the space available. **[PROJECT PHILOSOPHY](https://github.com/rasha-massoud/PillPall#project-philosophy) • [PROTOTYPE](https://github.com/rasha-massoud/PillPal#prototyping) • [IMPLEMENTATION](https://github.com/rasha-massoud/PillPall#implementation) • [TECH STACK](https://github.com/rasha-massoud/PillPall#stacks) • [HOW TO RUN?](https://github.com/rasha-massoud/PillPall#installation)**
+
+</div>
+
 <br><br>
 
 <!-- project philosophy -->
-<img src="./readme/title2.svg"/>
+<img src="./readme/title2.svg" id="project-philosophy"/>
 
 > Empowering patients, connecting doctors, and revolutionizing healthcare management.
 >
@@ -33,7 +39,7 @@
 <br><br>
 
 <!-- Prototyping -->
-<img src="./readme/title3.svg"/>
+<img src="./readme/title3.svg" id="prototyping"/>
 
 > PillPall's design was meticulously crafted, starting with wireframes and mockups. Through a process of iteration and refinement, the layout was fine-tuned to prioritize easy navigation and deliver a seamless user experience.
 
@@ -74,7 +80,7 @@
 <br><br>
 
 <!-- Implementation -->
-<img src="./readme/title4.svg"/>
+<img src="./readme/title4.svg" id="implementation"/>
 
 > Using the wireframes and mockups as a guide, we implemented the PillPall app with the following features:
 
@@ -134,7 +140,7 @@
 <br><br>
 
 <!-- Tech stack -->
-<img src="./readme/title5.svg"/>
+<img src="./readme/title5.svg" id="stacks"/>
 
 ###  PillPall is built using the following technologies:
 - Employed [Laravel](https://laravel.com/), a powerful PHP framework for the backend of PillPall. Laravel provides a solid foundation for building secure and scalable backend systems. 
@@ -149,7 +155,7 @@
 <br><br>
 
 <!-- How to run -->
-<img src="./readme/title6.svg"/>
+<img src="./readme/title6.svg" id="installation"/>
 
 > To set up PillPall locally, follow these steps:
 
