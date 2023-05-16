@@ -90,7 +90,7 @@ const ResetPassword: FC = () => {
             },
         })
         .then((response) => {
-            if(response.data.status == 'success'){
+            if(response.data.message == 'Password reset successfully.'){
                 Alert.alert(
                     'Success',
                     'The password was reset.',
