@@ -65,7 +65,7 @@
 ### Patient Screens (Mobile)
 | Welcome Patient (First Login) | Contact Info | Anthrometric Measurements and Emergency Contact Info | Vital Signs and Medical History | Medications and Habits |
 | ---| ---| ---| ---| ---|
-| ![WelcomePatient](/readme/gif/welcome.gif)| ![ContactInfo](/readme/gif/contactInfo.gif)| ![AnthrometricMeasurementsandEmergencyContactInfo](/readme/gif/measurements.gif)| ![MedicalHistory](/readme/gif/medicalHistory.gif)| ![MedicationsAndHabits](/readme/gif/medicationsAndHabits.gif)|
+| ![WelcomePatient](/readme/gif/welcome.gif)| ![ContactInfo](/readme/gif/contactInfo.gif)| ![AnthrometricMeasurementsandEmergencyContactInfo](/readme/gif/measurements.gif)| ![MedicalHistory](/readme/gif/medicalHistory.gif)| ![MedicationsAndHabits](/readme/gif/medAndHabits.gif)|
 
 | Report | Edit Report | Medication Schedule | Add Medicine | Delete Medicine |
 | ---| ---| ---| ---| ---|
@@ -73,7 +73,7 @@
 
 | Nearby Pharmacies | Budget Tracker | Patient Search by Major | Patient Search by Name | File Numbers (Empty State)|
 | ---| ---| ---| ---| ---|
-| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/budgetTracker.gif)| ![PatientSearchByMajor](/readme/gif/patientSearchMajor.gif)| ![PatientSearchByName](/readme/gif/patientSearchName.gif)| ![EmptyFileNumbers](/readme/gif/filenumberempty.gif)|
+| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/budget.gif)| ![PatientSearchByMajor](/readme/gif/patientSearchMajor.gif)| ![PatientSearchByName](/readme/gif/patientSearchName.gif)| ![EmptyFileNumbers](/readme/gif/filenumberempty.gif)|
 
 | Add File Number | File Numbers | Medical Results (Empty) | Add Medical Result | Medical Results |
 | ---| ---| ---| ---| ---|
