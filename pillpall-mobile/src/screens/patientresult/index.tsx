@@ -6,6 +6,7 @@ import MedicalResultCard from '../../components/MedicalResultCard';
 import { useNavigation } from '@react-navigation/core';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import API_URL from '../../constants/url';
+import FILE_URL from '../../constants/files';
 
 import styles from './styles';
 
@@ -58,7 +59,7 @@ const PatientResult: FC<PatientReportProps> = ({route}) => {
                     if (response.data.status === 'success') {
                         const formattedResults = response.data.results.map((result: PatientResultData) => ({
                             ...result,
-                            uri: `http://192.168.0.100:8000/storage/storage/images/${result.file_name}`,
+                            uri: FILE_URL+`storage/storage/images/${result.file_name}`,
                         }));
                         setResults(formattedResults);
                         setIsSuccess(true);
