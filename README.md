@@ -60,7 +60,7 @@
 ### Common Screens (Mobile)
 | Login | Register | Forgot Password | Reset Password |
 | ---| ---| ---| ---|
-| ![Login](/readme/implementation/login.png)| ![Register](/readme/implementation/register.png)| ![ForgetPassword](/readme/gif/forgotpassword.gif)| ![ResetPassword](/readme/gif/resetpassword.gif)|
+| ![Login](/readme/gif/login.gif)| ![Register](/readme/gif/register.gif)| ![ForgetPassword](/readme/gif/forgotpassword.gif)| ![ResetPassword](/readme/gif/resetpassword.gif)|
 
 ### Patient Screens (Mobile)
 | Welcome Patient (First Login) | Contact Info | Anthrometric Measurements | Emergency Contact Info |
