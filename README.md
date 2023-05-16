@@ -47,37 +47,9 @@
 | ![ForgotPassword](/readme/wireframes/forgotPassword.png )| ![DeleteMedicine](/readme/wireframes/deleteMedicine.png)| ![MedicationSchedule](/readme/wireframes/medicationSchedule.png)| ![PersonalAssistant](/readme/wireframes/personalAssistant.png)|
 
 ### Mockups
-| Login | Register | Forgot Password | Reset Password |
+| Login | Doctor Search | Delete Medicine | File Numbers |
 | ---| ---| ---| ---|
-| ![Login](/readme/mockups/login.png )| ![Register](/readme/mockups/register.png)| ![ForgetPassword](/readme/mockups/forgetpassword.png)| ![ResetPassword](/readme/mockups/resetpassword.png)|
-
-| Welcome Patient (First Login) | Contact Information (First Login) | Anthropometric Measurements (First Login) | Emergency Contact Info (First Login) |
-| ---| ---| ---| ---|
-| ![WelcomePatient](/readme/mockups/welcome.png)| ![ContactInfo](/readme/mockups/contactinfo.png)| ![Measurements](/readme/mockups/measurements.png)| ![EmergencyContactInfo](/readme/mockups/emergencycontactinfo.png)|
-
-| Vital Signs (First Login) | Medical History (First Login) | Medications and Habits (First Login) | Report |
-| ---| ---| ---| ---|
-| ![VitalSigns](/readme/mockups/vitalsigns.png)| ![MedicalHistory](/readme/mockups/medicalhistory.png)| ![MedicationsAndHabits](/readme/mockups/medicationsandhabits.png)| ![Report](/readme/mockups/report.png)|
-
-| Edit Report | Medication Schedule | Add Medicine | Delete Medicine |
-| ---| ---| ---| ---|
-| ![EditReport](/readme/mockups/editreport.png)| ![MedicationSchedule](/readme/mockups/medicationschedule.png)| ![AddMedicine](/readme/mockups/addmedicine.png)| ![DeleteMedicine](/readme/mockups/deletemedicine.png)|
-
-| Nearby Pharmacies | Budget Tracker | Personal Assistant | File Numbers |
-| ---| ---| ---| ---|
-| ![NearbyPharmacies](/readme/mockups/nearbypharmacies.png)| ![BudgetTracker](/readme/mockups/budgettracker.png)| ![PersonalAssistant](/readme/mockups/personalassistant.png)| ![FileNumbers](/readme/mockups/filenum.png)|
-
-| Add File Number | Medical Results | Add Medical Result | Change Password |
-| ---| ---| ---| ---|
-| ![AddFileNumber](/readme/mockups/addfilenumber.png)| ![MedicalResults](/readme/mockups/medicalresults.png)| ![AddMedicalResult](/readme/mockups/addmedicalresult.png)| ![ChangePassword](/readme/mockups/changepassword.png)|
-
-| Patient Search | Fill Doctor Profile (First Login) | Profile | Edit Profile |
-| ---| ---| ---| ---|
-| ![PatientSearch](/readme/mockups/patientsearch.png)| ![FillProfile](/readme/mockups/fillprofile.png)| ![Profile](/readme/mockups/profile.png)| ![EditProfile](/readme/mockups/editprofile.png)| ![DoctorSearch](/readme/mockups/doctorsearch.png)|
-
-| Doctor Search | Patient Report (Seen by Doctor) | Patient Result (Seen by Doctor) |
-| ---| ---| ---|
-| ![DoctorSearch](/readme/mockups/doctorsearch.png)| ![PatientReport](/readme/mockups/patientreport.png)| ![PatientResult](/readme/mockups/patientresult.png)|
+| ![Login](/readme/mockups/login.png )| ![DoctorSearch](/readme/mockups/doctorsearch.png)| ![DeleteMedicine](/readme/mockups/deletemedicine.png)| ![FileNumbers](/readme/mockups/filenum.png)|
 
 <br><br>
 
