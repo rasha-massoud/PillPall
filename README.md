@@ -84,13 +84,9 @@
 | <kbd><img src="./readme/gif/medicalresult.gif" width="147"></kbd>| <kbd><img src="./readme/gif/replacement.gif" width="147"></kbd>| <kbd><img src="./readme/gif/changePass.gif" width="147"></kbd>| <kbd><img src="./readme/gif/logout.gif" width="147"></kbd>|
 
 ### Doctor Screens (Mobile)
-| Fill Profile (First Login) | Profile | Edit Profile | Doctor Search (Not Connected/Approved) | Patient Report (Seen by Doctor) |
-| ---| ---| ---| ---| ---|
-| <kbd><img src="./readme/gif/fillProfile.gif" width="147"></kbd>| <kbd><img src="./readme/gif/profile.gif" width="147"></kbd>| <kbd><img src="./readme/gif/editDoctorsProfile.gif" width="147"></kbd>| <kbd><img src="./readme/gif/doctorSearchNotApproved.gif" width="147"></kbd>| <kbd><img src="./readme/gif/patientReportByDoctor.gif" width="147"></kbd>|
-
-| Patient Results (Seen by Doctor) |
-| ---|
-| <kbd><img src="./readme/gif/patientResultByDoctor.gif" width="147" height="200"></kbd>|
+| Fill Profile (First Login) | Profile | Edit Profile | Doctor Search (Not Connected/Approved) | Patient Report (Seen by Doctor) | Patient Results (Seen by Doctor) |
+| ---| ---| ---| ---| ---| ---|
+| <kbd><img src="./readme/gif/fillProfile.gif" width="147"></kbd>| <kbd><img src="./readme/gif/profile.gif" width="147"></kbd>| <kbd><img src="./readme/gif/editDoctorsProfile.gif" width="147"></kbd>| <kbd><img src="./readme/gif/doctorSearchNotApproved.gif" width="147"></kbd>| <kbd><img src="./readme/gif/patientReportByDoctor.gif" width="147"></kbd>| <kbd><img src="./readme/gif/patientResultByDoctor.gif" width="147"></kbd>|
 
 ### Admin Screens (Mobile)
 | Approved Doctor Report | Approved Doctor Report (Empty) | Patient Report |
