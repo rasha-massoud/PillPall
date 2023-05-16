@@ -84,13 +84,13 @@
 | ![MedicalResults](/readme/gif/medicalresult.gif)| ![Replacement](/readme/gif/replacement.gif)| ![ChangePassword](/readme/gif/changePassword.gif)| ![Logout](/readme/gif/logout.gif)|
 
 ### Doctor Screens (Mobile)
-| Fill Profile (First Login) | Profile | Doctor Search (Not Connected/Approved) | Change Password |
-| ---| ---| ---| ---|
-| ![FillProfile](/readme/implementation/fillprofile.png)| ![Profile](/readme/implementation/profile.png)| ![DoctorSearch](/readme/implementation/doctorsearchnotconnected.png)| ![ChanePassword](/readme/implementation/changepassworddoctor.png)|
+| Fill Profile (First Login) | Profile | Edit Profile | Doctor Search (Not Connected/Approved) | Patient Report (Seen by Doctor) |
+| ---| ---| ---| ---| ---|
+| ![FillProfile](/readme/gif/fillProfile.gif)| ![Profile](/readme/gif/profile.gif)| ![EditProfile](/readme/gif/editProfile.gif)| ![DoctorSearch](/readme/gif/doctorSearch.gif)| ![DoctorSearch](/readme/gif/patientReport.gif)|
 
-| Patient Report (Seen by Doctor) | Patient Results (Seen by Doctor) | Doctor Search (Patient Result) | Doctor Search (Patient Report) |
-| ---| ---| ---| ---|
-| ![PatientReport](/readme/implementation/patientreport.png)| ![PatientResult](/readme/implementation/patientresult.png)| ![EditProfile](/readme/gif/patientresult.gif)| ![DoctorSearch](/readme/gif/patientreport.gif)|
+| Patient Results (Seen by Doctor) |
+| ---|
+| ![PatientResult](/readme/gif/patientResult.gif)|
 
 ### Admin Screens (Mobile)
 | Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) | Patients |
