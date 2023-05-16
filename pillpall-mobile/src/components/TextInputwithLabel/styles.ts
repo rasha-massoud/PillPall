@@ -7,7 +7,6 @@ interface Styles {
     inputContainer: ViewStyle;
     input: TextStyle;
     buttonContainer: ViewStyle;
-    container: ViewStyle;
 }
 
 const styles = StyleSheet.create<Styles>({
@@ -30,9 +29,6 @@ const styles = StyleSheet.create<Styles>({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    container: {
-        flex: 1,
-    }
 });
 
 export default styles;
