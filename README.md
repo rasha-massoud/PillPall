@@ -95,11 +95,11 @@
 ### Admin Screens (Mobile)
 | Approved Doctor Report | Approved Doctor Report (Empty) | Patient Report |
 | ---| ---| ---|
-| <kbd><img src="./readme/gif/approvedDoctorReport.gif" width="147"></kbd>| <kbd><img src="./readme/gif/approvedDoctorReportEmpty.gif" width="147"></kbd>| <kbd><img src="./readme/gif/adminPatient.gif" width="147"></kbd>|
+| <kbd><img src="./readme/gif/approvedDoctorReport.gif" width="245"></kbd>| <kbd><img src="./readme/gif/approvedDoctorReportEmpty.gif" width="245"></kbd>| <kbd><img src="./readme/gif/adminPatient.gif" width="245"></kbd>|
 
 | Patient Report (Empty) | Approve | Unapproved Doctor Report (Empty) |
 | ---| ---| ---|
-| <kbd><img src="./readme/gif/adminEmptyPatient.gif" width="147"></kbd>| <kbd><img src="./readme/gif/approve.gif" width="147"></kbd>| <kbd><img src="./readme/gif/unapprovedDoctorReportEmpty.gif" width="147"></kbd>|
+| <kbd><img src="./readme/gif/adminEmptyPatient.gif" width="245"></kbd>| <kbd><img src="./readme/gif/approve.gif" width="245"></kbd>| <kbd><img src="./readme/gif/unapprovedDoctorReportEmpty.gif" width="245"></kbd>|
 
 <br><br>
 
