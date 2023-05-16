@@ -17,7 +17,6 @@
 
 ### Patient Stories
 - As a patient, I want to have a detailed medical report, so that I can easily share my medical information with healthcare providers to avoid the repetitive task of recounting my medical history.
-- As a patient, I want to easily add a prescribed medicine along with its timing, dose quantity, and instructions, so that I can efficiently manage my medication schedule and ensure proper adherence to my treatment plan.
 - As a patient, I want to search for and connect with doctors, so that I allow them to access my medications and report.
 - As a patient, I want to have an AI personal medical assistant, so that I can receive reliable guidance, support, and information about my health and medications.
 - As a patient, I want to be reminded for my prescription intake through a buzzer, so that I can maintain a consistent and effective treatment regimen.
@@ -109,7 +108,6 @@
 | Approve Doctor |
 | ---|
 | ![ApproveDoctor](/readme/gif/approve.gif)|
-
 
 <br><br>
 
