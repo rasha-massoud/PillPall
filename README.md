@@ -81,16 +81,16 @@
 
 | Medical Results | Personal Assistant (Replacement) | Change Password | Logout |
 | ---| ---| ---| ---|
-| ![MedicalResults](/readme/gif/medicalresult.gif)| ![Replacement](/readme/gif/replacement.gif)| ![ChangePassword](/readme/gif/changePassword.gif)| ![Logout](/readme/gif/logout.gif)|
+| ![MedicalResults](/readme/gif/medicalresult.gif)| ![Replacement](/readme/gif/replacement.gif)| ![ChangePassword](/readme/gif/changePass.gif)| ![Logout](/readme/gif/logout.gif)|
 
 ### Doctor Screens (Mobile)
 | Fill Profile (First Login) | Profile | Edit Profile | Doctor Search (Not Connected/Approved) | Patient Report (Seen by Doctor) |
 | ---| ---| ---| ---| ---|
-| ![FillProfile](/readme/gif/fillProfile.gif)| ![Profile](/readme/gif/profile.gif)| ![EditProfile](/readme/gif/editProfile.gif)| ![DoctorSearch](/readme/gif/doctorSearch.gif)| ![DoctorSearch](/readme/gif/patientReport.gif)|
+| ![FillProfile](/readme/gif/fillProfile.gif)| ![Profile](/readme/gif/profile.gif)| ![EditProfile](/readme/gif/editDoctorsProfile.gif)| ![DoctorSearch](/readme/gif/doctorSearchNotApproved.gif)| ![DoctorSearch](/readme/gif/patientReportByDoctor.gif)|
 
 | Patient Results (Seen by Doctor) |
 | ---|
-| ![PatientResult](/readme/gif/patientResult.gif)|
+| ![PatientResult](/readme/gif/patientResultByDoctor.gif)|
 
 ### Admin Screens (Mobile)
 | Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) | Patients |
