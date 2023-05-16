@@ -43,11 +43,12 @@
 ### Wireframes
 | Forgot Password | Delete Medicine | Personal Assistant | Add File Number | Medication Schedule |
 | ---| ---| ---| ---| ---|
-<kbd><img src="./readme/wireframes/forgotPassword.png" width="147"></kbd>	<kbd><img src="./readme/wireframes/deleteMedicine.png" width="147"></kbd>	<kbd><img src="./readme/wireframes/personalAssistant.png" width="147"></kbd>	<kbd><img src="./readme/wireframes/addFileNumber.png" width="147"></kbd>	<kbd><img src="./readme/wireframes/medicationSchedule.png" width="147"></kbd>
+| <kbd><img src="./readme/wireframes/forgotPassword.png" width="147"></kbd>| <kbd><img src="./readme/wireframes/deleteMedicine.png" width="147"></kbd>| <kbd><img src="./readme/wireframes/personalAssistant.png" width="147"></kbd>| <kbd><img src="./readme/wireframes/addFileNumber.png" width="147"></kbd>| <kbd><img src="./readme/wireframes/medicationSchedule.png" width="147"></kbd>|
 
 ### Mockups
 | Login | Doctor Search | Delete Medicine | File Numbers | Add Medical Result |
-<kbd><img src="./readme/mockups/login.png" width="147"></kbd>	<kbd><img src="./readme/mockups/doctorsearch.png" width="147"></kbd>	<kbd><img src="./readme/mockups/deletemedicine.png" width="147"></kbd>	<kbd><img src="./readme/mockups/filenum.png" width="147"></kbd>	<kbd><img src="./readme/mockups/addmedicalresult.png" width="147"></kbd>
+| ---| ---| ---| ---| ---|
+| <kbd><img src="./readme/mockups/login.png" width="147"></kbd>| <kbd><img src="./readme/mockups/doctorsearch.png" width="147"></kbd>| <kbd><img src="./readme/mockups/deletemedicine.png" width="147"></kbd>| <kbd><img src="./readme/mockups/filenum.png" width="147"></kbd>| <kbd><img src="./readme/mockups/addmedicalresult.png" width="147"></kbd>|
 
 <br><br>
 
