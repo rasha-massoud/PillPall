@@ -119,7 +119,14 @@ const Login: FC = () => {
               );
         })
         .catch((error) => {
-            console.error('Error during Login or Invalid Credentials');
+            Alert.alert(
+                'Request Fails',
+                'Invalid Credentials.',
+                [
+                  { text: 'OK' }
+                ],
+                { cancelable: false }
+            );
         });
     };
 
