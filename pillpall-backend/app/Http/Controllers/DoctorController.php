@@ -251,7 +251,7 @@ class DoctorController extends Controller{
         } catch (Exception $e){
             return response()->json([
                 'status' => 'error',
-                'message' => 'An error occurred while returning the connected patients.' .$e->getMEssage()
+                'message' => 'An error occurred while returning the connected patients.'
             ]);
         }
   
