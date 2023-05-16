@@ -63,9 +63,9 @@
 | ![Login](/readme/gif/login.gif)| ![Register](/readme/gif/register.gif)| ![ForgetPassword](/readme/gif/forgotpassword.gif)| ![ResetPassword](/readme/gif/resetpassword1.gif)| ![ResetPassword](/readme/gif/resetpassword.gif)|
 
 ### Patient Screens (Mobile)
-| Welcome Patient (First Login) | Contact Info | Anthrometric Measurements | Emergency Contact Info |
-| ---| ---| ---| ---|
-| ![WelcomePatient](/readme/gif/welcome.gif)| ![ContactInfo](/readme/implementation/contactinfo.png)| ![ContactInfo](/readme/implementation/measurements.png)| ![EmergencyContactInfo](/readme/implementation/emergencycontactinfo.png)|
+| Welcome Patient (First Login) | Contact Info | Anthrometric Measurements and Emergency Contact Info | Vital Signs and Medical History | Medications and Habits |
+| ---| ---| ---| ---| ---|
+| ![WelcomePatient](/readme/gif/welcome.gif)| ![ContactInfo](/readme/gif/contactInfo.gif)| ![AnthrometricMeasurementsandEmergencyContactInfo](/readme/gif/measurements.gif)| ![MedicalHistory](/readme/gif/medicalHistory.gif)| ![MedicationsAndHabits](/readme/gif/medicationsAndHabits.gif)|
 
 | Vital Signs | Medical History | Medications and Habits | Report |
 | ---| ---| ---| ---|
