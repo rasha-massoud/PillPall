@@ -72,16 +72,16 @@
 | ![Report](/readme/gif/report.gif)| ![EditReport](/readme/gif/editreport.gif)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/gif/deleteMedicine.gif)|
 
 | Nearby Pharmacies | Budget Tracker | Patient Search by Major | Patient Search by Name | File Numbers (Empty State)|
-| ---| ---| ---| ---|
+| ---| ---| ---| ---| ---|
 | ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/budgettraker.gif)| ![PatientSearchByMajor](/readme/gif/patientSearchMajor.gif)| ![PatientSearchByName](/readme/gif/patientSearchName.gif)| ![EmptyFileNumbers](/readme/gif/filenumberempty.gif)|
 
 | Add File Number | File Numbers | Medical Results (Empty) | Add Medical Result | Medical Results |
 | ---| ---| ---| ---| ---|
 | ![AddFileNumber](/readme/gif/addFileNumber.gif)| ![FileNumbers](/readme/gif/fileNumbers.gif)| ![EmptyMedicalResults](/readme/gif/emptyMedicalResult.gif)| ![AddMedicalResult](/readme/gif/addMedResult.gif)| ![MedicalResults](/readme/gif/medicalResults.gif)|
 
-| Medical Results | Personal Assistant (Replacement) | Personal Assistant (Question) | Change Password |
+| Medical Results | Personal Assistant (Replacement) | Change Password | Logout |
 | ---| ---| ---| ---|
-| ![MedicalResults](/readme/gif/medicalresult.gif)| ![Replacement](/readme/gif/assistant.gif)| ![Question](/readme/implementation/question.png)| ![ChangePassword](/readme/implementation/changepassword.png)|
+| ![MedicalResults](/readme/gif/medicalresult.gif)| ![Replacement](/readme/gif/replacement.gif)| ![ChangePassword](/readme/gif/changePassword.gif)| ![Logout](/readme/gif/logout.gif)|
 
 ### Doctor Screens (Mobile)
 | Fill Profile (First Login) | Profile | Doctor Search (Not Connected/Approved) | Change Password |
