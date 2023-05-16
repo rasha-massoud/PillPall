@@ -69,11 +69,11 @@
 
 | Report | Edit Report | Medication Schedule | Add Medicine | Delete Medicine |
 | ---| ---| ---| ---| ---|
-| ![Report](/readme/gif/report.gif)| ![EditReport](/readme/gif/editreport.gif)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/gif/deleteMedicine.gif)|
+| ![Report](/readme/gif/report.gif)| ![EditReport](/readme/gif/editreport.gif)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/gif/deleteMed.gif)|
 
 | Nearby Pharmacies | Budget Tracker | Patient Search by Major | Patient Search by Name | File Numbers (Empty State)|
 | ---| ---| ---| ---| ---|
-| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/budgettraker.gif)| ![PatientSearchByMajor](/readme/gif/patientSearchMajor.gif)| ![PatientSearchByName](/readme/gif/patientSearchName.gif)| ![EmptyFileNumbers](/readme/gif/filenumberempty.gif)|
+| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/budgetTracker.gif)| ![PatientSearchByMajor](/readme/gif/patientSearchMajor.gif)| ![PatientSearchByName](/readme/gif/patientSearchName.gif)| ![EmptyFileNumbers](/readme/gif/filenumberempty.gif)|
 
 | Add File Number | File Numbers | Medical Results (Empty) | Add Medical Result | Medical Results |
 | ---| ---| ---| ---| ---|
