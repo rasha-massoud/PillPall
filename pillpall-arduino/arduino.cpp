@@ -2,7 +2,7 @@
 #include <ESP8266WebServer.h>
 
 const char* ssid = "Kent 100";
-const char* password = "Rash@1998";
+const char* password = "PassWord";
 const int buzzerPin = 8;
 
 ESP8266WebServer server(80);
