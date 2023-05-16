@@ -58,9 +58,9 @@
 > Using the wireframes and mockups as a guide, we implemented the PillPall app with the following features:
 
 ### Common Screens (Mobile)
-| Login | Register | Forgot Password | Reset Password |
-| ---| ---| ---| ---|
-| ![Login](/readme/gif/login.gif)| ![Register](/readme/gif/register.gif)| ![ForgetPassword](/readme/gif/forgotpassword.gif)| ![ResetPassword](/readme/gif/resetpassword.gif)|
+| Login | Register | Forgot Password | Reset Password | Reset Password (Cancel) |
+| ---| ---| ---| ---| ---|
+| ![Login](/readme/gif/login.gif)| ![Register](/readme/gif/register.gif)| ![ForgetPassword](/readme/gif/forgotpassword.gif)| ![ResetPassword](/readme/gif/resetpassword1.gif)| ![ResetPassword](/readme/gif/resetpassword.gif)|
 
 ### Patient Screens (Mobile)
 | Welcome Patient (First Login) | Contact Info | Anthrometric Measurements | Emergency Contact Info |
