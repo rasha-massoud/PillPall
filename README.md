@@ -93,17 +93,13 @@
 | <kbd><img src="./readme/gif/patientResultByDoctor.gif" width="147" height="200"></kbd>|
 
 ### Admin Screens (Mobile)
-| Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) | Patients |
-| ---| ---| ---| ---|
-| <kbd><img src="./readme/implementation/approveddoctors.png" width="147"></kbd>| <kbd><img src="./readme/implementation/approveddoctorreport.png" width="147"></kbd>| 	<kbd><img src="./readme/implementation/approveddoctorreportempty.png" width="147"></kbd>| <kbd><img src="./readme/implementation/patients.png" width="147"></kbd>|
+| Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) | Patients | Patient Report |
+| ---| ---| ---| ---| ---|
+| <kbd><img src="./readme/implementation/approveddoctors.png" width="147"></kbd>| <kbd><img src="./readme/implementation/approveddoctorreport.png" width="147"></kbd>| 	<kbd><img src="./readme/implementation/approveddoctorreportempty.png" width="147"></kbd>| <kbd><img src="./readme/implementation/patients.png" width="147"></kbd>|  <kbd><img src="./readme/gif/adminPatient.gif" width="147"></kbd>|
 
-| Patient Report | Patient Report (Empty) | Unapproved Doctors | Unapproved Doctor Report |
-| ---| ---| ---| ---|
-| <kbd><img src="./readme/implementation/patientreportbyadmin.png" width="147"></kbd>| <kbd><img src="./readme/implementation/patientreportempty.png" width="147"></kbd>| <kbd><img src="./readme/implementation/unapproveddoctors.png" width="147"></kbd>| <kbd><img src="./readme/implementation/unapproveddoctorsreport.png" width="147"></kbd>|
-
-| Approve Doctor |
-| ---|
-| <kbd><img src="./readme/gif/approve.gif" width="147"></kbd>|
+| Patient Report (Empty) | Unapproved Doctors | Unapproved Doctor Report | Approve | Unapproved Doctor Report (Empty) |
+| ---| ---| ---| ---| ---|
+| <kbd><img src="./readme/gif/adminEmptyPatient.gif" width="147"></kbd>| <kbd><img src="./readme/implementation/unapproveddoctors.png" width="147"></kbd>| <kbd><img src="./readme/implementation/unapproveddoctorsreport.png" width="147"></kbd>| <kbd><img src="./readme/gif/approve.gif" width="147"></kbd>| <kbd><img src="./readme/gif/unapprovedDoctorReportEmpty.gif" width="147"></kbd>|
 
 <br><br>
 
