@@ -8,6 +8,7 @@ const int buzzerPin = 8;
 ESP8266WebServer server(80);
 
 void handleBuzzRequest() {
+  
   int duration = server.arg("duration").toInt();
   
   digitalWrite(buzzerPin, HIGH);
@@ -18,9 +19,10 @@ void handleBuzzRequest() {
 }
 
 void setup() {
+
   pinMode(buzzerPin, OUTPUT);
-  
   WiFi.begin(ssid, password);
+
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
   }
