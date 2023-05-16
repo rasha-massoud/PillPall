@@ -6,9 +6,11 @@ import MedicalResultCard from '../../components/MedicalResultCard';
 import { useNavigation } from '@react-navigation/core';
 import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import styles from './styles';
 import NavBar3 from '../../components/NavBar3';
 import { colors } from '../../constants/palette';
+import FILE_URL from '../../constants/files';
+
+import styles from './styles';
 
 interface MedicalResult {
     id: number;
@@ -49,7 +51,7 @@ const MedicalResults: FC = () => {
           if (response.data.status === 'success') {
             const formattedResults = response.data.results.map((result: MedicalResult) => ({
               ...result,
-              uri: `http://192.168.0.100:8000/storage/storage/images/${result.file_name}`,
+              uri: FILE_URL+`storage/storage/images/${result.file_name}`,
             }));
             setResults(formattedResults);
             setIsSuccess(true);
