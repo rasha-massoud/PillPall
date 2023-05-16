@@ -43,12 +43,11 @@
 ### Wireframes
 | Forgot Password | Delete Medicine | Personal Assistant | Add File Number | Medication Schedule |
 | ---| ---| ---| ---| ---|
-| ![ForgotPassword](/readme/wireframes/forgotPassword.png )| ![DeleteMedicine](/readme/wireframes/deleteMedicine.png)| ![PersonalAssistant](/readme/wireframes/personalAssistant.png)| ![AddFileNumber](/readme/wireframes/addFileNumber.png)| ![MedicationSchedule](/readme/wireframes/medicationSchedule.png)|
+<kbd><img src="./readme/wireframes/forgotPassword.png" width="147"></kbd>	<kbd><img src="./readme/wireframes/deleteMedicine.png" width="147"></kbd>	<kbd><img src="./readme/wireframes/personalAssistant.png" width="147"></kbd>	<kbd><img src="./readme/wireframes/addFileNumber.png" width="147"></kbd>	<kbd><img src="./readme/wireframes/medicationSchedule.png" width="147"></kbd>
 
 ### Mockups
 | Login | Doctor Search | Delete Medicine | File Numbers | Add Medical Result |
-| ---| ---| ---| ---| ---|
-| ![Login](/readme/mockups/login.png )| ![DoctorSearch](/readme/mockups/doctorsearch.png)| ![DeleteMedicine](/readme/mockups/deletemedicine.png)| ![FileNumbers](/readme/mockups/filenum.png)| ![AddMedicalResult](/readme/mockups/addmedicalresult.png)|
+<kbd><img src="./readme/mockups/login.png" width="147"></kbd>	<kbd><img src="./readme/mockups/doctorsearch.png" width="147"></kbd>	<kbd><img src="./readme/mockups/deletemedicine.png" width="147"></kbd>	<kbd><img src="./readme/mockups/filenum.png" width="147"></kbd>	<kbd><img src="./readme/mockups/addmedicalresult.png" width="147"></kbd>
 
 <br><br>
 
@@ -60,50 +59,50 @@
 ### Common Screens (Mobile)
 | Login | Register | Forgot Password | Reset Password | Reset Password (Cancel) |
 | ---| ---| ---| ---| ---|
-| ![Login](/readme/gif/login.gif)| ![Register](/readme/gif/register.gif)| ![ForgetPassword](/readme/gif/forgotpassword.gif)| ![ResetPassword](/readme/gif/resetpassword1.gif)| ![ResetPassword](/readme/gif/resetpassword.gif)|
+| <kbd><img src="./readme/gif/login.gif" width="147"></kbd>| <kbd><img src="./readme/gif/register.gif" width="147"></kbd>| <kbd><img src="./readme/gif/forgotpassword.gif" width="147"></kbd>| <kbd><img src="./readme/gif/resetpassword1.gif" width="147"></kbd>| <kbd><img src="./readme/gif/resetpassword.gif" width="147"></kbd>|
 
 ### Patient Screens (Mobile)
 | Welcome Patient (First Login) | Contact Info | Anthrometric Measurements and Emergency Contact Info | Vital Signs and Medical History | Medications and Habits |
 | ---| ---| ---| ---| ---|
-| ![WelcomePatient](/readme/gif/welcome.gif)| ![ContactInfo](/readme/gif/contactInfo.gif)| ![AnthrometricMeasurementsandEmergencyContactInfo](/readme/gif/measurements.gif)| ![MedicalHistory](/readme/gif/medicalHistory.gif)| ![MedicationsAndHabits](/readme/gif/medAndHabits.gif)|
+| <kbd><img src="./readme/gif/welcome.gif" width="147"></kbd>| <kbd><img src="./readme/gif/contactInfo.gif" width="147"></kbd>| <kbd><img src="./readme/gif/measurements.gif" width="147"></kbd>| <kbd><img src="./readme/gif/medicalHistory.gif" width="147"></kbd>| <kbd><img src="./readme/gif/medAndHabits.gif" width="147"></kbd>|
 
 | Report | Edit Report | Medication Schedule | Add Medicine | Delete Medicine |
 | ---| ---| ---| ---| ---|
-| ![Report](/readme/gif/report.gif)| ![EditReport](/readme/gif/editreport.gif)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/gif/deleteMed.gif)|
+| <kbd><img src="./readme/gif/report.gif" width="147"></kbd>| <kbd><img src="./readme/gif/editreport.gif" width="147"></kbd>| <kbd><img src="./readme/gif/medicationschedule.gif" width="147"></kbd>| <kbd><img src="./readme/gif/addmedicine.gif" width="147"></kbd>| <kbd><img src="./readme/gif/deleteMed.gif" width="147"></kbd>|
 
 | Nearby Pharmacies | Budget Tracker | Patient Search by Major | Patient Search by Name | File Numbers (Empty State)|
 | ---| ---| ---| ---| ---|
-| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/budget.gif)| ![PatientSearchByMajor](/readme/gif/patientSearchMajor.gif)| ![PatientSearchByName](/readme/gif/patientSearchName.gif)| ![EmptyFileNumbers](/readme/gif/filenumberempty.gif)|
+| <kbd><img src="./readme/gif/map.gif" width="147"></kbd>| <kbd><img src="./readme/gif/budget.gif" width="147"></kbd>| <kbd><img src="./readme/gif/patientSearchMajor.gif" width="147"></kbd>| <kbd><img src="./readme/gif/patientSearchName.gif" width="147"></kbd>| <kbd><img src="./readme/gif/filenumberempty.gif" width="147"></kbd>|
 
 | Add File Number | File Numbers | Medical Results (Empty) | Add Medical Result | Medical Results |
 | ---| ---| ---| ---| ---|
-| ![AddFileNumber](/readme/gif/addFileNumber.gif)| ![FileNumbers](/readme/gif/fileNumbers.gif)| ![EmptyMedicalResults](/readme/gif/emptyMedicalResult.gif)| ![AddMedicalResult](/readme/gif/addMedResult.gif)| ![MedicalResults](/readme/gif/medicalResults.gif)|
+| <kbd><img src="./readme/gif/addFileNumber.gif" width="147"></kbd>| <kbd><img src="./readme/gif/fileNumbers.gif" width="147"></kbd>| <kbd><img src="./readme/gif/emptyMedicalResult.gif" width="147"></kbd>| <kbd><img src="./readme/gif/addMedResult.gif" width="147"></kbd>| <kbd><img src="./readme/gif/medicalResults.gif" width="147"></kbd>| 
 
 | Medical Results | Personal Assistant (Replacement) | Change Password | Logout |
 | ---| ---| ---| ---|
-| ![MedicalResults](/readme/gif/medicalresult.gif)| ![Replacement](/readme/gif/replacement.gif)| ![ChangePassword](/readme/gif/changePass.gif)| ![Logout](/readme/gif/logout.gif)|
+| <kbd><img src="./readme/gif/medicalresult.gif" width="147"></kbd>| <kbd><img src="./readme/gif/replacement.gif" width="147"></kbd>| <kbd><img src="./readme/gif/changePass.gif" width="147"></kbd>| <kbd><img src="./readme/gif/logout.gif" width="147"></kbd>|
 
 ### Doctor Screens (Mobile)
 | Fill Profile (First Login) | Profile | Edit Profile | Doctor Search (Not Connected/Approved) | Patient Report (Seen by Doctor) |
 | ---| ---| ---| ---| ---|
-| ![FillProfile](/readme/gif/fillProfile.gif)| ![Profile](/readme/gif/profile.gif)| ![EditProfile](/readme/gif/editDoctorsProfile.gif)| ![DoctorSearch](/readme/gif/doctorSearchNotApproved.gif)| ![DoctorSearch](/readme/gif/patientReportByDoctor.gif)|
+| <kbd><img src="./readme/gif/fillProfile.gif" width="147"></kbd>| <kbd><img src="./readme/gif/profile.gif" width="147"></kbd>| <kbd><img src="./readme/gif/editDoctorsProfile.gif" width="147"></kbd>| <kbd><img src="./readme/gif/doctorSearchNotApproved.gif" width="147"></kbd>| <kbd><img src="./readme/gif/patientReportByDoctor.gif" width="147"></kbd>|
 
 | Patient Results (Seen by Doctor) |
 | ---|
-| ![PatientResult](/readme/gif/patientResultByDoctor.gif)|
+| <kbd><img src="./readme/gif/patientResultByDoctor.gif" width="147"></kbd>|
 
 ### Admin Screens (Mobile)
 | Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) | Patients |
 | ---| ---| ---| ---|
-| ![ApprovedDoctors](/readme/implementation/approveddoctors.png)| ![ApprovedDoctorReport](/readme/implementation/approveddoctorreport.png)| ![ApprovedDoctorReportEmpty](/readme/implementation/approveddoctorreportempty.png)| ![Patients](/readme/implementation/patients.png)|
+| <kbd><img src="./readme/implementation/approveddoctors.png" width="147"></kbd>| <kbd><img src="./readme/implementation/approveddoctorreport.png" width="147"></kbd>| 	<kbd><img src="./readme/implementation/approveddoctorreportempty.png" width="147"></kbd>| <kbd><img src="./readme/implementation/patients.png" width="147"></kbd>|
 
 | Patient Report | Patient Report (Empty) | Unapproved Doctors | Unapproved Doctor Report |
 | ---| ---| ---| ---|
-| ![PatientReport](/readme/implementation/patientreportbyadmin.png)| ![PatientReportEmpty](/readme/implementation/patientreportempty.png)| ![UnapprovedDoctors](/readme/implementation/unapproveddoctors.png)| ![UnapprovedDoctorReport](/readme/implementation/unapproveddoctorsreport.png)|
+| <kbd><img src="./readme/implementation/patientreportbyadmin.png" width="147"></kbd>| <kbd><img src="./readme/implementation/patientreportempty.png" width="147"></kbd>| <kbd><img src="./readme/implementation/unapproveddoctors.png" width="147"></kbd>| <kbd><img src="./readme/implementation/unapproveddoctorsreport.png" width="147"></kbd>|
 
 | Approve Doctor |
 | ---|
-| ![ApproveDoctor](/readme/gif/approve.gif)|
+| <kbd><img src="./readme/gif/approve.gif" width="147"></kbd>|
 
 <br><br>
 
