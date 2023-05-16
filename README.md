@@ -41,11 +41,15 @@
 
 > PillPall's design was meticulously crafted, starting with wireframes and mockups. Through a process of iteration and refinement, the layout was fine-tuned to prioritize easy navigation and deliver a seamless user experience.
 
+### Wireframes
+| Forgot Password | Delete Medicine | Medication Schedule | Personal Assistant |
+| ---| ---| ---| ---|
+| ![ForgotPassword](/readme/wireframes/forgotPassword.png )| ![DeleteMedicine](/readme/wireframes/deleteMedicine.png)| ![MedicationSchedule](/readme/wireframes/medicationSchedule.png)| ![PersonalAssistant](/readme/wireframes/personalAssistant.png)|
 
 ### Mockups
 | Login | Register | Forgot Password | Reset Password |
 | ---| ---| ---| ---|
-| ![Login](/readme/mockups/login.png )| ![Register](/readme/mockups/register.png)| ![ForgetPassword](/readme/mockups/forgetpassword.png)| ![ResetPassword](/readme/mockups/resetpassword.png)
+| ![Login](/readme/mockups/login.png )| ![Register](/readme/mockups/register.png)| ![ForgetPassword](/readme/mockups/forgetpassword.png)| ![ResetPassword](/readme/mockups/resetpassword.png)|
 
 | Welcome Patient (First Login) | Contact Information (First Login) | Anthropometric Measurements (First Login) | Emergency Contact Info (First Login) |
 | ---| ---| ---| ---|
