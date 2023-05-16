@@ -1,4 +1,4 @@
-import { Text, View, KeyboardTypeOptions, TouchableWithoutFeedback, TextInput, TextInputProps } from 'react-native';
+import { Text, View, KeyboardTypeOptions, TouchableWithoutFeedback, TextInput, TextInputProps, KeyboardAvoidingView, Platform  } from 'react-native';
 import React, { FC, useRef, useState} from 'react';
 import styles from './styles';
 import appStyles from '../../constants/appStyles';
@@ -24,6 +24,10 @@ const TextInputwithLabel: FC<TextInputwithLabelProps> = (props) => {
 
   return (
     <>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.container}
+      >
         <TouchableWithoutFeedback onPress={dismissKeyboard}>
 
           <View style={styles.inputContainer}>
@@ -41,6 +45,7 @@ const TextInputwithLabel: FC<TextInputwithLabelProps> = (props) => {
               />
           </View>
         </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
 
     </>
   );
