@@ -42,9 +42,9 @@
 > PillPall's design was meticulously crafted, starting with wireframes and mockups. Through a process of iteration and refinement, the layout was fine-tuned to prioritize easy navigation and deliver a seamless user experience.
 
 ### Wireframes
-| Forgot Password | Delete Medicine | Medication Schedule | Personal Assistant | Budget Tracker |
+| Forgot Password | Delete Medicine | Medication Schedule | Personal Assistant | Add File Number |
 | ---| ---| ---| ---| ---|
-| ![ForgotPassword](/readme/wireframes/forgotPassword.png )| ![DeleteMedicine](/readme/wireframes/deleteMedicine.png)| ![MedicationSchedule](/readme/wireframes/medicationSchedule.png)| ![PersonalAssistant](/readme/wireframes/personalAssistant.png)| ![BudgetTracker](/readme/wireframes/budgetTracker.png)|
+| ![ForgotPassword](/readme/wireframes/forgotPassword.png )| ![DeleteMedicine](/readme/wireframes/deleteMedicine.png)| ![MedicationSchedule](/readme/wireframes/medicationSchedule.png)| ![PersonalAssistant](/readme/wireframes/personalAssistant.png)| ![AddFileNumber](/readme/wireframes/addFileNumber.png)|
 
 ### Mockups
 | Login | Doctor Search | Delete Medicine | File Numbers | Add Medical Result |
