@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import API_URL_data from '../../constants/url';
+import FILE_URL from '../../constants/files';
 
 import styles from './styles';
 
@@ -27,7 +27,7 @@ const MedicationItem: React.FC<MedicationItemProps> = ({
       <View style={styles.IMG}>
         {image && 
           <Image
-            source={{ uri: `http://192.168.0.100:8000/storage/${image}` }}
+            source={{ uri: FILE_URL+`storage/${image}` }}
             style={styles.image}
           />
         }
