@@ -69,15 +69,15 @@
 
 | Report | Edit Report | Medication Schedule | Add Medicine | Delete Medicine |
 | ---| ---| ---| ---| ---|
-| ![Report](/readme/gif/report.gif)| ![EditReport](/readme/gif/editreport.gif)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/implementation/deleteMedicine.png)|
+| ![Report](/readme/gif/report.gif)| ![EditReport](/readme/gif/editreport.gif)| ![MedicationSchedule](/readme/gif/medicationschedule.gif)| ![AddMedicine](/readme/gif/addmedicine.gif)| ![DeleteMedicine](/readme/gif/deleteMedicine.gif)|
 
-| Nearby Pharmacies | Budget Tracker | Patient Search | File Numbers (Empty State)|
+| Nearby Pharmacies | Budget Tracker | Patient Search by Major | Patient Search by Name | File Numbers (Empty State)|
 | ---| ---| ---| ---|
-| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/budgettraker.gif)| ![PatientSearch](/readme/gif/patientsearch.gif)| ![EmptyFileNumbers](/readme/gif/filenumberempty.gif)|
+| ![NearbyPharmacies](/readme/gif/map.gif)| ![BudgetTracker](/readme/gif/budgettraker.gif)| ![PatientSearchByMajor](/readme/gif/patientSearchMajor.gif)| ![PatientSearchByName](/readme/gif/patientSearchName.gif)| ![EmptyFileNumbers](/readme/gif/filenumberempty.gif)|
 
-| Add File Number | File Numbers | Medical Results (Empty) | Add Medical Result |
-| ---| ---| ---| ---|
-| ![AddFileNumber](/readme/implementation/addfilenumber.png)| ![FileNumbers](/readme/implementation/filenumbers.png)| ![EmptyMedicalResults](/readme/implementation/emptymedicalresult.png)| ![AddMedicalResult](/readme/gif/addmedicalresult.gif)|
+| Add File Number | File Numbers | Medical Results (Empty) | Add Medical Result | Medical Results |
+| ---| ---| ---| ---| ---|
+| ![AddFileNumber](/readme/gif/addFileNumber.gif)| ![FileNumbers](/readme/gif/fileNumbers.gif)| ![EmptyMedicalResults](/readme/gif/emptyMedicalResult.gif)| ![AddMedicalResult](/readme/gif/addMedResult.gif)| ![MedicalResults](/readme/gif/medicalResults.gif)|
 
 | Medical Results | Personal Assistant (Replacement) | Personal Assistant (Question) | Change Password |
 | ---| ---| ---| ---|
