@@ -90,7 +90,7 @@
 
 | Patient Results (Seen by Doctor) |
 | ---|
-| <kbd><img src="./readme/gif/patientResultByDoctor.gif" width="147"></kbd>|
+| <kbd><img src="./readme/gif/patientResultByDoctor.gif" width="147" height="200"></kbd>|
 
 ### Admin Screens (Mobile)
 | Approved Doctors | Approved Doctor Report | Approved Doctor Report (Empty) | Patients |
