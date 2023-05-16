@@ -10,6 +10,7 @@ import API_URL from '../../constants/url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
 import appStyles from '../../constants/appStyles';
+import FILE_URL from '../../constants/files';
 
 import styles from './styles';
 
@@ -157,7 +158,7 @@ const DoctorSearch: FC = () => {
                             keyExtractor={(item) => item.id.toString()}
                             renderItem={({ item }) => (
                                 <View style={styles.card}>
-                                    <Image source={{ uri: `http://192.168.0.100:8000/storage/${item.patients_info.image}` }} style={styles.img} />
+                                    <Image source={{ uri: FILE_URL+`storage/${item.patients_info.image}` }} style={styles.img} />
                                     <View style={styles.data}>
                                         <Text>{item.name}</Text>
                                         <Text>{item.email}</Text>
